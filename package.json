@@ -4,7 +4,8 @@
   "description": "XP Inc. Tech Case - Daily representation of XP backend's",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon -r src/index.ts",
+    "eslint": "eslint . --ext .ts"
   },
   "keywords": [],
   "author": "Lucas Barbosa dos Reis - neur4l - 15/07/2022",
@@ -15,7 +16,6 @@
     "@types/nodemon": "^1.19.1",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "dotenv": "^16.0.1",
     "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -24,6 +24,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-rescue": "^1.1.31",
     "nodemon": "^2.0.19"

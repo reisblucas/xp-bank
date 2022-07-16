@@ -18,6 +18,7 @@ specifiers:
   typescript: ^4.7.4
 
 dependencies:
+  dotenv: 16.0.1
   express: 4.18.1
   express-rescue: 1.1.31
   nodemon: 2.0.19
@@ -28,7 +29,6 @@ devDependencies:
   '@types/nodemon': 1.19.1
   '@typescript-eslint/eslint-plugin': 5.30.6_2vt5mtrqleafs33qg2bhpmbaqm
   '@typescript-eslint/parser': 5.30.6_4x5o4skxv6sl53vpwefgt23khm
-  dotenv: 16.0.1
   eslint: 8.19.0
   eslint-config-airbnb-base: 15.0.0_q2xwze32dd33a2fc2qubwr4ie4
   eslint-config-airbnb-typescript: 17.0.0_ut7zhdcngnabms2winrsux5kxi
@@ -648,7 +648,7 @@ packages:
   /dotenv/16.0.1:
     resolution: {integrity: sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==}
     engines: {node: '>=12'}
-    dev: true
+    dev: false
 
   /ee-first/1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
