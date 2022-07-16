@@ -4,7 +4,7 @@
   "description": "XP Inc. Tech Case - Daily representation of XP backend's",
   "main": "src/index.ts",
   "scripts": {
-    "dev": "nodemon -r src/index.ts",
+    "dev": "nodemon",
     "eslint": "eslint . --ext .ts"
   },
   "keywords": [],
