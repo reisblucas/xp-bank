@@ -1,0 +1,151 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+// datasource db {
+//   provider = "mysql"
+//   url      = env("MYSQL_INTROSPECTION")
+// }
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+model AccountsBalance {
+  id                      Int        @id @default(autoincrement())
+  UsersLogin_id           Int
+  AccountsStatement_value Float
+  updated_at              DateTime   @db.Timestamp(0)
+  UsersLogin              UsersLogin @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsbalance_userslogin_id_foreign")
+
+  @@index([UsersLogin_id])
+}
+
+model AccountsStatement {
+  id         Int      @id @default(autoincrement())
+  value      Float
+  Orders_id  Int
+  created_at DateTime @db.Timestamp(0)
+  Orders     Orders   @relation(fields: [Orders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsstatement_orders_id_foreign")
+
+  @@index([Orders_id])
+}
+
+model Addresses {
+  id            Int             @id @default(autoincrement())
+  logradouro    String          @db.VarChar(255)
+  address       String          @db.VarChar(255)
+  number        Int
+  city          String          @db.VarChar(255)
+  district      String          @db.VarChar(255)
+  state         String          @db.VarChar(255)
+  country       String          @db.VarChar(255)
+  updated_at    DateTime        @db.Timestamp(0)
+  PersonalDatas PersonalDatas[]
+}
+
+model FSExchangeOverview {
+  id                       Int                        @id @default(autoincrement())
+  opening_price            Float
+  closing_price            Float
+  quantity                 Int
+  max                      Float
+  min                      Float
+  lot_min                  Int
+  date                     DateTime                   @unique(map: "fsexchangeoverview_date_unique") @db.Date
+  StocksFSExchangeOverview StocksFSExchangeOverview[]
+}
+
+model Orders {
+  id                Int                 @id @default(autoincrement())
+  Transactions_id   Int
+  order_executed    Boolean
+  created_at        DateTime            @db.Timestamp(0)
+  sale_at           DateTime            @db.Timestamp(0)
+  Transactions      Transactions        @relation(fields: [Transactions_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_transactions_id_foreign")
+  AccountsStatement AccountsStatement[]
+
+  @@index([Transactions_id])
+}
+
+model PersonalDatas {
+  id            Int        @id @default(autoincrement())
+  name          String     @db.VarChar(255)
+  last_name     String     @db.VarChar(255)
+  cpf           Int        @unique(map: "personaldatas_cpf_unique")
+  rg            Int        @unique(map: "personaldatas_rg_unique")
+  UsersLogin_id Int
+  Address_id    Int
+  updated_at    DateTime   @db.Timestamp(0)
+  Addresses     Addresses  @relation(fields: [Address_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_address_id_foreign")
+  UsersLogin    UsersLogin @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_userslogin_id_foreign")
+
+  @@index([Address_id])
+  @@index([UsersLogin_id])
+}
+
+model Stocks {
+  id                       Int                        @id @default(autoincrement())
+  symbol                   String                     @unique(map: "stocks_symbol_unique") @db.VarChar(255)
+  name                     String                     @db.VarChar(255)
+  StocksFSExchangeOverview StocksFSExchangeOverview[]
+  Tickers                  Tickers[]
+}
+
+model StocksFSExchangeOverview {
+  id                    Int                @id @default(autoincrement())
+  Stocks_id             Int
+  FSExchangeOverview_id Int
+  FSExchangeOverview    FSExchangeOverview @relation(fields: [FSExchangeOverview_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stocksfsexchangeoverview_fsexchangeoverview_id_foreign")
+  Stocks                Stocks             @relation(fields: [Stocks_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stocksfsexchangeoverview_stocks_id_foreign")
+
+  @@index([FSExchangeOverview_id])
+  @@index([Stocks_id])
+}
+
+model Tickers {
+  id        Int    @id @default(autoincrement())
+  Stocks_id Int
+  ticker    String @unique(map: "tickers_ticker_unique") @db.VarChar(255)
+  Stocks    Stocks @relation(fields: [Stocks_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tickers_stocks_id_foreign")
+
+  @@index([Stocks_id])
+}
+
+model Transactions {
+  id            Int      @id @default(autoincrement())
+  Wallets_id    Int
+  Stocks_symbol String   @db.VarChar(255)
+  quantity      Int
+  price         Float
+  type          Boolean
+  created_at    DateTime @db.Timestamp(0)
+  Wallets       Wallets  @relation(fields: [Wallets_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "transactions_wallets_id_foreign")
+  Orders        Orders[]
+
+  @@index([Wallets_id])
+}
+
+model UsersLogin {
+  id              Int               @id @default(autoincrement())
+  email           String            @unique(map: "userslogin_email_unique") @db.VarChar(255)
+  password        String            @db.VarChar(255)
+  created_at      DateTime          @db.Timestamp(0)
+  updated_at      DateTime          @db.Timestamp(0)
+  AccountsBalance AccountsBalance[]
+  PersonalDatas   PersonalDatas[]
+  Wallets         Wallets[]
+}
+
+model Wallets {
+  id            Int            @id @default(autoincrement())
+  name          String         @db.VarChar(255)
+  UsersLogin_id Int
+  created_at    DateTime       @db.Timestamp(0)
+  updated_at    DateTime       @db.Timestamp(0)
+  UsersLogin    UsersLogin     @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "wallets_userslogin_id_foreign")
+  Transactions  Transactions[]
+
+  @@index([UsersLogin_id])
+}
