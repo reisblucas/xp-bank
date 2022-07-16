@@ -1,19 +1,19 @@
 {
+  "root": true,
   "extends": [
     "airbnb-base",
     "airbnb-typescript/base"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "env": {
-    "node": true,
-    "es6": true,
-    "browser": true
-  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
   "rules": {
     "no-console": "off",
-    "no-magic-numbers": "error",
+    "no-magic-numbers": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -21,6 +21,8 @@
         "ts": "never"
       }
     ],
-    "max-len": ["error", { "ignoreComments": true, "code":  100 }]
-  }
+    "max-len": ["error", { "ignoreComments": true, "code":  100 }],
+    "no-unused-vars": "off"
+  },
+  "ignorePatterns": ["src/**/*.test.ts"]
 }
