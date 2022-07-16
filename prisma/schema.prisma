@@ -19,7 +19,7 @@ model AccountsBalance {
   updated_at              DateTime   @db.Timestamp(0)
   UsersLogin              UsersLogin @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsbalance_userslogin_id_foreign")
 
-  @@index([UsersLogin_id], map: "accountsbalance_userslogin_id_foreign")
+  @@index([UsersLogin_id])
 }
 
 model AccountsStatement {
@@ -29,7 +29,7 @@ model AccountsStatement {
   created_at DateTime @db.Timestamp(0)
   Orders     Orders   @relation(fields: [Orders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsstatement_orders_id_foreign")
 
-  @@index([Orders_id], map: "accountsstatement_orders_id_foreign")
+  @@index([Orders_id])
 }
 
 model Addresses {
@@ -66,7 +66,7 @@ model Orders {
   Transactions      Transactions        @relation(fields: [Transactions_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_transactions_id_foreign")
   AccountsStatement AccountsStatement[]
 
-  @@index([Transactions_id], map: "orders_transactions_id_foreign")
+  @@index([Transactions_id])
 }
 
 model PersonalDatas {
@@ -81,8 +81,8 @@ model PersonalDatas {
   Addresses     Addresses  @relation(fields: [Address_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_address_id_foreign")
   UsersLogin    UsersLogin @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_userslogin_id_foreign")
 
-  @@index([Address_id], map: "personaldatas_address_id_foreign")
-  @@index([UsersLogin_id], map: "personaldatas_userslogin_id_foreign")
+  @@index([Address_id])
+  @@index([UsersLogin_id])
 }
 
 model Stocks {
@@ -100,8 +100,8 @@ model StocksFSExchangeOverview {
   FSExchangeOverview    FSExchangeOverview @relation(fields: [FSExchangeOverview_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stocksfsexchangeoverview_fsexchangeoverview_id_foreign")
   Stocks                Stocks             @relation(fields: [Stocks_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stocksfsexchangeoverview_stocks_id_foreign")
 
-  @@index([FSExchangeOverview_id], map: "stocksfsexchangeoverview_fsexchangeoverview_id_foreign")
-  @@index([Stocks_id], map: "stocksfsexchangeoverview_stocks_id_foreign")
+  @@index([FSExchangeOverview_id])
+  @@index([Stocks_id])
 }
 
 model Tickers {
@@ -110,7 +110,7 @@ model Tickers {
   ticker    String @unique(map: "tickers_ticker_unique") @db.VarChar(255)
   Stocks    Stocks @relation(fields: [Stocks_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tickers_stocks_id_foreign")
 
-  @@index([Stocks_id], map: "tickers_stocks_id_foreign")
+  @@index([Stocks_id])
 }
 
 model Transactions {
@@ -124,7 +124,7 @@ model Transactions {
   Wallets       Wallets  @relation(fields: [Wallets_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "transactions_wallets_id_foreign")
   Orders        Orders[]
 
-  @@index([Wallets_id], map: "transactions_wallets_id_foreign")
+  @@index([Wallets_id])
 }
 
 model UsersLogin {
@@ -147,5 +147,5 @@ model Wallets {
   UsersLogin    UsersLogin     @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "wallets_userslogin_id_foreign")
   Transactions  Transactions[]
 
-  @@index([UsersLogin_id], map: "wallets_userslogin_id_foreign")
+  @@index([UsersLogin_id])
 }
