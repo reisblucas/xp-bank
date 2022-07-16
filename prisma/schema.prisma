@@ -53,7 +53,7 @@ model FSExchangeOverview {
   max                      Float
   min                      Float
   lot_min                  Int
-  date                     DateTime                   @unique(map: "fsexchangeoverview_date_unique") @db.DateTime(0)
+  date                     DateTime                   @unique(map: "fsexchangeoverview_date_unique") @db.Date
   StocksFSExchangeOverview StocksFSExchangeOverview[]
 }
 
