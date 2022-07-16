@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "nodemon",
     "eslint": "eslint . --ext .ts",
-    "introspec": "prisma db pull"
+    "introspec": "prisma db pull",
+    "migrate": "prisma migrate dev",
+    "seed": "prisma db seed"
   },
   "keywords": [],
   "author": "Lucas Barbosa dos Reis - neur4l - 15/07/2022",
@@ -41,6 +43,6 @@
     }
   },
   "prisma": {
-    "schema": "src/db/schema.prisma"
+    "seed": "ts-node --transpile-only prisma/seed.ts"
   }
 }
