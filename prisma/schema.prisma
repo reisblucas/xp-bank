@@ -189,6 +189,6 @@ model AccessHistory {
 
 model Platform {
   id            Int             @id @default(autoincrement()) @db.UnsignedInt
-  name          String          @unique @db.VarChar(50)
+  name          String          @unique(map: "platform_name_unique") @db.VarChar(50)
   AccessHistory AccessHistory[]
 }
