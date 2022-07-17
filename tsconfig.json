@@ -14,7 +14,8 @@
       "@services/*": ["./src/services/*"],
       "@controllers/*": ["./src/controllers/*"],
       "@utils/*": ["./src/utils/*"],
-      "@interfaces/*": ["./src/interfaces/*"]
+      "@interfaces/*": ["./src/interfaces/*"],
+      "@connection/*": ["./src/connection/*"]
     },
     "typeRoots": [
       "./node_modules/@types",
