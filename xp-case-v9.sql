@@ -24,6 +24,7 @@ ALTER TABLE
     `Stocks` ADD UNIQUE `stocks_symbol_unique`(`symbol`);
 CREATE TABLE `Orders`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `UsersLogin_id` INT UNSIGNED NOT NULL,
     `Transactions_id` INT UNSIGNED NOT NULL,
     `order_executed` TINYINT(1) NOT NULL,
     `created_at` TIMESTAMP NOT NULL,
@@ -32,10 +33,10 @@ CREATE TABLE `Orders`(
 CREATE TABLE `Transactions`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `Wallets_id` INT UNSIGNED NOT NULL,
-    `Stocks_symbol` VARCHAR(255) NOT NULL,
+    `Stocks_ticker` VARCHAR(255) NOT NULL,
     `quantity` INT UNSIGNED NOT NULL,
     `price` DOUBLE NOT NULL,
-    `type` TINYINT(1) NOT NULL,
+    `OperationTypes_id` INT UNSIGNED NOT NULL,
     `created_at` TIMESTAMP NOT NULL
 );
 CREATE TABLE `Wallets`(
@@ -48,7 +49,8 @@ CREATE TABLE `Wallets`(
 CREATE TABLE `AccountsStatement`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `value` DOUBLE NOT NULL,
-    `Orders_id` INT UNSIGNED NOT NULL,
+    `UsersLogin_id` INT UNSIGNED NOT NULL,
+    `OperationTypes_id` INT UNSIGNED NOT NULL,
     `created_at` TIMESTAMP NOT NULL
 );
 CREATE TABLE `AccountsBalance`(
@@ -59,13 +61,14 @@ CREATE TABLE `AccountsBalance`(
 );
 CREATE TABLE `Tickers`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `Stocks_id` INT UNSIGNED NOT NULL,
-    `ticker` VARCHAR(255) NOT NULL
+    `ticker` VARCHAR(255) NOT NULL,
+    `Stocks_id` INT UNSIGNED NOT NULL
 );
 ALTER TABLE
     `Tickers` ADD UNIQUE `tickers_ticker_unique`(`ticker`);
 CREATE TABLE `Addresses`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `PersonalDatas_id` INT UNSIGNED NOT NULL,
     `logradouro` VARCHAR(255) NOT NULL,
     `address` VARCHAR(255) NOT NULL,
     `number` INT NOT NULL,
@@ -81,8 +84,9 @@ CREATE TABLE `PersonalDatas`(
     `last_name` VARCHAR(255) NOT NULL,
     `cpf` INT UNSIGNED NOT NULL,
     `rg` INT UNSIGNED NOT NULL,
+    `birth_date` DATETIME NOT NULL,
+    `Genders_id` INT UNSIGNED NOT NULL,
     `UsersLogin_id` INT UNSIGNED NOT NULL,
-    `Address_id` INT UNSIGNED NOT NULL,
     `updated_at` TIMESTAMP NOT NULL
 );
 ALTER TABLE
@@ -98,6 +102,16 @@ CREATE TABLE `UsersLogin`(
 );
 ALTER TABLE
     `UsersLogin` ADD UNIQUE `userslogin_email_unique`(`email`);
+CREATE TABLE `Genders`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `gender` VARCHAR(255) NOT NULL
+);
+CREATE TABLE `OperationTypes`(
+    `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `type` VARCHAR(255) NOT NULL
+);
+ALTER TABLE
+    `OperationTypes` ADD UNIQUE `operationtypes_type_unique`(`type`);
 ALTER TABLE
     `StocksFSExchangeOverview` ADD CONSTRAINT `stocksfsexchangeoverview_stocks_id_foreign` FOREIGN KEY(`Stocks_id`) REFERENCES `Stocks`(`id`);
 ALTER TABLE
@@ -107,14 +121,22 @@ ALTER TABLE
 ALTER TABLE
     `Wallets` ADD CONSTRAINT `wallets_userslogin_id_foreign` FOREIGN KEY(`UsersLogin_id`) REFERENCES `UsersLogin`(`id`);
 ALTER TABLE
+    `Orders` ADD CONSTRAINT `orders_userslogin_id_foreign` FOREIGN KEY(`UsersLogin_id`) REFERENCES `UsersLogin`(`id`);
+ALTER TABLE
+    `AccountsStatement` ADD CONSTRAINT `accountsstatement_userslogin_id_foreign` FOREIGN KEY(`UsersLogin_id`) REFERENCES `UsersLogin`(`id`);
+ALTER TABLE
     `Orders` ADD CONSTRAINT `orders_transactions_id_foreign` FOREIGN KEY(`Transactions_id`) REFERENCES `Transactions`(`id`);
 ALTER TABLE
     `Transactions` ADD CONSTRAINT `transactions_wallets_id_foreign` FOREIGN KEY(`Wallets_id`) REFERENCES `Wallets`(`id`);
 ALTER TABLE
+    `Transactions` ADD CONSTRAINT `transactions_operationtypes_id_foreign` FOREIGN KEY(`OperationTypes_id`) REFERENCES `OperationTypes`(`id`);
+ALTER TABLE
     `StocksFSExchangeOverview` ADD CONSTRAINT `stocksfsexchangeoverview_fsexchangeoverview_id_foreign` FOREIGN KEY(`FSExchangeOverview_id`) REFERENCES `FSExchangeOverview`(`id`);
 ALTER TABLE
-    `AccountsStatement` ADD CONSTRAINT `accountsstatement_orders_id_foreign` FOREIGN KEY(`Orders_id`) REFERENCES `Orders`(`id`);
+    `AccountsStatement` ADD CONSTRAINT `accountsstatement_operationtypes_id_foreign` FOREIGN KEY(`OperationTypes_id`) REFERENCES `OperationTypes`(`id`);
 ALTER TABLE
     `PersonalDatas` ADD CONSTRAINT `personaldatas_userslogin_id_foreign` FOREIGN KEY(`UsersLogin_id`) REFERENCES `UsersLogin`(`id`);
 ALTER TABLE
-    `PersonalDatas` ADD CONSTRAINT `personaldatas_address_id_foreign` FOREIGN KEY(`Address_id`) REFERENCES `Addresses`(`id`);
+    `Addresses` ADD CONSTRAINT `addresses_personaldatas_id_foreign` FOREIGN KEY(`PersonalDatas_id`) REFERENCES `PersonalDatas`(`id`);
+ALTER TABLE
+    `PersonalDatas` ADD CONSTRAINT `personaldatas_genders_id_foreign` FOREIGN KEY(`Genders_id`) REFERENCES `Genders`(`id`);

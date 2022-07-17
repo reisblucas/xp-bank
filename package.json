@@ -7,6 +7,7 @@
     "dev": "nodemon",
     "eslint": "eslint . --ext .ts",
     "dbfs": "bash get_sql_fileName.sh && bash set_dbName.sh && bash drop_db.sh && prisma db push",
+    "dbcreate": "prisma db push", 
     "dbreset": "bash drop_db.sh && prisma db push",
     "printrospec": "prisma db pull && prisma generate",
     "dbschema": "prisma db push",

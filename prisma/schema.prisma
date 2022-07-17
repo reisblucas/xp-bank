@@ -3,14 +3,9 @@ generator client {
   previewFeatures = ["referentialIntegrity"]
 }
 
-// datasource db {
-//   provider = "mysql"
-//   url      = env("MYSQL_INTROSPECTION")
-// }
-
 datasource db {
-  provider = "mysql"
-  url = env("DB_LOCAL")
+  provider             = "mysql"
+  url                  = env("DB_LOCAL")
   referentialIntegrity = "prisma"
 }
 
@@ -25,26 +20,32 @@ model AccountsBalance {
 }
 
 model AccountsStatement {
-  id         Int      @id @default(autoincrement()) @db.UnsignedInt
-  value      Float
-  Orders_id  Int      @db.UnsignedInt
-  created_at DateTime @default(now())
-  Orders     Orders   @relation(fields: [Orders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsstatement_orders_id_foreign")
+  id                Int            @id @default(autoincrement()) @db.UnsignedInt
+  value             Float
+  UsersLogin_id     Int            @db.UnsignedInt
+  OperationTypes_id Int            @db.UnsignedInt
+  created_at        DateTime       @default(now())
+  OperationTypes    OperationTypes @relation(fields: [OperationTypes_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsstatement_operationtypes_id_foreign")
+  UsersLogin        UsersLogin     @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsstatement_userslogin_id_foreign")
 
-  @@index([Orders_id], map: "accountsstatement_orders_id_foreign")
+  @@index([OperationTypes_id], map: "accountsstatement_operationtypes_id_foreign")
+  @@index([UsersLogin_id], map: "accountsstatement_userslogin_id_foreign")
 }
 
 model Addresses {
-  id            Int             @id @default(autoincrement()) @db.UnsignedInt
-  logradouro    String          @db.VarChar(255)
-  address       String          @db.VarChar(255)
-  number        Int
-  city          String          @db.VarChar(255)
-  district      String          @db.VarChar(255)
-  state         String          @db.VarChar(255)
-  country       String          @db.VarChar(255)
-  updated_at    DateTime        @default(now()) @updatedAt
-  PersonalDatas PersonalDatas[]
+  id               Int           @id @default(autoincrement()) @db.UnsignedInt
+  PersonalDatas_id Int           @db.UnsignedInt
+  logradouro       String        @db.VarChar(20)
+  address          String        @db.VarChar(255)
+  number           Int
+  city             String        @db.VarChar(255)
+  district         String        @db.VarChar(255)
+  state            String        @db.VarChar(255)
+  country          String        @db.VarChar(255)
+  updated_at       DateTime      @default(now()) @updatedAt
+  PersonalDatas    PersonalDatas @relation(fields: [PersonalDatas_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "addresses_personaldatas_id_foreign")
+
+  @@index([PersonalDatas_id], map: "addresses_personaldatas_id_foreign")
 }
 
 model FSExchangeOverview {
@@ -59,38 +60,55 @@ model FSExchangeOverview {
   StocksFSExchangeOverview StocksFSExchangeOverview[]
 }
 
-model Orders {
+model Genders {
+  id            Int             @id @default(autoincrement()) @db.UnsignedInt
+  gender        String          @db.VarChar(20)
+  PersonalDatas PersonalDatas[]
+}
+
+model OperationTypes {
   id                Int                 @id @default(autoincrement()) @db.UnsignedInt
-  Transactions_id   Int                 @db.UnsignedInt
-  order_executed    Boolean
-  created_at        DateTime            @default(now())
-  sale_at           DateTime            @default(now())
-  Transactions      Transactions        @relation(fields: [Transactions_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_transactions_id_foreign")
+  type              String              @unique(map: "operationtypes_type_unique") @db.VarChar(20)
   AccountsStatement AccountsStatement[]
+  Transactions      Transactions[]
+}
+
+model Orders {
+  id              Int          @id @default(autoincrement()) @db.UnsignedInt
+  UsersLogin_id   Int          @db.UnsignedInt
+  Transactions_id Int          @db.UnsignedInt
+  order_executed  Boolean
+  created_at      DateTime     @default(now())
+  sale_at         DateTime     
+  Transactions    Transactions @relation(fields: [Transactions_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_transactions_id_foreign")
+  UsersLogin      UsersLogin   @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_userslogin_id_foreign")
 
   @@index([Transactions_id], map: "orders_transactions_id_foreign")
+  @@index([UsersLogin_id], map: "orders_userslogin_id_foreign")
 }
 
 model PersonalDatas {
-  id            Int        @id @default(autoincrement()) @db.UnsignedInt
-  name          String     @db.VarChar(255)
-  last_name     String     @db.VarChar(255)
-  cpf           Int        @unique(map: "personaldatas_cpf_unique") @db.UnsignedInt
-  rg            Int        @unique(map: "personaldatas_rg_unique") @db.UnsignedInt
-  UsersLogin_id Int        @db.UnsignedInt
-  Address_id    Int        @db.UnsignedInt
-  updated_at    DateTime   @default(now()) @updatedAt
-  Addresses     Addresses  @relation(fields: [Address_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_address_id_foreign")
-  UsersLogin    UsersLogin @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_userslogin_id_foreign")
+  id            Int         @id @default(autoincrement()) @db.UnsignedInt
+  name          String      @db.VarChar(50)
+  last_name     String      @db.VarChar(50)
+  cpf           Int         @unique(map: "personaldatas_cpf_unique") @db.UnsignedInt
+  rg            Int         @unique(map: "personaldatas_rg_unique") @db.UnsignedInt
+  birth_date    DateTime    @db.DateTime(0)
+  Genders_id    Int         @db.UnsignedInt
+  UsersLogin_id Int         @db.UnsignedInt
+  updated_at    DateTime    @default(now()) @updatedAt
+  Genders       Genders     @relation(fields: [Genders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_genders_id_foreign")
+  UsersLogin    UsersLogin  @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_userslogin_id_foreign")
+  Addresses     Addresses[]
 
-  @@index([Address_id], map: "personaldatas_address_id_foreign")
+  @@index([Genders_id], map: "personaldatas_genders_id_foreign")
   @@index([UsersLogin_id], map: "personaldatas_userslogin_id_foreign")
 }
 
 model Stocks {
   id                       Int                        @id @default(autoincrement()) @db.UnsignedInt
-  symbol                   String                     @unique(map: "stocks_symbol_unique") @db.VarChar(255)
-  name                     String                     @db.VarChar(255)
+  symbol                   String                     @unique(map: "stocks_symbol_unique") @db.VarChar(4)
+  name                     String                     @db.VarChar(50)
   StocksFSExchangeOverview StocksFSExchangeOverview[]
   Tickers                  Tickers[]
 }
@@ -108,41 +126,45 @@ model StocksFSExchangeOverview {
 
 model Tickers {
   id        Int    @id @default(autoincrement()) @db.UnsignedInt
+  ticker    String @unique(map: "tickers_ticker_unique") @db.VarChar(7)
   Stocks_id Int    @db.UnsignedInt
-  ticker    String @unique(map: "tickers_ticker_unique") @db.VarChar(255)
   Stocks    Stocks @relation(fields: [Stocks_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tickers_stocks_id_foreign")
 
   @@index([Stocks_id], map: "tickers_stocks_id_foreign")
 }
 
 model Transactions {
-  id            Int      @id @default(autoincrement()) @db.UnsignedInt
-  Wallets_id    Int      @db.UnsignedInt
-  Stocks_symbol String   @db.VarChar(255)
-  quantity      Int      @db.UnsignedInt
-  price         Float
-  type          Boolean
-  created_at    DateTime @default(now())
-  Wallets       Wallets  @relation(fields: [Wallets_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "transactions_wallets_id_foreign")
-  Orders        Orders[]
+  id                Int            @id @default(autoincrement()) @db.UnsignedInt
+  Wallets_id        Int            @db.UnsignedInt
+  Stocks_ticker     String         @db.VarChar(7)
+  quantity          Int            @db.UnsignedInt
+  price             Float
+  OperationTypes_id Int            @db.UnsignedInt
+  created_at        DateTime       @default(now())
+  OperationTypes    OperationTypes @relation(fields: [OperationTypes_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "transactions_operationtypes_id_foreign")
+  Wallets           Wallets        @relation(fields: [Wallets_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "transactions_wallets_id_foreign")
+  Orders            Orders[]
 
+  @@index([OperationTypes_id], map: "transactions_operationtypes_id_foreign")
   @@index([Wallets_id], map: "transactions_wallets_id_foreign")
 }
 
 model UsersLogin {
-  id              Int               @id @default(autoincrement()) @db.UnsignedInt
-  email           String            @unique(map: "userslogin_email_unique") @db.VarChar(255)
-  password        String            @db.VarChar(255)
-  created_at      DateTime          @default(now())
-  updated_at      DateTime          @default(now()) @updatedAt
-  AccountsBalance AccountsBalance[]
-  PersonalDatas   PersonalDatas[]
-  Wallets         Wallets[]
+  id                Int                 @id @default(autoincrement()) @db.UnsignedInt
+  email             String              @unique(map: "userslogin_email_unique") @db.VarChar(255)
+  password          String              @db.VarChar(255)
+  created_at        DateTime            @default(now())
+  updated_at        DateTime            @default(now()) @updatedAt
+  AccountsBalance   AccountsBalance[]
+  AccountsStatement AccountsStatement[]
+  Orders            Orders[]
+  PersonalDatas     PersonalDatas[]
+  Wallets           Wallets[]
 }
 
 model Wallets {
   id            Int            @id @default(autoincrement()) @db.UnsignedInt
-  name          String         @db.VarChar(255)
+  name          String         @db.VarChar(50)
   UsersLogin_id Int            @db.UnsignedInt
   created_at    DateTime       @default(now())
   updated_at    DateTime       @default(now()) @updatedAt
