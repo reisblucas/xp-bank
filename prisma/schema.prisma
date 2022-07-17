@@ -68,7 +68,7 @@ model Genders {
 
 model OperationTypes {
   id                Int                 @id @default(autoincrement()) @db.UnsignedInt
-  name              String              @unique(map: "operationtypes_type_unique") @db.VarChar(20)
+  name              String              @unique(map: "operationtypes_name_unique") @db.VarChar(20)
   AccountsStatement AccountsStatement[]
   Transactions      Transactions[]
 }
