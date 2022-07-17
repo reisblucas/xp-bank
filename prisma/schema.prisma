@@ -35,13 +35,15 @@ model AccountsStatement {
 model Addresses {
   id               Int           @id @default(autoincrement()) @db.UnsignedInt
   PersonalDatas_id Int           @db.UnsignedInt
-  logradouro       String        @db.VarChar(20)
-  address          String        @db.VarChar(255)
-  number           Int
+  postal_code      String        @db.VarChar(20)
+  logradouro       String        @db.VarChar(50)
+  complement       String        @db.VarChar(50)
+  number           Int           @db.UnsignedInt
   city             String        @db.VarChar(255)
   district         String        @db.VarChar(255)
   state            String        @db.VarChar(255)
-  country          String        @db.VarChar(255)
+  state_code       String        @db.VarChar(2)
+  country          String        @default("BR") @db.VarChar(255)
   updated_at       DateTime      @default(now()) @updatedAt
   PersonalDatas    PersonalDatas @relation(fields: [PersonalDatas_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "addresses_personaldatas_id_foreign")
 
