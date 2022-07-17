@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "XP Inc. Tech Case - Daily representation of XP backend's",
   "main": "src/index.ts",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "prisma": {
+    "seed": "ts-node --transpile-only prisma/seed.ts"
+  },
   "scripts": {
     "dev": "nodemon",
     "eslint": "eslint . --ext .ts",
@@ -40,13 +48,5 @@
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.19",
     "pg": "^8.7.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "prisma": {
-    "seed": "ts-node --transpile-only prisma/seed.ts"
   }
 }
