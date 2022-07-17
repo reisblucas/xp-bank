@@ -3,3 +3,7 @@ node_modules/
 .env*
 
 # anothers
+
+# db credentials
+sql_file_name.txt
+dbname.txt
