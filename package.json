@@ -8,7 +8,7 @@
     "eslint": "eslint . --ext .ts",
     "dbfs": "bash get_sql_fileName.sh && bash set_dbName.sh && bash drop_db.sh && prisma db push",
     "dbreset": "bash drop_db.sh && prisma db push",
-    "printrospec": "prisma db pull && prisma db generate",
+    "printrospec": "prisma db pull && prisma generate",
     "dbschema": "prisma db push",
     "dbmigrate": "prisma migrate dev",
     "dbseed": "prisma db seed"

@@ -11,7 +11,7 @@ DROP SCHEMA IF EXISTS ${dbName};
 CREATE SCHEMA IF NOT EXISTS ${dbName};
 USE ${dbName};
 
-source ${SQL_PATH}/${sqlFile};
+# source ${SQL_PATH}/${sqlFile};
 "
 
-echo "${dbName} recreated using ${sqlFile} is done!"
+echo "'${dbName}' recreated using '${sqlFile}'!"
