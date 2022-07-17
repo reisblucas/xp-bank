@@ -91,15 +91,15 @@ model Orders {
 
 model PersonalDatas {
   id            Int         @id @default(autoincrement()) @db.UnsignedInt
-  name          String      @db.VarChar(50)
+  first_name    String      @db.VarChar(50)
   last_name     String      @db.VarChar(50)
   cpf           Int         @unique(map: "personaldatas_cpf_unique") @db.UnsignedInt
   rg            Int         @unique(map: "personaldatas_rg_unique") @db.UnsignedInt
   birth_date    DateTime    @db.DateTime(0)
-  Genders_id    Int?         @db.UnsignedInt
+  Genders_id    Int         @db.UnsignedInt
   UsersLogin_id Int         @db.UnsignedInt
   updated_at    DateTime    @default(now()) @updatedAt
-  Genders       Genders?     @relation(fields: [Genders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_genders_id_foreign")
+  Genders       Genders     @relation(fields: [Genders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_genders_id_foreign")
   UsersLogin    UsersLogin  @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_userslogin_id_foreign")
   Addresses     Addresses[]
 
