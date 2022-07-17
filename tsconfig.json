@@ -6,9 +6,10 @@
 
     /* Modules */
     "module": "commonjs",
-    "rootDir": "./src",
-    // "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
     "baseUrl": ".",
+    "rootDir": "./src",
     "paths": {
       "@models/*": ["./src/models/*"],
       "@services/*": ["./src/services/*"],
@@ -33,5 +34,6 @@
   },
   "exclude": [
     "node_modules",
+    "prisma"
   ]
 }
