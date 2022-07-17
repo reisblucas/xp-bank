@@ -1,7 +1,3 @@
-CREATE SCHEMA IF NOT EXISTS `XPDB`;
-
-USE `XPDB`;
-
 CREATE TABLE `FSExchangeOverview`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `opening_price` DOUBLE NOT NULL,
@@ -14,13 +10,11 @@ CREATE TABLE `FSExchangeOverview`(
 );
 ALTER TABLE
     `FSExchangeOverview` ADD UNIQUE `fsexchangeoverview_date_unique`(`date`);
-
 CREATE TABLE `StocksFSExchangeOverview`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `Stocks_id` INT UNSIGNED NOT NULL,
     `FSExchangeOverview_id` INT UNSIGNED NOT NULL
 );
-
 CREATE TABLE `Stocks`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `symbol` VARCHAR(255) NOT NULL,
@@ -28,7 +22,6 @@ CREATE TABLE `Stocks`(
 );
 ALTER TABLE
     `Stocks` ADD UNIQUE `stocks_symbol_unique`(`symbol`);
-
 CREATE TABLE `Orders`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `Transactions_id` INT UNSIGNED NOT NULL,
@@ -36,7 +29,6 @@ CREATE TABLE `Orders`(
     `created_at` TIMESTAMP NOT NULL,
     `sale_at` TIMESTAMP NOT NULL
 );
-
 CREATE TABLE `Transactions`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `Wallets_id` INT UNSIGNED NOT NULL,
@@ -46,7 +38,6 @@ CREATE TABLE `Transactions`(
     `type` TINYINT(1) NOT NULL,
     `created_at` TIMESTAMP NOT NULL
 );
-
 CREATE TABLE `Wallets`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL,
@@ -54,21 +45,18 @@ CREATE TABLE `Wallets`(
     `created_at` TIMESTAMP NOT NULL,
     `updated_at` TIMESTAMP NOT NULL
 );
-
 CREATE TABLE `AccountsStatement`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `value` DOUBLE NOT NULL,
     `Orders_id` INT UNSIGNED NOT NULL,
     `created_at` TIMESTAMP NOT NULL
 );
-
 CREATE TABLE `AccountsBalance`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `UsersLogin_id` INT UNSIGNED NOT NULL,
-    `AccountsStatement_value` DOUBLE NOT NULL,
+    `balance` DOUBLE NOT NULL,
     `updated_at` TIMESTAMP NOT NULL
 );
-
 CREATE TABLE `Tickers`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `Stocks_id` INT UNSIGNED NOT NULL,
@@ -76,7 +64,6 @@ CREATE TABLE `Tickers`(
 );
 ALTER TABLE
     `Tickers` ADD UNIQUE `tickers_ticker_unique`(`ticker`);
-
 CREATE TABLE `Addresses`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `logradouro` VARCHAR(255) NOT NULL,
@@ -88,7 +75,6 @@ CREATE TABLE `Addresses`(
     `country` VARCHAR(255) NOT NULL,
     `updated_at` TIMESTAMP NOT NULL
 );
-
 CREATE TABLE `PersonalDatas`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `name` VARCHAR(255) NOT NULL,
@@ -103,7 +89,6 @@ ALTER TABLE
     `PersonalDatas` ADD UNIQUE `personaldatas_cpf_unique`(`cpf`);
 ALTER TABLE
     `PersonalDatas` ADD UNIQUE `personaldatas_rg_unique`(`rg`);
-
 CREATE TABLE `UsersLogin`(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `email` VARCHAR(255) NOT NULL,
@@ -113,7 +98,6 @@ CREATE TABLE `UsersLogin`(
 );
 ALTER TABLE
     `UsersLogin` ADD UNIQUE `userslogin_email_unique`(`email`);
-
 ALTER TABLE
     `StocksFSExchangeOverview` ADD CONSTRAINT `stocksfsexchangeoverview_stocks_id_foreign` FOREIGN KEY(`Stocks_id`) REFERENCES `Stocks`(`id`);
 ALTER TABLE

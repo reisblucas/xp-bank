@@ -7,6 +7,7 @@
     "dev": "nodemon",
     "eslint": "eslint . --ext .ts",
     "introspec": "prisma db pull",
+    "dbcreate": "prisma db push",
     "migrate": "prisma migrate dev",
     "seed": "prisma db seed"
   },

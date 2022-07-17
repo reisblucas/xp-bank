@@ -1,16 +1,28 @@
 import express, {
   NextFunction, Request, Response, Router,
 } from 'express';
+import { StatusCodes } from 'http-status-codes';
+import prisma from './connection/prisma';
 
 const app = express();
 app.use(express.json());
 
 const boiler = Router();
 
-boiler.get('/neural', (req: Request, res: Response, _next: NextFunction) => {
+boiler.post('/neural', async (req: Request, res: Response, _next: NextFunction) => {
   console.log('o neural');
 
-  return res.status(200).json({ message: 'passei por aqui' });
+  const response = await prisma.usersLogin.create({
+    data: {
+      email: 'lucao@gmail.com',
+      password: 'batatinha123',
+      created_at: new Date(),
+      updated_at: new Date(),
+    },
+  });
+
+  console.log('prisma response', response);
+  return res.status(StatusCodes.OK).json({ message: response });
 });
 
 app.use(boiler);
