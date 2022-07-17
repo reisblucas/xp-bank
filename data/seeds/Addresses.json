@@ -1,0 +1,1006 @@
+{
+  "type": "endereco",
+  "limit": 100,
+  "values": [
+    {
+      "cep": "78140-170",
+      "logradouro": "Vinte",
+      "complemento": "Conjunto 5",
+      "numero": 5179,
+      "bairro": "Industrial",
+      "cidade": "Parnaíba",
+      "estado": "Piauí",
+      "estadoSigla": "PI"
+    },
+    {
+      "cep": "58884-258",
+      "logradouro": "Ceará",
+      "complemento": "Apartamento 7",
+      "numero": 6584,
+      "bairro": "Boa Vista",
+      "cidade": "Arapiraca",
+      "estado": "Alagoas",
+      "estadoSigla": "AL"
+    },
+    {
+      "cep": "65709-042",
+      "logradouro": "São Jorge",
+      "complemento": "Sobreloja 8",
+      "numero": 9128,
+      "bairro": "São José",
+      "cidade": "Santana",
+      "estado": "Amapá",
+      "estadoSigla": "AP"
+    },
+    {
+      "cep": "29708-359",
+      "logradouro": "Vinte e Um",
+      "complemento": "Galeria 5",
+      "numero": 5772,
+      "bairro": "São Cristóvão",
+      "cidade": "Patos",
+      "estado": "Paraíba",
+      "estadoSigla": "PB"
+    },
+    {
+      "cep": "63157-359",
+      "logradouro": "Santa Catarina",
+      "complemento": "Andar 6",
+      "numero": 7818,
+      "bairro": "Santo Antônio",
+      "cidade": "Arapiraca",
+      "estado": "Alagoas",
+      "estadoSigla": "AL"
+    },
+    {
+      "cep": "76963-672",
+      "logradouro": "Castro Alves",
+      "complemento": "Anexo 7",
+      "numero": 1952,
+      "bairro": "Planalto",
+      "cidade": "São Gonçalo do Amarante",
+      "estado": "Rio Grande do Norte",
+      "estadoSigla": "RN"
+    },
+    {
+      "cep": "68920-124",
+      "logradouro": "Mato Grosso",
+      "complemento": "Galpão 6",
+      "numero": 44,
+      "bairro": "Planalto",
+      "cidade": "Parintins",
+      "estado": "Amazonas",
+      "estadoSigla": "AM"
+    },
+    {
+      "cep": "72934-383",
+      "logradouro": "Mato Grosso",
+      "complemento": "Lote 1",
+      "numero": 708,
+      "bairro": "Santo Antônio",
+      "cidade": "Teresina",
+      "estado": "Piauí",
+      "estadoSigla": "PI"
+    },
+    {
+      "cep": "51014-728",
+      "logradouro": "A",
+      "complemento": "Cobertura 8",
+      "numero": 3128,
+      "bairro": "Industrial",
+      "cidade": "Campo Grande",
+      "estado": "Mato Grosso do Sul",
+      "estadoSigla": "MS"
+    },
+    {
+      "cep": "78352-322",
+      "logradouro": "Tiradentes",
+      "complemento": "Bloco 5",
+      "numero": 7405,
+      "bairro": "Industrial",
+      "cidade": "Feira de Santana",
+      "estado": "Bahia",
+      "estadoSigla": "BA"
+    },
+    {
+      "cep": "99364-356",
+      "logradouro": "Santos Dumont",
+      "complemento": "Cobertura 5",
+      "numero": 4996,
+      "bairro": "Vila Nova",
+      "cidade": "Paço do Lumiar",
+      "estado": "Maranhão",
+      "estadoSigla": "MA"
+    },
+    {
+      "cep": "54540-282",
+      "logradouro": "Paraná",
+      "complemento": "Fundos 9",
+      "numero": 5440,
+      "bairro": "São Cristóvão",
+      "cidade": "Boa Vista",
+      "estado": "Roraima",
+      "estadoSigla": "RR"
+    },
+    {
+      "cep": "78872-215",
+      "logradouro": "Quinze de Novembro",
+      "complemento": "Andar 2",
+      "numero": 7493,
+      "bairro": "São Francisco",
+      "cidade": "Boa Vista",
+      "estado": "Roraima",
+      "estadoSigla": "RR"
+    },
+    {
+      "cep": "72874-477",
+      "logradouro": "Dezessete",
+      "complemento": "Terreo 9",
+      "numero": 3746,
+      "bairro": "Santo Antônio",
+      "cidade": "Brasília",
+      "estado": "Distrito Federal",
+      "estadoSigla": "DF"
+    },
+    {
+      "cep": "49977-566",
+      "logradouro": "Vinte e Três",
+      "complemento": "Lote 9",
+      "numero": 3540,
+      "bairro": "Boa Vista",
+      "cidade": "Belém",
+      "estado": "Pará",
+      "estadoSigla": "PA"
+    },
+    {
+      "cep": "84002-996",
+      "logradouro": "São Luiz",
+      "complemento": "Conjunto 8",
+      "numero": 848,
+      "bairro": "São Francisco",
+      "cidade": "Campo Largo",
+      "estado": "Paraná",
+      "estadoSigla": "PR"
+    },
+    {
+      "cep": "78482-457",
+      "logradouro": "Treze",
+      "complemento": "Lote 1",
+      "numero": 9478,
+      "bairro": "Centro",
+      "cidade": "Rio Branco",
+      "estado": "Acre",
+      "estadoSigla": "AC"
+    },
+    {
+      "cep": "69373-226",
+      "logradouro": "São Sebastião",
+      "complemento": "Anexo 9",
+      "numero": 6016,
+      "bairro": "São Francisco",
+      "cidade": "Valparaíso de Goiás",
+      "estado": "Goiás",
+      "estadoSigla": "GO"
+    },
+    {
+      "cep": "76832-246",
+      "logradouro": "São Paulo",
+      "complemento": "Aeroporto 4",
+      "numero": 8175,
+      "bairro": "Bela Vista",
+      "cidade": "Cambé",
+      "estado": "Paraná",
+      "estadoSigla": "PR"
+    },
+    {
+      "cep": "49824-758",
+      "logradouro": "São Luiz",
+      "complemento": "Galpão 5",
+      "numero": 5606,
+      "bairro": "Santo Antônio",
+      "cidade": "Boa Vista",
+      "estado": "Roraima",
+      "estadoSigla": "RR"
+    },
+    {
+      "cep": "86195-893",
+      "logradouro": "Pernambuco",
+      "complemento": "Loja 10",
+      "numero": 6147,
+      "bairro": "São Cristóvão",
+      "cidade": "Maceió",
+      "estado": "Alagoas",
+      "estadoSigla": "AL"
+    },
+    {
+      "cep": "22625-876",
+      "logradouro": "Espírito Santo",
+      "complemento": "Sala 4",
+      "numero": 7336,
+      "bairro": "Vila Nova",
+      "cidade": "São Caetano do Sul",
+      "estado": "São Paulo",
+      "estadoSigla": "SP"
+    },
+    {
+      "cep": "70496-678",
+      "logradouro": "Rui Barbosa",
+      "complemento": "Sala 10",
+      "numero": 2729,
+      "bairro": "Centro",
+      "cidade": "Montes Claros",
+      "estado": "Minas Gerais",
+      "estadoSigla": "MG"
+    },
+    {
+      "cep": "84591-489",
+      "logradouro": "São Luiz",
+      "complemento": "Sobreloja 1",
+      "numero": 835,
+      "bairro": "Boa Vista",
+      "cidade": "Pelotas",
+      "estado": "Rio Grande do Sul",
+      "estadoSigla": "RS"
+    },
+    {
+      "cep": "78214-691",
+      "logradouro": "Dezoito",
+      "complemento": "Bloco 8",
+      "numero": 8836,
+      "bairro": "Vila Nova",
+      "cidade": "Rondonópolis",
+      "estado": "Mato Grosso",
+      "estadoSigla": "MT"
+    },
+    {
+      "cep": "59841-780",
+      "logradouro": "Boa Vista",
+      "complemento": "Sala 2",
+      "numero": 7185,
+      "bairro": "Boa Vista",
+      "cidade": "Cuiabá",
+      "estado": "Mato Grosso",
+      "estadoSigla": "MT"
+    },
+    {
+      "cep": "82075-481",
+      "logradouro": "Sete de Setembro",
+      "complemento": "Sala 1",
+      "numero": 1319,
+      "bairro": "Bela Vista",
+      "cidade": "Parnaíba",
+      "estado": "Piauí",
+      "estadoSigla": "PI"
+    },
+    {
+      "cep": "99769-030",
+      "logradouro": "Duque de Caxias",
+      "complemento": "Andar 2",
+      "numero": 1119,
+      "bairro": "Industrial",
+      "cidade": "Boa Vista",
+      "estado": "Roraima",
+      "estadoSigla": "RR"
+    },
+    {
+      "cep": "64576-349",
+      "logradouro": "Vinte e Um",
+      "complemento": "Bloco 6",
+      "numero": 8261,
+      "bairro": "São Francisco",
+      "cidade": "Rondonópolis",
+      "estado": "Mato Grosso",
+      "estadoSigla": "MT"
+    },
+    {
+      "cep": "72853-444",
+      "logradouro": "Santa Luzia",
+      "complemento": "Sobreloja 9",
+      "numero": 1765,
+      "bairro": "São José",
+      "cidade": "Brusque",
+      "estado": "Santa Catarina",
+      "estadoSigla": "SC"
+    },
+    {
+      "cep": "77203-372",
+      "logradouro": "Pará",
+      "complemento": "Galeria 7",
+      "numero": 6374,
+      "bairro": "Centro",
+      "cidade": "Brasília",
+      "estado": "Distrito Federal",
+      "estadoSigla": "DF"
+    },
+    {
+      "cep": "82691-493",
+      "logradouro": "São Luiz",
+      "complemento": "Galpão 3",
+      "numero": 6766,
+      "bairro": "Bela Vista",
+      "cidade": "Eunápolis",
+      "estado": "Bahia",
+      "estadoSigla": "BA"
+    },
+    {
+      "cep": "69961-518",
+      "logradouro": "Santa Luzia",
+      "complemento": "Portão 8",
+      "numero": 6611,
+      "bairro": "São José",
+      "cidade": "Blumenau",
+      "estado": "Santa Catarina",
+      "estadoSigla": "SC"
+    },
+    {
+      "cep": "77177-279",
+      "logradouro": "São Sebastião",
+      "complemento": "Bloco 1",
+      "numero": 3065,
+      "bairro": "São Cristóvão",
+      "cidade": "Pouso Alegre",
+      "estado": "Minas Gerais",
+      "estadoSigla": "MG"
+    },
+    {
+      "cep": "69020-371",
+      "logradouro": "Amazonas",
+      "complemento": "Loja 7",
+      "numero": 1964,
+      "bairro": "Planalto",
+      "cidade": "Lavras",
+      "estado": "Minas Gerais",
+      "estadoSigla": "MG"
+    },
+    {
+      "cep": "64015-736",
+      "logradouro": "Principal",
+      "complemento": "Bloco 2",
+      "numero": 2015,
+      "bairro": "Bela Vista",
+      "cidade": "Campinas",
+      "estado": "São Paulo",
+      "estadoSigla": "SP"
+    },
+    {
+      "cep": "64403-595",
+      "logradouro": "A",
+      "complemento": "Sala 8",
+      "numero": 3754,
+      "bairro": "Santo Antônio",
+      "cidade": "Aracaju",
+      "estado": "Sergipe",
+      "estadoSigla": "SE"
+    },
+    {
+      "cep": "76949-243",
+      "logradouro": "Maranhão",
+      "complemento": "Anexo 9",
+      "numero": 1640,
+      "bairro": "Vila Nova",
+      "cidade": "Tangará da Serra",
+      "estado": "Mato Grosso",
+      "estadoSigla": "MT"
+    },
+    {
+      "cep": "72969-603",
+      "logradouro": "Dezoito",
+      "complemento": "Aeroporto 7",
+      "numero": 1979,
+      "bairro": "Centro",
+      "cidade": "Jaraguá do Sul",
+      "estado": "Santa Catarina",
+      "estadoSigla": "SC"
+    },
+    {
+      "cep": "32266-128",
+      "logradouro": "Primeiro de Maio",
+      "complemento": "Fazenda 4",
+      "numero": 215,
+      "bairro": "São José",
+      "cidade": "Vitória da Conquista",
+      "estado": "Bahia",
+      "estadoSigla": "BA"
+    },
+    {
+      "cep": "65853-240",
+      "logradouro": "Quinze de Novembro",
+      "complemento": "Apartamento 3",
+      "numero": 2823,
+      "bairro": "Industrial",
+      "cidade": "Boa Vista",
+      "estado": "Roraima",
+      "estadoSigla": "RR"
+    },
+    {
+      "cep": "77201-556",
+      "logradouro": "Maranhão",
+      "complemento": "Apartamento 1",
+      "numero": 4058,
+      "bairro": "São José",
+      "cidade": "Araruama",
+      "estado": "Rio de Janeiro",
+      "estadoSigla": "RJ"
+    },
+    {
+      "cep": "80861-583",
+      "logradouro": "Quinze",
+      "complemento": "Galeria 10",
+      "numero": 1128,
+      "bairro": "Santo Antônio",
+      "cidade": "Santa Rita",
+      "estado": "Paraíba",
+      "estadoSigla": "PB"
+    },
+    {
+      "cep": "04301-092",
+      "logradouro": "Quinze de Novembro",
+      "complemento": "Fazenda 3",
+      "numero": 6385,
+      "bairro": "Industrial",
+      "cidade": "Boa Vista",
+      "estado": "Roraima",
+      "estadoSigla": "RR"
+    },
+    {
+      "cep": "88628-367",
+      "logradouro": "Vinte",
+      "complemento": "Anexo 10",
+      "numero": 9037,
+      "bairro": "São Cristóvão",
+      "cidade": "Palmas",
+      "estado": "Tocantins",
+      "estadoSigla": "TO"
+    },
+    {
+      "cep": "87257-446",
+      "logradouro": "Dezesseis",
+      "complemento": "Subsolo 4",
+      "numero": 3155,
+      "bairro": "São Cristóvão",
+      "cidade": "Brasília",
+      "estado": "Distrito Federal",
+      "estadoSigla": "DF"
+    },
+    {
+      "cep": "33362-593",
+      "logradouro": "Vinte",
+      "complemento": "Terreo 8",
+      "numero": 4969,
+      "bairro": "Industrial",
+      "cidade": "Nossa Senhora do Socorro",
+      "estado": "Sergipe",
+      "estadoSigla": "SE"
+    },
+    {
+      "cep": "29263-534",
+      "logradouro": "Rio de Janeiro",
+      "complemento": "Bloco 6",
+      "numero": 7316,
+      "bairro": "Centro",
+      "cidade": "Araras",
+      "estado": "São Paulo",
+      "estadoSigla": "SP"
+    },
+    {
+      "cep": "46722-134",
+      "logradouro": "São Sebastião",
+      "complemento": "Fazenda 4",
+      "numero": 9356,
+      "bairro": "Industrial",
+      "cidade": "Mossoró",
+      "estado": "Rio Grande do Norte",
+      "estadoSigla": "RN"
+    },
+    {
+      "cep": "29509-874",
+      "logradouro": "Santa Luzia",
+      "complemento": "Andar 9",
+      "numero": 6637,
+      "bairro": "São Cristóvão",
+      "cidade": "Aracaju",
+      "estado": "Sergipe",
+      "estadoSigla": "SE"
+    },
+    {
+      "cep": "44403-465",
+      "logradouro": "Amazonas",
+      "complemento": "Fazenda 3",
+      "numero": 7074,
+      "bairro": "Industrial",
+      "cidade": "Porto Seguro",
+      "estado": "Bahia",
+      "estadoSigla": "BA"
+    },
+    {
+      "cep": "59067-590",
+      "logradouro": "Vinte e Dois",
+      "complemento": "Andar 6",
+      "numero": 1429,
+      "bairro": "São José",
+      "cidade": "Maceió",
+      "estado": "Alagoas",
+      "estadoSigla": "AL"
+    },
+    {
+      "cep": "57869-701",
+      "logradouro": "Vinte e Dois",
+      "complemento": "Quadra 5",
+      "numero": 5941,
+      "bairro": "Planalto",
+      "cidade": "São Mateus",
+      "estado": "Espírito Santo",
+      "estadoSigla": "ES"
+    },
+    {
+      "cep": "88999-352",
+      "logradouro": "Piauí",
+      "complemento": "Quadra 3",
+      "numero": 4952,
+      "bairro": "Industrial",
+      "cidade": "Tailândia",
+      "estado": "Pará",
+      "estadoSigla": "PA"
+    },
+    {
+      "cep": "24085-587",
+      "logradouro": "São Luiz",
+      "complemento": "Sobreloja 1",
+      "numero": 6228,
+      "bairro": "Santo Antônio",
+      "cidade": "Aparecida de Goiânia",
+      "estado": "Goiás",
+      "estadoSigla": "GO"
+    },
+    {
+      "cep": "63623-755",
+      "logradouro": "Maranhão",
+      "complemento": "Lote 4",
+      "numero": 6201,
+      "bairro": "São José",
+      "cidade": "Boa Vista",
+      "estado": "Roraima",
+      "estadoSigla": "RR"
+    },
+    {
+      "cep": "72904-237",
+      "logradouro": "A",
+      "complemento": "Bloco 2",
+      "numero": 2079,
+      "bairro": "São Francisco",
+      "cidade": "Cuiabá",
+      "estado": "Mato Grosso",
+      "estadoSigla": "MT"
+    },
+    {
+      "cep": "34202-238",
+      "logradouro": "São Paulo",
+      "complemento": "Sala 10",
+      "numero": 7752,
+      "bairro": "Boa Vista",
+      "cidade": "Palmas",
+      "estado": "Tocantins",
+      "estadoSigla": "TO"
+    },
+    {
+      "cep": "76878-914",
+      "logradouro": "Tiradentes",
+      "complemento": "Cobertura 9",
+      "numero": 1800,
+      "bairro": "Boa Vista",
+      "cidade": "Tubarão",
+      "estado": "Santa Catarina",
+      "estadoSigla": "SC"
+    },
+    {
+      "cep": "64143-357",
+      "logradouro": "Santa Maria",
+      "complemento": "Portão 6",
+      "numero": 6939,
+      "bairro": "Centro",
+      "cidade": "Parnaíba",
+      "estado": "Piauí",
+      "estadoSigla": "PI"
+    },
+    {
+      "cep": "99585-774",
+      "logradouro": "Vinte e Quatro",
+      "complemento": "Galeria 4",
+      "numero": 3527,
+      "bairro": "Centro",
+      "cidade": "Porto Alegre",
+      "estado": "Rio Grande do Sul",
+      "estadoSigla": "RS"
+    },
+    {
+      "cep": "88952-859",
+      "logradouro": "Santa Luzia",
+      "complemento": "Lote 6",
+      "numero": 2199,
+      "bairro": "Planalto",
+      "cidade": "Viamão",
+      "estado": "Rio Grande do Sul",
+      "estadoSigla": "RS"
+    },
+    {
+      "cep": "58299-167",
+      "logradouro": "São Paulo",
+      "complemento": "Loja 2",
+      "numero": 1449,
+      "bairro": "São Francisco",
+      "cidade": "Maceió",
+      "estado": "Alagoas",
+      "estadoSigla": "AL"
+    },
+    {
+      "cep": "69199-838",
+      "logradouro": "Vinte e Três",
+      "complemento": "Loja 4",
+      "numero": 6597,
+      "bairro": "São Francisco",
+      "cidade": "Maceió",
+      "estado": "Alagoas",
+      "estadoSigla": "AL"
+    },
+    {
+      "cep": "57222-503",
+      "logradouro": "Maranhão",
+      "complemento": "Galpão 9",
+      "numero": 5043,
+      "bairro": "Santo Antônio",
+      "cidade": "Sobral",
+      "estado": "Ceará",
+      "estadoSigla": "CE"
+    },
+    {
+      "cep": "89434-018",
+      "logradouro": "São José",
+      "complemento": "Fazenda 4",
+      "numero": 290,
+      "bairro": "Centro",
+      "cidade": "Macapá",
+      "estado": "Amapá",
+      "estadoSigla": "AP"
+    },
+    {
+      "cep": "94339-019",
+      "logradouro": "Dois",
+      "complemento": "Portão 9",
+      "numero": 2045,
+      "bairro": "Boa Vista",
+      "cidade": "Santos",
+      "estado": "São Paulo",
+      "estadoSigla": "SP"
+    },
+    {
+      "cep": "58222-904",
+      "logradouro": "Um",
+      "complemento": "Sobreloja 7",
+      "numero": 6110,
+      "bairro": "São Francisco",
+      "cidade": "Cabo de Santo Agostinho",
+      "estado": "Pernambuco",
+      "estadoSigla": "PE"
+    },
+    {
+      "cep": "29652-825",
+      "logradouro": "Tiradentes",
+      "complemento": "Terreo 7",
+      "numero": 7805,
+      "bairro": "Industrial",
+      "cidade": "Parnamirim",
+      "estado": "Rio Grande do Norte",
+      "estadoSigla": "RN"
+    },
+    {
+      "cep": "45656-984",
+      "logradouro": "Duque de Caxias",
+      "complemento": "Lote 4",
+      "numero": 623,
+      "bairro": "São Cristóvão",
+      "cidade": "Rio Branco",
+      "estado": "Acre",
+      "estadoSigla": "AC"
+    },
+    {
+      "cep": "49503-555",
+      "logradouro": "Castro Alves",
+      "complemento": "Sobreloja 6",
+      "numero": 7226,
+      "bairro": "Boa Vista",
+      "cidade": "Belém",
+      "estado": "Pará",
+      "estadoSigla": "PA"
+    },
+    {
+      "cep": "64142-163",
+      "logradouro": "Brasil",
+      "complemento": "Conjunto 3",
+      "numero": 579,
+      "bairro": "Bela Vista",
+      "cidade": "Arapiraca",
+      "estado": "Alagoas",
+      "estadoSigla": "AL"
+    },
+    {
+      "cep": "52081-273",
+      "logradouro": "Sergipe",
+      "complemento": "Andar 2",
+      "numero": 841,
+      "bairro": "Centro",
+      "cidade": "Rio Branco",
+      "estado": "Acre",
+      "estadoSigla": "AC"
+    },
+    {
+      "cep": "57513-264",
+      "logradouro": "Dezessete",
+      "complemento": "Casa 10",
+      "numero": 1713,
+      "bairro": "Centro",
+      "cidade": "Imperatriz",
+      "estado": "Maranhão",
+      "estadoSigla": "MA"
+    },
+    {
+      "cep": "84541-170",
+      "logradouro": "Rui Barbosa",
+      "complemento": "Anexo 5",
+      "numero": 8070,
+      "bairro": "Industrial",
+      "cidade": "Garanhuns",
+      "estado": "Pernambuco",
+      "estadoSigla": "PE"
+    },
+    {
+      "cep": "79984-930",
+      "logradouro": "Sergipe",
+      "complemento": "Anexo 1",
+      "numero": 3764,
+      "bairro": "Boa Vista",
+      "cidade": "Cachoeiro de Itapemirim",
+      "estado": "Espírito Santo",
+      "estadoSigla": "ES"
+    },
+    {
+      "cep": "29845-847",
+      "logradouro": "São José",
+      "complemento": "Bloco 8",
+      "numero": 1222,
+      "bairro": "São Francisco",
+      "cidade": "Lagarto",
+      "estado": "Sergipe",
+      "estadoSigla": "SE"
+    },
+    {
+      "cep": "09393-058",
+      "logradouro": "Sergipe",
+      "complemento": "Aeroporto 2",
+      "numero": 8486,
+      "bairro": "Bela Vista",
+      "cidade": "São Gonçalo do Amarante",
+      "estado": "Rio Grande do Norte",
+      "estadoSigla": "RN"
+    },
+    {
+      "cep": "97746-568",
+      "logradouro": "Treze",
+      "complemento": "Anexo 6",
+      "numero": 2420,
+      "bairro": "Centro",
+      "cidade": "Itaituba",
+      "estado": "Pará",
+      "estadoSigla": "PA"
+    },
+    {
+      "cep": "79718-234",
+      "logradouro": "Brasil",
+      "complemento": "Fazenda 7",
+      "numero": 4415,
+      "bairro": "Boa Vista",
+      "cidade": "Foz do Iguaçu",
+      "estado": "Paraná",
+      "estadoSigla": "PR"
+    },
+    {
+      "cep": "27136-539",
+      "logradouro": "A",
+      "complemento": "Galeria 2",
+      "numero": 8920,
+      "bairro": "Industrial",
+      "cidade": "Itajaí",
+      "estado": "Santa Catarina",
+      "estadoSigla": "SC"
+    },
+    {
+      "cep": "26894-636",
+      "logradouro": "São Luiz",
+      "complemento": "Subsolo 6",
+      "numero": 7205,
+      "bairro": "São Cristóvão",
+      "cidade": "Cuiabá",
+      "estado": "Mato Grosso",
+      "estadoSigla": "MT"
+    },
+    {
+      "cep": "88435-029",
+      "logradouro": "Rui Barbosa",
+      "complemento": "Lote 2",
+      "numero": 7124,
+      "bairro": "São Cristóvão",
+      "cidade": "Brasília",
+      "estado": "Distrito Federal",
+      "estadoSigla": "DF"
+    },
+    {
+      "cep": "08016-497",
+      "logradouro": "São Sebastião",
+      "complemento": "Terreo 8",
+      "numero": 1027,
+      "bairro": "Santo Antônio",
+      "cidade": "Natal",
+      "estado": "Rio Grande do Norte",
+      "estadoSigla": "RN"
+    },
+    {
+      "cep": "77722-666",
+      "logradouro": "Minas Gerais",
+      "complemento": "Sobreloja 9",
+      "numero": 6052,
+      "bairro": "Vila Nova",
+      "cidade": "Sinop",
+      "estado": "Mato Grosso",
+      "estadoSigla": "MT"
+    },
+    {
+      "cep": "76824-306",
+      "logradouro": "Alagoas",
+      "complemento": "Quadra 4",
+      "numero": 4662,
+      "bairro": "Bela Vista",
+      "cidade": "Alvorada",
+      "estado": "Rio Grande do Sul",
+      "estadoSigla": "RS"
+    },
+    {
+      "cep": "79325-289",
+      "logradouro": "Vitória",
+      "complemento": "Sala 4",
+      "numero": 5842,
+      "bairro": "São Francisco",
+      "cidade": "Maceió",
+      "estado": "Alagoas",
+      "estadoSigla": "AL"
+    },
+    {
+      "cep": "79732-994",
+      "logradouro": "São Luiz",
+      "complemento": "Lote 7",
+      "numero": 2529,
+      "bairro": "Planalto",
+      "cidade": "Santana",
+      "estado": "Amapá",
+      "estadoSigla": "AP"
+    },
+    {
+      "cep": "72921-790",
+      "logradouro": "Quinze",
+      "complemento": "Lote 9",
+      "numero": 9152,
+      "bairro": "São Cristóvão",
+      "cidade": "Novo Gama",
+      "estado": "Goiás",
+      "estadoSigla": "GO"
+    },
+    {
+      "cep": "79573-606",
+      "logradouro": "Treze de Maio",
+      "complemento": "Subsolo 7",
+      "numero": 3204,
+      "bairro": "Centro",
+      "cidade": "Palmas",
+      "estado": "Tocantins",
+      "estadoSigla": "TO"
+    },
+    {
+      "cep": "43498-979",
+      "logradouro": "São José",
+      "complemento": "Sala 4",
+      "numero": 8179,
+      "bairro": "Industrial",
+      "cidade": "Macaé",
+      "estado": "Rio de Janeiro",
+      "estadoSigla": "RJ"
+    },
+    {
+      "cep": "72956-025",
+      "logradouro": "Amazonas",
+      "complemento": "Casa 1",
+      "numero": 9851,
+      "bairro": "Planalto",
+      "cidade": "Parnamirim",
+      "estado": "Rio Grande do Norte",
+      "estadoSigla": "RN"
+    },
+    {
+      "cep": "41777-080",
+      "logradouro": "Sergipe",
+      "complemento": "Apartamento 5",
+      "numero": 36,
+      "bairro": "Industrial",
+      "cidade": "Ibirité",
+      "estado": "Minas Gerais",
+      "estadoSigla": "MG"
+    },
+    {
+      "cep": "23859-871",
+      "logradouro": "da Paz",
+      "complemento": "Sala 6",
+      "numero": 5638,
+      "bairro": "São Francisco",
+      "cidade": "Teresina",
+      "estado": "Piauí",
+      "estadoSigla": "PI"
+    },
+    {
+      "cep": "49036-048",
+      "logradouro": "Dois",
+      "complemento": "Apartamento 3",
+      "numero": 5785,
+      "bairro": "Industrial",
+      "cidade": "Palmas",
+      "estado": "Tocantins",
+      "estadoSigla": "TO"
+    },
+    {
+      "cep": "69337-532",
+      "logradouro": "São Pedro",
+      "complemento": "Galeria 2",
+      "numero": 6505,
+      "bairro": "São Cristóvão",
+      "cidade": "Japeri",
+      "estado": "Rio de Janeiro",
+      "estadoSigla": "RJ"
+    },
+    {
+      "cep": "08907-996",
+      "logradouro": "São Paulo",
+      "complemento": "Terreo 5",
+      "numero": 2149,
+      "bairro": "Bela Vista",
+      "cidade": "Feira de Santana",
+      "estado": "Bahia",
+      "estadoSigla": "BA"
+    },
+    {
+      "cep": "57314-351",
+      "logradouro": "Principal",
+      "complemento": "Loja 9",
+      "numero": 3952,
+      "bairro": "Santo Antônio",
+      "cidade": "Manaus",
+      "estado": "Amazonas",
+      "estadoSigla": "AM"
+    },
+    {
+      "cep": "59744-011",
+      "logradouro": "Vinte e Três",
+      "complemento": "Sala 9",
+      "numero": 8779,
+      "bairro": "Centro",
+      "cidade": "Rio Branco",
+      "estado": "Acre",
+      "estadoSigla": "AC"
+    },
+    {
+      "cep": "76978-624",
+      "logradouro": "Santo Antônio",
+      "complemento": "Anexo 2",
+      "numero": 2201,
+      "bairro": "São José",
+      "cidade": "Florianópolis",
+      "estado": "Santa Catarina",
+      "estadoSigla": "SC"
+    }
+  ]
+}
