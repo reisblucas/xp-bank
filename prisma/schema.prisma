@@ -62,7 +62,7 @@ model FSExchangeOverview {
 
 model Genders {
   id            Int             @id @default(autoincrement()) @db.UnsignedInt
-  gender        String          @db.VarChar(20)
+  name          String          @db.VarChar(20)
   PersonalDatas PersonalDatas[]
 }
 
@@ -79,7 +79,7 @@ model Orders {
   Transactions_id Int          @db.UnsignedInt
   order_executed  Boolean
   created_at      DateTime     @default(now())
-  sale_at         DateTime     
+  sale_at         DateTime
   Transactions    Transactions @relation(fields: [Transactions_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_transactions_id_foreign")
   UsersLogin      UsersLogin   @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_userslogin_id_foreign")
 
@@ -156,24 +156,11 @@ model UsersLogin {
   created_at        DateTime            @default(now())
   updated_at        DateTime            @default(now()) @updatedAt
   AccountsBalance   AccountsBalance[]
-  AccessHistory AccessHistory[]
+  AccessHistory     AccessHistory[]
   AccountsStatement AccountsStatement[]
   Orders            Orders[]
   PersonalDatas     PersonalDatas[]
   Wallets           Wallets[]
-}
-
-model AccessHistory {
-  id Int @id @default(autoincrement()) @db.UnsignedInt
-  UsersLogin_id Int @db.UnsignedInt 
-  Platform_id Int @db.UnsignedInt
-  last_access DateTime @db.Date
-
-  UsersLogin UsersLogin @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accesshistory_userslogin_id_foreign")
-  Platform Platform @relation(fields: [Platform_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "access_platform_id_foreign")
-
-  @@index([UsersLogin_id], map: "accesshistory_userslogin_id_foreign")
-  @@ignore([Platform_id], map: "access_platform_id_foreign")
 }
 
 model Wallets {
@@ -186,4 +173,22 @@ model Wallets {
   Transactions  Transactions[]
 
   @@index([UsersLogin_id], map: "wallets_userslogin_id_foreign")
+}
+
+model AccessHistory {
+  id            Int        @id @default(autoincrement()) @db.UnsignedInt
+  UsersLogin_id Int        @db.UnsignedInt
+  Platform_id   Int        @db.UnsignedInt
+  last_access   DateTime   @db.Date
+  UsersLogin    UsersLogin @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accesshistory_userslogin_id_foreign")
+  Platform      Platform   @relation(fields: [Platform_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "access_platform_id_foreign")
+
+  @@index([UsersLogin_id], map: "accesshistory_userslogin_id_foreign")
+  @@index([Platform_id], map: "access_platform_id_foreign")
+}
+
+model Platform {
+  id            Int             @id @default(autoincrement()) @db.UnsignedInt
+  name          String          @unique @db.VarChar(50)
+  AccessHistory AccessHistory[]
 }
