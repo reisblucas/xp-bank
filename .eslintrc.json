@@ -5,11 +5,18 @@
     "airbnb-typescript/base"
   ],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "./tsconfig.json"
-  },
-  "plugins": [
-    "@typescript-eslint"
+  "plugins": ["@typescript-eslint"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      }
+    }
   ],
   "rules": {
     "no-console": "off",
@@ -32,5 +39,5 @@
       }
     ]
   },
-  "ignorePatterns": ["src/**/*.test.ts"]
+  "ignorePatterns": ["src/**/*.test.ts", "prisma/**/*.ts"]
 }
