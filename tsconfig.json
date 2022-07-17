@@ -15,7 +15,8 @@
       "@controllers/*": ["./src/controllers/*"],
       "@utils/*": ["./src/utils/*"],
       "@interfaces/*": ["./src/interfaces/*"],
-      "@connection/*": ["./src/connection/*"]
+      "@connection/*": ["./src/connection/*"],
+      "@data/*": ["./data/*"]
     },
     "typeRoots": [
       "./node_modules/@types",
