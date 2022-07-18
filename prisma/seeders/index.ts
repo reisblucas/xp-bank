@@ -1,10 +1,23 @@
 import { PrismaClient } from '@prisma/client';
 import UsersPersonalData from '../../data/seeds/UsersPersonalData.json';
+import RGs from '../../data/seeds/RG.json';
+import CPFs from '../../data/seeds/CPF.json';
+import Genders from '../../data/seeds/Genders.json';
+// import GendersRelation from '../../data/seeds/GendersRelation.json';
+import Addresses from '../../data/seeds/Addresses.json';
 
 const prisma = new PrismaClient();
 
 function main() {
-  const userBalanceSeeder = UsersPersonalData.map(async (user, _i) => prisma.usersLogin.create({
+  // seed gender
+  Genders.map(async (gender) => prisma.genders.create({
+    data: {
+      name: gender,
+    },
+  }));
+
+  // seed users: UserLogin -> AccountsBalance -> Addresses | when user signup
+  UsersPersonalData.map(async (user, i) => prisma.usersLogin.create({
     data: {
       email: user.email,
       password: user.password,
@@ -13,11 +26,37 @@ function main() {
           balance: 0,
         },
       },
+      PersonalDatas: {
+        create: {
+          first_name: user.first_name,
+          last_name: user.last_name,
+          birth_date: (new Date(user.birth_date)).toLocaleDateString('sv'), // yyyy/mm/dd
+          rg: RGs[i],
+          cpf: CPFs[i],
+          Addresses: {
+            create: {
+              postal_code: Addresses[i].cep,
+              logradouro: Addresses[i].logradouro,
+              complement: Addresses[i].complemento,
+              number: Addresses[i].numero,
+              district: Addresses[i].bairro,
+              city: Addresses[i].cidade,
+              state: Addresses[i].estado,
+              state_code: Addresses[i].estadoSigla,
+            },
+          },
+        },
+      },
     },
   }));
-
-  Promise.all(userBalanceSeeder).catch((e) => console.log('userBalanceSeeder: ', e));
 }
+
+// // when main is async
+// main()
+//   .catch((e) => {
+//     console.error(e);
+//     process.exit(1);
+//   }).finally(async () => prisma.$disconnect());
 
 try {
   main();
