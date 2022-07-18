@@ -4,17 +4,18 @@
     "airbnb-base",
     "airbnb-typescript/base",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
   ],
+  
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "import"],
-  "env": {
-    "node": true,
-    "commonjs": true
-  },
+  // "env": {
+  //   "node": true,
+  //   "commonjs": true
+  // },
   "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+      "@typescript-eslint/parser": [".ts"]
     },
     "import/resolver": {
       "typescript": {
@@ -68,5 +69,7 @@
       }
     ]
   },
-  "ignorePatterns": ["src/**/*.test.ts"]
+  "ignorePatterns": [
+    "src/**/*.test.ts"
+  ]
 }

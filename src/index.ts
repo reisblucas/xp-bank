@@ -1,6 +1,6 @@
+import security from '@utils/security';
 import app from './app';
 import 'dotenv/config';
-import security from '@utils/security';
 
 const PORT = process.env.PORT || 3001;
 
