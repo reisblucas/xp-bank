@@ -95,8 +95,8 @@ model PersonalDatas {
   last_name     String      @db.VarChar(50)
   cpf           String      @unique(map: "personaldatas_cpf_unique") @db.VarChar(11)
   rg            String      @unique(map: "personaldatas_rg_unique") @db.VarChar(9)
-  birth_date    DateTime    @db.DateTime(0)
-  Genders_id    Int         @db.UnsignedInt
+  birth_date    String      @db.VarChar(10)
+  Genders_id    Int         @default(1) @db.UnsignedInt
   UsersLogin_id Int         @db.UnsignedInt
   updated_at    DateTime    @default(now()) @updatedAt
   Genders       Genders     @relation(fields: [Genders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_genders_id_foreign")
