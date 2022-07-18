@@ -64,7 +64,7 @@ model FSExchangeOverview {
 
 model Genders {
   id            Int             @id @default(autoincrement()) @db.UnsignedInt
-  name          String          @db.VarChar(20)
+  name          String          @db.VarChar(20) @unique
   PersonalDatas PersonalDatas[]
 }
 
