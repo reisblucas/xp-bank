@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 export const createUser = prisma.usersLogin.create({
   data: {
-    email: 'lucaess@gmail.com',
+    email: 'luciano@gmail.com',
     password: 'testando123',
     AccountsBalance: {
       create: {

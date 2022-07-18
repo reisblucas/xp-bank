@@ -1,11 +1,11 @@
 import { PrismaClient } from '@prisma/client';
+import birthDate from '../../utils/birth_date';
 import UsersPersonalData from '../../data/seeds/UsersPersonalData.json';
 import RGs from '../../data/seeds/RG.json';
 import CPFs from '../../data/seeds/CPF.json';
 import Genders from '../../data/seeds/Genders.json';
 // import GendersRelation from '../../data/seeds/GendersRelation.json';
 import Addresses from '../../data/seeds/Addresses.json';
-import birthDate from '../../src/utils/birth_date';
 
 const prisma = new PrismaClient();
 

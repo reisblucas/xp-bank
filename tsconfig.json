@@ -14,7 +14,7 @@
     "rootDirs": [
       "./src",
       "./data",
-      "./prisma"
+      "src/prisma"
     ],
     "paths": {
       "@models/*": ["./src/models/*"],
@@ -23,7 +23,7 @@
       "@utils/*": ["./src/utils/*"],
       "@interfaces/*": ["./src/interfaces/*"],
       "@connection/*": ["./src/connection/*"],
-      // "@data/*": ["./data/*"]
+      "@data/*": ["./src/data/*"]
     },
     "typeRoots": [
       "./node_modules/@types/*",
@@ -43,6 +43,6 @@
   ],
   "include": [
     "./src/**/*.ts",
-    "./prisma/**/*.ts"
+    "src/prisma/**/*.ts"
   ],
 }

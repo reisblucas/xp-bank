@@ -9,7 +9,8 @@
     }
   },
   "prisma": {
-    "seed": "ts-node --transpile-only prisma/seeders/index.ts"
+    "schema": "src/prisma/schema.prisma",
+    "seed": "ts-node --transpile-only src/prisma/seeders/index.ts"
   },
   "nodemonConfig": {
     "ignore":
