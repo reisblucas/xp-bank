@@ -64,7 +64,7 @@ model FSExchangeOverview {
 
 model Genders {
   id            Int             @id @default(autoincrement()) @db.UnsignedInt
-  name          String          @db.VarChar(20) @unique
+  name          String          @unique @db.VarChar(20)
   PersonalDatas PersonalDatas[]
 }
 
@@ -155,6 +155,7 @@ model UsersLogin {
   id                Int                 @id @default(autoincrement()) @db.UnsignedInt
   email             String              @unique(map: "userslogin_email_unique") @db.VarChar(255)
   password          String              @db.VarChar(255)
+  salt              String              @db.VarChar(255)
   created_at        DateTime            @default(now())
   updated_at        DateTime            @default(now()) @updatedAt
   AccountsBalance   AccountsBalance[]
