@@ -3,11 +3,7 @@
   "version": "1.0.0",
   "description": "XP Inc. Tech Case - Daily representation of XP backend's",
   "main": "index.ts",
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
+  
   "prisma": {
     "schema": "src/prisma/schema.prisma",
     "seed": "ts-node --transpile-only src/prisma/seeders/index.ts"
