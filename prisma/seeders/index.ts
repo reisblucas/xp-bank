@@ -29,5 +29,5 @@ try {
     await prisma.$disconnect();
   };
 
-  disconnect();
+  disconnect().then((): void => {}).catch((e) => console.log('Error while Prisma disconnect:', e));
 }
