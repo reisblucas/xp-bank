@@ -134,7 +134,7 @@ model StocksFSExchangeOverview {
 
 model Tickers {
   id        Int    @id @default(autoincrement()) @db.UnsignedInt
-  ticker    String @unique(map: "tickers_ticker_unique") @db.VarChar(7)
+  ticker    String @unique(map: "tickers_ticker_unique") @db.VarChar(12)
   Stocks_id Int    @db.UnsignedInt
   Stocks    Stocks @relation(fields: [Stocks_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "tickers_stocks_id_foreign")
 
@@ -144,7 +144,7 @@ model Tickers {
 model Transactions {
   id                Int            @id @default(autoincrement()) @db.UnsignedInt
   Wallets_id        Int            @db.UnsignedInt
-  Stocks_ticker     String         @db.VarChar(7)
+  Stocks_ticker     String         @db.VarChar(12)
   quantity          Int            @db.UnsignedInt
   price             Float
   OperationTypes_id Int            @db.UnsignedInt
