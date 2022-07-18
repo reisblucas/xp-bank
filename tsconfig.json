@@ -7,14 +7,10 @@
     /* Modules */
     "types": ["node"],
     "module": "commonjs",
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "baseUrl": ".",
+    // "resolveJsonModule": true,
+    // "moduleResolution": "node",
     "rootDir": "./src",
-    // "rootDirs": [
-    //   "./src",
-    //   // "./data",
-    // ],
+    "baseUrl": ".",
     "paths": {
       "@models/*": ["./src/models/*"],
       "@services/*": ["./src/services/*"],
@@ -25,8 +21,8 @@
       "@data/*": ["./data/*"]
     },
     "typeRoots": [
-      "./node_modules/@types",
-      "./src/@types"
+      "./node_modules/@types/*",
+      "./src/@types/*"
     ],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -38,9 +34,10 @@
     "skipLibCheck": true
   },
   "exclude": [
-    "node_modules",
+    "./node_modules/*",
   ],
   "include": [
-    "src/**/*.ts",
+    "./src/**/*.ts",
+    "./prisma/**/*.ts"
   ],
 }

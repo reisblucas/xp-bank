@@ -2,7 +2,7 @@
   "name": "xp-case-back",
   "version": "1.0.0",
   "description": "XP Inc. Tech Case - Daily representation of XP backend's",
-  "main": "src/index.ts",
+  "main": "index.ts",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
@@ -11,8 +11,22 @@
   "prisma": {
     "seed": "ts-node --transpile-only prisma/seeders/index.ts"
   },
+  "nodemonConfig": {
+    "ignore":
+      [
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        ".git",
+        "node_modules"
+      ],
+    "watch": [
+      "src"
+    ],
+    "exec": "node -r tsconfig-paths/register -r ts-node/register ./src/index.ts",
+    "ext": "ts, js"
+  },
   "scripts": {
-    "dev": "nodemon",
+    "dev": "nodemon ./src/index.ts",
     "eslint": "eslint . --ext .ts",
     "dbfs": "bash get_sql_fileName.sh && bash set_dbName.sh && bash drop_db.sh && prisma db push",
     "dbcreate": "prisma db push",
@@ -20,7 +34,8 @@
     "printrospec": "prisma db pull && prisma generate",
     "dbschema": "prisma db push",
     "dbmigrate": "prisma migrate dev",
-    "dbseed": "prisma db seed"
+    "dbseed": "prisma db seed",
+    "pump": "bash drop_db.sh && prisma db push && prisma db seed"
   },
   "keywords": [],
   "author": "Lucas Barbosa dos Reis - neur4l - 15/07/2022",
@@ -34,9 +49,11 @@
     "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-import-resolver-typescript": "^3.2.7",
     "eslint-plugin-import": "^2.26.0",
     "prisma": "^4.0.0",
     "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.0.0",
     "typescript": "^4.7.4"
   },
   "dependencies": {
