@@ -1,14 +1,22 @@
 import { PrismaClient } from '@prisma/client';
-import Gender from './Genders';
-import Platform from './Platforms';
-import UserPersonalData from './UsersPersonalDatas';
+import sGenders from './Genders';
+import sPlatforms from './Platforms';
+import sUsers from './UsersPersonalDatas';
 
 const prisma = new PrismaClient();
 
+const seeders = {
+  genders: sGenders,
+  platforms: sPlatforms,
+  users: sUsers,
+};
+
 function main() {
-  Gender(prisma);
-  Platform(prisma);
-  UserPersonalData(prisma);
+  const { genders, platforms, users } = seeders;
+
+  genders(prisma);
+  platforms(prisma);
+  users(prisma);
 }
 
 // // when main is async

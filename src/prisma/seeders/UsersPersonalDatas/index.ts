@@ -9,7 +9,7 @@ import Addresses from '../../../data/seeds/Addresses.json';
 import AccessHRelations from '../../../data/seeds/AccessHRelations.json';
 
 // seed users: UserLogin -> AccountsBalance -> Addresses | when user signup
-const UserPersonalData = (prisma: PrismaClient) => UsersPersonalData
+const sUsers = (prisma: PrismaClient) => UsersPersonalData
   .map(async (user, i) => prisma.usersLogin.create({
     data: {
       email: user.email,
@@ -50,4 +50,4 @@ const UserPersonalData = (prisma: PrismaClient) => UsersPersonalData
     },
   }));
 
-export default UserPersonalData;
+export default sUsers;
