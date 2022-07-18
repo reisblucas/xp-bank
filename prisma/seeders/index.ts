@@ -5,6 +5,7 @@ import CPFs from '../../data/seeds/CPF.json';
 import Genders from '../../data/seeds/Genders.json';
 // import GendersRelation from '../../data/seeds/GendersRelation.json';
 import Addresses from '../../data/seeds/Addresses.json';
+import birthDate from '../../src/utils/birth_date';
 
 const prisma = new PrismaClient();
 
@@ -30,7 +31,7 @@ function main() {
         create: {
           first_name: user.first_name,
           last_name: user.last_name,
-          birth_date: (new Date(user.birth_date)).toLocaleDateString('sv'), // yyyy/mm/dd
+          birth_date: birthDate.serialize(user.birth_date), // yyyy/mm/dd -> yyyy-mm-dd
           rg: RGs[i],
           cpf: CPFs[i],
           Addresses: {
