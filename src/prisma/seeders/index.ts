@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import sGenders from './Genders';
 import sPlatforms from './Platforms';
-import sStocks from './Stocks';
+import sStocksTicker from './Stocks';
 import sUsers from './UsersPersonalDatas';
 
 const prisma = new PrismaClient();
@@ -10,7 +10,7 @@ const seeders = {
   genders: sGenders,
   platforms: sPlatforms,
   users: sUsers,
-  stocks: sStocks,
+  stocks: sStocksTicker,
 };
 
 function main() {

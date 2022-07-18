@@ -17,4 +17,4 @@ const pwdDb = 'pwssR+spUuulNHUHv0A25s2Q+FQLm5KRIgTACyCg4NQ=';
 const saltDb = 'fQzGumqpEIi7PlrvzTO+1JSLX1M8c+EW5f8VvydLrXk=';
 
 console.log('if info hashed', security.validateHash(pwdDb, saltDb));
-console.log('pwd encrypted ', security.validateHash(pwdDb, saltDb));
+console.log('pwd encrypted ', security.validateHash('lucas', saltDb));
