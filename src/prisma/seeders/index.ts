@@ -4,28 +4,17 @@ import birthDate from '../../utils/birth_date';
 import UsersPersonalData from '../../data/seeds/UsersPersonalData.json';
 import RGs from '../../data/seeds/RG.json';
 import CPFs from '../../data/seeds/CPF.json';
-import Genders from '../../data/seeds/Genders.json';
 import GendersRelation from '../../data/seeds/GendersRelation.json';
 import Addresses from '../../data/seeds/Addresses.json';
-import Platforms from '../../data/seeds/Platforms.json';
 import AccessHRelations from '../../data/seeds/AccessHRelations.json';
+import Gender from './Genders';
+import Platform from './Platforms';
 
 const prisma = new PrismaClient();
 
 function main() {
-  // seed Gender
-  Genders.map(async (gender) => prisma.genders.create({
-    data: {
-      name: gender,
-    },
-  }));
-
-  // seed Plataforms
-  Platforms.map(async (p) => prisma.platform.create({
-    data: {
-      name: p,
-    },
-  }));
+  Gender(prisma);
+  Platform(prisma);
 
   // seed users: UserLogin -> AccountsBalance -> Addresses | when user signup
   UsersPersonalData.map(async (user, i) => prisma.usersLogin.create({
