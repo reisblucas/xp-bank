@@ -93,8 +93,8 @@ model PersonalDatas {
   id            Int         @id @default(autoincrement()) @db.UnsignedInt
   first_name    String      @db.VarChar(50)
   last_name     String      @db.VarChar(50)
-  cpf           Int         @unique(map: "personaldatas_cpf_unique") @db.UnsignedInt
-  rg            Int         @unique(map: "personaldatas_rg_unique") @db.UnsignedInt
+  cpf           String      @unique(map: "personaldatas_cpf_unique") @db.VarChar(11)
+  rg            String      @unique(map: "personaldatas_rg_unique") @db.VarChar(9)
   birth_date    DateTime    @db.DateTime(0)
   Genders_id    Int         @db.UnsignedInt
   UsersLogin_id Int         @db.UnsignedInt
