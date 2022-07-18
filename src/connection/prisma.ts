@@ -6,6 +6,7 @@ export const createUser = prisma.usersLogin.create({
   data: {
     email: 'lucas@gmail.com',
     password: 'testando123',
+    salt: 'uhu',
     AccountsBalance: {
       create: {
         balance: 0,

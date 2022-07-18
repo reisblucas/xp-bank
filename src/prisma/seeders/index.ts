@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import security from '../../utils/security';
 import birthDate from '../../utils/birth_date';
 import UsersPersonalData from '../../data/seeds/UsersPersonalData.json';
 import RGs from '../../data/seeds/RG.json';
@@ -30,7 +31,8 @@ function main() {
   UsersPersonalData.map(async (user, i) => prisma.usersLogin.create({
     data: {
       email: user.email,
-      password: user.password,
+      password: security.encryptAndHash(user.password),
+      salt: security.salt.dynamic,
       AccountsBalance: {
         create: {
           balance: 0,
