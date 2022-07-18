@@ -111,6 +111,12 @@ model Stocks {
   id                       Int                        @id @default(autoincrement()) @db.UnsignedInt
   symbol                   String                     @unique(map: "stocks_symbol_unique") @db.VarChar(4)
   name                     String                     @db.VarChar(255)
+  economic_sector          String                     @db.VarChar(255)
+  sub_sector               String                     @db.VarChar(255)
+  segment                  String                     @db.VarChar(255)
+  segment_b3               String                     @db.VarChar(255)
+  cnpj                     String                     @unique(map: "stocks_cnpj_unique") @db.VarChar(255)
+  dash_cnpj                String                     @unique(map: "stocks_dash_cnpj_unique") @db.VarChar(255)
   StocksFSExchangeOverview StocksFSExchangeOverview[]
   Tickers                  Tickers[]
 }
