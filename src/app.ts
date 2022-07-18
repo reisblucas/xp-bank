@@ -17,10 +17,13 @@ boiler.post('/neural', async (req: Request, res: Response, _next: NextFunction) 
     console.log('prisma response', response);
     return res.status(StatusCodes.OK).json({ message: response });
   } catch (e) {
-    // console.error('exception', e);
+    let error = e;
     if (e instanceof Error) {
-      console.log('alo', e.message);
+      error = e.message;
     }
+    console.log('alo', error);
+
+    return res.status(StatusCodes.BAD_REQUEST).json({ nessage: 'error' });
   }
 });
 
