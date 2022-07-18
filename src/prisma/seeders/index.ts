@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import sGenders from './Genders';
 import sPlatforms from './Platforms';
+import sStocks from './Stocks';
 import sUsers from './UsersPersonalDatas';
 
 const prisma = new PrismaClient();
@@ -9,14 +10,18 @@ const seeders = {
   genders: sGenders,
   platforms: sPlatforms,
   users: sUsers,
+  stocks: sStocks,
 };
 
 function main() {
-  const { genders, platforms, users } = seeders;
+  const {
+    genders, platforms, users, stocks,
+  } = seeders;
 
   genders(prisma);
   platforms(prisma);
   users(prisma);
+  stocks(prisma);
 }
 
 // // when main is async
