@@ -4,16 +4,25 @@ import UsersPersonalData from '../../data/seeds/UsersPersonalData.json';
 import RGs from '../../data/seeds/RG.json';
 import CPFs from '../../data/seeds/CPF.json';
 import Genders from '../../data/seeds/Genders.json';
-// import GendersRelation from '../../data/seeds/GendersRelation.json';
+import GendersRelation from '../../data/seeds/GendersRelation.json';
 import Addresses from '../../data/seeds/Addresses.json';
+import Platforms from '../../data/seeds/Platforms.json';
+import AccessHRelations from '../../data/seeds/AccessHRelations.json';
 
 const prisma = new PrismaClient();
 
 function main() {
-  // seed gender
+  // seed Gender
   Genders.map(async (gender) => prisma.genders.create({
     data: {
       name: gender,
+    },
+  }));
+
+  // seed Plataforms
+  Platforms.map(async (p) => prisma.platform.create({
+    data: {
+      name: p,
     },
   }));
 
@@ -34,6 +43,7 @@ function main() {
           birth_date: birthDate.serialize(user.birth_date), // yyyy/mm/dd -> yyyy-mm-dd
           rg: RGs[i],
           cpf: CPFs[i],
+          Genders_id: Number(GendersRelation[i].userRelation),
           Addresses: {
             create: {
               postal_code: Addresses[i].cep,
@@ -46,6 +56,11 @@ function main() {
               state_code: Addresses[i].estadoSigla,
             },
           },
+        },
+      },
+      AccessHistory: {
+        create: {
+          Platform_id: Number(AccessHRelations[i]),
         },
       },
     },

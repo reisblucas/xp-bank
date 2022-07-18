@@ -12,7 +12,7 @@ datasource db {
 model AccountsBalance {
   id            Int        @id @default(autoincrement()) @db.UnsignedInt
   UsersLogin_id Int        @db.UnsignedInt
-  balance       Float
+  balance       Float      @default(0)
   updated_at    DateTime   @default(now()) @updatedAt
   UsersLogin    UsersLogin @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsbalance_userslogin_id_foreign")
 
@@ -181,7 +181,7 @@ model AccessHistory {
   id            Int        @id @default(autoincrement()) @db.UnsignedInt
   UsersLogin_id Int        @db.UnsignedInt
   Platform_id   Int        @db.UnsignedInt
-  last_access   DateTime   @db.Date
+  last_access   DateTime   @default(now())
   UsersLogin    UsersLogin @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accesshistory_userslogin_id_foreign")
   Platform      Platform   @relation(fields: [Platform_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "access_platform_id_foreign")
 
