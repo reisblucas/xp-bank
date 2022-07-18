@@ -115,8 +115,8 @@ model Stocks {
   sub_sector               String                     @db.VarChar(255)
   segment                  String                     @db.VarChar(255)
   segment_b3               String                     @db.VarChar(255)
-  cnpj                     String                     @unique(map: "stocks_cnpj_unique") @db.VarChar(255)
-  dash_cnpj                String                     @unique(map: "stocks_dash_cnpj_unique") @db.VarChar(255)
+  cnpj                     String?                    @db.VarChar(255)
+  dash_cnpj                String?                    @db.VarChar(255)
   StocksFSExchangeOverview StocksFSExchangeOverview[]
   Tickers                  Tickers[]
 }
