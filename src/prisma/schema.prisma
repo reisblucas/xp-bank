@@ -86,9 +86,9 @@ model Orders {
   id              Int          @id @default(autoincrement()) @db.UnsignedInt
   UsersLogin_id   Int          @db.UnsignedInt
   Transactions_id Int          @db.UnsignedInt
-  order_executed  Boolean
+  order_executed  Int?          @default(0) @db.UnsignedInt
   created_at      DateTime     @default(now())
-  sale_at         DateTime
+  sale_at         String       
   Transactions    Transactions @relation(fields: [Transactions_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_transactions_id_foreign")
   UsersLogin      UsersLogin   @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_userslogin_id_foreign")
 
