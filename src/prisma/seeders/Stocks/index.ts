@@ -1,8 +1,11 @@
 import { PrismaClient } from '@prisma/client';
-import tickerSplitter from '../../../utils/splitStock';
 import Stocks from '../../../data/seeds/Stocks.json';
+import SerializedInfoMoney from '../../../data/seeds/SerializedInfoMoney.json';
 
-const sStocksTicker = (prisma: PrismaClient) => Stocks
+export const OnlyStocksProvidedByInfoMoney = Stocks.filter(({ cd_acao }) => SerializedInfoMoney
+  .find(({ ticker }) => cd_acao.includes(ticker)));
+
+const sTickersStocks = (prisma: PrismaClient) => OnlyStocksProvidedByInfoMoney
   .map(async (stock) => {
     const createdStock = await prisma.stocks.create({
       data: {
@@ -17,20 +20,40 @@ const sStocksTicker = (prisma: PrismaClient) => Stocks
       },
     });
 
+    // this trick is used becasue of unique constraint setted in my schema
+    // unique ticker and some stocks in my seeder are emprty strings
+    // example -> cd_acao: ""
     if (stock.cd_acao) {
-      // this trick is used becasue of unique constraint setted in my schema
-      // unique ticker and some stocks in my seeder are emprty strings
-      // example -> cd_acao: ""
-      tickerSplitter(stock.cd_acao)
-        .map(async (tckr) => prisma.tickers.create({
-          data: {
-            ticker: tckr,
-            Stocks_id: createdStock.id,
-          },
-        }));
+      stock.cd_acao
+        .split(', ')
+        .map((tckr) => SerializedInfoMoney
+          .find(({ ticker }) => tckr === ticker)
+            && SerializedInfoMoney
+              .filter(({ ticker }) => tckr === ticker)
+              .map(async ({
+                ticker, date, lastSell, max, min, var12m, varDay, varMon, varSem, varYear, vol,
+              }) => prisma.tickers.create({
+                data: {
+                  ticker,
+                  Stocks_id: createdStock.id,
+                  FSExchangeOverview: {
+                    create: {
+                      date,
+                      lastSell,
+                      varDay,
+                      varSem,
+                      varMon,
+                      varYear,
+                      var12m,
+                      max,
+                      min,
+                      vol,
+                    },
+                  },
+                },
+              })));
     }
-
     return createdStock;
   });
 
-export default sStocksTicker;
+export default sTickersStocks;

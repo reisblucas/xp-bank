@@ -20,8 +20,8 @@ function main() {
 
   genders(prisma);
   platforms(prisma);
-  users(prisma);
-  // stocks(prisma);
+  users(prisma); // userslogin, accountbalance, personaldata, accesshistory and addresses
+  stocks(prisma); // stocks, tickers and stocks overview
 }
 
 // // when main is async
