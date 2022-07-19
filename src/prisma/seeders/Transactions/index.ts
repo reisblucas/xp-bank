@@ -5,7 +5,7 @@ import Transactions from '../../../data/seeds/Transactions.json';
 import newDateMethods from '../../../utils/newDateMethods';
 
 const sTransactions = (prisma: PrismaClient) => Transactions
-  .map(async (trsct, i) => {
+  .map(async (trsct) => {
     const searchTicker = await prisma.tickers.findFirst({
       where: {
         id: trsct.Tickers_id,

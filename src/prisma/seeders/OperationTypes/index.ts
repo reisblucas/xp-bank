@@ -1,16 +1,11 @@
 import { PrismaClient } from '@prisma/client';
-
-const OperationTypes = [
-  'Buy',
-  'Sell',
-  'Deposit',
-  'Withdraw',
-];
+import OperationTypes from '../../../data/seeds/OperationTypes.json';
 
 const sOperationTypes = (prisma: PrismaClient) => OperationTypes
   .map(async (op) => prisma.operationTypes.create({
     data: {
-      name: op,
+      id: op.id,
+      name: op.name,
     },
   }));
 

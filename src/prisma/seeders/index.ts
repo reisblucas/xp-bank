@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import sAccountsStatement from './AccountStatement';
 import sGenders from './Genders';
 import sOperationTypes from './OperationTypes';
 import sPlatforms from './Platforms';
@@ -19,6 +20,7 @@ async function main() {
     sOperationTypes(prisma);
 
     sTransactions(prisma);
+    sAccountsStatement(prisma);
   } catch (e) {
     console.error(e);
     process.exit(1);
