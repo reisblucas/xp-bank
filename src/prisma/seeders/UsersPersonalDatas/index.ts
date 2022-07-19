@@ -7,6 +7,7 @@ import CPFs from '../../../data/seeds/CPF.json';
 import GendersRelation from '../../../data/seeds/GendersRelation.json';
 import Addresses from '../../../data/seeds/Addresses.json';
 import AccessHRelations from '../../../data/seeds/AccessHRelations.json';
+import WalletsName from '../../../data/seeds/WalletsName.json';
 
 // seed users: UserLogin -> AccountsBalance -> Addresses | when user signup
 const sUsers = (prisma: PrismaClient) => UsersPersonalData
@@ -45,6 +46,11 @@ const sUsers = (prisma: PrismaClient) => UsersPersonalData
       AccessHistory: {
         create: {
           Platform_id: Number(AccessHRelations[i]),
+        },
+      },
+      Wallets: {
+        create: {
+          name: WalletsName[i].name,
         },
       },
     },
