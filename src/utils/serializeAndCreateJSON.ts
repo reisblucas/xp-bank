@@ -32,7 +32,7 @@ const serializeVolField = (vol: string): number => {
   const Mposition = vol.indexOf('M');
   const sliced = vol.slice(0, Mposition);
 
-  return Number(sliced) * +MILLION;
+  return Math.floor(Number(sliced) * +MILLION);
 };
 
 const serializeStocksInfo = () => UnserializedOverview
