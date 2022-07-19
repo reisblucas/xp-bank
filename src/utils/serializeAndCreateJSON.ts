@@ -41,15 +41,16 @@ const serializeStocksInfo = () => UnserializedOverview
 
     str.split(',')
       .forEach((field: string, i: number) => {
-        if (i === 0) key.name = field;
-        if (i === 1) key.class = field;
-        if (i === 2) key.lastSell = Number(field);
-        if (i === 3) key.max = Number(field);
-        if (i === 4) key.min = Number(field);
-        if (i === 5) key.var = field;
-        if (i === 6) key.varPercent = field;
-        if (i === 7) key.vol = serializeVolField(field);
-        if (i === 8) key.lastCheck = field;
+        const dataTrimmed = field.trim();
+        if (i === 0) key.name = dataTrimmed;
+        if (i === 1) key.class = dataTrimmed;
+        if (i === 2) key.lastSell = Number(dataTrimmed);
+        if (i === 3) key.max = Number(dataTrimmed);
+        if (i === 4) key.min = Number(dataTrimmed);
+        if (i === 5) key.var = dataTrimmed;
+        if (i === 6) key.varPercent = dataTrimmed;
+        if (i === 7) key.vol = serializeVolField(dataTrimmed);
+        if (i === 8) key.lastCheck = dataTrimmed;
       });
     return key;
   });
