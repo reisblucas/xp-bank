@@ -3,6 +3,7 @@ import sGenders from './Genders';
 import sOperationTypes from './OperationTypes';
 import sPlatforms from './Platforms';
 import sStocksTicker from './Stocks';
+import sTransactions from './Transactions';
 import sUsers from './UsersPersonalDatas';
 
 const prisma = new PrismaClient();
@@ -13,18 +14,20 @@ const seeders = {
   users: sUsers,
   stocks: sStocksTicker,
   operationTypes: sOperationTypes,
+  transactions: sTransactions,
 };
 
 function main() {
   const {
-    genders, platforms, users, stocks, operationTypes,
+    genders, platforms, users, stocks, operationTypes, transactions,
   } = seeders;
 
-  genders(prisma);
-  platforms(prisma);
-  users(prisma); // userslogin, accountbalance, personaldata, accesshistory and addresses
-  stocks(prisma); // stocks, tickers and stocks overview
-  operationTypes(prisma);
+  // genders(prisma);
+  // platforms(prisma);
+  // users(prisma); // userslogin, accountbalance, personaldata, accesshistory and addresses
+  // stocks(prisma); // stocks, tickers and stocks overview
+  // operationTypes(prisma);
+  transactions(prisma); // need to be after all seeders ahead separated
 }
 
 // // when main is async
