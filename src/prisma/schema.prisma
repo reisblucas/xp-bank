@@ -51,15 +51,19 @@ model Addresses {
 }
 
 model FSExchangeOverview {
-  id                       Int                        @id @default(autoincrement()) @db.UnsignedInt
-  opening_price            Float
-  closing_price            Float
-  quantity                 Int                        @db.UnsignedInt
-  max                      Float
-  min                      Float
-  lot_min                  Int                        @db.UnsignedInt
-  date                     DateTime                   @unique(map: "fsexchangeoverview_date_unique") @db.DateTime(0)
-  StocksFSExchangeOverview StocksFSExchangeOverview[]
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  Stocks_id  Int      @db.UnsignedInt
+  lastSell   Int      @db.UnsignedInt
+  max        Float
+  min        Float
+  var        String   @db.VarChar(255)
+  varPercent String   @db.VarChar(255)
+  volume     Int      @db.UnsignedInt
+  lot_min    Int      @db.UnsignedInt @default(100)
+  date       DateTime @unique(map: "fsexchangeoverview_date_unique") @default(now())
+  Stocks     Stocks   @relation(fields: [Stocks_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stocks_id_foreign")
+
+  @@index([Stocks_id], map: "stocks_id_foreign")
 }
 
 model Genders {
@@ -108,28 +112,17 @@ model PersonalDatas {
 }
 
 model Stocks {
-  id                       Int                        @id @default(autoincrement()) @db.UnsignedInt
-  symbol                   String                     @unique(map: "stocks_symbol_unique") @db.VarChar(4)
-  name                     String                     @db.VarChar(255)
-  economic_sector          String                     @db.VarChar(255)
-  sub_sector               String                     @db.VarChar(255)
-  segment                  String                     @db.VarChar(255)
-  segment_b3               String                     @db.VarChar(255)
-  cnpj                     String?                    @db.VarChar(255)
-  dash_cnpj                String?                    @db.VarChar(255)
-  StocksFSExchangeOverview StocksFSExchangeOverview[]
-  Tickers                  Tickers[]
-}
-
-model StocksFSExchangeOverview {
-  id                    Int                @id @default(autoincrement()) @db.UnsignedInt
-  Stocks_id             Int                @db.UnsignedInt
-  FSExchangeOverview_id Int                @db.UnsignedInt
-  FSExchangeOverview    FSExchangeOverview @relation(fields: [FSExchangeOverview_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stocksfsexchangeoverview_fsexchangeoverview_id_foreign")
-  Stocks                Stocks             @relation(fields: [Stocks_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "stocksfsexchangeoverview_stocks_id_foreign")
-
-  @@index([FSExchangeOverview_id], map: "stocksfsexchangeoverview_fsexchangeoverview_id_foreign")
-  @@index([Stocks_id], map: "stocksfsexchangeoverview_stocks_id_foreign")
+  id                 Int                  @id @default(autoincrement()) @db.UnsignedInt
+  symbol             String               @unique(map: "stocks_symbol_unique") @db.VarChar(4)
+  name               String               @db.VarChar(255)
+  economic_sector    String               @db.VarChar(255)
+  sub_sector         String               @db.VarChar(255)
+  segment            String               @db.VarChar(255)
+  segment_b3         String               @db.VarChar(255)
+  cnpj               String?              @db.VarChar(255)
+  dash_cnpj          String?              @db.VarChar(255)
+  Tickers            Tickers[]
+  FSExchangeOverview FSExchangeOverview[]
 }
 
 model Tickers {
