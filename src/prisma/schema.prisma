@@ -24,7 +24,7 @@ model AccountsStatement {
   value             Decimal        @db.Decimal(10, 2)
   UsersLogin_id     Int            @db.UnsignedInt
   OperationTypes_id Int            @db.UnsignedInt
-  created_at        DateTime       @default(now())
+  created_at        String         
   OperationTypes    OperationTypes @relation(fields: [OperationTypes_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsstatement_operationtypes_id_foreign")
   UsersLogin        UsersLogin     @relation(fields: [UsersLogin_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsstatement_userslogin_id_foreign")
 
