@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
+import newDateMethods from '../../../utils/newDateMethods';
 import UsersPersonalData from '../../../data/seeds/UsersPersonalData.json';
 import security from '../../../utils/security';
-import birthDate from '../../../utils/birth_date';
 import RGs from '../../../data/seeds/RG.json';
 import CPFs from '../../../data/seeds/CPF.json';
 import GendersRelation from '../../../data/seeds/GendersRelation.json';
@@ -26,7 +26,7 @@ const sUsers = (prisma: PrismaClient) => UsersPersonalData
         create: {
           first_name: user.first_name,
           last_name: user.last_name,
-          birth_date: birthDate.serialize(user.birth_date), // yyyy/mm/dd -> yyyy-mm-dd
+          birth_date: newDateMethods.formatter(new Date(user.birth_date)), // yyyy/mm/dd -> yyyy-mm-dd
           rg: RGs[i],
           cpf: CPFs[i],
           Genders_id: Number(GendersRelation[i].userRelation),

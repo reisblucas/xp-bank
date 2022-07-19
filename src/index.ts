@@ -1,5 +1,6 @@
 import app from './app';
 import 'dotenv/config';
+// import newDateMethods from '@utils/newDateMethods';
 // import createNewFile from '@utils/serializeAndCreateJSON';
 
 const PORT = process.env.PORT || 3001;
@@ -13,3 +14,5 @@ app.listen(PORT, () => console.log(
 // console.log('encryptAndHash: \n', security.encryptAndHash('lucas'), '\n');
 
 // createNewFile('./src/data/seeds/SerializedInfoMoney.json');
+
+// console.log(newDateMethods.Dplus2());

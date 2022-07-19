@@ -1,7 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 import { Decimal } from '@prisma/client/runtime';
 import Transactions from '../../../data/seeds/Transactions.json';
-import Orders from '../../../data/seeds/Orders.json';
+// import Orders from '../../../data/seeds/Orders.json';
+import newDateMethods from '../../../utils/newDateMethods';
 
 const sTransactions = (prisma: PrismaClient) => Transactions
   .map(async (trsct, i) => {
@@ -18,7 +19,12 @@ const sTransactions = (prisma: PrismaClient) => Transactions
       },
     });
 
-    console.log(searchTicker);
+    const searchUsers = await prisma.wallets.findFirst({
+      where: {
+        id: trsct.Wallets_id,
+      },
+    });
+
     await prisma.transactions.create({
       data: {
         Wallets_id: trsct.Wallets_id,
@@ -26,11 +32,12 @@ const sTransactions = (prisma: PrismaClient) => Transactions
         quantity: trsct.quantity,
         price: searchTicker?.FSExchangeOverview[0].lastSell as Decimal,
         OperationTypes_id: trsct.OperationTypes_id,
-        // Orders: {
-        //   create: {
-        //     UsersLogin_id: Orders[i]
-        //   }
-        // }
+        Orders: {
+          create: {
+            UsersLogin_id: searchUsers?.id as number,
+            sale_at: newDateMethods.Dplus2(),
+          },
+        },
       },
     });
     return searchTicker;

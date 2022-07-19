@@ -21,8 +21,10 @@ const sTickersStocks = (prisma: PrismaClient) => OnlyStocksProvidedByInfoMoney
     });
 
     // this trick is used becasue of unique constraint setted in my schema
-    // unique ticker and some stocks in my seeder are emprty strings
+    // unique ticker and some stocks in my seeder are empty strings
     // example -> cd_acao: ""
+
+    // need to be refatored
     if (stock.cd_acao) {
       stock.cd_acao
         .split(', ')

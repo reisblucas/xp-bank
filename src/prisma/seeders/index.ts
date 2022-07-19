@@ -2,50 +2,30 @@ import { PrismaClient } from '@prisma/client';
 import sGenders from './Genders';
 import sOperationTypes from './OperationTypes';
 import sPlatforms from './Platforms';
-import sStocksTicker from './Stocks';
+import sTickersStocks from './Stocks';
 import sTransactions from './Transactions';
 import sUsers from './UsersPersonalDatas';
 
 const prisma = new PrismaClient();
 
-const seeders = {
-  genders: sGenders,
-  platforms: sPlatforms,
-  users: sUsers,
-  stocks: sStocksTicker,
-  operationTypes: sOperationTypes,
-  transactions: sTransactions,
-};
+async function main() {
+  // sTickersStocks(prisma); // stocks, tickers and stocks overview
+  // co
+  try {
+    await Promise.all(sTickersStocks(prisma));
+    sGenders(prisma);
+    sPlatforms(prisma);
+    sUsers(prisma); // userslogin, accountbalance, personaldata, accesshistory and addresses
+    sOperationTypes(prisma);
 
-function main() {
-  const {
-    genders, platforms, users, stocks, operationTypes, transactions,
-  } = seeders;
-
-  // genders(prisma);
-  // platforms(prisma);
-  // users(prisma); // userslogin, accountbalance, personaldata, accesshistory and addresses
-  // stocks(prisma); // stocks, tickers and stocks overview
-  // operationTypes(prisma);
-  transactions(prisma); // need to be after all seeders ahead separated
-}
-
-// // when main is async
-// main()
-//   .catch((e) => {
-//     console.error(e);
-//     process.exit(1);
-//   }).finally(async () => prisma.$disconnect());
-
-try {
-  main();
-} catch (e) {
-  console.error(e);
-  process.exit(1);
-} finally {
-  const disconnect = async () => {
+    sTransactions(prisma);
+  } catch (e) {
+    console.error(e);
+    process.exit(1);
+  } finally {
     await prisma.$disconnect();
-  };
-
-  disconnect().then((): void => {}).catch((e) => console.log('Error while Prisma disconnect:', e));
+  }
 }
+
+// when main is async
+main().catch((e) => console.log('Error while is seeded:', e));
