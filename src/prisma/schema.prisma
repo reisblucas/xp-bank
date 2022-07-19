@@ -21,7 +21,7 @@ model AccountsBalance {
 
 model AccountsStatement {
   id                Int            @id @default(autoincrement()) @db.UnsignedInt
-  value             Decimal @db.Decimal(10, 2)
+  value             Decimal        @db.Decimal(10, 2)
   UsersLogin_id     Int            @db.UnsignedInt
   OperationTypes_id Int            @db.UnsignedInt
   created_at        DateTime       @default(now())
@@ -141,17 +141,17 @@ model Tickers {
 model Transactions {
   id                Int            @id @default(autoincrement()) @db.UnsignedInt
   Wallets_id        Int            @db.UnsignedInt
-  Ticker            String         @db.VarChar(255)
+  Tickers_id        Int            @db.UnsignedInt
   quantity          Int            @db.UnsignedInt
-  price             Decimal  @db.Decimal(10, 2)
+  price             Decimal        @db.Decimal(10, 2)
   OperationTypes_id Int            @db.UnsignedInt
   created_at        DateTime       @default(now())
   OperationTypes    OperationTypes @relation(fields: [OperationTypes_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "transactions_operationtypes_id_foreign")
   Wallets           Wallets        @relation(fields: [Wallets_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "transactions_wallets_id_foreign")
-  Tickers           Tickers        @relation(fields: [Ticker], references: [ticker], onDelete: NoAction, onUpdate: NoAction, map: "transactions_tickers_ticker_foreign")
+  Tickers           Tickers        @relation(fields: [Tickers_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "transactions_tickers_id_foreign")
   Orders            Orders[]
 
-  @@index([Ticker], map: "transactions_tickers_ticker_foreign")
+  @@index([Tickers_id], map: "transactions_tickers_id_foreign")
   @@index([OperationTypes_id], map: "transactions_operationtypes_id_foreign")
   @@index([Wallets_id], map: "transactions_wallets_id_foreign")
 }
