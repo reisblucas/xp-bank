@@ -1,5 +1,4 @@
 import { writeFile } from 'fs';
-import ENoMagicNumbers from 'src/__interfaces__/nomagicnum.enum';
 import UnserializedFromInfoMoney from '../data/seeds/UnserializedFromInfoMoney.json';
 
 // pos. | key
@@ -9,53 +8,68 @@ import UnserializedFromInfoMoney from '../data/seeds/UnserializedFromInfoMoney.j
 // 4 -> min
 // 5 -> varDay
 // 6 -> varSem
-// 7 -> varYear%
-// 8 -> var12m
-// 9 -> vol ('x'M -> Millions)
-// 10 -> date
+// 7 -> varMon
+// 8 -> varYear%
+// 9 -> var12m
+// 10 -> vol ('x'M -> Millions)
+// 11 -> date
 
-interface IStocksOverview {
-  ticker: string;
-  date: string;
-  lastSell: number;
-  max: number;
-  min: number;
-  varDay: number;
-  varSem: number;
-  varYear: number;
-  var12m: number;
-  vol: number;
-}
+const abbrevLiterals: Record<string, number> = {
+  K: 10 ** 3,
+  M: 10 ** 6,
+  B: 10 ** 9,
+};
+
+const getAbbreviation = (str: string): string => str[str.length - 1];
 
 // serialize to number and turn into million
 const serializeVolField = (vol: string): number => {
-  const { MILLION } = ENoMagicNumbers;
+  const abbreviation: string = getAbbreviation(vol);
+  const abbrevPosition = vol.indexOf(abbreviation);
+  const sliced = vol.slice(0, abbrevPosition);
 
-  const Mposition = vol.indexOf('M');
-  const sliced = vol.slice(0, Mposition);
-
-  return Math.floor(Number(sliced) * +MILLION);
+  return Math.floor(Number(sliced) * (abbrevLiterals[abbreviation]));
 };
 
 const concatYear = (date: string): string => `${date}/${new Date().getFullYear()}`;
 
-const serializeStocksInfo = (): IStocksOverview[] => UnserializedFromInfoMoney
-  .map((str: string) => {
-    const key = {} as IStocksOverview;
+const stocksLiterals: Record<number, string> = {
+  0: 'ticker',
+  1: 'date',
+  2: 'lastSell',
+  3: 'varDay',
+  4: 'varSem',
+  5: 'varMon',
+  6: 'varYear',
+  7: 'var12m',
+  8: 'max',
+  9: 'min',
+  10: 'vol',
+};
 
+type TAssLiteral = Record<number, (f: string) => string | number>;
+
+const assignLiteral: TAssLiteral = {
+  0: (field: string): string => field,
+  1: (field: string): string => concatYear(field),
+  2: (field: string): number => Number(field),
+  3: (field: string): number => Number(field),
+  4: (field: string): number => Number(field),
+  5: (field: string): number => Number(field),
+  6: (field: string): number => Number(field),
+  7: (field: string): number => Number(field),
+  8: (field: string): number => Number(field),
+  9: (field: string): number => Number(field),
+  10: (field: string): number => serializeVolField(field),
+};
+
+const serializeStocksInfo = () => UnserializedFromInfoMoney
+  .map((str: string) => {
+    const key: Record<string, string | number> = {};
     str.split(',')
       .forEach((field: string, i: number) => {
         const dataTrimmed = field.trim();
-        if (i === 0) key.ticker = dataTrimmed;
-        if (i === 1) key.date = concatYear(dataTrimmed);
-        if (i === 2) key.lastSell = Number(dataTrimmed);
-        if (i === 3) key.max = Number(dataTrimmed);
-        if (i === 4) key.max = Number(dataTrimmed);
-        if (i === 5) key.min = Number(dataTrimmed);
-        if (i === 6) key.varDay = Number(dataTrimmed);
-        if (i === 7) key.varSem = Number(dataTrimmed);
-        if (i === 8) key.varYear = Number(dataTrimmed);
-        if (i === 9) key.vol = serializeVolField(dataTrimmed);
+        key[stocksLiterals[i]] = assignLiteral[i](dataTrimmed);
       });
     return key;
   });
