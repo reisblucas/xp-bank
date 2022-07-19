@@ -21,7 +21,7 @@ function main() {
   genders(prisma);
   platforms(prisma);
   users(prisma);
-  stocks(prisma);
+  // stocks(prisma);
 }
 
 // // when main is async
