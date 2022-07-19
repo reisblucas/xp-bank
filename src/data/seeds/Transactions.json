@@ -1,0 +1,2102 @@
+[
+  {
+    "id": 1,
+    "Wallets_id": 88,
+    "Stocks_ticker": 61,
+    "quantity": 3791,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 2,
+    "Wallets_id": 33,
+    "Stocks_ticker": 39,
+    "quantity": 289,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 3,
+    "Wallets_id": 11,
+    "Stocks_ticker": 74,
+    "quantity": 4732,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 4,
+    "Wallets_id": 60,
+    "Stocks_ticker": 1,
+    "quantity": 9831,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 5,
+    "Wallets_id": 23,
+    "Stocks_ticker": 15,
+    "quantity": 1115,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 6,
+    "Wallets_id": 92,
+    "Stocks_ticker": 55,
+    "quantity": 3294,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 7,
+    "Wallets_id": 73,
+    "Stocks_ticker": 71,
+    "quantity": 8598,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 8,
+    "Wallets_id": 21,
+    "Stocks_ticker": 4,
+    "quantity": 1272,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 9,
+    "Wallets_id": 2,
+    "Stocks_ticker": 7,
+    "quantity": 6106,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 10,
+    "Wallets_id": 19,
+    "Stocks_ticker": 23,
+    "quantity": 1967,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 11,
+    "Wallets_id": 44,
+    "Stocks_ticker": 43,
+    "quantity": 5808,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 12,
+    "Wallets_id": 54,
+    "Stocks_ticker": 12,
+    "quantity": 4102,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 13,
+    "Wallets_id": 40,
+    "Stocks_ticker": 35,
+    "quantity": 6540,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 14,
+    "Wallets_id": 77,
+    "Stocks_ticker": 58,
+    "quantity": 4227,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 15,
+    "Wallets_id": 35,
+    "Stocks_ticker": 64,
+    "quantity": 6615,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 16,
+    "Wallets_id": 33,
+    "Stocks_ticker": 38,
+    "quantity": 9575,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 17,
+    "Wallets_id": 55,
+    "Stocks_ticker": 15,
+    "quantity": 6795,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 18,
+    "Wallets_id": 50,
+    "Stocks_ticker": 56,
+    "quantity": 4948,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 19,
+    "Wallets_id": 99,
+    "Stocks_ticker": 4,
+    "quantity": 1705,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 20,
+    "Wallets_id": 88,
+    "Stocks_ticker": 75,
+    "quantity": 2919,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 21,
+    "Wallets_id": 60,
+    "Stocks_ticker": 49,
+    "quantity": 280,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 22,
+    "Wallets_id": 87,
+    "Stocks_ticker": 69,
+    "quantity": 8327,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 23,
+    "Wallets_id": 1,
+    "Stocks_ticker": 13,
+    "quantity": 7487,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 24,
+    "Wallets_id": 59,
+    "Stocks_ticker": 19,
+    "quantity": 467,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 25,
+    "Wallets_id": 48,
+    "Stocks_ticker": 23,
+    "quantity": 3055,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 26,
+    "Wallets_id": 48,
+    "Stocks_ticker": 1,
+    "quantity": 2697,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 27,
+    "Wallets_id": 94,
+    "Stocks_ticker": 54,
+    "quantity": 6985,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 28,
+    "Wallets_id": 40,
+    "Stocks_ticker": 35,
+    "quantity": 1943,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 29,
+    "Wallets_id": 8,
+    "Stocks_ticker": 66,
+    "quantity": 4900,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 30,
+    "Wallets_id": 51,
+    "Stocks_ticker": 5,
+    "quantity": 985,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 31,
+    "Wallets_id": 51,
+    "Stocks_ticker": 20,
+    "quantity": 9290,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 32,
+    "Wallets_id": 82,
+    "Stocks_ticker": 58,
+    "quantity": 4329,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 33,
+    "Wallets_id": 71,
+    "Stocks_ticker": 4,
+    "quantity": 7062,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 34,
+    "Wallets_id": 97,
+    "Stocks_ticker": 5,
+    "quantity": 9879,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 35,
+    "Wallets_id": 55,
+    "Stocks_ticker": 20,
+    "quantity": 4950,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 36,
+    "Wallets_id": 2,
+    "Stocks_ticker": 25,
+    "quantity": 576,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 37,
+    "Wallets_id": 57,
+    "Stocks_ticker": 74,
+    "quantity": 7947,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 38,
+    "Wallets_id": 30,
+    "Stocks_ticker": 42,
+    "quantity": 4466,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 39,
+    "Wallets_id": 82,
+    "Stocks_ticker": 22,
+    "quantity": 2745,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 40,
+    "Wallets_id": 78,
+    "Stocks_ticker": 35,
+    "quantity": 5936,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 41,
+    "Wallets_id": 5,
+    "Stocks_ticker": 43,
+    "quantity": 8590,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 42,
+    "Wallets_id": 27,
+    "Stocks_ticker": 31,
+    "quantity": 1899,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 43,
+    "Wallets_id": 81,
+    "Stocks_ticker": 4,
+    "quantity": 317,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 44,
+    "Wallets_id": 47,
+    "Stocks_ticker": 27,
+    "quantity": 7150,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 45,
+    "Wallets_id": 73,
+    "Stocks_ticker": 30,
+    "quantity": 6387,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 46,
+    "Wallets_id": 6,
+    "Stocks_ticker": 64,
+    "quantity": 9587,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 47,
+    "Wallets_id": 46,
+    "Stocks_ticker": 69,
+    "quantity": 9358,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 48,
+    "Wallets_id": 44,
+    "Stocks_ticker": 14,
+    "quantity": 8595,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 49,
+    "Wallets_id": 76,
+    "Stocks_ticker": 66,
+    "quantity": 3139,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 50,
+    "Wallets_id": 57,
+    "Stocks_ticker": 78,
+    "quantity": 5032,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 51,
+    "Wallets_id": 94,
+    "Stocks_ticker": 65,
+    "quantity": 8612,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 52,
+    "Wallets_id": 59,
+    "Stocks_ticker": 20,
+    "quantity": 6011,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 53,
+    "Wallets_id": 13,
+    "Stocks_ticker": 5,
+    "quantity": 4665,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 54,
+    "Wallets_id": 36,
+    "Stocks_ticker": 34,
+    "quantity": 5222,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 55,
+    "Wallets_id": 1,
+    "Stocks_ticker": 31,
+    "quantity": 4242,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 56,
+    "Wallets_id": 74,
+    "Stocks_ticker": 71,
+    "quantity": 1177,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 57,
+    "Wallets_id": 21,
+    "Stocks_ticker": 49,
+    "quantity": 4417,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 58,
+    "Wallets_id": 45,
+    "Stocks_ticker": 1,
+    "quantity": 5035,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 59,
+    "Wallets_id": 92,
+    "Stocks_ticker": 46,
+    "quantity": 3023,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 60,
+    "Wallets_id": 100,
+    "Stocks_ticker": 12,
+    "quantity": 4712,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 61,
+    "Wallets_id": 62,
+    "Stocks_ticker": 17,
+    "quantity": 5922,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 62,
+    "Wallets_id": 83,
+    "Stocks_ticker": 14,
+    "quantity": 440,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 63,
+    "Wallets_id": 53,
+    "Stocks_ticker": 77,
+    "quantity": 8823,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 64,
+    "Wallets_id": 74,
+    "Stocks_ticker": 5,
+    "quantity": 42,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 65,
+    "Wallets_id": 2,
+    "Stocks_ticker": 62,
+    "quantity": 6185,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 66,
+    "Wallets_id": 95,
+    "Stocks_ticker": 35,
+    "quantity": 7277,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 67,
+    "Wallets_id": 33,
+    "Stocks_ticker": 55,
+    "quantity": 6935,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 68,
+    "Wallets_id": 86,
+    "Stocks_ticker": 44,
+    "quantity": 8713,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 69,
+    "Wallets_id": 2,
+    "Stocks_ticker": 40,
+    "quantity": 1301,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 70,
+    "Wallets_id": 86,
+    "Stocks_ticker": 28,
+    "quantity": 3626,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 71,
+    "Wallets_id": 16,
+    "Stocks_ticker": 30,
+    "quantity": 8994,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 72,
+    "Wallets_id": 30,
+    "Stocks_ticker": 52,
+    "quantity": 6840,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 73,
+    "Wallets_id": 38,
+    "Stocks_ticker": 19,
+    "quantity": 5584,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 74,
+    "Wallets_id": 73,
+    "Stocks_ticker": 15,
+    "quantity": 221,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 75,
+    "Wallets_id": 1,
+    "Stocks_ticker": 20,
+    "quantity": 1243,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 76,
+    "Wallets_id": 31,
+    "Stocks_ticker": 11,
+    "quantity": 5936,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 77,
+    "Wallets_id": 36,
+    "Stocks_ticker": 34,
+    "quantity": 6725,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 78,
+    "Wallets_id": 55,
+    "Stocks_ticker": 4,
+    "quantity": 3745,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 79,
+    "Wallets_id": 19,
+    "Stocks_ticker": 53,
+    "quantity": 6761,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 80,
+    "Wallets_id": 76,
+    "Stocks_ticker": 70,
+    "quantity": 3913,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 81,
+    "Wallets_id": 34,
+    "Stocks_ticker": 76,
+    "quantity": 2526,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 82,
+    "Wallets_id": 84,
+    "Stocks_ticker": 16,
+    "quantity": 9436,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 83,
+    "Wallets_id": 29,
+    "Stocks_ticker": 25,
+    "quantity": 1426,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 84,
+    "Wallets_id": 62,
+    "Stocks_ticker": 27,
+    "quantity": 2800,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 85,
+    "Wallets_id": 92,
+    "Stocks_ticker": 20,
+    "quantity": 2022,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 86,
+    "Wallets_id": 100,
+    "Stocks_ticker": 68,
+    "quantity": 3842,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 87,
+    "Wallets_id": 58,
+    "Stocks_ticker": 68,
+    "quantity": 5607,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 88,
+    "Wallets_id": 92,
+    "Stocks_ticker": 52,
+    "quantity": 4199,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 89,
+    "Wallets_id": 46,
+    "Stocks_ticker": 75,
+    "quantity": 8290,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 90,
+    "Wallets_id": 61,
+    "Stocks_ticker": 7,
+    "quantity": 6324,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 91,
+    "Wallets_id": 4,
+    "Stocks_ticker": 67,
+    "quantity": 6499,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 92,
+    "Wallets_id": 96,
+    "Stocks_ticker": 48,
+    "quantity": 2348,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 93,
+    "Wallets_id": 57,
+    "Stocks_ticker": 19,
+    "quantity": 4752,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 94,
+    "Wallets_id": 64,
+    "Stocks_ticker": 6,
+    "quantity": 4907,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 95,
+    "Wallets_id": 24,
+    "Stocks_ticker": 55,
+    "quantity": 6428,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 96,
+    "Wallets_id": 51,
+    "Stocks_ticker": 13,
+    "quantity": 3027,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 97,
+    "Wallets_id": 56,
+    "Stocks_ticker": 24,
+    "quantity": 7701,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 98,
+    "Wallets_id": 78,
+    "Stocks_ticker": 79,
+    "quantity": 3859,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 99,
+    "Wallets_id": 75,
+    "Stocks_ticker": 47,
+    "quantity": 1557,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 100,
+    "Wallets_id": 69,
+    "Stocks_ticker": 71,
+    "quantity": 1635,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 101,
+    "Wallets_id": 66,
+    "Stocks_ticker": 30,
+    "quantity": 266,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 102,
+    "Wallets_id": 45,
+    "Stocks_ticker": 11,
+    "quantity": 987,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 103,
+    "Wallets_id": 37,
+    "Stocks_ticker": 54,
+    "quantity": 676,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 104,
+    "Wallets_id": 82,
+    "Stocks_ticker": 7,
+    "quantity": 828,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 105,
+    "Wallets_id": 66,
+    "Stocks_ticker": 39,
+    "quantity": 149,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 106,
+    "Wallets_id": 54,
+    "Stocks_ticker": 58,
+    "quantity": 626,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 107,
+    "Wallets_id": 98,
+    "Stocks_ticker": 36,
+    "quantity": 912,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 108,
+    "Wallets_id": 7,
+    "Stocks_ticker": 26,
+    "quantity": 571,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 109,
+    "Wallets_id": 65,
+    "Stocks_ticker": 29,
+    "quantity": 18,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 110,
+    "Wallets_id": 27,
+    "Stocks_ticker": 1,
+    "quantity": 425,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 111,
+    "Wallets_id": 26,
+    "Stocks_ticker": 58,
+    "quantity": 237,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 112,
+    "Wallets_id": 38,
+    "Stocks_ticker": 41,
+    "quantity": 886,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 113,
+    "Wallets_id": 67,
+    "Stocks_ticker": 58,
+    "quantity": 206,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 114,
+    "Wallets_id": 67,
+    "Stocks_ticker": 73,
+    "quantity": 580,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 115,
+    "Wallets_id": 62,
+    "Stocks_ticker": 72,
+    "quantity": 294,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 116,
+    "Wallets_id": 49,
+    "Stocks_ticker": 4,
+    "quantity": 882,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 117,
+    "Wallets_id": 71,
+    "Stocks_ticker": 25,
+    "quantity": 718,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 118,
+    "Wallets_id": 38,
+    "Stocks_ticker": 73,
+    "quantity": 98,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 119,
+    "Wallets_id": 96,
+    "Stocks_ticker": 24,
+    "quantity": 390,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 120,
+    "Wallets_id": 85,
+    "Stocks_ticker": 12,
+    "quantity": 745,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 121,
+    "Wallets_id": 23,
+    "Stocks_ticker": 27,
+    "quantity": 25,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 122,
+    "Wallets_id": 89,
+    "Stocks_ticker": 29,
+    "quantity": 610,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 123,
+    "Wallets_id": 17,
+    "Stocks_ticker": 35,
+    "quantity": 949,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 124,
+    "Wallets_id": 39,
+    "Stocks_ticker": 41,
+    "quantity": 261,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 125,
+    "Wallets_id": 2,
+    "Stocks_ticker": 56,
+    "quantity": 835,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 126,
+    "Wallets_id": 28,
+    "Stocks_ticker": 39,
+    "quantity": 32,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 127,
+    "Wallets_id": 19,
+    "Stocks_ticker": 70,
+    "quantity": 752,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 128,
+    "Wallets_id": 45,
+    "Stocks_ticker": 47,
+    "quantity": 202,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 129,
+    "Wallets_id": 40,
+    "Stocks_ticker": 3,
+    "quantity": 177,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 130,
+    "Wallets_id": 70,
+    "Stocks_ticker": 47,
+    "quantity": 475,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 131,
+    "Wallets_id": 67,
+    "Stocks_ticker": 50,
+    "quantity": 636,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 132,
+    "Wallets_id": 95,
+    "Stocks_ticker": 33,
+    "quantity": 31,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 133,
+    "Wallets_id": 52,
+    "Stocks_ticker": 56,
+    "quantity": 963,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 134,
+    "Wallets_id": 15,
+    "Stocks_ticker": 28,
+    "quantity": 767,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 135,
+    "Wallets_id": 16,
+    "Stocks_ticker": 17,
+    "quantity": 611,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 136,
+    "Wallets_id": 50,
+    "Stocks_ticker": 46,
+    "quantity": 225,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 137,
+    "Wallets_id": 38,
+    "Stocks_ticker": 8,
+    "quantity": 491,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 138,
+    "Wallets_id": 10,
+    "Stocks_ticker": 22,
+    "quantity": 264,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 139,
+    "Wallets_id": 8,
+    "Stocks_ticker": 71,
+    "quantity": 88,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 140,
+    "Wallets_id": 92,
+    "Stocks_ticker": 48,
+    "quantity": 692,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 141,
+    "Wallets_id": 87,
+    "Stocks_ticker": 66,
+    "quantity": 60,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 142,
+    "Wallets_id": 97,
+    "Stocks_ticker": 17,
+    "quantity": 99,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 143,
+    "Wallets_id": 42,
+    "Stocks_ticker": 72,
+    "quantity": 867,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 144,
+    "Wallets_id": 91,
+    "Stocks_ticker": 16,
+    "quantity": 422,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 145,
+    "Wallets_id": 85,
+    "Stocks_ticker": 47,
+    "quantity": 498,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 146,
+    "Wallets_id": 42,
+    "Stocks_ticker": 49,
+    "quantity": 515,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 147,
+    "Wallets_id": 12,
+    "Stocks_ticker": 25,
+    "quantity": 876,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 148,
+    "Wallets_id": 10,
+    "Stocks_ticker": 38,
+    "quantity": 309,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 149,
+    "Wallets_id": 14,
+    "Stocks_ticker": 4,
+    "quantity": 387,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 150,
+    "Wallets_id": 55,
+    "Stocks_ticker": 35,
+    "quantity": 539,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 151,
+    "Wallets_id": 27,
+    "Stocks_ticker": 60,
+    "quantity": 880,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 152,
+    "Wallets_id": 97,
+    "Stocks_ticker": 53,
+    "quantity": 648,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 153,
+    "Wallets_id": 24,
+    "Stocks_ticker": 72,
+    "quantity": 933,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 154,
+    "Wallets_id": 78,
+    "Stocks_ticker": 54,
+    "quantity": 906,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 155,
+    "Wallets_id": 29,
+    "Stocks_ticker": 34,
+    "quantity": 304,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 156,
+    "Wallets_id": 38,
+    "Stocks_ticker": 53,
+    "quantity": 400,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 157,
+    "Wallets_id": 83,
+    "Stocks_ticker": 19,
+    "quantity": 391,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 158,
+    "Wallets_id": 8,
+    "Stocks_ticker": 38,
+    "quantity": 777,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 159,
+    "Wallets_id": 96,
+    "Stocks_ticker": 48,
+    "quantity": 74,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 160,
+    "Wallets_id": 59,
+    "Stocks_ticker": 18,
+    "quantity": 57,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 161,
+    "Wallets_id": 89,
+    "Stocks_ticker": 58,
+    "quantity": 512,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 162,
+    "Wallets_id": 96,
+    "Stocks_ticker": 54,
+    "quantity": 837,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 163,
+    "Wallets_id": 47,
+    "Stocks_ticker": 37,
+    "quantity": 47,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 164,
+    "Wallets_id": 26,
+    "Stocks_ticker": 6,
+    "quantity": 345,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 165,
+    "Wallets_id": 88,
+    "Stocks_ticker": 29,
+    "quantity": 829,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 166,
+    "Wallets_id": 88,
+    "Stocks_ticker": 5,
+    "quantity": 610,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 167,
+    "Wallets_id": 64,
+    "Stocks_ticker": 37,
+    "quantity": 463,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 168,
+    "Wallets_id": 95,
+    "Stocks_ticker": 23,
+    "quantity": 348,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 169,
+    "Wallets_id": 7,
+    "Stocks_ticker": 7,
+    "quantity": 40,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 170,
+    "Wallets_id": 54,
+    "Stocks_ticker": 43,
+    "quantity": 526,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 171,
+    "Wallets_id": 43,
+    "Stocks_ticker": 33,
+    "quantity": 945,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 172,
+    "Wallets_id": 6,
+    "Stocks_ticker": 4,
+    "quantity": 345,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 173,
+    "Wallets_id": 63,
+    "Stocks_ticker": 68,
+    "quantity": 626,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 174,
+    "Wallets_id": 58,
+    "Stocks_ticker": 78,
+    "quantity": 353,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 175,
+    "Wallets_id": 48,
+    "Stocks_ticker": 2,
+    "quantity": 343,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 176,
+    "Wallets_id": 94,
+    "Stocks_ticker": 49,
+    "quantity": 223,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 177,
+    "Wallets_id": 27,
+    "Stocks_ticker": 78,
+    "quantity": 941,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 178,
+    "Wallets_id": 95,
+    "Stocks_ticker": 70,
+    "quantity": 344,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 179,
+    "Wallets_id": 12,
+    "Stocks_ticker": 64,
+    "quantity": 310,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 180,
+    "Wallets_id": 38,
+    "Stocks_ticker": 5,
+    "quantity": 382,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 181,
+    "Wallets_id": 68,
+    "Stocks_ticker": 62,
+    "quantity": 49,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 182,
+    "Wallets_id": 44,
+    "Stocks_ticker": 49,
+    "quantity": 201,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 183,
+    "Wallets_id": 22,
+    "Stocks_ticker": 45,
+    "quantity": 443,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 184,
+    "Wallets_id": 71,
+    "Stocks_ticker": 23,
+    "quantity": 656,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 185,
+    "Wallets_id": 89,
+    "Stocks_ticker": 29,
+    "quantity": 365,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 186,
+    "Wallets_id": 43,
+    "Stocks_ticker": 51,
+    "quantity": 120,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 187,
+    "Wallets_id": 23,
+    "Stocks_ticker": 36,
+    "quantity": 765,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 188,
+    "Wallets_id": 10,
+    "Stocks_ticker": 68,
+    "quantity": 654,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 189,
+    "Wallets_id": 13,
+    "Stocks_ticker": 38,
+    "quantity": 587,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 190,
+    "Wallets_id": 74,
+    "Stocks_ticker": 5,
+    "quantity": 978,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 191,
+    "Wallets_id": 18,
+    "Stocks_ticker": 69,
+    "quantity": 513,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 192,
+    "Wallets_id": 62,
+    "Stocks_ticker": 19,
+    "quantity": 891,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 193,
+    "Wallets_id": 6,
+    "Stocks_ticker": 22,
+    "quantity": 16,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 194,
+    "Wallets_id": 52,
+    "Stocks_ticker": 60,
+    "quantity": 292,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 195,
+    "Wallets_id": 35,
+    "Stocks_ticker": 10,
+    "quantity": 221,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 196,
+    "Wallets_id": 83,
+    "Stocks_ticker": 12,
+    "quantity": 927,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 197,
+    "Wallets_id": 53,
+    "Stocks_ticker": 48,
+    "quantity": 367,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 198,
+    "Wallets_id": 48,
+    "Stocks_ticker": 45,
+    "quantity": 914,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 199,
+    "Wallets_id": 49,
+    "Stocks_ticker": 51,
+    "quantity": 573,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 200,
+    "Wallets_id": 5,
+    "Stocks_ticker": 42,
+    "quantity": 663,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 201,
+    "Wallets_id": 43,
+    "Stocks_ticker": 73,
+    "quantity": 59,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 202,
+    "Wallets_id": 83,
+    "Stocks_ticker": 16,
+    "quantity": 108,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 203,
+    "Wallets_id": 88,
+    "Stocks_ticker": 57,
+    "quantity": 136,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 204,
+    "Wallets_id": 48,
+    "Stocks_ticker": 7,
+    "quantity": 107,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 205,
+    "Wallets_id": 36,
+    "Stocks_ticker": 69,
+    "quantity": 133,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 206,
+    "Wallets_id": 56,
+    "Stocks_ticker": 9,
+    "quantity": 24,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 207,
+    "Wallets_id": 42,
+    "Stocks_ticker": 44,
+    "quantity": 157,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 208,
+    "Wallets_id": 82,
+    "Stocks_ticker": 77,
+    "quantity": 93,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 209,
+    "Wallets_id": 13,
+    "Stocks_ticker": 28,
+    "quantity": 91,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 210,
+    "Wallets_id": 19,
+    "Stocks_ticker": 12,
+    "quantity": 11,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 211,
+    "Wallets_id": 31,
+    "Stocks_ticker": 11,
+    "quantity": 77,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 212,
+    "Wallets_id": 64,
+    "Stocks_ticker": 23,
+    "quantity": 48,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 213,
+    "Wallets_id": 60,
+    "Stocks_ticker": 23,
+    "quantity": 55,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 214,
+    "Wallets_id": 67,
+    "Stocks_ticker": 71,
+    "quantity": 10,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 215,
+    "Wallets_id": 5,
+    "Stocks_ticker": 17,
+    "quantity": 46,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 216,
+    "Wallets_id": 68,
+    "Stocks_ticker": 59,
+    "quantity": 53,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 217,
+    "Wallets_id": 46,
+    "Stocks_ticker": 23,
+    "quantity": 38,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 218,
+    "Wallets_id": 16,
+    "Stocks_ticker": 67,
+    "quantity": 61,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 219,
+    "Wallets_id": 42,
+    "Stocks_ticker": 79,
+    "quantity": 150,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 220,
+    "Wallets_id": 38,
+    "Stocks_ticker": 30,
+    "quantity": 95,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 221,
+    "Wallets_id": 79,
+    "Stocks_ticker": 2,
+    "quantity": 3,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 222,
+    "Wallets_id": 74,
+    "Stocks_ticker": 18,
+    "quantity": 100,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 223,
+    "Wallets_id": 61,
+    "Stocks_ticker": 31,
+    "quantity": 117,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 224,
+    "Wallets_id": 53,
+    "Stocks_ticker": 24,
+    "quantity": 121,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 225,
+    "Wallets_id": 48,
+    "Stocks_ticker": 10,
+    "quantity": 36,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 226,
+    "Wallets_id": 85,
+    "Stocks_ticker": 53,
+    "quantity": 167,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 227,
+    "Wallets_id": 76,
+    "Stocks_ticker": 57,
+    "quantity": 64,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 228,
+    "Wallets_id": 81,
+    "Stocks_ticker": 59,
+    "quantity": 139,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 229,
+    "Wallets_id": 24,
+    "Stocks_ticker": 6,
+    "quantity": 184,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 230,
+    "Wallets_id": 74,
+    "Stocks_ticker": 15,
+    "quantity": 181,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 231,
+    "Wallets_id": 28,
+    "Stocks_ticker": 37,
+    "quantity": 170,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 232,
+    "Wallets_id": 59,
+    "Stocks_ticker": 33,
+    "quantity": 187,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 233,
+    "Wallets_id": 39,
+    "Stocks_ticker": 64,
+    "quantity": 180,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 234,
+    "Wallets_id": 53,
+    "Stocks_ticker": 36,
+    "quantity": 48,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 235,
+    "Wallets_id": 72,
+    "Stocks_ticker": 43,
+    "quantity": 49,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 236,
+    "Wallets_id": 3,
+    "Stocks_ticker": 68,
+    "quantity": 12,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 237,
+    "Wallets_id": 8,
+    "Stocks_ticker": 4,
+    "quantity": 90,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 238,
+    "Wallets_id": 25,
+    "Stocks_ticker": 37,
+    "quantity": 2,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 239,
+    "Wallets_id": 21,
+    "Stocks_ticker": 7,
+    "quantity": 86,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 240,
+    "Wallets_id": 49,
+    "Stocks_ticker": 79,
+    "quantity": 21,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 241,
+    "Wallets_id": 47,
+    "Stocks_ticker": 75,
+    "quantity": 53,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 242,
+    "Wallets_id": 54,
+    "Stocks_ticker": 40,
+    "quantity": 136,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 243,
+    "Wallets_id": 25,
+    "Stocks_ticker": 17,
+    "quantity": 48,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 244,
+    "Wallets_id": 40,
+    "Stocks_ticker": 64,
+    "quantity": 173,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 245,
+    "Wallets_id": 47,
+    "Stocks_ticker": 56,
+    "quantity": 86,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 246,
+    "Wallets_id": 14,
+    "Stocks_ticker": 58,
+    "quantity": 81,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 247,
+    "Wallets_id": 50,
+    "Stocks_ticker": 76,
+    "quantity": 2,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 248,
+    "Wallets_id": 94,
+    "Stocks_ticker": 30,
+    "quantity": 138,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 249,
+    "Wallets_id": 23,
+    "Stocks_ticker": 42,
+    "quantity": 110,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 250,
+    "Wallets_id": 18,
+    "Stocks_ticker": 46,
+    "quantity": 34,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 251,
+    "Wallets_id": 69,
+    "Stocks_ticker": 51,
+    "quantity": 181,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 252,
+    "Wallets_id": 65,
+    "Stocks_ticker": 58,
+    "quantity": 32,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 253,
+    "Wallets_id": 64,
+    "Stocks_ticker": 9,
+    "quantity": 27,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 254,
+    "Wallets_id": 72,
+    "Stocks_ticker": 36,
+    "quantity": 182,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 255,
+    "Wallets_id": 53,
+    "Stocks_ticker": 37,
+    "quantity": 117,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 256,
+    "Wallets_id": 54,
+    "Stocks_ticker": 44,
+    "quantity": 24,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 257,
+    "Wallets_id": 1,
+    "Stocks_ticker": 76,
+    "quantity": 198,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 258,
+    "Wallets_id": 72,
+    "Stocks_ticker": 20,
+    "quantity": 133,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 259,
+    "Wallets_id": 13,
+    "Stocks_ticker": 23,
+    "quantity": 131,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 260,
+    "Wallets_id": 9,
+    "Stocks_ticker": 76,
+    "quantity": 36,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 261,
+    "Wallets_id": 24,
+    "Stocks_ticker": 8,
+    "quantity": 82,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 262,
+    "Wallets_id": 70,
+    "Stocks_ticker": 25,
+    "quantity": 164,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 263,
+    "Wallets_id": 38,
+    "Stocks_ticker": 7,
+    "quantity": 115,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 264,
+    "Wallets_id": 1,
+    "Stocks_ticker": 21,
+    "quantity": 192,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 265,
+    "Wallets_id": 23,
+    "Stocks_ticker": 8,
+    "quantity": 2,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 266,
+    "Wallets_id": 5,
+    "Stocks_ticker": 67,
+    "quantity": 166,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 267,
+    "Wallets_id": 43,
+    "Stocks_ticker": 34,
+    "quantity": 160,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 268,
+    "Wallets_id": 37,
+    "Stocks_ticker": 37,
+    "quantity": 177,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 269,
+    "Wallets_id": 44,
+    "Stocks_ticker": 22,
+    "quantity": 84,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 270,
+    "Wallets_id": 38,
+    "Stocks_ticker": 72,
+    "quantity": 54,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 271,
+    "Wallets_id": 46,
+    "Stocks_ticker": 13,
+    "quantity": 46,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 272,
+    "Wallets_id": 61,
+    "Stocks_ticker": 13,
+    "quantity": 106,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 273,
+    "Wallets_id": 25,
+    "Stocks_ticker": 28,
+    "quantity": 193,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 274,
+    "Wallets_id": 78,
+    "Stocks_ticker": 57,
+    "quantity": 10,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 275,
+    "Wallets_id": 13,
+    "Stocks_ticker": 68,
+    "quantity": 174,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 276,
+    "Wallets_id": 48,
+    "Stocks_ticker": 68,
+    "quantity": 120,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 277,
+    "Wallets_id": 50,
+    "Stocks_ticker": 17,
+    "quantity": 126,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 278,
+    "Wallets_id": 82,
+    "Stocks_ticker": 1,
+    "quantity": 72,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 279,
+    "Wallets_id": 76,
+    "Stocks_ticker": 68,
+    "quantity": 112,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 280,
+    "Wallets_id": 81,
+    "Stocks_ticker": 35,
+    "quantity": 55,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 281,
+    "Wallets_id": 13,
+    "Stocks_ticker": 30,
+    "quantity": 137,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 282,
+    "Wallets_id": 20,
+    "Stocks_ticker": 62,
+    "quantity": 49,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 283,
+    "Wallets_id": 50,
+    "Stocks_ticker": 57,
+    "quantity": 141,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 284,
+    "Wallets_id": 19,
+    "Stocks_ticker": 2,
+    "quantity": 46,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 285,
+    "Wallets_id": 5,
+    "Stocks_ticker": 54,
+    "quantity": 172,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 286,
+    "Wallets_id": 20,
+    "Stocks_ticker": 11,
+    "quantity": 131,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 287,
+    "Wallets_id": 78,
+    "Stocks_ticker": 12,
+    "quantity": 125,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 288,
+    "Wallets_id": 63,
+    "Stocks_ticker": 34,
+    "quantity": 167,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 289,
+    "Wallets_id": 50,
+    "Stocks_ticker": 24,
+    "quantity": 133,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 290,
+    "Wallets_id": 50,
+    "Stocks_ticker": 2,
+    "quantity": 146,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 291,
+    "Wallets_id": 31,
+    "Stocks_ticker": 22,
+    "quantity": 22,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 292,
+    "Wallets_id": 46,
+    "Stocks_ticker": 5,
+    "quantity": 160,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 293,
+    "Wallets_id": 44,
+    "Stocks_ticker": 79,
+    "quantity": 36,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 294,
+    "Wallets_id": 46,
+    "Stocks_ticker": 45,
+    "quantity": 70,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 295,
+    "Wallets_id": 7,
+    "Stocks_ticker": 30,
+    "quantity": 10,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 296,
+    "Wallets_id": 41,
+    "Stocks_ticker": 70,
+    "quantity": 141,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 297,
+    "Wallets_id": 86,
+    "Stocks_ticker": 68,
+    "quantity": 152,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 298,
+    "Wallets_id": 65,
+    "Stocks_ticker": 49,
+    "quantity": 158,
+    "OperationTypes_id": 2
+  },
+  {
+    "id": 299,
+    "Wallets_id": 84,
+    "Stocks_ticker": 72,
+    "quantity": 5,
+    "OperationTypes_id": 1
+  },
+  {
+    "id": 300,
+    "Wallets_id": 83,
+    "Stocks_ticker": 43,
+    "quantity": 162,
+    "OperationTypes_id": 1
+  }
+]
