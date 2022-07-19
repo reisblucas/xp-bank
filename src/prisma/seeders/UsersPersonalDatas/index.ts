@@ -8,6 +8,7 @@ import GendersRelation from '../../../data/seeds/GendersRelation.json';
 import Addresses from '../../../data/seeds/Addresses.json';
 import AccessHRelations from '../../../data/seeds/AccessHRelations.json';
 import WalletsName from '../../../data/seeds/WalletsName.json';
+import AccountsBalance from '../../../data/seeds/AccountsBalance.json';
 
 // seed users: UserLogin -> AccountsBalance -> Addresses | when user signup
 const sUsers = (prisma: PrismaClient) => UsersPersonalData
@@ -18,7 +19,7 @@ const sUsers = (prisma: PrismaClient) => UsersPersonalData
       salt: security.salt.dynamic,
       AccountsBalance: {
         create: {
-          balance: 0,
+          balance: AccountsBalance[i].balance,
         },
       },
       PersonalDatas: {
