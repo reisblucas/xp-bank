@@ -6,7 +6,6 @@ export default class StocksService {
   public getAll = async () => this.prisma.tickers.findMany(({
     include: {
       FSExchangeOverview: {},
-      Stocks: {},
     },
   }));
 }
