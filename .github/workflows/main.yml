@@ -32,7 +32,7 @@ jobs:
         run: pnpm install
 
       - name: ESLint - Detect lint errors
-        run: pnpm eslint ./src --ext .ts
+        run: pnpm eslint --ext .ts ./src
 
   jest:
     needs: eslint
