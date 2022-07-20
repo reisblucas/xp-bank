@@ -5,7 +5,7 @@
     // "experimentalDecorators": true,
 
     /* Modules */
-    "types": ["node"],
+    "types": ["node", "jest"],
     "module": "commonjs",
     "resolveJsonModule": true,
     "moduleResolution": "node",
@@ -35,10 +35,12 @@
     "skipLibCheck": true
   },
   "exclude": [
-    "./node_modules/*",
+    "node_modules",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
   ],
   "include": [
-    "./src/**/*.ts",
-    ".src/prisma/**/*.ts"
+    "src/prisma/**/*.ts",
+    "src/**/*.ts"
   ],
 }
