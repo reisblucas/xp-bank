@@ -1,10 +1,11 @@
-import express, { Router } from 'express';
+import express from 'express';
+import ErrorHandler from './middlewares/ErrorHandler';
+import routers from './routers';
 
 const app = express();
 app.use(express.json());
 
-const boiler = Router();
-
-app.use(boiler);
+app.use(routers);
+app.use(ErrorHandler);
 
 export default app;
