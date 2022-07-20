@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import Stocks from '../../../data/seeds/Stocks.json';
 import SerializedInfoMoney from '../../../data/seeds/SerializedInfoMoney.json';
+import newDateMethods from '@utils/newDateMethods';
 
 export const OnlyStocksProvidedByInfoMoney = Stocks.filter(({ cd_acao }) => SerializedInfoMoney
   .find(({ ticker }) => cd_acao.includes(ticker)));
@@ -40,7 +41,7 @@ const sTickersStocks = (prisma: PrismaClient) => OnlyStocksProvidedByInfoMoney
                   Stocks_id: createdStock.id,
                   FSExchangeOverview: {
                     create: {
-                      date,
+                      date: newDateMethods.formatter(new Date(date)),
                       lastSell,
                       varDay,
                       varSem,
