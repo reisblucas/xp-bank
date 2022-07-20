@@ -1,1 +1,2 @@
 src/data/seeds/*.json
+jest.config.ts

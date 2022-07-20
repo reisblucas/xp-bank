@@ -5,7 +5,7 @@
     // "experimentalDecorators": true,
 
     /* Modules */
-    "types": ["node", "jest"],
+    "types": ["node", "jest", "@types/jest"],
     "module": "commonjs",
     "resolveJsonModule": true,
     "moduleResolution": "node",
@@ -35,8 +35,6 @@
   },
   "exclude": [
     "node_modules",
-    "src/**/*.spec.ts",
-    "src/**/*.test.ts"
   ],
   "include": [
     "src/prisma/**/*.ts",
