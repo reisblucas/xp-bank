@@ -1,0 +1,58 @@
+name: XP CI/CD
+
+on:
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, closed, synchronize]
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  eslint:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Fetch commit history + checkout
+        uses: actions/checkout@v3
+
+      - name: pnpm setup
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: latest
+
+      - name: Install Node.js and make a cache
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Detect lint errors
+        run: pnpm lint
+
+  build:
+    needs: eslint
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Fetch commit history + checkout
+        uses: actions/checkout@v3
+
+      - name: pnpm setup
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: latest
+
+      - name: Install Node.js and make a cache
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build app
+        run: pnpm build
