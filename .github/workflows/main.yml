@@ -30,10 +30,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Detect lint errors
+      - name: Lint - Detect lint errors
         run: pnpm lint
 
-  build:
+  jest:
     needs: eslint
     runs-on: ubuntu-20.04
     steps:
@@ -54,5 +54,29 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build app
+      - name: Jest - Verify tests
+        run: pnpm test
+
+  build:
+    needs: [eslint, jest]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Fetch commit history + checkout
+        uses: actions/checkout@v3
+
+      - name: pnpm setup
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: latest
+
+      - name: Install Node.js and make a cache
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build - try to build app
         run: pnpm build
