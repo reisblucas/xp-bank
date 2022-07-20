@@ -13,12 +13,11 @@
     "baseUrl": ".",
     "rootDir": "./src",
     "paths": {
-      "@models/*": ["./src/models/*"],
-      "@services/*": ["./src/services/*"],
-      "@controllers/*": ["./src/controllers/*"],
+      "@services/*": ["./src/repositories/services/*"],
+      "@controllers/*": ["./src/repositories/controllers/*"],
       "@utils/*": ["./src/utils/*"],
       "@interfaces/*": ["./src/interfaces/*"],
-      "@connection/*": ["./src/connection/*"],
+      // "@connection/*": ["./src/connection/*"],
       "@data/*": ["./src/data/*"]
     },
     "typeRoots": [
