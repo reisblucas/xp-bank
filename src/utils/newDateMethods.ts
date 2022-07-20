@@ -1,6 +1,6 @@
 import changeFormat from './dateChangeFormat';
 
-const removeTZ = (date: Date) => date.toISOString().split('T')[0];
+const removeTZ = (date: Date): string => date.toISOString().split('T')[0];
 
 const Dplus2 = (): string => {
   const twoDaysInMS = 48 * 60 * 60 * 1000; // 48h
