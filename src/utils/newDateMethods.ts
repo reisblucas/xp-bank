@@ -1,3 +1,5 @@
+import changeFormat from './dateChangeFormat';
+
 const removeTZ = (date: Date) => date.toISOString().split('T')[0];
 
 const Dplus2 = (): string => {
@@ -7,33 +9,10 @@ const Dplus2 = (): string => {
 
   return removeTZ(orderWillBeExecutedAt);
 };
-
-const dateSeparatorOptions: Record<string, string> = {
-  '/': '/',
-  '-': '-',
-  '|': '|',
-  '+': '+',
-  '.': '.',
-  ',': ',',
-};
-
-const dateFormatLiterals: Record<string, () => number> = {
-  'dmy': () =>,
-}
-
-const changer = (date: string) => {
-  Object.keys(dateSeparatorOptions);
-  date.split('')
-}
-
-// const changeFormat = (date: string, format: string, options?: string) => {
-//   // dd/mm/yyyy -> yyyy-mm-dd
-//   dateFormatLiterals[format]
-// }
-
 const newDateMethods = {
   removeTZ,
   Dplus2,
+  changeFormat,
 };
 
 export default newDateMethods;

@@ -22,7 +22,13 @@ const formatter = (dateSplitted: string[], newFormat: string, options = '/'): st
     return prev.concat(`${dateSplitted[order[crr]]}`);
   }, '');
 
-const changer = (date: string, newFormat: string, options?: string): string => {
+const formatDecimalPlaces = (dataSplitted: string[]): string[] => dataSplitted.map((field) => {
+  const doesNotHaveZeroAtInitial = field[0] !== '0';
+  const fieldIsLesserThan10 = (+field < 10);
+  return fieldIsLesserThan10 && doesNotHaveZeroAtInitial ? `0${field}` : field;
+});
+
+const changeFormat = (date: string, newFormat: string, options?: string): string => {
   const objSeparatorLength = Object.keys(dateSeparatorOptions);
   const invalid = 'Invalid Date';
 
@@ -51,7 +57,9 @@ const changer = (date: string, newFormat: string, options?: string): string => {
     return theUserOptionExists;
   }
 
-  return dateSplitted && formatter(dateSplitted as string[], newFormat, options);
+  const castDateSplitted = dateSplitted as string[];
+  const placesFormatted = formatDecimalPlaces(castDateSplitted);
+  return dateSplitted && formatter(placesFormatted, newFormat, options);
 };
 
-export default changer;
+export default changeFormat;

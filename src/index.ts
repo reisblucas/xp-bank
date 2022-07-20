@@ -1,5 +1,6 @@
 import app from './app';
 import 'dotenv/config';
+import changeFormat from '@utils/dateChangeFormat';
 // import newDateMethods from '@utils/newDateMethods';
 // import createNewFile from '@utils/serializeAndCreateJSON';
 
@@ -16,3 +17,9 @@ app.listen(PORT, () => console.log(
 // createNewFile('./src/data/seeds/SerializedInfoMoney.json');
 
 // console.log(newDateMethods.Dplus2());
+console.log('1', changeFormat('20,03,2016', 'dmy'));
+console.log('2', changeFormat('20,03,2016', 'dym'));
+console.log('3', changeFormat('20,03,2016', 'myd'));
+console.log('4', changeFormat('20,03,2016', 'mdy'));
+console.log('5', changeFormat('20,03,2016', 'ydm'));
+console.log('6', changeFormat('20,03,2016', 'ymd'));

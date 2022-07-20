@@ -10,6 +10,8 @@ import AccessHRelations from '../../../data/seeds/AccessHRelations.json';
 import WalletsName from '../../../data/seeds/WalletsName.json';
 import AccountsBalance from '../../../data/seeds/AccountsBalance.json';
 
+const { changeFormat, removeTZ } = newDateMethods;
+
 // seed users: UserLogin -> AccountsBalance -> Addresses | when user signup
 const sUsers = (prisma: PrismaClient) => UsersPersonalData
   .map(async (user, i) => prisma.usersLogin.create({
@@ -26,7 +28,7 @@ const sUsers = (prisma: PrismaClient) => UsersPersonalData
         create: {
           first_name: user.first_name,
           last_name: user.last_name,
-          birth_date: newDateMethods.formatter(new Date(user.birth_date)), // yyyy/mm/dd -> yyyy-mm-dd
+          birth_date: removeTZ(new Date(user.birth_date)), // yyyy/mm/dd -> yyyy-mm-dd
           rg: RGs[i],
           cpf: CPFs[i],
           Genders_id: Number(GendersRelation[i].userRelation),
