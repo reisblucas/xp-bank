@@ -35,10 +35,12 @@
     "skipLibCheck": true
   },
   "exclude": [
-    "./node_modules/*",
+    "node_modules",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts"
   ],
   "include": [
-    // "./src/**/*.ts",
-    "./src/prisma/**/*.ts"
+    "src/prisma/**/*.ts",
+    "src/**/*.ts"
   ],
 }
