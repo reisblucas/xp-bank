@@ -10,7 +10,7 @@ import AccessHRelations from '../../../data/seeds/AccessHRelations.json';
 import WalletsName from '../../../data/seeds/WalletsName.json';
 import AccountsBalance from '../../../data/seeds/AccountsBalance.json';
 
-const { changeFormat, removeTZ } = newDateMethods;
+const { removeTZ } = newDateMethods;
 
 // seed users: UserLogin -> AccountsBalance -> Addresses | when user signup
 const sUsers = (prisma: PrismaClient) => UsersPersonalData
