@@ -32,7 +32,7 @@ jobs:
         run: pnpm install
 
       - name: Lint - Detect lint errors
-        run: pnpm lint
+        run: pnpm eslint
 
   jest:
     needs: eslint
