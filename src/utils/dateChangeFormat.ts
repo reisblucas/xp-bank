@@ -1,3 +1,5 @@
+// some date forma provided by user with some of this characters below,
+// to use as ref to set newFormat
 const dateSeparatorOptions: Record <number, string> = {
   0: '/',
   1: '-',
@@ -5,6 +7,8 @@ const dateSeparatorOptions: Record <number, string> = {
   3: '+',
   4: '.',
   5: ',',
+  6: ';',
+  7: ':',
 };
 
 const order: Record<string, number> = {

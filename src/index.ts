@@ -1,5 +1,6 @@
 import app from './app';
 import 'dotenv/config';
+// import newDateMethods from '@utils/newDateMethods';
 
 const PORT = process.env.PORT || 3001;
 
@@ -14,3 +15,4 @@ app.listen(PORT, () => console.log(
 // createNewFile('./src/data/seeds/SerializedInfoMoney.json');
 
 // console.log(newDateMethods.Dplus2());
+// console.log(newDateMethods.changeFormat('3/2/5', 'mdy'));
