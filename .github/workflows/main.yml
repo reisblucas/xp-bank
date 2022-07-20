@@ -31,8 +31,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Lint - Detect lint errors
-        run: pnpm eslint
+      - name: ESLint - Detect lint errors
+        run: pnpm eslint ./src --ext .ts
 
   jest:
     needs: eslint
@@ -56,7 +56,7 @@ jobs:
         run: pnpm install
 
       - name: Jest - Verify tests
-        run: pnpm test
+        run: pnpm jest
 
   build:
     needs: [eslint, jest]
@@ -80,4 +80,4 @@ jobs:
         run: pnpm install
 
       - name: Build - try to build app
-        run: pnpm build
+        run: pnpm tsc --build
