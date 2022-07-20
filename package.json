@@ -36,7 +36,9 @@
     "dbmigrate": "prisma migrate dev",
     "dbseed": "prisma db seed",
     "pump": "bash drop_db.sh && prisma db push && prisma db seed",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc --build",
+    "clean": "tsc --clean"
   },
   "keywords": [],
   "author": "Lucas Barbosa dos Reis - neur4l - 15/07/2022",

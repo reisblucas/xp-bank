@@ -6,8 +6,8 @@ on:
   pull_request:
     types: [opened, closed, synchronize]
   push:
-    branches:
-      - 'main'
+    - main
+    - '**'
 
 jobs:
   eslint:
