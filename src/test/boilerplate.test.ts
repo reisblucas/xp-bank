@@ -1,7 +1,7 @@
 test('test', () => {
   const initial = 'test';
 
-  expect(initial).toBe('test');
+  expect(initial).not.toBe('test');
 });
 
 test('boilerplate', () => {
