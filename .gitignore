@@ -1,9 +1,12 @@
 # unnecessary
 node_modules/
 .env*
+!.env.example
 
 # anothers
 
 # db credentials
 sql_file_name.txt
 dbname.txt
+
+README.md
