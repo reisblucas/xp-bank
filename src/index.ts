@@ -1,6 +1,8 @@
-import security from '@utils/security';
 import app from './app';
 import 'dotenv/config';
+import changeFormat from '@utils/dateChangeFormat';
+// import newDateMethods from '@utils/newDateMethods';
+// import createNewFile from '@utils/serializeAndCreateJSON';
 
 const PORT = process.env.PORT || 3001;
 
@@ -12,9 +14,12 @@ app.listen(PORT, () => console.log(
 // console.log('hasher: \n', security.hasher('lucas'), '\n');
 // console.log('encryptAndHash: \n', security.encryptAndHash('lucas'), '\n');
 
-// const local_salt = process.env.SALT as string;
-const pwdDb = 'pwssR+spUuulNHUHv0A25s2Q+FQLm5KRIgTACyCg4NQ=';
-const saltDb = 'fQzGumqpEIi7PlrvzTO+1JSLX1M8c+EW5f8VvydLrXk=';
+// createNewFile('./src/data/seeds/SerializedInfoMoney.json');
 
-console.log('if info hashed', security.validateHash(pwdDb, saltDb));
-console.log('pwd encrypted ', security.validateHash(pwdDb, saltDb));
+// console.log(newDateMethods.Dplus2());
+console.log('1', changeFormat('20,03,2016', 'dmy'));
+console.log('2', changeFormat('20,03,2016', 'dym'));
+console.log('3', changeFormat('20,03,2016', 'myd'));
+console.log('4', changeFormat('20,03,2016', 'mdy'));
+console.log('5', changeFormat('20,03,2016', 'ydm'));
+console.log('6', changeFormat('20,03,2016', 'ymd'));
