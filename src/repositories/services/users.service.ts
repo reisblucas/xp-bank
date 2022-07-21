@@ -1,9 +1,11 @@
-import { IUserSignUp } from '@interfaces/users.interface';
+import { IJwtPayload } from '@interfaces/jwt.interface';
+import { IUserSignUp, IUserSignIn } from '@interfaces/users.interface';
 import { PrismaClient } from '@prisma/client';
 import HttpException from '@utils/HttpException';
 import jwt from '@utils/jwt';
 import newDateMethods from '@utils/newDateMethods';
 import security from '@utils/security';
+import unauthorized from '@utils/unauthorized';
 
 export default class UsersService {
   constructor(private prisma = new PrismaClient()) {}
@@ -94,5 +96,44 @@ export default class UsersService {
     }
 
     throw new HttpException(400, 'Server error while user sign up');
+  };
+
+  public signIn = async ({ email, password }: IUserSignIn) => {
+    const user = await this.prisma.users.findFirst({
+      where: {
+        email,
+      },
+    });
+
+    unauthorized(user);
+
+    const validatePassword = security
+      .validateHash(user?.password as string, password, user?.salt as string);
+
+    unauthorized(validatePassword);
+
+    const JWTpayload = await this.prisma.users.findFirst({
+      select: {
+        id: true,
+        email: true,
+        PersonalDatas: {
+          select: {
+            first_name: true,
+            last_name: true,
+          },
+        },
+      },
+      where: {
+        email,
+      },
+    });
+
+    if (JWTpayload) {
+      const token = jwt.generateToken((JWTpayload as unknown) as IJwtPayload);
+      return { token };
+    }
+
+    console.log('Error in generate JWT');
+    throw new Error();
   };
 }
