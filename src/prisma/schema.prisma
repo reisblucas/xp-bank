@@ -3,17 +3,6 @@ generator client {
   previewFeatures = ["referentialIntegrity"]
 }
 
-generator zod {
-  provider = "zod-prisma"
-  output   = "./zod"
-  relationModel = true
-  modelCase = "PascalCase"
-  modelSuffix = "Model"
-  useDecimalJs = true
-  imports = null
-  prismaJsonNullability = true
-}
-
 datasource db {
   provider             = "mysql"
   url                  = env("DB_LOCAL")
@@ -46,7 +35,7 @@ model AccountsStatement {
 model Addresses {
   id               Int           @id @default(autoincrement()) @db.UnsignedInt
   PersonalDatas_id Int           @db.UnsignedInt
-  postal_code      String        @db.VarChar(20)
+  postal_code      String        @db.VarChar(9)
   logradouro       String        @db.VarChar(50)
   complement       String        @db.VarChar(50)
   number           Int           @db.UnsignedInt
