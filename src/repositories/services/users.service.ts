@@ -1,4 +1,3 @@
-import { IJwtPayload } from '@interfaces/jwt.interface';
 import { IUserSignUp, IUserSignIn } from '@interfaces/users.interface';
 import { PrismaClient } from '@prisma/client';
 import HttpException from '@utils/HttpException';
@@ -13,8 +12,8 @@ export default class UsersService {
   public signUp = async ({
     email,
     password,
-    first_name,
-    last_name,
+    first_name: firstName,
+    last_name: lastName,
     birth_date,
     rg,
     cpf,
@@ -54,8 +53,8 @@ export default class UsersService {
           },
           PersonalDatas: {
             create: {
-              first_name,
-              last_name,
+              first_name: firstName,
+              last_name: lastName,
               // change format of BR date to yyyy-mm-dd
               birth_date: newDateMethods.brFormatToDB(birth_date), // yyyy/mm/dd -> yyyy-mm-dd
               rg,
@@ -85,7 +84,7 @@ export default class UsersService {
         },
       });
       const token = jwt.generateToken({
-        id, email, first_name, last_name,
+        id, email, firstName, lastName,
       });
 
       return { token };
@@ -129,7 +128,13 @@ export default class UsersService {
     });
 
     if (JWTpayload) {
-      const token = jwt.generateToken((JWTpayload as unknown) as IJwtPayload);
+      const { id, PersonalDatas: [pData] } = JWTpayload;
+      const { first_name: firstName, last_name: lastName } = pData;
+
+      const token = jwt.generateToken({
+        id, email, firstName, lastName,
+      });
+
       return { token };
     }
 
