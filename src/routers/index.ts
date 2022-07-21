@@ -1,10 +1,10 @@
 import { Router } from 'express';
-import signUpRoute from './login.route';
+import usersRoute from './users.route';
 import stocksRoute from './stocks.route';
 
 const routers = Router();
 
-routers.use('/signup', signUpRoute);
+routers.use('/signup', usersRoute);
 // routers.use('/signin', siginInRoute);
 routers.use('/asset', stocksRoute);
 

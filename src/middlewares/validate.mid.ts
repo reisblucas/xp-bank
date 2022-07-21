@@ -15,6 +15,7 @@ const validate = (
     return next();
   } catch (e) {
     if (e instanceof ZodError) {
+      // make the res status be dinamycally
       throw new HttpException(400, e.message, 'Zod Schema');
     }
     return next();
