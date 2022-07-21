@@ -1,4 +1,3 @@
-import HttpException from '@utils/HttpException';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import StocksService from '../services/stocks.service';
@@ -9,10 +8,6 @@ class StocksController {
   public getAllStocks = async (_req: Request, res: Response) => {
     const stocks = await this.service.getAllStocks();
 
-    if (!stocks.length) {
-      throw new HttpException(StatusCodes.NOT_FOUND, 'No stocks available to get info');
-    }
-
     res.status(StatusCodes.OK).json(stocks);
   };
 
@@ -22,23 +17,15 @@ class StocksController {
     res.status(StatusCodes.OK).json(allTickers);
   };
 
-  public getTickerInfos = async (req: Request, res: Response) => {
+  public getTickerOverview = async (req: Request, res: Response) => {
     const { ticker } = req.params;
-    const stock = await this.service.getTickerInfos(ticker);
-
-    if (!stock) {
-      throw new HttpException(StatusCodes.NOT_FOUND, 'Ticker does not exists');
-    }
+    const stock = await this.service.getTickerOverview(ticker);
 
     res.status(StatusCodes.OK).json(stock);
   };
 
   public getAllCompaniesInfo = async (_req: Request, res: Response) => {
     const allCompanies = await this.service.getAllCompaniesInfo();
-
-    if (!allCompanies) {
-      throw new HttpException(StatusCodes.NOT_FOUND, 'Companies not found');
-    }
 
     res.status(StatusCodes.OK).json(allCompanies);
   };
