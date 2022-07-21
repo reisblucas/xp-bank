@@ -9,6 +9,7 @@ const Dplus2 = (): string => {
 
   return removeTZ(orderWillBeExecutedAt);
 };
+
 const newDateMethods = {
   removeTZ,
   Dplus2,
