@@ -7,24 +7,36 @@ const salt: ISalt = {
   dynamic: '',
 };
 
-const hasher = (str: string): string => createHash('sha256').update(str).digest('base64');
-
 const localSalt = process.env.SALT as string;
+
+const hasher = (str: string): string => createHash('sha256').update(str).digest('base64');
 
 const encrypter = (pwd: string): string => {
   const randomSalt = CSPRNG();
-  const hashSalt = hasher(randomSalt);
+  const pwdHash = hasher(pwd);
+  const saltHash = hasher(randomSalt);
 
-  salt.dynamic = hashSalt;
+  salt.dynamic = saltHash;
 
-  return `${localSalt}${pwd}${randomSalt}`;
+  return `${localSalt}${pwdHash}${saltHash}`;
 };
 
 const encryptAndHash = (str: string): string => hasher(encrypter(str));
 
-const validateHash = (pwdDbOrReq: string, dynamicSalt: string) => {
-  const toVerify = `${localSalt}${pwdDbOrReq}${dynamicSalt}`;
-  return hasher(toVerify);
+// Validate area
+const reverseEngineer = (
+  pwdClient: string,
+  saltDb: string,
+) => {
+  const pwdHashed = hasher(pwdClient);
+  return hasher(`${localSalt}${pwdHashed}${saltDb}`);
+};
+
+const validateHash = (pwdDb: string, pwdClient: string, saltDb: string): boolean => {
+  const hashedNow = reverseEngineer(pwdClient, saltDb);
+
+  // pwdb actually hashed with the script ahead compares to the pwd provided in login try
+  return pwdDb === hashedNow;
 };
 
 const security: ISecurity = {

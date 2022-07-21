@@ -7,5 +7,5 @@ export interface ISecurity {
   hasher: (str: string) => string;
   encrypter: (pwd: string) => string,
   encryptAndHash: (str: string) => string;
-  validateHash: (pwdDbOrReq: string, dynamicSalt: string) => string;
+  validateHash: (pwdDb: string, pwdClient: string, saltDb: string) => boolean;
 }
