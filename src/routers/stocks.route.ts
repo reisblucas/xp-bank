@@ -8,7 +8,7 @@ stocksRoute.get('/o/stocks', rescue(stocksController.getAllStocks));
 stocksRoute.get('/i/companies', rescue(stocksController.getAllCompaniesInfo));
 stocksRoute.get('/i/companies/:ticker', rescue(stocksController.getCompanyInfo));
 stocksRoute.get('/i/tickers', rescue(stocksController.getAllTickers));
-stocksRoute.get('/i/:ticker', rescue(stocksController.getTickerInfos));
-stocksRoute.get('/i/stocks/:ticker', rescue(stocksController.getAllTickers));
+stocksRoute.get('/o/:ticker', rescue(stocksController.getTickerInfos));
+// stocksRoute.get('/i/stocks/:ticker', rescue(stocksController.getAllTickers));
 
 export default stocksRoute;
