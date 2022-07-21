@@ -16,8 +16,7 @@
       "@services/*": ["./src/repositories/services/*"],
       "@controllers/*": ["./src/repositories/controllers/*"],
       "@utils/*": ["./src/utils/*"],
-      "@interfaces/*": ["./src/interfaces/*"],
-      // "@connection/*": ["./src/connection/*"],
+      "@interfaces/*": ["./src/__interfaces__/*"],
       "@data/*": ["./src/data/*"]
     },
     "typeRoots": [

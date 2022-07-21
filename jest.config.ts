@@ -92,7 +92,7 @@ export default {
     "@services/(.*)$": "<rootDir>/src/repositories/services/$1",
     "@controllers/(.*)$": "<rootDir>/src/repositories/controllers/$1",
     "@utils/(.*)$": "<rootDir>/src/utils/$1",
-    "@interfaces/(.*)$": "<rootDir>/src/interfaces/$1",
+    "@interfaces/(.*)$": "<rootDir>/src/__interfaces__/$1",
     // "@connection/*": "<rootDir>/src/connection/*",
     "@data/(.*)$": "<rootDir>/src/data/$1"
   },
