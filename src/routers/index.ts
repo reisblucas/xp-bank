@@ -3,6 +3,6 @@ import stocksRoute from './stocks.route';
 
 const routers = Router();
 
-routers.use('/stocks', stocksRoute);
+routers.use('/asset', stocksRoute);
 
 export default routers;
