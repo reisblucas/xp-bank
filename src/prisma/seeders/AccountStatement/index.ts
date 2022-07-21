@@ -19,7 +19,7 @@ const sAccountsStatement = (prisma: PrismaClient) => AccountsStatement
   }) => prisma.accountsStatement.create({
     data: {
       value: formatValueBasedOperType(OperationTypes_id, value),
-      UsersLogin_id,
+      Users_id: UsersLogin_id,
       OperationTypes_id,
       created_at,
     },
