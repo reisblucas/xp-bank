@@ -11,12 +11,15 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
 
   try {
+    // console.log(authorization);
+
     const validate = jwt.validateToken(authorization);
     res.locals.provider = validate;
 
     return next();
   } catch (e) {
     if (e instanceof Error) {
+      console.log('Authentication error:', e.message);
       throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
     }
   }

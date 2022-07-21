@@ -25,10 +25,7 @@ class WalletsController {
     const userId = res.locals.provider.id as number;
     const { walletName } = req.params;
 
-    console.log('params', walletName);
-
     if (!userId) {
-      console.log('Payload does not exists');
       throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
     }
 
