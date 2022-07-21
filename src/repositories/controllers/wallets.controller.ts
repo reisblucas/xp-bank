@@ -8,8 +8,8 @@ require('express-async-errors');
 class WalletsController {
   constructor(private service = new WalletsServices()) {}
 
-  public getAll = async (req: Request, res: Response) => {
-    const userId = res.locals?.payload?.id as number;
+  public getAll = async (_req: Request, res: Response) => {
+    const userId = res.locals.provider.id as number;
 
     if (!userId) {
       console.log('Payload does not exists');
@@ -19,6 +19,22 @@ class WalletsController {
     const wallets = await this.service.getAll(userId);
 
     res.status(StatusCodes.OK).json(wallets);
+  };
+
+  public getOne = async (req: Request, res: Response) => {
+    const userId = res.locals.provider.id as number;
+    const { walletName } = req.params;
+
+    console.log('params', walletName);
+
+    if (!userId) {
+      console.log('Payload does not exists');
+      throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
+    }
+
+    const wallet = await this.service.getOne(userId, walletName);
+
+    res.status(StatusCodes.OK).json(wallet);
   };
 }
 
