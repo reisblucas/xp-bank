@@ -3,7 +3,7 @@ import jwt from '@utils/jwt';
 import { NextFunction, Request, Response } from 'express';
 import { ReasonPhrases, StatusCodes } from 'http-status-codes';
 
-const auth = (req: Request, _res: Response, next: NextFunction) => {
+const auth = (req: Request, res: Response, next: NextFunction) => {
   if (!req.headers.authorization) {
     throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
   }
@@ -12,7 +12,7 @@ const auth = (req: Request, _res: Response, next: NextFunction) => {
 
   try {
     const validate = jwt.validateToken(authorization);
-    console.log('token', validate);
+    res.locals.provider = validate;
 
     return next();
   } catch (e) {
