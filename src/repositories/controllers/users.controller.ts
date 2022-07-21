@@ -1,6 +1,6 @@
 import { IUserSignUp } from '@interfaces/users.interface';
 import UsersService from '@services/users.service';
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
 class UsersController {

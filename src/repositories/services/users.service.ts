@@ -1,13 +1,29 @@
 import { IUserSignUp } from '@interfaces/users.interface';
 import { PrismaClient } from '@prisma/client';
 import HttpException from '@utils/HttpException';
+import newDateMethods from '@utils/newDateMethods';
 import security from '@utils/security';
 
 export default class UsersService {
   constructor(private prisma = new PrismaClient()) {}
 
   public signUp = async ({
-    email, password,
+    email,
+    password,
+    first_name,
+    last_name,
+    birth_date,
+    rg,
+    cpf,
+    // gender,
+    postal_code,
+    logradouro,
+    complement,
+    number,
+    district,
+    city,
+    state,
+    state_code,
   }: IUserSignUp) => {
     const userAlreadyExists = await this.prisma.users
       .findUnique({
@@ -29,6 +45,39 @@ export default class UsersService {
         email,
         password: security.encryptAndHash(password),
         salt: security.salt.dynamic,
+        AccountsBalance: {
+          create: {},
+        },
+        PersonalDatas: {
+          create: {
+            first_name,
+            last_name,
+            // change format of BR date to yyyy-mm-dd
+            birth_date: newDateMethods.brFormatToDB(birth_date), // yyyy/mm/dd -> yyyy-mm-dd
+            rg,
+            cpf,
+            // Gênero quando não informado como padrão, registra como Uninformed
+            // Genders_id: Number(GendersRelation[i].userRelation),
+            Addresses: {
+              create: {
+                postal_code,
+                logradouro,
+                complement,
+                number,
+                district,
+                city,
+                state,
+                state_code,
+              },
+            },
+          },
+        },
+        // Fazer um script para gerar um número random baseado na length das opções
+        // AccessHistory: {
+        //   create: {
+        //     Platform_id: Number(AccessHRelations[i]),
+        //   },
+        // },
       },
     });
   };
