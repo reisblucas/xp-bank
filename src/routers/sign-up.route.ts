@@ -5,8 +5,8 @@ import { Router } from 'express';
 
 require('express-async-errors');
 
-const usersRoute = Router();
+const signUp = Router();
 
-usersRoute.post('/', validate(dto.signUpDTO), usersController.signUp);
+signUp.post('/', validate(dto.signUpDTO), usersController.signUp);
 
-export default usersRoute;
+export default signUp;
