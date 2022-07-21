@@ -71,21 +71,29 @@ export default class StocksService {
     return allCompanies;
   };
 
-  public getCompanyInfo = async (ticker: string) => this.prisma.stocks.findFirst({
-    include: {
-      Tickers: {
-        select: {
-          id: true,
-          ticker: true,
+  public getCompanyInfo = async (ticker: string) => {
+    const company = await this.prisma.stocks.findFirst({
+      include: {
+        Tickers: {
+          select: {
+            id: true,
+            ticker: true,
+          },
         },
       },
-    },
-    where: {
-      Tickers: {
-        some: {
-          ticker,
+      where: {
+        Tickers: {
+          some: {
+            ticker,
+          },
         },
       },
-    },
-  });
+    });
+
+    if (!company) {
+      throw new HttpException(404, `Does not exists companies with this symbol ${ticker}`);
+    }
+
+    return company;
+  };
 }
