@@ -21,13 +21,30 @@ export default class WalletsServices {
 
   public getOne = async (userId: number, walletName: string) => {
     const wallet = await this.prisma.wallets.findFirst({
+      select: {
+        id: true,
+        name: true,
+        Users_id: true,
+        Transactions: {
+          include: {
+            Tickers: {
+              select: {
+                ticker: true,
+              },
+            },
+          },
+          orderBy: {
+            created_at: 'desc',
+          },
+        },
+      },
       where: {
         Users_id: {
           equals: userId,
         },
         AND: {
           name: {
-            in: walletName,
+            equals: walletName,
           },
         },
       },
