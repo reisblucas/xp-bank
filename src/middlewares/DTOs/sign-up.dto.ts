@@ -8,7 +8,7 @@ const signUpDTO = z.object({
       .string({ required_error: "Can't be empty" })
       .email({ message: 'Must be a valid email' })
       .regex(EMAIL_REGEX),
-    password: z.string().min(8),
+    password: z.string().min(4),
     // Personal data
     first_name: z.string().max(20),
     last_name: z.string().max(50),
