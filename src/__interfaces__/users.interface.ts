@@ -16,3 +16,8 @@ export interface IUserSignUp {
   state: string;
   state_code: string;
 }
+
+export interface IUserSignIn {
+  email: string;
+  password: string;
+}
