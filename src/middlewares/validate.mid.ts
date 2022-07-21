@@ -15,8 +15,6 @@ const validate = (
     return next();
   } catch (e) {
     if (e instanceof ZodError) {
-      // console.log('Error in Zod Schema:', e);
-
       throw new HttpException(400, e.message, 'Zod Schema');
     }
     return next();
