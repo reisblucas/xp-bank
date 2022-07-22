@@ -1,702 +1,1802 @@
 [
   {
-    "id": 1,
-    "value": 666.74,
-    "UsersLogin_id": 77,
-    "OperationTypes_id": 1,
-    "created_at": "2016-09-12"
-  },
-  {
-    "id": 2,
-    "value": 1732.65,
-    "UsersLogin_id": 86,
-    "OperationTypes_id": 3,
-    "created_at": "2021-12-10"
-  },
-  {
-    "id": 3,
-    "value": 530.63,
-    "UsersLogin_id": 54,
-    "OperationTypes_id": 4,
-    "created_at": "2017-04-14"
-  },
-  {
-    "id": 4,
-    "value": 2559.17,
-    "UsersLogin_id": 23,
-    "OperationTypes_id": 1,
-    "created_at": "2017-03-14"
-  },
-  {
-    "id": 5,
-    "value": 1398.01,
-    "UsersLogin_id": 93,
-    "OperationTypes_id": 1,
-    "created_at": "2021-07-25"
-  },
-  {
-    "id": 6,
-    "value": 2063.1,
+    "value": 11686,
     "UsersLogin_id": 68,
-    "OperationTypes_id": 3,
-    "created_at": "2020-05-31"
-  },
-  {
-    "id": 7,
-    "value": 1098.91,
-    "UsersLogin_id": 91,
     "OperationTypes_id": 2,
-    "created_at": "2017-06-07"
+    "created_at": "2010-09-23"
   },
   {
-    "id": 8,
-    "value": 565.39,
-    "UsersLogin_id": 19,
-    "OperationTypes_id": 4,
-    "created_at": "2015-01-24"
-  },
-  {
-    "id": 9,
-    "value": 2341.96,
-    "UsersLogin_id": 40,
-    "OperationTypes_id": 4,
-    "created_at": "2020-12-08"
-  },
-  {
-    "id": 10,
-    "value": 864.95,
-    "UsersLogin_id": 75,
+    "value": 8885,
+    "UsersLogin_id": 39,
     "OperationTypes_id": 1,
-    "created_at": "2022-04-17"
+    "created_at": "2017-09-26"
   },
   {
-    "id": 11,
-    "value": 1806.02,
-    "UsersLogin_id": 49,
-    "OperationTypes_id": 3,
-    "created_at": "2018-08-20"
-  },
-  {
-    "id": 12,
-    "value": 2411.34,
-    "UsersLogin_id": 96,
-    "OperationTypes_id": 3,
-    "created_at": "2021-10-30"
-  },
-  {
-    "id": 13,
-    "value": 996.9,
-    "UsersLogin_id": 6,
-    "OperationTypes_id": 4,
-    "created_at": "2019-11-08"
-  },
-  {
-    "id": 14,
-    "value": 2216.16,
-    "UsersLogin_id": 94,
-    "OperationTypes_id": 1,
-    "created_at": "2015-06-17"
-  },
-  {
-    "id": 15,
-    "value": 1414.8,
-    "UsersLogin_id": 67,
-    "OperationTypes_id": 3,
-    "created_at": "2018-09-08"
-  },
-  {
-    "id": 16,
-    "value": 1581.63,
-    "UsersLogin_id": 47,
+    "value": 13965,
+    "UsersLogin_id": 78,
     "OperationTypes_id": 2,
-    "created_at": "2019-01-02"
+    "created_at": "2010-08-22"
   },
   {
-    "id": 17,
-    "value": 1905.88,
-    "UsersLogin_id": 82,
+    "value": 13195,
+    "UsersLogin_id": 77,
     "OperationTypes_id": 3,
-    "created_at": "2022-06-19"
+    "created_at": "2014-03-27"
   },
   {
-    "id": 18,
-    "value": 2749.52,
-    "UsersLogin_id": 99,
-    "OperationTypes_id": 1,
-    "created_at": "2020-10-25"
-  },
-  {
-    "id": 19,
-    "value": 1429.04,
-    "UsersLogin_id": 99,
-    "OperationTypes_id": 2,
-    "created_at": "2016-09-06"
-  },
-  {
-    "id": 20,
-    "value": 702.58,
-    "UsersLogin_id": 87,
-    "OperationTypes_id": 4,
-    "created_at": "2022-04-17"
-  },
-  {
-    "id": 21,
-    "value": 1296.96,
-    "UsersLogin_id": 97,
-    "OperationTypes_id": 1,
-    "created_at": "2017-09-17"
-  },
-  {
-    "id": 22,
-    "value": 653.74,
-    "UsersLogin_id": 100,
+    "value": 17741,
+    "UsersLogin_id": 22,
     "OperationTypes_id": 3,
-    "created_at": "2020-06-09"
+    "created_at": "2020-08-17"
   },
   {
-    "id": 23,
-    "value": 2905.58,
-    "UsersLogin_id": 46,
-    "OperationTypes_id": 1,
-    "created_at": "2021-01-24"
-  },
-  {
-    "id": 24,
-    "value": 1173.44,
-    "UsersLogin_id": 67,
-    "OperationTypes_id": 4,
-    "created_at": "2017-10-22"
-  },
-  {
-    "id": 25,
-    "value": 1681.84,
-    "UsersLogin_id": 3,
-    "OperationTypes_id": 2,
-    "created_at": "2019-09-11"
-  },
-  {
-    "id": 26,
-    "value": 1160.88,
+    "value": 14758,
     "UsersLogin_id": 50,
-    "OperationTypes_id": 1,
-    "created_at": "2015-06-03"
-  },
-  {
-    "id": 27,
-    "value": 1303.0,
-    "UsersLogin_id": 11,
     "OperationTypes_id": 4,
-    "created_at": "2017-06-04"
+    "created_at": "2015-08-01"
   },
   {
-    "id": 28,
-    "value": 2778.27,
-    "UsersLogin_id": 83,
-    "OperationTypes_id": 1,
-    "created_at": "2017-03-14"
-  },
-  {
-    "id": 29,
-    "value": 2140.87,
-    "UsersLogin_id": 74,
+    "value": 15797,
+    "UsersLogin_id": 68,
     "OperationTypes_id": 2,
-    "created_at": "2015-07-16"
+    "created_at": "2017-09-27"
   },
   {
-    "id": 30,
-    "value": 821.26,
-    "UsersLogin_id": 42,
+    "value": 3232,
+    "UsersLogin_id": 84,
     "OperationTypes_id": 4,
-    "created_at": "2022-05-07"
+    "created_at": "2020-09-08"
   },
   {
-    "id": 31,
-    "value": 1060.18,
-    "UsersLogin_id": 21,
-    "OperationTypes_id": 3,
-    "created_at": "2015-05-15"
+    "value": 9919,
+    "UsersLogin_id": 31,
+    "OperationTypes_id": 4,
+    "created_at": "2020-01-08"
   },
   {
-    "id": 32,
-    "value": 951.88,
-    "UsersLogin_id": 7,
+    "value": 1800,
+    "UsersLogin_id": 62,
     "OperationTypes_id": 2,
-    "created_at": "2018-08-30"
+    "created_at": "2011-03-18"
   },
   {
-    "id": 33,
-    "value": 786.84,
+    "value": 1420,
+    "UsersLogin_id": 81,
+    "OperationTypes_id": 2,
+    "created_at": "2016-06-26"
+  },
+  {
+    "value": 8346,
     "UsersLogin_id": 73,
     "OperationTypes_id": 2,
-    "created_at": "2015-05-09"
+    "created_at": "2017-01-18"
   },
   {
-    "id": 34,
-    "value": 1305.91,
-    "UsersLogin_id": 60,
+    "value": 15851,
+    "UsersLogin_id": 71,
     "OperationTypes_id": 3,
-    "created_at": "2020-11-06"
+    "created_at": "2020-04-22"
   },
   {
-    "id": 35,
-    "value": 2129.25,
-    "UsersLogin_id": 91,
-    "OperationTypes_id": 4,
-    "created_at": "2018-11-25"
-  },
-  {
-    "id": 36,
-    "value": 2172.87,
-    "UsersLogin_id": 38,
-    "OperationTypes_id": 4,
-    "created_at": "2017-04-25"
-  },
-  {
-    "id": 37,
-    "value": 803.0,
-    "UsersLogin_id": 18,
+    "value": 2140,
+    "UsersLogin_id": 58,
     "OperationTypes_id": 2,
-    "created_at": "2020-09-09"
+    "created_at": "2016-06-22"
   },
   {
-    "id": 38,
-    "value": 2094.81,
+    "value": 7607,
+    "UsersLogin_id": 31,
+    "OperationTypes_id": 2,
+    "created_at": "2018-05-28"
+  },
+  {
+    "value": 17852,
+    "UsersLogin_id": 88,
+    "OperationTypes_id": 1,
+    "created_at": "2020-07-20"
+  },
+  {
+    "value": 11885,
+    "UsersLogin_id": 34,
+    "OperationTypes_id": 2,
+    "created_at": "2014-07-09"
+  },
+  {
+    "value": 18085,
+    "UsersLogin_id": 50,
+    "OperationTypes_id": 4,
+    "created_at": "2016-09-15"
+  },
+  {
+    "value": 4944,
+    "UsersLogin_id": 78,
+    "OperationTypes_id": 4,
+    "created_at": "2018-09-06"
+  },
+  {
+    "value": 8811,
     "UsersLogin_id": 77,
-    "OperationTypes_id": 2,
-    "created_at": "2015-11-13"
-  },
-  {
-    "id": 39,
-    "value": 846.84,
-    "UsersLogin_id": 26,
-    "OperationTypes_id": 1,
-    "created_at": "2021-03-10"
-  },
-  {
-    "id": 40,
-    "value": 2158.87,
-    "UsersLogin_id": 9,
     "OperationTypes_id": 4,
-    "created_at": "2015-08-15"
+    "created_at": "2012-03-16"
   },
   {
-    "id": 41,
-    "value": 1125.39,
-    "UsersLogin_id": 11,
-    "OperationTypes_id": 1,
-    "created_at": "2020-09-22"
-  },
-  {
-    "id": 42,
-    "value": 1464.52,
-    "UsersLogin_id": 84,
-    "OperationTypes_id": 4,
-    "created_at": "2020-03-31"
-  },
-  {
-    "id": 43,
-    "value": 2891.09,
-    "UsersLogin_id": 16,
-    "OperationTypes_id": 1,
-    "created_at": "2017-04-06"
-  },
-  {
-    "id": 44,
-    "value": 2933.35,
-    "UsersLogin_id": 68,
-    "OperationTypes_id": 1,
-    "created_at": "2018-04-23"
-  },
-  {
-    "id": 45,
-    "value": 823.35,
-    "UsersLogin_id": 32,
-    "OperationTypes_id": 3,
-    "created_at": "2019-08-05"
-  },
-  {
-    "id": 46,
-    "value": 1355.75,
-    "UsersLogin_id": 79,
-    "OperationTypes_id": 4,
-    "created_at": "2017-11-17"
-  },
-  {
-    "id": 47,
-    "value": 599.19,
-    "UsersLogin_id": 39,
-    "OperationTypes_id": 2,
-    "created_at": "2019-11-08"
-  },
-  {
-    "id": 48,
-    "value": 1932.78,
-    "UsersLogin_id": 12,
-    "OperationTypes_id": 1,
-    "created_at": "2019-09-13"
-  },
-  {
-    "id": 49,
-    "value": 1413.1,
-    "UsersLogin_id": 47,
-    "OperationTypes_id": 4,
-    "created_at": "2018-06-07"
-  },
-  {
-    "id": 50,
-    "value": 1074.72,
-    "UsersLogin_id": 66,
-    "OperationTypes_id": 1,
-    "created_at": "2019-05-22"
-  },
-  {
-    "id": 51,
-    "value": 2351.37,
-    "UsersLogin_id": 53,
-    "OperationTypes_id": 4,
-    "created_at": "2019-01-06"
-  },
-  {
-    "id": 52,
-    "value": 2560.31,
-    "UsersLogin_id": 68,
-    "OperationTypes_id": 4,
-    "created_at": "2021-10-23"
-  },
-  {
-    "id": 53,
-    "value": 1037.15,
-    "UsersLogin_id": 36,
-    "OperationTypes_id": 1,
-    "created_at": "2021-12-12"
-  },
-  {
-    "id": 54,
-    "value": 1785.43,
-    "UsersLogin_id": 80,
-    "OperationTypes_id": 4,
-    "created_at": "2016-12-21"
-  },
-  {
-    "id": 55,
-    "value": 2980.74,
-    "UsersLogin_id": 33,
-    "OperationTypes_id": 4,
-    "created_at": "2016-03-19"
-  },
-  {
-    "id": 56,
-    "value": 1438.95,
-    "UsersLogin_id": 81,
-    "OperationTypes_id": 4,
-    "created_at": "2020-04-26"
-  },
-  {
-    "id": 57,
-    "value": 2814.66,
-    "UsersLogin_id": 84,
-    "OperationTypes_id": 3,
-    "created_at": "2022-06-28"
-  },
-  {
-    "id": 58,
-    "value": 550.2,
-    "UsersLogin_id": 95,
-    "OperationTypes_id": 3,
-    "created_at": "2018-11-16"
-  },
-  {
-    "id": 59,
-    "value": 1249.4,
-    "UsersLogin_id": 13,
-    "OperationTypes_id": 4,
-    "created_at": "2021-02-09"
-  },
-  {
-    "id": 60,
-    "value": 2111.05,
-    "UsersLogin_id": 82,
-    "OperationTypes_id": 3,
-    "created_at": "2020-04-26"
-  },
-  {
-    "id": 61,
-    "value": 509.21,
-    "UsersLogin_id": 28,
-    "OperationTypes_id": 2,
-    "created_at": "2021-05-28"
-  },
-  {
-    "id": 62,
-    "value": 2411.41,
-    "UsersLogin_id": 85,
-    "OperationTypes_id": 4,
-    "created_at": "2019-04-24"
-  },
-  {
-    "id": 63,
-    "value": 621.05,
-    "UsersLogin_id": 99,
-    "OperationTypes_id": 4,
-    "created_at": "2017-06-01"
-  },
-  {
-    "id": 64,
-    "value": 870.34,
-    "UsersLogin_id": 13,
-    "OperationTypes_id": 1,
-    "created_at": "2019-11-02"
-  },
-  {
-    "id": 65,
-    "value": 743.51,
-    "UsersLogin_id": 99,
-    "OperationTypes_id": 4,
-    "created_at": "2018-08-30"
-  },
-  {
-    "id": 66,
-    "value": 1594.28,
-    "UsersLogin_id": 2,
-    "OperationTypes_id": 1,
-    "created_at": "2016-05-20"
-  },
-  {
-    "id": 67,
-    "value": 2788.99,
-    "UsersLogin_id": 44,
-    "OperationTypes_id": 2,
-    "created_at": "2021-04-11"
-  },
-  {
-    "id": 68,
-    "value": 2526.35,
-    "UsersLogin_id": 35,
-    "OperationTypes_id": 3,
-    "created_at": "2021-01-13"
-  },
-  {
-    "id": 69,
-    "value": 1642.18,
-    "UsersLogin_id": 8,
-    "OperationTypes_id": 4,
-    "created_at": "2022-03-21"
-  },
-  {
-    "id": 70,
-    "value": 2862.1,
-    "UsersLogin_id": 22,
-    "OperationTypes_id": 4,
-    "created_at": "2016-10-14"
-  },
-  {
-    "id": 71,
-    "value": 1185.9,
+    "value": 13094,
     "UsersLogin_id": 76,
-    "OperationTypes_id": 1,
-    "created_at": "2016-07-12"
-  },
-  {
-    "id": 72,
-    "value": 1969.94,
-    "UsersLogin_id": 5,
     "OperationTypes_id": 4,
-    "created_at": "2018-07-18"
+    "created_at": "2013-06-23"
   },
   {
-    "id": 73,
-    "value": 2530.76,
-    "UsersLogin_id": 77,
+    "value": 2710,
+    "UsersLogin_id": 31,
     "OperationTypes_id": 4,
-    "created_at": "2015-03-28"
+    "created_at": "2021-08-15"
   },
   {
-    "id": 74,
-    "value": 1597.17,
-    "UsersLogin_id": 17,
+    "value": 6506,
+    "UsersLogin_id": 39,
     "OperationTypes_id": 3,
-    "created_at": "2018-03-06"
+    "created_at": "2019-01-18"
   },
   {
-    "id": 75,
-    "value": 916.8,
-    "UsersLogin_id": 44,
+    "value": 11513,
+    "UsersLogin_id": 29,
+    "OperationTypes_id": 4,
+    "created_at": "2019-06-26"
+  },
+  {
+    "value": 9773,
+    "UsersLogin_id": 67,
+    "OperationTypes_id": 4,
+    "created_at": "2013-04-05"
+  },
+  {
+    "value": 696,
+    "UsersLogin_id": 10,
     "OperationTypes_id": 2,
-    "created_at": "2021-07-20"
+    "created_at": "2021-05-24"
   },
   {
-    "id": 76,
-    "value": 2578.32,
-    "UsersLogin_id": 95,
+    "value": 10127,
+    "UsersLogin_id": 42,
     "OperationTypes_id": 2,
-    "created_at": "2022-01-11"
+    "created_at": "2010-03-10"
   },
   {
-    "id": 77,
-    "value": 1503.41,
-    "UsersLogin_id": 94,
+    "value": 14346,
+    "UsersLogin_id": 66,
     "OperationTypes_id": 2,
-    "created_at": "2015-09-16"
+    "created_at": "2019-01-13"
   },
   {
-    "id": 78,
-    "value": 825.52,
-    "UsersLogin_id": 35,
+    "value": 9919,
+    "UsersLogin_id": 89,
     "OperationTypes_id": 1,
-    "created_at": "2019-03-28"
+    "created_at": "2010-04-25"
   },
   {
-    "id": 79,
-    "value": 1997.43,
+    "value": 16000,
+    "UsersLogin_id": 92,
+    "OperationTypes_id": 4,
+    "created_at": "2012-06-28"
+  },
+  {
+    "value": 9634,
+    "UsersLogin_id": 15,
+    "OperationTypes_id": 3,
+    "created_at": "2012-05-26"
+  },
+  {
+    "value": 13232,
+    "UsersLogin_id": 22,
+    "OperationTypes_id": 1,
+    "created_at": "2018-02-25"
+  },
+  {
+    "value": 9643,
     "UsersLogin_id": 72,
     "OperationTypes_id": 1,
-    "created_at": "2021-12-04"
+    "created_at": "2010-11-19"
   },
   {
-    "id": 80,
-    "value": 813.55,
-    "UsersLogin_id": 84,
-    "OperationTypes_id": 1,
-    "created_at": "2016-02-09"
-  },
-  {
-    "id": 81,
-    "value": 1805.94,
-    "UsersLogin_id": 37,
-    "OperationTypes_id": 2,
-    "created_at": "2015-09-09"
-  },
-  {
-    "id": 82,
-    "value": 2922.66,
-    "UsersLogin_id": 99,
-    "OperationTypes_id": 2,
-    "created_at": "2015-02-13"
-  },
-  {
-    "id": 83,
-    "value": 630.49,
-    "UsersLogin_id": 88,
-    "OperationTypes_id": 3,
-    "created_at": "2020-06-28"
-  },
-  {
-    "id": 84,
-    "value": 2124.17,
-    "UsersLogin_id": 63,
+    "value": 1926,
+    "UsersLogin_id": 33,
     "OperationTypes_id": 4,
+    "created_at": "2017-11-20"
+  },
+  {
+    "value": 5065,
+    "UsersLogin_id": 57,
+    "OperationTypes_id": 1,
+    "created_at": "2010-09-14"
+  },
+  {
+    "value": 16276,
+    "UsersLogin_id": 20,
+    "OperationTypes_id": 4,
+    "created_at": "2011-05-20"
+  },
+  {
+    "value": 5719,
+    "UsersLogin_id": 47,
+    "OperationTypes_id": 3,
+    "created_at": "2020-03-10"
+  },
+  {
+    "value": 8507,
+    "UsersLogin_id": 55,
+    "OperationTypes_id": 1,
+    "created_at": "2020-02-10"
+  },
+  {
+    "value": 6698,
+    "UsersLogin_id": 56,
+    "OperationTypes_id": 2,
+    "created_at": "2020-03-13"
+  },
+  {
+    "value": 8280,
+    "UsersLogin_id": 47,
+    "OperationTypes_id": 3,
+    "created_at": "2022-02-02"
+  },
+  {
+    "value": 2121,
+    "UsersLogin_id": 87,
+    "OperationTypes_id": 2,
+    "created_at": "2014-06-09"
+  },
+  {
+    "value": 12799,
+    "UsersLogin_id": 61,
+    "OperationTypes_id": 1,
+    "created_at": "2015-05-11"
+  },
+  {
+    "value": 2124,
+    "UsersLogin_id": 1,
+    "OperationTypes_id": 4,
+    "created_at": "2019-10-11"
+  },
+  {
+    "value": 17646,
+    "UsersLogin_id": 44,
+    "OperationTypes_id": 1,
+    "created_at": "2016-02-06"
+  },
+  {
+    "value": 19124,
+    "UsersLogin_id": 97,
+    "OperationTypes_id": 1,
+    "created_at": "2013-01-13"
+  },
+  {
+    "value": 19896,
+    "UsersLogin_id": 13,
+    "OperationTypes_id": 1,
+    "created_at": "2014-04-24"
+  },
+  {
+    "value": 7628,
+    "UsersLogin_id": 89,
+    "OperationTypes_id": 1,
+    "created_at": "2014-06-03"
+  },
+  {
+    "value": 11050,
+    "UsersLogin_id": 86,
+    "OperationTypes_id": 1,
+    "created_at": "2012-06-22"
+  },
+  {
+    "value": 19959,
+    "UsersLogin_id": 94,
+    "OperationTypes_id": 1,
+    "created_at": "2012-03-21"
+  },
+  {
+    "value": 3846,
+    "UsersLogin_id": 85,
+    "OperationTypes_id": 4,
+    "created_at": "2017-06-22"
+  },
+  {
+    "value": 1107,
+    "UsersLogin_id": 86,
+    "OperationTypes_id": 3,
+    "created_at": "2011-02-06"
+  },
+  {
+    "value": 5372,
+    "UsersLogin_id": 51,
+    "OperationTypes_id": 3,
+    "created_at": "2021-11-07"
+  },
+  {
+    "value": 1718,
+    "UsersLogin_id": 73,
+    "OperationTypes_id": 1,
+    "created_at": "2018-10-09"
+  },
+  {
+    "value": 10730,
+    "UsersLogin_id": 48,
+    "OperationTypes_id": 2,
+    "created_at": "2016-09-08"
+  },
+  {
+    "value": 17827,
+    "UsersLogin_id": 80,
+    "OperationTypes_id": 3,
+    "created_at": "2022-01-01"
+  },
+  {
+    "value": 12680,
+    "UsersLogin_id": 30,
+    "OperationTypes_id": 2,
+    "created_at": "2020-07-13"
+  },
+  {
+    "value": 10349,
+    "UsersLogin_id": 10,
+    "OperationTypes_id": 1,
+    "created_at": "2011-06-22"
+  },
+  {
+    "value": 2458,
+    "UsersLogin_id": 78,
+    "OperationTypes_id": 4,
+    "created_at": "2018-02-17"
+  },
+  {
+    "value": 17410,
+    "UsersLogin_id": 91,
+    "OperationTypes_id": 1,
+    "created_at": "2013-08-11"
+  },
+  {
+    "value": 2850,
+    "UsersLogin_id": 23,
+    "OperationTypes_id": 3,
+    "created_at": "2018-10-08"
+  },
+  {
+    "value": 18955,
+    "UsersLogin_id": 65,
+    "OperationTypes_id": 4,
+    "created_at": "2015-04-23"
+  },
+  {
+    "value": 17872,
+    "UsersLogin_id": 2,
+    "OperationTypes_id": 1,
+    "created_at": "2011-11-02"
+  },
+  {
+    "value": 6654,
+    "UsersLogin_id": 96,
+    "OperationTypes_id": 3,
+    "created_at": "2012-08-01"
+  },
+  {
+    "value": 10239,
+    "UsersLogin_id": 38,
+    "OperationTypes_id": 1,
+    "created_at": "2010-09-01"
+  },
+  {
+    "value": 10333,
+    "UsersLogin_id": 74,
+    "OperationTypes_id": 4,
+    "created_at": "2022-07-20"
+  },
+  {
+    "value": 16710,
+    "UsersLogin_id": 17,
+    "OperationTypes_id": 1,
+    "created_at": "2019-05-19"
+  },
+  {
+    "value": 14778,
+    "UsersLogin_id": 69,
+    "OperationTypes_id": 4,
+    "created_at": "2014-10-31"
+  },
+  {
+    "value": 17550,
+    "UsersLogin_id": 18,
+    "OperationTypes_id": 3,
+    "created_at": "2015-09-01"
+  },
+  {
+    "value": 16757,
+    "UsersLogin_id": 11,
+    "OperationTypes_id": 3,
+    "created_at": "2011-08-06"
+  },
+  {
+    "value": 6009,
+    "UsersLogin_id": 32,
+    "OperationTypes_id": 4,
+    "created_at": "2017-05-02"
+  },
+  {
+    "value": 12355,
+    "UsersLogin_id": 96,
+    "OperationTypes_id": 3,
+    "created_at": "2012-07-29"
+  },
+  {
+    "value": 6996,
+    "UsersLogin_id": 38,
+    "OperationTypes_id": 3,
+    "created_at": "2022-07-07"
+  },
+  {
+    "value": 651,
+    "UsersLogin_id": 59,
+    "OperationTypes_id": 1,
+    "created_at": "2015-08-08"
+  },
+  {
+    "value": 9198,
+    "UsersLogin_id": 35,
+    "OperationTypes_id": 1,
+    "created_at": "2014-04-12"
+  },
+  {
+    "value": 12375,
+    "UsersLogin_id": 8,
+    "OperationTypes_id": 3,
+    "created_at": "2019-12-08"
+  },
+  {
+    "value": 5647,
+    "UsersLogin_id": 21,
+    "OperationTypes_id": 2,
+    "created_at": "2015-08-28"
+  },
+  {
+    "value": 18639,
+    "UsersLogin_id": 13,
+    "OperationTypes_id": 4,
+    "created_at": "2012-01-27"
+  },
+  {
+    "value": 14972,
+    "UsersLogin_id": 80,
+    "OperationTypes_id": 4,
+    "created_at": "2014-06-14"
+  },
+  {
+    "value": 17430,
+    "UsersLogin_id": 16,
+    "OperationTypes_id": 1,
+    "created_at": "2016-01-14"
+  },
+  {
+    "value": 12475,
+    "UsersLogin_id": 84,
+    "OperationTypes_id": 4,
+    "created_at": "2015-05-24"
+  },
+  {
+    "value": 17712,
+    "UsersLogin_id": 3,
+    "OperationTypes_id": 3,
+    "created_at": "2010-04-01"
+  },
+  {
+    "value": 8971,
+    "UsersLogin_id": 44,
+    "OperationTypes_id": 1,
+    "created_at": "2018-10-31"
+  },
+  {
+    "value": 5845,
+    "UsersLogin_id": 62,
+    "OperationTypes_id": 3,
+    "created_at": "2022-04-13"
+  },
+  {
+    "value": 2284,
+    "UsersLogin_id": 62,
+    "OperationTypes_id": 3,
+    "created_at": "2011-09-17"
+  },
+  {
+    "value": 9181,
+    "UsersLogin_id": 47,
+    "OperationTypes_id": 2,
+    "created_at": "2013-07-30"
+  },
+  {
+    "value": 5484,
+    "UsersLogin_id": 15,
+    "OperationTypes_id": 4,
+    "created_at": "2022-05-27"
+  },
+  {
+    "value": 19921,
+    "UsersLogin_id": 99,
+    "OperationTypes_id": 3,
+    "created_at": "2019-02-22"
+  },
+  {
+    "value": 5749,
+    "UsersLogin_id": 71,
+    "OperationTypes_id": 3,
+    "created_at": "2021-04-04"
+  },
+  {
+    "value": 1729,
+    "UsersLogin_id": 59,
+    "OperationTypes_id": 3,
     "created_at": "2021-07-11"
   },
   {
-    "id": 85,
-    "value": 2906.8,
+    "value": 6455,
+    "UsersLogin_id": 78,
+    "OperationTypes_id": 3,
+    "created_at": "2010-07-05"
+  },
+  {
+    "value": 2435,
+    "UsersLogin_id": 56,
+    "OperationTypes_id": 4,
+    "created_at": "2018-12-03"
+  },
+  {
+    "value": 11474,
+    "UsersLogin_id": 71,
+    "OperationTypes_id": 2,
+    "created_at": "2020-09-29"
+  },
+  {
+    "value": 11866,
+    "UsersLogin_id": 37,
+    "OperationTypes_id": 3,
+    "created_at": "2020-10-03"
+  },
+  {
+    "value": 18749,
+    "UsersLogin_id": 59,
+    "OperationTypes_id": 2,
+    "created_at": "2011-10-02"
+  },
+  {
+    "value": 1953,
+    "UsersLogin_id": 94,
+    "OperationTypes_id": 1,
+    "created_at": "2014-03-02"
+  },
+  {
+    "value": 12694,
+    "UsersLogin_id": 47,
+    "OperationTypes_id": 3,
+    "created_at": "2014-11-29"
+  },
+  {
+    "value": 4870,
+    "UsersLogin_id": 60,
+    "OperationTypes_id": 2,
+    "created_at": "2013-07-29"
+  },
+  {
+    "value": 2160,
+    "UsersLogin_id": 49,
+    "OperationTypes_id": 1,
+    "created_at": "2011-02-06"
+  },
+  {
+    "value": 19530,
+    "UsersLogin_id": 4,
+    "OperationTypes_id": 2,
+    "created_at": "2022-06-22"
+  },
+  {
+    "value": 12358,
+    "UsersLogin_id": 73,
+    "OperationTypes_id": 4,
+    "created_at": "2016-04-04"
+  },
+  {
+    "value": 4825,
+    "UsersLogin_id": 95,
+    "OperationTypes_id": 1,
+    "created_at": "2008-11-25"
+  },
+  {
+    "value": 6705,
+    "UsersLogin_id": 69,
+    "OperationTypes_id": 1,
+    "created_at": "2015-06-25"
+  },
+  {
+    "value": 2618,
+    "UsersLogin_id": 49,
+    "OperationTypes_id": 3,
+    "created_at": "2021-11-15"
+  },
+  {
+    "value": 14971,
+    "UsersLogin_id": 62,
+    "OperationTypes_id": 4,
+    "created_at": "2013-06-12"
+  },
+  {
+    "value": 9232,
+    "UsersLogin_id": 47,
+    "OperationTypes_id": 2,
+    "created_at": "2009-08-09"
+  },
+  {
+    "value": 11651,
+    "UsersLogin_id": 92,
+    "OperationTypes_id": 3,
+    "created_at": "2014-04-25"
+  },
+  {
+    "value": 9157,
+    "UsersLogin_id": 55,
+    "OperationTypes_id": 2,
+    "created_at": "2020-02-05"
+  },
+  {
+    "value": 8242,
+    "UsersLogin_id": 65,
+    "OperationTypes_id": 4,
+    "created_at": "2017-12-26"
+  },
+  {
+    "value": 2642,
+    "UsersLogin_id": 11,
+    "OperationTypes_id": 3,
+    "created_at": "2019-06-28"
+  },
+  {
+    "value": 9495,
+    "UsersLogin_id": 66,
+    "OperationTypes_id": 2,
+    "created_at": "2020-09-18"
+  },
+  {
+    "value": 15068,
+    "UsersLogin_id": 49,
+    "OperationTypes_id": 4,
+    "created_at": "2018-04-01"
+  },
+  {
+    "value": 14226,
+    "UsersLogin_id": 25,
+    "OperationTypes_id": 1,
+    "created_at": "2011-06-07"
+  },
+  {
+    "value": 10883,
+    "UsersLogin_id": 26,
+    "OperationTypes_id": 2,
+    "created_at": "2017-02-19"
+  },
+  {
+    "value": 10026,
+    "UsersLogin_id": 9,
+    "OperationTypes_id": 4,
+    "created_at": "2019-02-03"
+  },
+  {
+    "value": 5303,
+    "UsersLogin_id": 47,
+    "OperationTypes_id": 3,
+    "created_at": "2016-09-14"
+  },
+  {
+    "value": 4797,
+    "UsersLogin_id": 94,
+    "OperationTypes_id": 4,
+    "created_at": "2017-08-27"
+  },
+  {
+    "value": 16071,
+    "UsersLogin_id": 68,
+    "OperationTypes_id": 4,
+    "created_at": "2014-08-17"
+  },
+  {
+    "value": 6657,
+    "UsersLogin_id": 33,
+    "OperationTypes_id": 3,
+    "created_at": "2022-01-19"
+  },
+  {
+    "value": 7404,
+    "UsersLogin_id": 48,
+    "OperationTypes_id": 1,
+    "created_at": "2013-04-23"
+  },
+  {
+    "value": 6059,
+    "UsersLogin_id": 50,
+    "OperationTypes_id": 1,
+    "created_at": "2009-11-12"
+  },
+  {
+    "value": 15433,
+    "UsersLogin_id": 48,
+    "OperationTypes_id": 3,
+    "created_at": "2009-03-08"
+  },
+  {
+    "value": 13202,
+    "UsersLogin_id": 99,
+    "OperationTypes_id": 4,
+    "created_at": "2012-05-03"
+  },
+  {
+    "value": 14107,
+    "UsersLogin_id": 30,
+    "OperationTypes_id": 2,
+    "created_at": "2011-09-19"
+  },
+  {
+    "value": 4120,
+    "UsersLogin_id": 54,
+    "OperationTypes_id": 4,
+    "created_at": "2016-01-24"
+  },
+  {
+    "value": 4229,
+    "UsersLogin_id": 97,
+    "OperationTypes_id": 4,
+    "created_at": "2008-01-29"
+  },
+  {
+    "value": 19537,
+    "UsersLogin_id": 21,
+    "OperationTypes_id": 4,
+    "created_at": "2010-02-22"
+  },
+  {
+    "value": 11094,
+    "UsersLogin_id": 73,
+    "OperationTypes_id": 3,
+    "created_at": "2013-12-31"
+  },
+  {
+    "value": 19451,
+    "UsersLogin_id": 26,
+    "OperationTypes_id": 2,
+    "created_at": "2013-10-28"
+  },
+  {
+    "value": 14710,
+    "UsersLogin_id": 28,
+    "OperationTypes_id": 1,
+    "created_at": "2015-07-05"
+  },
+  {
+    "value": 1660,
+    "UsersLogin_id": 18,
+    "OperationTypes_id": 2,
+    "created_at": "2019-05-26"
+  },
+  {
+    "value": 13374,
+    "UsersLogin_id": 12,
+    "OperationTypes_id": 4,
+    "created_at": "2008-07-17"
+  },
+  {
+    "value": 1378,
+    "UsersLogin_id": 50,
+    "OperationTypes_id": 1,
+    "created_at": "2022-01-07"
+  },
+  {
+    "value": 665,
+    "UsersLogin_id": 63,
+    "OperationTypes_id": 4,
+    "created_at": "2021-11-04"
+  },
+  {
+    "value": 14668,
+    "UsersLogin_id": 100,
+    "OperationTypes_id": 1,
+    "created_at": "2009-12-28"
+  },
+  {
+    "value": 8240,
+    "UsersLogin_id": 17,
+    "OperationTypes_id": 2,
+    "created_at": "2013-08-25"
+  },
+  {
+    "value": 10939,
+    "UsersLogin_id": 5,
+    "OperationTypes_id": 1,
+    "created_at": "2013-04-08"
+  },
+  {
+    "value": 16702,
+    "UsersLogin_id": 41,
+    "OperationTypes_id": 3,
+    "created_at": "2009-09-20"
+  },
+  {
+    "value": 6710,
+    "UsersLogin_id": 81,
+    "OperationTypes_id": 2,
+    "created_at": "2010-02-20"
+  },
+  {
+    "value": 15333,
+    "UsersLogin_id": 61,
+    "OperationTypes_id": 2,
+    "created_at": "2017-10-12"
+  },
+  {
+    "value": 16064,
+    "UsersLogin_id": 11,
+    "OperationTypes_id": 4,
+    "created_at": "2014-06-29"
+  },
+  {
+    "value": 681,
+    "UsersLogin_id": 2,
+    "OperationTypes_id": 4,
+    "created_at": "2020-11-23"
+  },
+  {
+    "value": 9573,
+    "UsersLogin_id": 16,
+    "OperationTypes_id": 3,
+    "created_at": "2021-09-20"
+  },
+  {
+    "value": 13561,
+    "UsersLogin_id": 52,
+    "OperationTypes_id": 4,
+    "created_at": "2016-11-25"
+  },
+  {
+    "value": 12810,
+    "UsersLogin_id": 89,
+    "OperationTypes_id": 3,
+    "created_at": "2016-06-28"
+  },
+  {
+    "value": 16655,
+    "UsersLogin_id": 20,
+    "OperationTypes_id": 3,
+    "created_at": "2008-05-07"
+  },
+  {
+    "value": 789,
+    "UsersLogin_id": 56,
+    "OperationTypes_id": 4,
+    "created_at": "2013-03-12"
+  },
+  {
+    "value": 15307,
+    "UsersLogin_id": 47,
+    "OperationTypes_id": 1,
+    "created_at": "2015-12-01"
+  },
+  {
+    "value": 12659,
+    "UsersLogin_id": 27,
+    "OperationTypes_id": 2,
+    "created_at": "2017-12-01"
+  },
+  {
+    "value": 12304,
+    "UsersLogin_id": 65,
+    "OperationTypes_id": 1,
+    "created_at": "2010-10-09"
+  },
+  {
+    "value": 18808,
+    "UsersLogin_id": 36,
+    "OperationTypes_id": 4,
+    "created_at": "2010-03-20"
+  },
+  {
+    "value": 4804,
+    "UsersLogin_id": 17,
+    "OperationTypes_id": 2,
+    "created_at": "2013-10-02"
+  },
+  {
+    "value": 3404,
+    "UsersLogin_id": 64,
+    "OperationTypes_id": 2,
+    "created_at": "2013-04-28"
+  },
+  {
+    "value": 8860,
+    "UsersLogin_id": 90,
+    "OperationTypes_id": 3,
+    "created_at": "2012-01-02"
+  },
+  {
+    "value": 666,
+    "UsersLogin_id": 40,
+    "OperationTypes_id": 4,
+    "created_at": "2021-07-10"
+  },
+  {
+    "value": 16422,
+    "UsersLogin_id": 100,
+    "OperationTypes_id": 3,
+    "created_at": "2015-08-31"
+  },
+  {
+    "value": 17963,
+    "UsersLogin_id": 83,
+    "OperationTypes_id": 4,
+    "created_at": "2020-05-18"
+  },
+  {
+    "value": 8223,
+    "UsersLogin_id": 47,
+    "OperationTypes_id": 2,
+    "created_at": "2012-04-29"
+  },
+  {
+    "value": 16532,
+    "UsersLogin_id": 89,
+    "OperationTypes_id": 4,
+    "created_at": "2014-02-27"
+  },
+  {
+    "value": 8011,
+    "UsersLogin_id": 31,
+    "OperationTypes_id": 4,
+    "created_at": "2009-06-10"
+  },
+  {
+    "value": 2051,
+    "UsersLogin_id": 56,
+    "OperationTypes_id": 2,
+    "created_at": "2014-10-31"
+  },
+  {
+    "value": 5068,
+    "UsersLogin_id": 95,
+    "OperationTypes_id": 4,
+    "created_at": "2013-05-29"
+  },
+  {
+    "value": 11817,
+    "UsersLogin_id": 70,
+    "OperationTypes_id": 2,
+    "created_at": "2016-12-15"
+  },
+  {
+    "value": 8378,
+    "UsersLogin_id": 54,
+    "OperationTypes_id": 2,
+    "created_at": "2016-08-31"
+  },
+  {
+    "value": 12374,
+    "UsersLogin_id": 51,
+    "OperationTypes_id": 4,
+    "created_at": "2014-11-08"
+  },
+  {
+    "value": 9802,
+    "UsersLogin_id": 100,
+    "OperationTypes_id": 2,
+    "created_at": "2017-11-28"
+  },
+  {
+    "value": 5677,
+    "UsersLogin_id": 2,
+    "OperationTypes_id": 3,
+    "created_at": "2017-11-25"
+  },
+  {
+    "value": 15799,
+    "UsersLogin_id": 56,
+    "OperationTypes_id": 4,
+    "created_at": "2008-05-27"
+  },
+  {
+    "value": 5945,
+    "UsersLogin_id": 95,
+    "OperationTypes_id": 1,
+    "created_at": "2017-12-15"
+  },
+  {
+    "value": 18409,
+    "UsersLogin_id": 85,
+    "OperationTypes_id": 1,
+    "created_at": "2010-06-30"
+  },
+  {
+    "value": 9273,
+    "UsersLogin_id": 71,
+    "OperationTypes_id": 1,
+    "created_at": "2017-12-01"
+  },
+  {
+    "value": 17619,
+    "UsersLogin_id": 6,
+    "OperationTypes_id": 4,
+    "created_at": "2019-09-27"
+  },
+  {
+    "value": 14754,
+    "UsersLogin_id": 62,
+    "OperationTypes_id": 2,
+    "created_at": "2012-06-06"
+  },
+  {
+    "value": 7364,
+    "UsersLogin_id": 34,
+    "OperationTypes_id": 2,
+    "created_at": "2009-10-28"
+  },
+  {
+    "value": 17568,
+    "UsersLogin_id": 72,
+    "OperationTypes_id": 4,
+    "created_at": "2015-10-07"
+  },
+  {
+    "value": 5152,
+    "UsersLogin_id": 71,
+    "OperationTypes_id": 3,
+    "created_at": "2012-02-02"
+  },
+  {
+    "value": 18721,
+    "UsersLogin_id": 7,
+    "OperationTypes_id": 1,
+    "created_at": "2022-01-10"
+  },
+  {
+    "value": 1500,
+    "UsersLogin_id": 82,
+    "OperationTypes_id": 1,
+    "created_at": "2009-12-29"
+  },
+  {
+    "value": 16608,
     "UsersLogin_id": 77,
     "OperationTypes_id": 1,
+    "created_at": "2013-08-06"
+  },
+  {
+    "value": 4782,
+    "UsersLogin_id": 71,
+    "OperationTypes_id": 2,
+    "created_at": "2015-11-30"
+  },
+  {
+    "value": 1005,
+    "UsersLogin_id": 66,
+    "OperationTypes_id": 1,
+    "created_at": "2022-02-13"
+  },
+  {
+    "value": 11242,
+    "UsersLogin_id": 36,
+    "OperationTypes_id": 3,
+    "created_at": "2010-03-14"
+  },
+  {
+    "value": 8883,
+    "UsersLogin_id": 94,
+    "OperationTypes_id": 2,
+    "created_at": "2013-01-16"
+  },
+  {
+    "value": 16181,
+    "UsersLogin_id": 26,
+    "OperationTypes_id": 4,
+    "created_at": "2021-04-28"
+  },
+  {
+    "value": 11534,
+    "UsersLogin_id": 10,
+    "OperationTypes_id": 1,
+    "created_at": "2014-02-03"
+  },
+  {
+    "value": 4115,
+    "UsersLogin_id": 56,
+    "OperationTypes_id": 4,
     "created_at": "2021-03-20"
   },
   {
-    "id": 86,
-    "value": 685.93,
-    "UsersLogin_id": 43,
-    "OperationTypes_id": 1,
-    "created_at": "2020-05-17"
-  },
-  {
-    "id": 87,
-    "value": 2603.87,
-    "UsersLogin_id": 20,
-    "OperationTypes_id": 4,
-    "created_at": "2021-12-25"
-  },
-  {
-    "id": 88,
-    "value": 1187.68,
-    "UsersLogin_id": 85,
+    "value": 8204,
+    "UsersLogin_id": 79,
     "OperationTypes_id": 3,
-    "created_at": "2015-12-30"
+    "created_at": "2019-07-06"
   },
   {
-    "id": 89,
-    "value": 2167.56,
+    "value": 14419,
+    "UsersLogin_id": 78,
+    "OperationTypes_id": 1,
+    "created_at": "2013-07-10"
+  },
+  {
+    "value": 537,
+    "UsersLogin_id": 69,
+    "OperationTypes_id": 2,
+    "created_at": "2020-02-07"
+  },
+  {
+    "value": 10855,
+    "UsersLogin_id": 90,
+    "OperationTypes_id": 3,
+    "created_at": "2010-08-02"
+  },
+  {
+    "value": 4322,
+    "UsersLogin_id": 68,
+    "OperationTypes_id": 3,
+    "created_at": "2019-01-26"
+  },
+  {
+    "value": 13884,
+    "UsersLogin_id": 88,
+    "OperationTypes_id": 2,
+    "created_at": "2011-11-18"
+  },
+  {
+    "value": 19796,
+    "UsersLogin_id": 74,
+    "OperationTypes_id": 3,
+    "created_at": "2013-11-19"
+  },
+  {
+    "value": 8194,
+    "UsersLogin_id": 88,
+    "OperationTypes_id": 1,
+    "created_at": "2020-07-22"
+  },
+  {
+    "value": 16506,
+    "UsersLogin_id": 94,
+    "OperationTypes_id": 2,
+    "created_at": "2014-05-05"
+  },
+  {
+    "value": 2020,
+    "UsersLogin_id": 94,
+    "OperationTypes_id": 1,
+    "created_at": "2009-09-29"
+  },
+  {
+    "value": 10657,
+    "UsersLogin_id": 10,
+    "OperationTypes_id": 4,
+    "created_at": "2015-09-10"
+  },
+  {
+    "value": 530,
+    "UsersLogin_id": 76,
+    "OperationTypes_id": 2,
+    "created_at": "2018-01-07"
+  },
+  {
+    "value": 7064,
+    "UsersLogin_id": 71,
+    "OperationTypes_id": 2,
+    "created_at": "2011-08-31"
+  },
+  {
+    "value": 8487,
+    "UsersLogin_id": 67,
+    "OperationTypes_id": 3,
+    "created_at": "2018-04-02"
+  },
+  {
+    "value": 19306,
+    "UsersLogin_id": 14,
+    "OperationTypes_id": 3,
+    "created_at": "2008-04-02"
+  },
+  {
+    "value": 7747,
+    "UsersLogin_id": 36,
+    "OperationTypes_id": 1,
+    "created_at": "2014-01-12"
+  },
+  {
+    "value": 5645,
+    "UsersLogin_id": 1,
+    "OperationTypes_id": 4,
+    "created_at": "2020-01-09"
+  },
+  {
+    "value": 19787,
+    "UsersLogin_id": 100,
+    "OperationTypes_id": 2,
+    "created_at": "2014-02-07"
+  },
+  {
+    "value": 18084,
+    "UsersLogin_id": 62,
+    "OperationTypes_id": 3,
+    "created_at": "2021-09-14"
+  },
+  {
+    "value": 9979,
+    "UsersLogin_id": 62,
+    "OperationTypes_id": 1,
+    "created_at": "2008-09-30"
+  },
+  {
+    "value": 6850,
+    "UsersLogin_id": 63,
+    "OperationTypes_id": 4,
+    "created_at": "2008-08-08"
+  },
+  {
+    "value": 9377,
+    "UsersLogin_id": 98,
+    "OperationTypes_id": 1,
+    "created_at": "2015-07-23"
+  },
+  {
+    "value": 3188,
+    "UsersLogin_id": 3,
+    "OperationTypes_id": 2,
+    "created_at": "2008-12-07"
+  },
+  {
+    "value": 10207,
+    "UsersLogin_id": 10,
+    "OperationTypes_id": 1,
+    "created_at": "2014-04-16"
+  },
+  {
+    "value": 12687,
+    "UsersLogin_id": 35,
+    "OperationTypes_id": 4,
+    "created_at": "2022-02-01"
+  },
+  {
+    "value": 936,
+    "UsersLogin_id": 10,
+    "OperationTypes_id": 4,
+    "created_at": "2010-10-13"
+  },
+  {
+    "value": 9672,
+    "UsersLogin_id": 60,
+    "OperationTypes_id": 4,
+    "created_at": "2008-01-03"
+  },
+  {
+    "value": 1505,
+    "UsersLogin_id": 18,
+    "OperationTypes_id": 2,
+    "created_at": "2011-12-06"
+  },
+  {
+    "value": 19711,
+    "UsersLogin_id": 74,
+    "OperationTypes_id": 2,
+    "created_at": "2021-06-26"
+  },
+  {
+    "value": 6294,
+    "UsersLogin_id": 34,
+    "OperationTypes_id": 3,
+    "created_at": "2020-07-08"
+  },
+  {
+    "value": 7400,
+    "UsersLogin_id": 35,
+    "OperationTypes_id": 1,
+    "created_at": "2019-06-10"
+  },
+  {
+    "value": 11584,
+    "UsersLogin_id": 14,
+    "OperationTypes_id": 1,
+    "created_at": "2018-03-30"
+  },
+  {
+    "value": 8919,
     "UsersLogin_id": 26,
     "OperationTypes_id": 3,
-    "created_at": "2020-02-22"
+    "created_at": "2014-06-18"
   },
   {
-    "id": 90,
-    "value": 670.18,
-    "UsersLogin_id": 67,
+    "value": 488,
+    "UsersLogin_id": 96,
     "OperationTypes_id": 2,
-    "created_at": "2019-04-22"
+    "created_at": "2021-04-26"
   },
   {
-    "id": 91,
-    "value": 788.0,
-    "UsersLogin_id": 4,
+    "value": 8450,
+    "UsersLogin_id": 21,
+    "OperationTypes_id": 1,
+    "created_at": "2012-12-09"
+  },
+  {
+    "value": 8992,
+    "UsersLogin_id": 22,
     "OperationTypes_id": 4,
-    "created_at": "2016-01-16"
+    "created_at": "2010-10-31"
   },
   {
-    "id": 92,
-    "value": 953.05,
-    "UsersLogin_id": 32,
+    "value": 5401,
+    "UsersLogin_id": 96,
+    "OperationTypes_id": 1,
+    "created_at": "2017-05-22"
+  },
+  {
+    "value": 13000,
+    "UsersLogin_id": 57,
+    "OperationTypes_id": 1,
+    "created_at": "2015-01-01"
+  },
+  {
+    "value": 11531,
+    "UsersLogin_id": 18,
     "OperationTypes_id": 2,
-    "created_at": "2022-05-01"
+    "created_at": "2008-09-27"
   },
   {
-    "id": 93,
-    "value": 1604.46,
-    "UsersLogin_id": 90,
+    "value": 11090,
+    "UsersLogin_id": 57,
     "OperationTypes_id": 2,
-    "created_at": "2018-12-10"
+    "created_at": "2022-03-21"
   },
   {
-    "id": 94,
-    "value": 2816.19,
-    "UsersLogin_id": 92,
-    "OperationTypes_id": 4,
-    "created_at": "2018-11-20"
-  },
-  {
-    "id": 95,
-    "value": 2369.07,
-    "UsersLogin_id": 55,
-    "OperationTypes_id": 4,
-    "created_at": "2018-09-08"
-  },
-  {
-    "id": 96,
-    "value": 1202.54,
-    "UsersLogin_id": 95,
+    "value": 16788,
+    "UsersLogin_id": 63,
     "OperationTypes_id": 3,
-    "created_at": "2017-04-17"
+    "created_at": "2021-10-10"
   },
   {
-    "id": 97,
-    "value": 2317.63,
-    "UsersLogin_id": 92,
+    "value": 1427,
+    "UsersLogin_id": 73,
     "OperationTypes_id": 4,
-    "created_at": "2020-02-24"
+    "created_at": "2017-07-23"
   },
   {
-    "id": 98,
-    "value": 1518.48,
-    "UsersLogin_id": 32,
-    "OperationTypes_id": 4,
-    "created_at": "2018-11-23"
-  },
-  {
-    "id": 99,
-    "value": 1937.95,
+    "value": 3089,
     "UsersLogin_id": 91,
     "OperationTypes_id": 4,
-    "created_at": "2019-10-13"
+    "created_at": "2014-04-10"
   },
   {
-    "id": 100,
-    "value": 2910.14,
-    "UsersLogin_id": 11,
+    "value": 17442,
+    "UsersLogin_id": 87,
     "OperationTypes_id": 1,
-    "created_at": "2019-03-10"
+    "created_at": "2015-03-09"
+  },
+  {
+    "value": 12361,
+    "UsersLogin_id": 39,
+    "OperationTypes_id": 3,
+    "created_at": "2012-10-18"
+  },
+  {
+    "value": 10129,
+    "UsersLogin_id": 86,
+    "OperationTypes_id": 4,
+    "created_at": "2021-03-21"
+  },
+  {
+    "value": 3556,
+    "UsersLogin_id": 88,
+    "OperationTypes_id": 2,
+    "created_at": "2018-08-07"
+  },
+  {
+    "value": 4100,
+    "UsersLogin_id": 79,
+    "OperationTypes_id": 2,
+    "created_at": "2015-01-08"
+  },
+  {
+    "value": 5970,
+    "UsersLogin_id": 90,
+    "OperationTypes_id": 3,
+    "created_at": "2015-05-03"
+  },
+  {
+    "value": 946,
+    "UsersLogin_id": 82,
+    "OperationTypes_id": 2,
+    "created_at": "2022-02-05"
+  },
+  {
+    "value": 10346,
+    "UsersLogin_id": 100,
+    "OperationTypes_id": 1,
+    "created_at": "2013-03-09"
+  },
+  {
+    "value": 12835,
+    "UsersLogin_id": 12,
+    "OperationTypes_id": 4,
+    "created_at": "2015-11-24"
+  },
+  {
+    "value": 19280,
+    "UsersLogin_id": 2,
+    "OperationTypes_id": 4,
+    "created_at": "2021-06-19"
+  },
+  {
+    "value": 15237,
+    "UsersLogin_id": 35,
+    "OperationTypes_id": 2,
+    "created_at": "2016-04-22"
+  },
+  {
+    "value": 15533,
+    "UsersLogin_id": 8,
+    "OperationTypes_id": 2,
+    "created_at": "2017-11-06"
+  },
+  {
+    "value": 13651,
+    "UsersLogin_id": 73,
+    "OperationTypes_id": 3,
+    "created_at": "2016-04-04"
+  },
+  {
+    "value": 14168,
+    "UsersLogin_id": 46,
+    "OperationTypes_id": 3,
+    "created_at": "2017-07-06"
+  },
+  {
+    "value": 16881,
+    "UsersLogin_id": 60,
+    "OperationTypes_id": 3,
+    "created_at": "2009-02-14"
+  },
+  {
+    "value": 7608,
+    "UsersLogin_id": 54,
+    "OperationTypes_id": 2,
+    "created_at": "2009-03-19"
+  },
+  {
+    "value": 19844,
+    "UsersLogin_id": 99,
+    "OperationTypes_id": 3,
+    "created_at": "2012-08-06"
+  },
+  {
+    "value": 9896,
+    "UsersLogin_id": 55,
+    "OperationTypes_id": 4,
+    "created_at": "2011-07-11"
+  },
+  {
+    "value": 15089,
+    "UsersLogin_id": 74,
+    "OperationTypes_id": 1,
+    "created_at": "2021-01-27"
+  },
+  {
+    "value": 7903,
+    "UsersLogin_id": 89,
+    "OperationTypes_id": 2,
+    "created_at": "2019-04-05"
+  },
+  {
+    "value": 17740,
+    "UsersLogin_id": 97,
+    "OperationTypes_id": 4,
+    "created_at": "2013-10-05"
+  },
+  {
+    "value": 7832,
+    "UsersLogin_id": 40,
+    "OperationTypes_id": 4,
+    "created_at": "2014-09-08"
+  },
+  {
+    "value": 338,
+    "UsersLogin_id": 4,
+    "OperationTypes_id": 4,
+    "created_at": "2013-01-14"
+  },
+  {
+    "value": 5340,
+    "UsersLogin_id": 13,
+    "OperationTypes_id": 4,
+    "created_at": "2021-01-03"
+  },
+  {
+    "value": 4461,
+    "UsersLogin_id": 93,
+    "OperationTypes_id": 1,
+    "created_at": "2008-03-19"
+  },
+  {
+    "value": 16824,
+    "UsersLogin_id": 93,
+    "OperationTypes_id": 3,
+    "created_at": "2009-06-22"
+  },
+  {
+    "value": 2745,
+    "UsersLogin_id": 68,
+    "OperationTypes_id": 3,
+    "created_at": "2010-03-28"
+  },
+  {
+    "value": 15628,
+    "UsersLogin_id": 80,
+    "OperationTypes_id": 4,
+    "created_at": "2016-11-27"
+  },
+  {
+    "value": 14406,
+    "UsersLogin_id": 7,
+    "OperationTypes_id": 1,
+    "created_at": "2019-10-23"
+  },
+  {
+    "value": 8439,
+    "UsersLogin_id": 67,
+    "OperationTypes_id": 4,
+    "created_at": "2022-06-21"
+  },
+  {
+    "value": 7870,
+    "UsersLogin_id": 25,
+    "OperationTypes_id": 1,
+    "created_at": "2016-09-05"
+  },
+  {
+    "value": 9192,
+    "UsersLogin_id": 82,
+    "OperationTypes_id": 1,
+    "created_at": "2020-05-22"
+  },
+  {
+    "value": 3592,
+    "UsersLogin_id": 39,
+    "OperationTypes_id": 2,
+    "created_at": "2009-09-06"
+  },
+  {
+    "value": 283,
+    "UsersLogin_id": 81,
+    "OperationTypes_id": 1,
+    "created_at": "2018-04-02"
+  },
+  {
+    "value": 51,
+    "UsersLogin_id": 65,
+    "OperationTypes_id": 3,
+    "created_at": "2022-06-22"
+  },
+  {
+    "value": 17593,
+    "UsersLogin_id": 12,
+    "OperationTypes_id": 2,
+    "created_at": "2018-05-18"
+  },
+  {
+    "value": 14183,
+    "UsersLogin_id": 23,
+    "OperationTypes_id": 2,
+    "created_at": "2021-02-24"
+  },
+  {
+    "value": 12273,
+    "UsersLogin_id": 27,
+    "OperationTypes_id": 2,
+    "created_at": "2018-10-25"
+  },
+  {
+    "value": 13033,
+    "UsersLogin_id": 38,
+    "OperationTypes_id": 1,
+    "created_at": "2016-09-16"
+  },
+  {
+    "value": 16320,
+    "UsersLogin_id": 22,
+    "OperationTypes_id": 3,
+    "created_at": "2014-04-07"
+  },
+  {
+    "value": 15296,
+    "UsersLogin_id": 96,
+    "OperationTypes_id": 2,
+    "created_at": "2016-03-29"
+  },
+  {
+    "value": 96,
+    "UsersLogin_id": 39,
+    "OperationTypes_id": 3,
+    "created_at": "2009-03-20"
+  },
+  {
+    "value": 9345,
+    "UsersLogin_id": 71,
+    "OperationTypes_id": 4,
+    "created_at": "2011-03-16"
+  },
+  {
+    "value": 5771,
+    "UsersLogin_id": 22,
+    "OperationTypes_id": 1,
+    "created_at": "2022-02-15"
+  },
+  {
+    "value": 6391,
+    "UsersLogin_id": 85,
+    "OperationTypes_id": 3,
+    "created_at": "2017-04-20"
+  },
+  {
+    "value": 17904,
+    "UsersLogin_id": 68,
+    "OperationTypes_id": 3,
+    "created_at": "2012-06-24"
+  },
+  {
+    "value": 12574,
+    "UsersLogin_id": 98,
+    "OperationTypes_id": 3,
+    "created_at": "2014-04-25"
+  },
+  {
+    "value": 2067,
+    "UsersLogin_id": 24,
+    "OperationTypes_id": 2,
+    "created_at": "2016-11-11"
+  },
+  {
+    "value": 12263,
+    "UsersLogin_id": 35,
+    "OperationTypes_id": 1,
+    "created_at": "2008-11-18"
+  },
+  {
+    "value": 10632,
+    "UsersLogin_id": 97,
+    "OperationTypes_id": 3,
+    "created_at": "2010-09-02"
+  },
+  {
+    "value": 2724,
+    "UsersLogin_id": 99,
+    "OperationTypes_id": 4,
+    "created_at": "2019-05-16"
+  },
+  {
+    "value": 3238,
+    "UsersLogin_id": 8,
+    "OperationTypes_id": 4,
+    "created_at": "2019-09-25"
+  },
+  {
+    "value": 7235,
+    "UsersLogin_id": 55,
+    "OperationTypes_id": 4,
+    "created_at": "2010-02-02"
+  },
+  {
+    "value": 7169,
+    "UsersLogin_id": 8,
+    "OperationTypes_id": 2,
+    "created_at": "2018-10-31"
+  },
+  {
+    "value": 14696,
+    "UsersLogin_id": 90,
+    "OperationTypes_id": 2,
+    "created_at": "2016-09-17"
+  },
+  {
+    "value": 14202,
+    "UsersLogin_id": 91,
+    "OperationTypes_id": 3,
+    "created_at": "2010-04-12"
+  },
+  {
+    "value": 5503,
+    "UsersLogin_id": 65,
+    "OperationTypes_id": 2,
+    "created_at": "2021-05-13"
+  },
+  {
+    "value": 17166,
+    "UsersLogin_id": 70,
+    "OperationTypes_id": 3,
+    "created_at": "2020-05-24"
+  },
+  {
+    "value": 19110,
+    "UsersLogin_id": 39,
+    "OperationTypes_id": 1,
+    "created_at": "2018-07-05"
+  },
+  {
+    "value": 18299,
+    "UsersLogin_id": 10,
+    "OperationTypes_id": 2,
+    "created_at": "2020-08-15"
+  },
+  {
+    "value": 7692,
+    "UsersLogin_id": 16,
+    "OperationTypes_id": 4,
+    "created_at": "2012-04-18"
+  },
+  {
+    "value": 15003,
+    "UsersLogin_id": 81,
+    "OperationTypes_id": 3,
+    "created_at": "2013-10-28"
+  },
+  {
+    "value": 14851,
+    "UsersLogin_id": 38,
+    "OperationTypes_id": 1,
+    "created_at": "2017-08-31"
+  },
+  {
+    "value": 18241,
+    "UsersLogin_id": 3,
+    "OperationTypes_id": 3,
+    "created_at": "2016-05-10"
+  },
+  {
+    "value": 6990,
+    "UsersLogin_id": 51,
+    "OperationTypes_id": 3,
+    "created_at": "2010-11-15"
+  },
+  {
+    "value": 7770,
+    "UsersLogin_id": 29,
+    "OperationTypes_id": 1,
+    "created_at": "2014-03-02"
+  },
+  {
+    "value": 19457,
+    "UsersLogin_id": 99,
+    "OperationTypes_id": 3,
+    "created_at": "2018-11-14"
+  },
+  {
+    "value": 15010,
+    "UsersLogin_id": 20,
+    "OperationTypes_id": 2,
+    "created_at": "2009-08-10"
+  },
+  {
+    "value": 9022,
+    "UsersLogin_id": 100,
+    "OperationTypes_id": 4,
+    "created_at": "2013-12-26"
+  },
+  {
+    "value": 11020,
+    "UsersLogin_id": 61,
+    "OperationTypes_id": 1,
+    "created_at": "2011-10-08"
+  },
+  {
+    "value": 5379,
+    "UsersLogin_id": 83,
+    "OperationTypes_id": 4,
+    "created_at": "2020-02-09"
+  },
+  {
+    "value": 18913,
+    "UsersLogin_id": 85,
+    "OperationTypes_id": 3,
+    "created_at": "2011-05-08"
   }
 ]
