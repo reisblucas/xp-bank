@@ -17,6 +17,19 @@ const order: Record<string, number> = {
   y: 2,
 };
 
+enum YearLength {
+  TWO = 2,
+  FOUR = 4,
+}
+
+const ValidFormat = ['dmy', 'mdy', 'ymd'];
+
+enum InvalidType {
+  DATE = 'Invalid Date',
+  FORMAT = "Invalid format, try one of: 'dmy', 'mdy' or 'ymd'",
+  YEAR = "Year field must be 'yy' or 'yyyy'",
+}
+
 const formatter = (dateSplitted: string[], newFormat: string, options = '/'): string => newFormat
   .split('')
   .reduce((prev, crr, i) => {
@@ -41,20 +54,44 @@ const validateFormat = (newFormat: string) => {
   const formatSplitted = newFormat.split('');
 
   const isValidFormat = formatSplitted
-    .map((formatArr) => formatSplitted.filter((opt) => opt !== formatArr))
-    .some((letterArr) => letterArr.length === 2);
+    .map((formatArr) => formatSplitted.filter((opt) => opt === formatArr))
+    .some((letterArr) => letterArr.length > 1);
 
   return isValidFormat;
 };
 
+// dd/mm/yyyy only
+// [Refactor to insert a other data changes for other formats]
+// receive dateSplitted: string[] and works araound that
+const validateYearFormat = (dateSplitted: string[]) => {
+  // I need to know the yyyy position to make it available in other formats -> add new parameter in principal function
+  const yearLen = dateSplitted[2].length;
+  return yearLen === YearLength.TWO || yearLen === YearLength.FOUR;
+};
+
+const validateDateAfterFormatter = (newFormat: string, formatted: string) => {
+  if (newFormat !== 'dmy') {
+    const isValidDate = new Date(formatted);
+    const validateDate = isValidDate.toString() === InvalidType.FORMAT;
+    if (validateDate) {
+      return isValidDate.toString();
+    }
+  }
+
+  return formatted;
+};
+
 const changeFormat = (date: string, newFormat: string, options?: string): string => {
-  const messageInvalidOptions = "Invalid format, try one of: 'dmy, mdy or ymd'";
-  if (newFormat && !validateFormat(newFormat)) {
-    return messageInvalidOptions;
+  if (!ValidFormat.includes(newFormat)) {
+    return InvalidType.FORMAT;
+  }
+
+  if (newFormat && validateFormat(newFormat)) {
+    return InvalidType.FORMAT;
   }
 
   const objSeparatorLength = Object.keys(dateSeparatorOptions);
-  const invalid = 'Invalid Date';
+  // const InvalidType.DATE = 'Invalid Date';
 
   let theUserOptionExists = '/';
   let dateSplitted: string | string[] = '';
@@ -68,12 +105,18 @@ const changeFormat = (date: string, newFormat: string, options?: string): string
       break;
     }
 
-    if (i === (objLastPostion - 1)) dateSplitted = invalid;
+    if (i === (objLastPostion - 1)) dateSplitted = InvalidType.DATE;
   }
 
-  if (dateSplitted === invalid) {
+  if (!dateSplitted) {
     console.log('Error: Invalid date');
-    return dateSplitted;
+    return InvalidType.DATE;
+  }
+
+  // Year format here
+  const isValidYear = validateYearFormat(dateSplitted as string[]);
+  if (!isValidYear) {
+    return InvalidType.YEAR;
   }
 
   if (!theUserOptionExists) {
@@ -84,23 +127,30 @@ const changeFormat = (date: string, newFormat: string, options?: string): string
   const castDateSplitted = dateSplitted as string[];
   const placesFormatted = formatDecimalPlaces(castDateSplitted);
   const formatted = formatter(placesFormatted, newFormat, options);
-  const isValidDate = new Date(formatted);
 
-  const validateDate = isValidDate.toString() === invalid;
-  if (validateDate) {
-    return isValidDate.toString();
-  }
-
-  return dateSplitted && formatted;
+  return validateDateAfterFormatter(newFormat, formatted);
 };
 
 export default changeFormat;
 
-// TODO
+//                           <-- TODOs -->
 
 // 1 - [✅]
 // Validate if the field is not repeated 'mmm', 'ddd', '',
 // console.log(newDateMethods.changeFormat('30/06/1996', 'mmm'));
 
-// 2 - [ ]
+// 2 - [✅] -> verification inside
 // Reestructure options params to receive another options as object {}
+// because actually does not support dd/mm/yyyy as validate new Date fails in validation (?)
+
+// 3 - [ ]
+// first param date: date | string
+//  if -> date .toString and formatTMZ
+//  else -> next step
+
+// 4 - [ ] - Validate field year 'y'
+//     [✅] - BR format onny
+//     [ ] - Dynamic Format
+// year field need to has length of 2 or 4
+// if lenght equals to 2 -> does receive 0 in front of it -> avoid this field in function formatter
+// else -> next step
