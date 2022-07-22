@@ -9,6 +9,16 @@ import { StatusCodes } from 'http-status-codes';
 export default class StocksService {
   constructor(private prisma = new PrismaClient()) {}
 
+  private increaseBalance = (
+    accBalance: Decimal,
+    quantity: number,
+  ) => Number(accBalance) + quantity;
+
+  private decreaseBalance = (
+    accBalance: Decimal,
+    quantity: number,
+  ) => Number(accBalance) - quantity;
+
   public getAllStocks = async () => {
     const stocks = await this.prisma.tickers.findMany(({
       include: {
@@ -177,6 +187,9 @@ export default class StocksService {
     // validations: account balance & FSExchangeOverview
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
 
+    console.log(this.decreaseBalance(Account.balance, value));
+    
+
     const updateVolume = this.prisma.users.update({
       data: {
         // wallets
@@ -214,10 +227,17 @@ export default class StocksService {
               .removeTZ(new Date()), 'ymd'),
           },
         },
+        AccountsBalance: {
+          update: {
+            data: {
+              balance: this.decreaseBalance(Account.balance, value),
+            },
+            where: {
+              id: Account.id,
+            },
+          },
+        },
       },
-      // where: {
-      //   id: findStock.id,
-      // },
       where: {
         id: userId,
       },
