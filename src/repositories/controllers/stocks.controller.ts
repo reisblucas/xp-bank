@@ -55,7 +55,9 @@ class StocksController {
   };
 
   public sellStock = async (req: Request, res: Response) => {
-    const response = await this.service.sellStock(req.body as IBuySellStocks);
+    const buyDTO = req.body as IBuySellStocks;
+    const uidToken = res.locals?.provider.id as number;
+    const response = await this.service.sellStock(buyDTO, uidToken);
 
     res.status(StatusCodes.OK).json(response);
   };
