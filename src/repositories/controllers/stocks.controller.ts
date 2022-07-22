@@ -1,3 +1,4 @@
+import { IBuySellStocks } from '@interfaces/stocks.interface';
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import StocksService from '../services/stocks.service';
@@ -40,7 +41,7 @@ class StocksController {
   };
 
   public buyStock = async (req: Request, res: Response) => {
-    const response = await this.service.buyStock(req.body);
+    const response = await this.service.buyStock(req.body as IBuySellStocks);
 
     res.status(StatusCodes.OK).json(response);
   };

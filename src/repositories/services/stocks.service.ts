@@ -1,6 +1,7 @@
 import { IBuySellStocks } from '@interfaces/stocks.interface';
 import { PrismaClient } from '@prisma/client';
 import { Decimal, PrismaClientValidationError } from '@prisma/client/runtime';
+import { decreaseBalance } from '@utils/balanceDecrease';
 import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
 import newDateMethods from '@utils/newDateMethods';
@@ -8,16 +9,6 @@ import { StatusCodes } from 'http-status-codes';
 
 export default class StocksService {
   constructor(private prisma = new PrismaClient()) {}
-
-  private increaseBalance = (
-    accBalance: Decimal,
-    quantity: number,
-  ) => Number(accBalance) + quantity;
-
-  private decreaseBalance = (
-    accBalance: Decimal,
-    quantity: number,
-  ) => Number(accBalance) - quantity;
 
   public getAllStocks = async () => {
     const stocks = await this.prisma.tickers.findMany(({
@@ -187,9 +178,6 @@ export default class StocksService {
     // validations: account balance & FSExchangeOverview
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
 
-    console.log(this.decreaseBalance(Account.balance, value));
-    
-
     const updateVolume = this.prisma.users.update({
       data: {
         // wallets
@@ -230,7 +218,7 @@ export default class StocksService {
         AccountsBalance: {
           update: {
             data: {
-              balance: this.decreaseBalance(Account.balance, value),
+              balance: decreaseBalance(Account.balance, value),
             },
             where: {
               id: Account.id,
