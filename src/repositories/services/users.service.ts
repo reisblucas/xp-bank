@@ -148,4 +148,17 @@ export default class UsersService {
         Users_id: userId,
       },
     });
+
+  public getStatement = async (userId: number) => {
+    const statement = await this.prisma.accountsStatement
+      .findMany({
+        where: {
+          Users_id: userId,
+        },
+      });
+
+    console.log(statement);
+
+    return statement;
+  };
 }

@@ -31,6 +31,17 @@ class UsersController {
 
     res.status(StatusCodes.OK).json(balance);
   };
+
+  public getStatement = async (req: Request, res: Response) => {
+    const userId = res.locals.provider.id as number;
+    if (!userId) {
+      throw new HttpException(StatusCodes.BAD_REQUEST, 'Provider does not exists');
+    }
+
+    const statement = await this.service.getStatement(userId);
+
+    res.status(StatusCodes.OK).json(statement);
+  };
 }
 
 export default new UsersController();

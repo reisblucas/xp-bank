@@ -1,3 +1,4 @@
 src/data/seeds/*.json
 src/prisma/**/*.ts
 jest.config.ts
+.github/workflows/main.yml
