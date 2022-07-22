@@ -1,11 +1,11 @@
 import { Decimal } from '@prisma/client/runtime';
 
-export const increaseBalance = (
-  accBalance: Decimal,
+export const increaseValue = (
+  value: Decimal,
   quantity: number,
-) => Number(accBalance) + quantity;
+) => Number(value) + quantity;
 
-export const decreaseBalance = (
-  accBalance: Decimal,
+export const decreaseValue = (
+  value: Decimal,
   quantity: number,
-) => Number(accBalance) - quantity;
+) => Number(value) - quantity;
