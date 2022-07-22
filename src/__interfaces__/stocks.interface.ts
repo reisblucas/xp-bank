@@ -19,3 +19,9 @@ export interface IFSExchangeOverview {
   vol: number,
   lot_min: number;
 }
+
+export interface IBuySellStocks {
+  userId: number;
+  tickerId: number;
+  quantity: number;
+}

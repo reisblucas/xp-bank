@@ -10,11 +10,11 @@ datasource db {
 }
 
 model AccountsBalance {
-  id            Int        @id @default(autoincrement()) @db.UnsignedInt
-  Users_id Int        @db.UnsignedInt
-  balance       Decimal    @default(0) @db.Decimal(10, 2)
-  updated_at    DateTime   @default(now()) @updatedAt
-  Users    Users @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsbalance_users_id_foreign")
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  Users_id   Int      @db.UnsignedInt
+  balance    Decimal  @default(0) @db.Decimal(10, 2)
+  updated_at DateTime @default(now()) @updatedAt
+  Users      Users    @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsbalance_users_id_foreign")
 
   @@index([Users_id], map: "accountsbalance_users_id_foreign")
 }
@@ -22,11 +22,11 @@ model AccountsBalance {
 model AccountsStatement {
   id                Int            @id @default(autoincrement()) @db.UnsignedInt
   value             Decimal        @db.Decimal(10, 2)
-  Users_id     Int            @db.UnsignedInt
+  Users_id          Int            @db.UnsignedInt
   OperationTypes_id Int            @db.UnsignedInt
-  created_at        String
+  created_at        String       
   OperationTypes    OperationTypes @relation(fields: [OperationTypes_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsstatement_operationtypes_id_foreign")
-  Users        Users     @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsstatement_users_id_foreign")
+  Users             Users          @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accountsstatement_users_id_foreign")
 
   @@index([OperationTypes_id], map: "accountsstatement_operationtypes_id_foreign")
   @@index([Users_id], map: "accountsstatement_users_id_foreign")
@@ -84,31 +84,31 @@ model OperationTypes {
 
 model Orders {
   id              Int          @id @default(autoincrement()) @db.UnsignedInt
-  Users_id   Int          @db.UnsignedInt
+  Users_id        Int          @db.UnsignedInt
   Transactions_id Int          @db.UnsignedInt
   order_executed  Int?         @default(0) @db.UnsignedInt
   created_at      DateTime     @default(now())
   sale_at         String
   Transactions    Transactions @relation(fields: [Transactions_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_transactions_id_foreign")
-  Users      Users   @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_users_id_foreign")
+  Users           Users        @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "orders_users_id_foreign")
 
   @@index([Transactions_id], map: "orders_transactions_id_foreign")
   @@index([Users_id], map: "orders_users_id_foreign")
 }
 
 model PersonalDatas {
-  id            Int         @id @default(autoincrement()) @db.UnsignedInt
-  first_name    String      @db.VarChar(50)
-  last_name     String      @db.VarChar(50)
-  cpf           String      @unique(map: "personaldatas_cpf_unique") @db.VarChar(11)
-  rg            String      @unique(map: "personaldatas_rg_unique") @db.VarChar(9)
-  birth_date    String      @db.VarChar(10)
-  Genders_id    Int         @default(1) @db.UnsignedInt
-  Users_id Int         @db.UnsignedInt
-  updated_at    DateTime    @default(now()) @updatedAt
-  Genders       Genders     @relation(fields: [Genders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_genders_id_foreign")
-  Users    Users  @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_users_id_foreign")
-  Addresses     Addresses[]
+  id         Int         @id @default(autoincrement()) @db.UnsignedInt
+  first_name String      @db.VarChar(50)
+  last_name  String      @db.VarChar(50)
+  cpf        String      @unique(map: "personaldatas_cpf_unique") @db.VarChar(11)
+  rg         String      @unique(map: "personaldatas_rg_unique") @db.VarChar(9)
+  birth_date String      @db.VarChar(10)
+  Genders_id Int         @default(1) @db.UnsignedInt
+  Users_id   Int         @db.UnsignedInt
+  updated_at DateTime    @default(now()) @updatedAt
+  Genders    Genders     @relation(fields: [Genders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_genders_id_foreign")
+  Users      Users       @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_users_id_foreign")
+  Addresses  Addresses[]
 
   @@index([Genders_id], map: "personaldatas_genders_id_foreign")
   @@index([Users_id], map: "personaldatas_users_id_foreign")
@@ -172,24 +172,24 @@ model Users {
 }
 
 model Wallets {
-  id            Int            @id @default(autoincrement()) @db.UnsignedInt
-  name          String         @db.VarChar(50)
-  Users_id Int            @db.UnsignedInt
-  created_at    DateTime       @default(now())
-  updated_at    DateTime       @default(now()) @updatedAt
-  Users    Users     @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "wallets_users_id_foreign")
-  Transactions  Transactions[]
+  id           Int            @id @default(autoincrement()) @db.UnsignedInt
+  name         String         @db.VarChar(50)
+  Users_id     Int            @db.UnsignedInt
+  created_at   DateTime       @default(now())
+  updated_at   DateTime       @default(now()) @updatedAt
+  Users        Users          @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "wallets_users_id_foreign")
+  Transactions Transactions[]
 
   @@index([Users_id], map: "wallets_users_id_foreign")
 }
 
 model AccessHistory {
-  id            Int        @id @default(autoincrement()) @db.UnsignedInt
-  Users_id Int        @db.UnsignedInt
-  Platform_id   Int        @db.UnsignedInt
-  last_access   DateTime   @default(now())
-  Users    Users @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accesshistory_users_id_foreign")
-  Platform      Platform   @relation(fields: [Platform_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "access_platform_id_foreign")
+  id          Int      @id @default(autoincrement()) @db.UnsignedInt
+  Users_id    Int      @db.UnsignedInt
+  Platform_id Int      @db.UnsignedInt
+  last_access DateTime @default(now())
+  Users       Users    @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "accesshistory_users_id_foreign")
+  Platform    Platform @relation(fields: [Platform_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "access_platform_id_foreign")
 
   @@index([Users_id], map: "accesshistory_users_id_foreign")
   @@index([Platform_id], map: "access_platform_id_foreign")

@@ -38,6 +38,12 @@ class StocksController {
 
     res.status(StatusCodes.OK).json(company);
   };
+
+  public buyStock = async (req: Request, res: Response) => {
+    const response = await this.service.buyStock(req.body);
+
+    res.status(StatusCodes.OK).json(response);
+  };
 }
 
 export default new StocksController();
