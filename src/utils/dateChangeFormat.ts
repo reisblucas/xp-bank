@@ -32,7 +32,27 @@ const formatDecimalPlaces = (dataSplitted: string[]): string[] => dataSplitted.m
   return fieldIsLesserThan10 && doesNotHaveZeroAtInitial ? `0${field}` : field;
 });
 
+const validateFormat = (newFormat: string) => {
+  const lengthEqualsThree = newFormat.length === 3;
+  if (!lengthEqualsThree) return lengthEqualsThree;
+
+  // 'dmy' -> split -> ['d', 'm', 'y'] -> loop(split)
+  // -> filter !== d (ex) -> ex ['m', 'y']
+  const formatSplitted = newFormat.split('');
+
+  const isValidFormat = formatSplitted
+    .map((formatArr) => formatSplitted.filter((opt) => opt !== formatArr))
+    .some((letterArr) => letterArr.length === 2);
+
+  return isValidFormat;
+};
+
 const changeFormat = (date: string, newFormat: string, options?: string): string => {
+  const messageInvalidOptions = "Invalid format, try one of: 'dmy, mdy or ymd'";
+  if (newFormat && !validateFormat(newFormat)) {
+    return messageInvalidOptions;
+  }
+
   const objSeparatorLength = Object.keys(dateSeparatorOptions);
   const invalid = 'Invalid Date';
 
@@ -63,7 +83,24 @@ const changeFormat = (date: string, newFormat: string, options?: string): string
 
   const castDateSplitted = dateSplitted as string[];
   const placesFormatted = formatDecimalPlaces(castDateSplitted);
-  return dateSplitted && formatter(placesFormatted, newFormat, options);
+  const formatted = formatter(placesFormatted, newFormat, options);
+  const isValidDate = new Date(formatted);
+
+  const validateDate = isValidDate.toString() === invalid;
+  if (validateDate) {
+    return isValidDate.toString();
+  }
+
+  return dateSplitted && formatted;
 };
 
 export default changeFormat;
+
+// TODO
+
+// 1 - [✅]
+// Validate if the field is not repeated 'mmm', 'ddd', '',
+// console.log(newDateMethods.changeFormat('30/06/1996', 'mmm'));
+
+// 2 - [ ]
+// Reestructure options params to receive another options as object {}
