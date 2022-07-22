@@ -1,5 +1,9 @@
+import { IBuySellStocks } from '@interfaces/stocks.interface';
 import { PrismaClient } from '@prisma/client';
+import { Decimal, PrismaClientValidationError } from '@prisma/client/runtime';
+import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
+import newDateMethods from '@utils/newDateMethods';
 import { StatusCodes } from 'http-status-codes';
 
 export default class StocksService {
@@ -95,5 +99,148 @@ export default class StocksService {
     }
 
     return company;
+  };
+
+  public buyStock = async (body: IBuySellStocks) => {
+    const { userId, tickerId, quantity } = body;
+
+    // confirmation to the user in client side
+    const findStock = await this.prisma.tickers.findFirst({
+      select: {
+        id: true,
+        ticker: true,
+        FSExchangeOverview: {
+          select: {
+            id: true,
+            vol: true,
+            lastSell: true,
+          },
+        },
+      },
+      where: {
+        id: tickerId,
+      },
+    });
+
+    const findUser = await this.prisma.users.findFirst({
+      where: {
+        id: userId,
+      },
+      include: {
+        Wallets: {
+          include: {
+            Transactions: true,
+          },
+        },
+        AccountsBalance: true,
+        Orders: true,
+        AccountsStatement: true,
+      },
+    });
+
+    if (!findStock) {
+      throw new HttpException(StatusCodes.BAD_REQUEST, 'Something went wrong, stock not found');
+    }
+
+    const { FSExchangeOverview: [stock], ticker } = findStock;
+    if (stock.vol < quantity || stock.vol - quantity < 0) {
+      throw new HttpException(
+        StatusCodes.UNAUTHORIZED,
+        'You can\'t buy more than avaiable in broker',
+      );
+    }
+
+    if (!findUser) {
+      throw new HttpException(StatusCodes.BAD_REQUEST, 'Something went wrong, user not found');
+    }
+
+    const {
+      AccountsBalance: [Account],
+      AccountsStatement: [statement],
+      Orders: [orders],
+      Wallets: [wallets],
+    } = findUser;
+    const { Transactions: [transactions] } = wallets;
+
+    const value = (quantity * Number(stock.lastSell));
+    const validateBalance = Number(Account.balance) >= value;
+
+    if (!validateBalance) {
+      throw new HttpException(
+        StatusCodes.BAD_REQUEST,
+        'User does not have sufficient balance to fullfill the request',
+      );
+    }
+    // stock -> id, vol and if exists
+    // create
+
+    // validations: account balance & FSExchangeOverview
+    // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
+
+    const updateVolume = this.prisma.users.update({
+      data: {
+        // wallets
+        Wallets: {
+          update: {
+            data: {
+              updated_at: new Date(),
+              // transaction
+              Transactions: {
+                create: {
+                  Tickers_id: tickerId,
+                  quantity,
+                  price: stock.lastSell,
+                  OperationTypes_id: 1, // refers to Buy
+                  // orders
+                  Orders: {
+                    create: {
+                      Users_id: userId,
+                      sale_at: newDateMethods.Dplus2(),
+                    },
+                  },
+                },
+              },
+            },
+            where: {
+              id: wallets.id,
+            },
+          },
+        },
+        AccountsStatement: {
+          create: {
+            value,
+            OperationTypes_id: 1,
+            created_at: changeFormat(newDateMethods
+              .removeTZ(new Date()), 'ymd'),
+          },
+        },
+      },
+      // where: {
+      //   id: findStock.id,
+      // },
+      where: {
+        id: userId,
+      },
+    });
+
+    try {
+      await this.prisma.$transaction([updateVolume]);
+    } catch (e) {
+    // Errors to rollback
+      if (e instanceof PrismaClientValidationError) {
+        console.log(e.message);
+      }
+    }
+
+    return {
+      userId,
+      quantity,
+      stockPriceUnit: stock.lastSell,
+      transactionValue: value,
+      ticker: {
+        tickerId,
+        symbol: ticker,
+      },
+    };
   };
 }
