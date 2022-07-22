@@ -1,12 +1,15 @@
 import express, { Express } from 'express';
+import * as dotenv from 'dotenv';
 import ErrorHandler from './middlewares/ErrorHandler';
-import routers from './routers';
 import authenticatedRouters from './routers/authenticated';
+import unauthenticatedRouters from './routers/public';
+
+dotenv.config();
 
 const app: Express = express();
 app.use(express.json());
 
-app.use(routers);
+app.use(unauthenticatedRouters);
 app.use(authenticatedRouters);
 app.use(ErrorHandler);
 
