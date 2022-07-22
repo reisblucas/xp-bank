@@ -8,4 +8,4 @@ app.listen(PORT, () => console.log(
   `Listening you I'm on port ${PORT}, my young padawan!`,
 ));
 
-console.log(newDateMethods.changeFormat('20/02/03', 'ddd'));
+console.log(newDateMethods.changeFormat('20-02-03', ''));

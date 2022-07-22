@@ -90,13 +90,12 @@ const changeFormat = (date: string, newFormat: string, options?: string): string
     return InvalidType.FORMAT;
   }
 
-  const objSeparatorLength = Object.keys(dateSeparatorOptions);
+  const objSeparatorLength = Object.keys(dateSeparatorOptions).length;
   // const InvalidType.DATE = 'Invalid Date';
 
   let theUserOptionExists = '/';
   let dateSplitted: string | string[] = '';
-  const objLastPostion = objSeparatorLength.length;
-  for (let i = 0; i < objSeparatorLength.length; i += 1) {
+  for (let i = 0; i < objSeparatorLength; i += 1) {
     // the split only occurs when dateSeparatorOption exists in the base
     const isSplited = date.split(dateSeparatorOptions[i]);
     if (isSplited.length === 3) {
@@ -104,14 +103,9 @@ const changeFormat = (date: string, newFormat: string, options?: string): string
       dateSplitted = isSplited;
       break;
     }
-
-    if (i === (objLastPostion - 1)) dateSplitted = InvalidType.DATE;
   }
 
-  if (!dateSplitted) {
-    console.log('Error: Invalid date');
-    return InvalidType.DATE;
-  }
+  if (!dateSplitted) return InvalidType.DATE;
 
   // Year format here
   const isValidYear = validateYearFormat(dateSplitted as string[]);
