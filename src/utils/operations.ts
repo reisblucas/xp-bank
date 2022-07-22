@@ -1,6 +1,6 @@
 import { Decimal } from '@prisma/client/runtime';
 
-type TOperations = Record<string, (v: Decimal, q: number) => number>;
+type TOperations = Record<string, (value: Decimal, quantity: number) => number>;
 
 const operations: TOperations = {
   '+': (value: Decimal, quantity: number) => Number(value) + quantity,
