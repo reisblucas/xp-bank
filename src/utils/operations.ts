@@ -19,10 +19,6 @@ const types: TOperations = {
   multiply: operations['*'],
 };
 
-// OPERATION methods: now
-// has fast-forward operation to
-//  BUY/SELL/DEPOSIT/WITHDRAW
-
 export enum OperationId {
   BUY = 1,
   SELL = 2,
