@@ -1,6 +1,7 @@
 import { IBuySellStocks } from '@interfaces/stocks.interface';
+import HttpException from '@utils/HttpException';
 import { Request, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
+import { ReasonPhrases, StatusCodes } from 'http-status-codes';
 import StocksService from '../services/stocks.service';
 
 require('express-async-errors');
@@ -41,7 +42,20 @@ class StocksController {
   };
 
   public buyStock = async (req: Request, res: Response) => {
-    const response = await this.service.buyStock(req.body as IBuySellStocks);
+    const buyDTO = req.body as IBuySellStocks;
+    const uidToken = res.locals?.provider.id as number;
+
+    if (!uidToken) {
+      throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
+    }
+
+    const response = await this.service.buyStock(buyDTO, uidToken);
+
+    res.status(StatusCodes.OK).json(response);
+  };
+
+  public sellStock = async (req: Request, res: Response) => {
+    const response = await this.service.sellStock(req.body as IBuySellStocks);
 
     res.status(StatusCodes.OK).json(response);
   };
