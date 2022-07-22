@@ -35,7 +35,7 @@ const reverseEngineer = (
 const validateHash = (pwdDb: string, pwdClient: string, saltDb: string): boolean => {
   const hashedNow = reverseEngineer(pwdClient, saltDb);
 
-  // pwdb actually hashed with the script ahead compares to the pwd provided in login try
+  // pwdb is actually hashed in db | now only compare with the reverseEngineer
   return pwdDb === hashedNow;
 };
 
