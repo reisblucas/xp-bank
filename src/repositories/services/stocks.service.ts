@@ -347,7 +347,6 @@ export default class StocksService {
 
     const value = Operation('multiply')(stock.lastSell, quantity);
     const newBalance = Operation('sum')(Account.balance, value);
-    console.log('ESSE INFERNO DE VALOR', value);
 
     // stock -> id, vol and if exists
     // validations: account balance & FSExchangeOverview
