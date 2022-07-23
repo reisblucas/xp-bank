@@ -38,8 +38,21 @@ class AccountsController {
     }
 
     const deposit = await this.service.deposit(req.body as IDeposit, userId);
+    // const deposit = await this.service.testUpdateWhenFieldIsZero(req.body as IDeposit, userId);
 
     res.status(StatusCodes.OK).json(deposit);
+  };
+
+  public withdraw = async (req: Request, res: Response) => {
+    const userId = res.locals.provider.id as number;
+    if (!userId) {
+      throw new HttpException(StatusCodes.BAD_REQUEST, 'Provider does not exists');
+    }
+
+    const withdraw = await this.service.withdraw(req.body as IDeposit, userId);
+    // const withdraw = await this.service.testUpdateWhenFieldIsZero(req.body as IDeposit, userId);
+
+    res.status(StatusCodes.OK).json(withdraw);
   };
 }
 

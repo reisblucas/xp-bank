@@ -33,7 +33,12 @@ export default class AccountsService {
     return statement;
   };
 
-  private updateAccount = (quantity: number, uidToken: number, op: string) => this.prisma.users
+  private updateAccount = (
+    quantity: number,
+    uidToken: number,
+    op: string,
+    operationType: number,
+  ) => this.prisma.users
     .update({
       data: {
         AccountsBalance: {
@@ -51,7 +56,7 @@ export default class AccountsService {
         AccountsStatement: {
           create: {
             value: quantity,
-            OperationTypes_id: OperationId.DEPOSIT,
+            OperationTypes_id: operationType,
             created_at: changeFormat(newDateMethods
               .removeTZ(new Date()), 'ymd'),
           },
@@ -65,7 +70,7 @@ export default class AccountsService {
   public deposit = async (body: IDeposit, uidToken: number) => {
     const { userId, quantity } = body;
 
-    if (userId === uidToken) {
+    if (userId !== uidToken) {
       throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
     }
 
@@ -81,7 +86,7 @@ export default class AccountsService {
 
     try {
       await this.prisma.$transaction(
-        [this.updateAccount(quantity, uidToken, 'increment')],
+        [this.updateAccount(quantity, uidToken, 'increment', OperationId.DEPOSIT)],
       );
     } catch (e) {
       if (e instanceof PrismaClientUnknownRequestError) {
@@ -93,6 +98,50 @@ export default class AccountsService {
     return {
       userId: uidToken,
       quantity,
+      balance: Number(accId.balance.toFixed(2)) + quantity,
     };
+  };
+
+  public withdraw = async (body: IDeposit, uidToken: number) => {
+    const { userId, quantity } = body;
+
+    if (userId !== uidToken) {
+      throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
+    }
+
+    const accId = await this.prisma.accountsBalance.findFirst({
+      where: {
+        Users_id: uidToken,
+      },
+    });
+
+    const withdrawGreaterThanZero = (Number(accId?.balance) - quantity) < 0;
+    const validateOperation = quantity > Number(accId?.balance) || withdrawGreaterThanZero;
+    if (validateOperation) {
+      throw new HttpException(StatusCodes.BAD_REQUEST, 'You can\'t withdraw more than you have');
+    }
+
+    if (!accId) {
+      throw new HttpException(StatusCodes.BAD_REQUEST, 'User does not exist');
+    }
+
+    try {
+      await this.prisma.$transaction(
+        [this.updateAccount(quantity, uidToken, 'decrement', OperationId.WITHDRAW)],
+      );
+
+      return {
+        userId: uidToken,
+        quantity,
+        balance: Number(accId.balance.toFixed(2)) - quantity,
+      };
+    } catch (e) {
+      if (e instanceof PrismaClientUnknownRequestError) {
+        console.log('Error in accounts service:', e.message);
+        throw new HttpException(StatusCodes.BAD_REQUEST, e.message);
+      }
+    }
+
+    throw new HttpException(StatusCodes.INTERNAL_SERVER_ERROR, 'Something went wrong');
   };
 }

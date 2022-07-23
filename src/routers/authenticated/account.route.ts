@@ -8,5 +8,6 @@ const accountRoute = Router();
 accountRoute.get('/balance', accountsController.getBalance);
 accountRoute.get('/statement', accountsController.getStatement);
 accountRoute.post('/deposit', validate(BuySellDTO), accountsController.deposit);
+accountRoute.post('/withdraw', validate(BuySellDTO), accountsController.withdraw);
 
 export default accountRoute;
