@@ -177,11 +177,8 @@ export default class StocksService {
 
     const {
       AccountsBalance: [Account],
-      AccountsStatement: [statement],
-      Orders: [orders],
       Wallets: [wallets],
     } = findUser;
-    const { Transactions: [transactions] } = wallets;
 
     const value = Operation('multiply')(stock.lastSell, quantity);
     const validateBalance = Number(Account.balance) >= value;
@@ -192,9 +189,8 @@ export default class StocksService {
         'User does not have sufficient balance to fullfill the request',
       );
     }
-    // stock -> id, vol and if exists
-    // create
 
+    // stock -> id, vol and if exists
     // validations: account balance & FSExchangeOverview
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
 
@@ -322,7 +318,7 @@ export default class StocksService {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'Something went wrong, stock not found');
     }
 
-    // based in all stocks transactions i will remove the stocks
+    // Stocks need to be based in all stocks transactions to be removed
     const { FSExchangeOverview: [stock], ticker } = findStock;
 
     if (!findUser) {
@@ -339,14 +335,16 @@ export default class StocksService {
     const transactionsByTicker = Transactions
       .filter((t) => t.Tickers_id === tickerId);
 
-    const sumSameTransactions = transactionsByTicker
+    // NEED TO VALIDATE THE CLIENT WALLET
+    const totalStocksInPortfolio = transactionsByTicker
       .reduce((prev, crr) => prev + crr.quantity, 0);
+    console.log('total client stocks', totalStocksInPortfolio);
 
-    if (quantity > sumSameTransactions) {
+    if (quantity > totalStocksInPortfolio) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'You can\'t sell more stocks than you have');
     }
 
-    const value = Operation('multiply')(stock.lastSell, sumSameTransactions);
+    const value = Operation('multiply')(stock.lastSell, quantity);
     const newBalance = Operation('sum')(Account.balance, value);
 
     // stock -> id, vol and if exists
@@ -425,7 +423,7 @@ export default class StocksService {
       userId,
       quantity,
       stockPriceUnit: stock.lastSell,
-      sellTotal: value, // MUDAR AQUI
+      sellTotal: Number(value.toFixed(2)), // SEND FORMATTED NUMBER TO THE CLIENT
       ticker: {
         tickerId,
         symbol: ticker,
