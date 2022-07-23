@@ -13,6 +13,7 @@ on:
 jobs:
   # super-linter:
   #   uses: ./.github/workflows/linter.yml
+  eslint:
   runs-on: ubuntu-latest
     steps:
       - name: Fetch commit history + checkout
@@ -33,7 +34,7 @@ jobs:
         run: pnpm eslint --ignore-path ./src/prisma/**/*.ts --ext .js,.ts -c .eslintrc.json .
 
   jest:
-    needs: super-linter
+    needs: eslint
     runs-on: ubuntu-latest
     steps:
       - name: Fetch commit history + checkout
@@ -57,7 +58,7 @@ jobs:
         run: pnpm jest
 
   build:
-    needs: [super-linter, jest]
+    needs: [eslint, jest]
     runs-on: ubuntu-latest
     steps:
       - name: Fetch commit history + checkout
