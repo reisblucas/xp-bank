@@ -24,3 +24,7 @@ jobs:
           TYPESCRIPT_ES_CONFIG_FILE: .eslintrc.json
           VALIDATE_TYPESCRIPT_ES: true
           TYPESCRIPT_STANDARD_TSCONFIG_FILE: tsconfig.json
+    
+  main:
+    uses: ./.github/workflows/linter.yml
+    
