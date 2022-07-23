@@ -338,7 +338,6 @@ export default class StocksService {
     // NEED TO VALIDATE THE CLIENT WALLET
     const totalStocksInPortfolio = transactionsByTicker
       .reduce((prev, crr) => prev + crr.quantity, 0);
-    console.log('total client stocks', totalStocksInPortfolio);
 
     if (quantity > totalStocksInPortfolio) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'You can\'t sell more stocks than you have');
