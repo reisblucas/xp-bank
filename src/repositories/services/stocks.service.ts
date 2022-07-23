@@ -1,7 +1,7 @@
 import { IBuySellStocks } from '@interfaces/stocks.interface';
 import { PrismaClient } from '@prisma/client';
 import { PrismaClientValidationError } from '@prisma/client/runtime';
-import { decreaseValue, increaseValue } from '@utils/balanceDecrease';
+import { Operation, OperationId } from '@utils/operations';
 import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
 import newDateMethods from '@utils/newDateMethods';
@@ -102,12 +102,12 @@ export default class StocksService {
     return company;
   };
 
-  private updateBroker = (qnt: number, tickerId: number) => {
+  private updateBroker = (qnt: number, tickerId: number, operation: string) => {
     const response = this
       .prisma.fSExchangeOverview.update({
         data: {
           vol: {
-            decrement: qnt,
+            [operation]: qnt,
           },
         },
         where: {
@@ -183,7 +183,9 @@ export default class StocksService {
     } = findUser;
     const { Transactions: [transactions] } = wallets;
 
-    const value = (quantity * Number(stock.lastSell));
+    const value = Operation('multiply')(stock.lastSell, quantity);
+    console.log('VALU NO BUY', value);
+    
     const validateBalance = Number(Account.balance) >= value;
 
     if (!validateBalance) {
@@ -210,8 +212,8 @@ export default class StocksService {
                 create: {
                   Tickers_id: tickerId,
                   quantity,
-                  price: quantity * Number(stock.lastSell),
-                  OperationTypes_id: 1, // refers to Buy
+                  price: value,
+                  OperationTypes_id: OperationId.BUY, // refers to Buy
                   // orders
                   Orders: {
                     create: {
@@ -230,7 +232,7 @@ export default class StocksService {
         AccountsStatement: {
           create: {
             value,
-            OperationTypes_id: 1,
+            OperationTypes_id: OperationId.BUY,
             created_at: changeFormat(newDateMethods
               .removeTZ(new Date()), 'ymd'),
           },
@@ -253,21 +255,10 @@ export default class StocksService {
       },
     });
 
-    // const updateBroker = this.prisma.fSExchangeOverview.update({
-    //   data: {
-    //     vol: {
-    //       decrement: quantity,
-    //     },
-    //   },
-    //   where: {
-    //     id: stock.id,
-    //   },
-    // });
-
     try {
       await this.prisma
         .$transaction(
-          [buyProcess, this.updateBroker(quantity, stock.id)],
+          [buyProcess, this.updateBroker(quantity, stock.id, 'decrement')],
         );
     } catch (e) {
     // Errors to rollback
@@ -288,8 +279,12 @@ export default class StocksService {
     };
   };
 
-  public sellStock = async (body: IBuySellStocks) => {
+  public sellStock = async (body: IBuySellStocks, uidToken: number) => {
     const { userId, tickerId, quantity } = body;
+
+    if (userId !== uidToken) {
+      throw new HttpException(StatusCodes.BAD_REQUEST, ReasonPhrases.UNAUTHORIZED);
+    }
 
     // confirmation to the user in client side
     const findStock = await this.prisma.tickers.findFirst({
@@ -329,13 +324,8 @@ export default class StocksService {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'Something went wrong, stock not found');
     }
 
+    // based in all stocks transactions i will remove the stocks
     const { FSExchangeOverview: [stock], ticker } = findStock;
-    if (stock.vol < quantity || stock.vol - quantity < 0) {
-      throw new HttpException(
-        StatusCodes.UNAUTHORIZED,
-        'You can\'t buy more than avaiable in broker',
-      );
-    }
 
     if (!findUser) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'Something went wrong, user not found');
@@ -347,19 +337,25 @@ export default class StocksService {
       Orders: [orders],
       Wallets: [wallets],
     } = findUser;
-    const { Transactions: [transactions] } = wallets;
 
-    const value = (quantity * Number(stock.lastSell));
-    const validateBalance = Number(Account.balance) >= value;
+    const { Transactions } = wallets;
 
-    console.log(transactions);
+    const transactionsByTicker = Transactions
+      .filter((t) => t.Tickers_id === tickerId);
 
-    if (!validateBalance) {
-      throw new HttpException(
-        StatusCodes.BAD_REQUEST,
-        'User does not have sufficient balance to fullfill the request',
-      );
+    const sumSameTransactions = transactionsByTicker
+      .reduce((prev, crr) => prev + crr.quantity, 0);
+
+    if (quantity > sumSameTransactions) {
+      throw new HttpException(StatusCodes.BAD_REQUEST, 'You can\'t sell more stocks than you have');
     }
+
+    console.log('total to be selled', sumSameTransactions);
+
+    const value = Operation('multiply')(stock.lastSell, quantity);
+    // console.log('total', value);
+    const newBalance = Operation('buy')(stock.lastSell, quantity);
+    console.log('newbalance', newBalance);
 
     // stock -> id, vol and if exists
     // create
@@ -378,9 +374,9 @@ export default class StocksService {
               Transactions: {
                 create: {
                   Tickers_id: tickerId,
-                  quantity,
+                  quantity: 12387817647814, // MUDAR AQUI
                   price: stock.lastSell,
-                  OperationTypes_id: 2, // refers to Sell
+                  OperationTypes_id: OperationId.SELL, // refers to Sell
                   // orders
                   Orders: {
                     create: {
@@ -398,8 +394,8 @@ export default class StocksService {
         },
         AccountsStatement: {
           create: {
-            value,
-            OperationTypes_id: 1,
+            value: 12376128736182736, // MUDAR AQUI
+            OperationTypes_id: OperationId.SELL,
             created_at: changeFormat(newDateMethods
               .removeTZ(new Date()), 'ymd'),
           },
@@ -407,7 +403,7 @@ export default class StocksService {
         AccountsBalance: {
           update: {
             data: {
-              balance: increaseValue(Account.balance, value),
+              balance: newBalance,
             },
             where: {
               id: Account.id,
@@ -421,7 +417,13 @@ export default class StocksService {
     });
 
     try {
-      await this.prisma.$transaction([updateVolume]);
+      await this.prisma
+        .$transaction(
+          [
+            updateVolume,
+            this.updateBroker(quantity, tickerId, 'increment'),
+          ],
+        );
     } catch (e) {
     // Errors to rollback
       if (e instanceof PrismaClientValidationError) {
@@ -433,7 +435,7 @@ export default class StocksService {
       userId,
       quantity,
       stockPriceUnit: stock.lastSell,
-      transactionValue: value,
+      transactionValue: value, // MUDAR AQUI
       ticker: {
         tickerId,
         symbol: ticker,
