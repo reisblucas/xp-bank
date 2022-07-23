@@ -1,42 +1,33 @@
-name: XP CI/CD
+name: Super linter
 
 on:
-  issues:
-    types: [opened, edited]
   pull_request:
-    types: [opened, closed, synchronize]
-  push:
-    branches:
-    - main
-    - '*'
+    branches: [master, main]
 
 jobs:
-  eslint:
-    runs-on: ubuntu-20.04
+  superlint:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
     steps:
-      - name: Fetch commit history + checkout
+      - name: Checkout Code
         uses: actions/checkout@v3
-
-      - name: pnpm setup
-        uses: pnpm/action-setup@v2.2.2
         with:
-          version: latest
+          fetch-depth: 0
 
-      - name: Install Node.js and make a cache
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: 'pnpm'
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: ESLint - Detect lint errors
-        run: pnpm eslint --ignore-path ./src/prisma/**/*.ts --ext .ts ./src
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          LINTER_RULES_PATH: /
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TYPESCRIPT_ES_CONFIG_FILE: .eslintrc.json
+          VALIDATE_TYPESCRIPT_ES: true
+          TYPESCRIPT_STANDARD_TSCONFIG_FILE: tsconfig.json
 
   jest:
-    needs: eslint
-    runs-on: ubuntu-20.04
+    needs: superlint
+    runs-on: ubuntu-latest
     steps:
       - name: Fetch commit history + checkout
         uses: actions/checkout@v3
@@ -58,9 +49,9 @@ jobs:
       - name: Jest - Verify tests
         run: pnpm jest
 
-  build:
-    needs: [eslint, jest]
-    runs-on: ubuntu-20.04
+  build-ts:
+    needs: [superlint, jest]
+    runs-on: ubuntu-latest
     steps:
       - name: Fetch commit history + checkout
         uses: actions/checkout@v3
