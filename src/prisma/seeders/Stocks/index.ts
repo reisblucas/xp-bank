@@ -12,6 +12,7 @@ const sTickersStocks = (prisma: PrismaClient) => OnlyStocksProvidedByInfoMoney
   .map(async (stock) => {
     const createdStock = await prisma.stocks.create({
       data: {
+        id: stock.id,
         symbol: stock.cd_acao_rdz,
         name: stock.nm_empresa,
         economic_sector: stock.setor_economico,
