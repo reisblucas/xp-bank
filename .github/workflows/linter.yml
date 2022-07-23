@@ -5,28 +5,8 @@ on:
     branches: [master, main]
 
 jobs:
-  build:
-    name: Lint Code Base
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          LINTER_RULES_PATH: /
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TYPESCRIPT_ES_CONFIG_FILE: .eslintrc.json
-          VALIDATE_TYPESCRIPT_ES: true
-          TYPESCRIPT_STANDARD_TSCONFIG_FILE: tsconfig.json
-    
   eslint:
-  runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Fetch commit history + checkout
         uses: actions/checkout@v3
@@ -69,7 +49,7 @@ jobs:
       - name: Jest - Verify tests
         run: pnpm jest
 
-  build:
+  build-ts:
     needs: [eslint, jest]
     runs-on: ubuntu-latest
     steps:
@@ -92,3 +72,25 @@ jobs:
 
       - name: Build - try to build app
         run: pnpm tsc --build
+
+
+  build:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          LINTER_RULES_PATH: /
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TYPESCRIPT_ES_CONFIG_FILE: .eslintrc.json
+          VALIDATE_TYPESCRIPT_ES: true
+          TYPESCRIPT_STANDARD_TSCONFIG_FILE: tsconfig.json
+  
