@@ -10,8 +10,6 @@ import sUsers from './UsersPersonalDatas';
 const prisma = new PrismaClient();
 
 async function main() {
-  // sTickersStocks(prisma); // stocks, tickers and stocks overview
-  // co
   try {
     await Promise.all(sTickersStocks(prisma));
     sGenders(prisma);

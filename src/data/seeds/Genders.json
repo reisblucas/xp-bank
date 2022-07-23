@@ -1,8 +1,26 @@
 [
-  "Not informed",
-  "Cis Male",
-  "Cis Female",
-  "Transgender Male",
-  "Transgender Female",
-  "Non-binary"
+  {
+    "id": 1,
+    "name": "Uninformed"
+  },
+  {
+    "id": 2,
+    "name": "Cis Male"
+  },
+  {
+    "id": 3,
+    "name": "Cis Female"
+  },
+  {
+    "id": 4,
+    "name": "Transgender Male"
+  },
+  {
+    "id": 5,
+    "name": "Transgender Female"
+  },
+  {
+    "id": 6,
+    "name": "Non-binary"
+  }
 ]

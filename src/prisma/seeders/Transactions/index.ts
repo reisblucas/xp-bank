@@ -34,7 +34,7 @@ const sTransactions = (prisma: PrismaClient) => Transactions
         OperationTypes_id: trsct.OperationTypes_id,
         Orders: {
           create: {
-            UsersLogin_id: searchUsers?.id as number,
+            Users_id: searchUsers?.id as number,
             sale_at: newDateMethods.Dplus2(),
           },
         },

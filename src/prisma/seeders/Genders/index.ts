@@ -4,7 +4,8 @@ import Genders from '../../../data/seeds/Genders.json';
 
 const sGenders = (prisma: PrismaClient) => Genders.map(async (gender) => prisma.genders.create({
   data: {
-    name: gender,
+    id: gender.id,
+    name: gender.name,
   },
 }));
 

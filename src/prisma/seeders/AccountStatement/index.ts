@@ -4,13 +4,13 @@ import AccountsStatement from '../../../data/seeds/AccountsStatement.json';
 
 const operationLiterals: Record<number, (value: number) => number> = {
   1: (buy: number): number => -buy,
-  2: (sell: number): number => sell,
-  3: (deposit: number): number => deposit,
+  2: (sell: number): number => Math.abs(sell),
+  3: (deposit: number): number => Math.abs(deposit),
   4: (withdraw: number): number => -withdraw,
 };
 
-function formatValueBasedOperType(id: number, value: number): Decimal {
-  return new Decimal((operationLiterals[id])(value));
+function formatValueBasedOperType(opId: number, value: number): Decimal {
+  return new Decimal((operationLiterals[opId])(value));
 }
 
 const sAccountsStatement = (prisma: PrismaClient) => AccountsStatement
@@ -19,7 +19,7 @@ const sAccountsStatement = (prisma: PrismaClient) => AccountsStatement
   }) => prisma.accountsStatement.create({
     data: {
       value: formatValueBasedOperType(OperationTypes_id, value),
-      UsersLogin_id,
+      Users_id: UsersLogin_id,
       OperationTypes_id,
       created_at,
     },

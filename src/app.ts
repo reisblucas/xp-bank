@@ -1,10 +1,16 @@
-import express, { Router } from 'express';
+import express, { Express } from 'express';
+import * as dotenv from 'dotenv';
+import ErrorHandler from './middlewares/ErrorHandler';
+import authenticatedRouters from './routers/authenticated';
+import unauthenticatedRouters from './routers/public';
 
-const app = express();
+dotenv.config();
+
+const app: Express = express();
 app.use(express.json());
 
-const boiler = Router();
-
-app.use(boiler);
+app.use(unauthenticatedRouters);
+app.use(authenticatedRouters);
+app.use(ErrorHandler);
 
 export default app;

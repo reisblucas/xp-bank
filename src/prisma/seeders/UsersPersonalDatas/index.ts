@@ -14,8 +14,9 @@ const { removeTZ } = newDateMethods;
 
 // seed users: UserLogin -> AccountsBalance -> Addresses | when user signup
 const sUsers = (prisma: PrismaClient) => UsersPersonalData
-  .map(async (user, i) => prisma.usersLogin.create({
+  .map(async (user, i) => prisma.users.create({
     data: {
+      id: user.id,
       email: user.email,
       password: security.encryptAndHash(user.password),
       salt: security.salt.dynamic,

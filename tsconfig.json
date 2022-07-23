@@ -5,7 +5,7 @@
     // "experimentalDecorators": true,
 
     /* Modules */
-    "types": ["node", "jest"],
+    "types": ["node", "jest", "@types/jest"],
     "module": "commonjs",
     "resolveJsonModule": true,
     "moduleResolution": "node",
@@ -13,13 +13,12 @@
     "baseUrl": ".",
     "rootDir": "./src",
     "paths": {
-      "@models/*": ["./src/models/*"],
-      "@services/*": ["./src/services/*"],
-      "@controllers/*": ["./src/controllers/*"],
+      "@services/*": ["./src/repositories/services/*"],
+      "@controllers/*": ["./src/repositories/controllers/*"],
       "@utils/*": ["./src/utils/*"],
-      "@interfaces/*": ["./src/interfaces/*"],
-      "@connection/*": ["./src/connection/*"],
-      "@data/*": ["./src/data/*"]
+      "@interfaces/*": ["./src/__interfaces__/*"],
+      "@data/*": ["./src/data/*"],
+      "@middlewares/*": ["./src/middlewares/*"],
     },
     "typeRoots": [
       "./node_modules/@types/*",
@@ -36,8 +35,6 @@
   },
   "exclude": [
     "node_modules",
-    "src/**/*.spec.ts",
-    "src/**/*.test.ts"
   ],
   "include": [
     "src/prisma/**/*.ts",

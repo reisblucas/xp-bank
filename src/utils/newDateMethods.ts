@@ -9,10 +9,15 @@ const Dplus2 = (): string => {
 
   return removeTZ(orderWillBeExecutedAt);
 };
+
+// dd/mm/yyyy -> yyyy/mm/dd
+const brFormatToDB = (date: string): string => removeTZ(new Date(changeFormat(date, 'ymd', '-')));
+
 const newDateMethods = {
   removeTZ,
   Dplus2,
   changeFormat,
+  brFormatToDB,
 };
 
 export default newDateMethods;
