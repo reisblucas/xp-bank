@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: nodemon ./src/index.ts
+  web: node -r tsconfig-paths/register -r ts-node/register ./src/index.ts

@@ -5,7 +5,7 @@ generator client {
 
 datasource db {
   provider             = "mysql"
-  url                  = env("DB_TEST")
+  url                  = env("DB_PROD")
   referentialIntegrity = "prisma"
 }
 
