@@ -1,4 +1,4 @@
-FROM node:16.12.3
+FROM node:16
 WORKDIR /app
 COPY . .
 RUN pnpm i
