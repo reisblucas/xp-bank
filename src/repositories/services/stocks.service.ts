@@ -193,6 +193,7 @@ export default class StocksService {
     // stock -> id, vol and if exists
     // validations: account balance & FSExchangeOverview
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
+    const newBalance = Operation('sum')(Account.balance, value);
 
     const buyProcess = this.prisma.users.update({
       data: {
@@ -265,7 +266,8 @@ export default class StocksService {
       userId,
       quantity,
       stockPriceUnit: stock.lastSell,
-      transactionValue: value,
+      buyValue: Number(value.toFixed(2)),
+      balance: newBalance,
       ticker: {
         tickerId,
         symbol: ticker,
@@ -344,7 +346,8 @@ export default class StocksService {
     }
 
     const value = Operation('multiply')(stock.lastSell, quantity);
-    const newBalance = Operation('sum')(Account.balance, value);
+    const newBalance = Operation('sub')(Account.balance, value);
+    console.log('ESSE INFERNO DE VALOR', value);
 
     // stock -> id, vol and if exists
     // validations: account balance & FSExchangeOverview
@@ -362,7 +365,7 @@ export default class StocksService {
                 create: {
                   Tickers_id: tickerId,
                   quantity, // MUDAR AQUI
-                  price: stock.lastSell,
+                  price: value,
                   OperationTypes_id: OperationId.SELL, // refers to Sell
                   // orders
                   Orders: {
@@ -390,7 +393,9 @@ export default class StocksService {
         AccountsBalance: {
           update: {
             data: {
-              balance: newBalance,
+              balance: {
+                increment: value,
+              },
             },
             where: {
               id: Account.id,
@@ -423,6 +428,7 @@ export default class StocksService {
       quantity,
       stockPriceUnit: stock.lastSell,
       sellTotal: Number(value.toFixed(2)), // SEND FORMATTED NUMBER TO THE CLIENT
+      balance: newBalance,
       ticker: {
         tickerId,
         symbol: ticker,
