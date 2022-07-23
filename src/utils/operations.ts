@@ -1,6 +1,8 @@
 import { Decimal } from '@prisma/client/runtime';
 
-type TOperations = Record<string, (value: Decimal, quantity: number) => number>;
+type TOpFunc = (value: Decimal, quantity: number) => number;
+
+type TOperations = Record<string, TOpFunc>;
 
 const operations: TOperations = {
   '+': (value: Decimal, quantity: number) => Number(value) + quantity,
@@ -8,14 +10,9 @@ const operations: TOperations = {
   '*': (value: Decimal, quantity: number) => Number(value) * quantity,
 };
 
-enum SameOps {
-  buy = 'withdraw',
-  sell = 'deposit',
-}
-
 const types: TOperations = {
-  [SameOps.buy]: operations['-'],
-  [SameOps.sell]: operations['+'],
+  sum: operations['-'],
+  sub: operations['+'],
   multiply: operations['*'],
 };
 
@@ -26,4 +23,6 @@ export enum OperationId {
   WITHDRAW = 4,
 }
 
-export const Operation = (type: string) => types[type.toLowerCase()];
+const Operation = (type: string): TOpFunc => types[type.toLowerCase()];
+
+export default Operation;

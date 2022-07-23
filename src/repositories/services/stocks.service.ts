@@ -1,7 +1,7 @@
 import { IBuySellStocks } from '@interfaces/stocks.interface';
 import { PrismaClient } from '@prisma/client';
 import { PrismaClientValidationError } from '@prisma/client/runtime';
-import { Operation, OperationId } from '@utils/operations';
+import Operation, { OperationId } from '@utils/operations';
 import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
 import newDateMethods from '@utils/newDateMethods';
@@ -184,8 +184,6 @@ export default class StocksService {
     const { Transactions: [transactions] } = wallets;
 
     const value = Operation('multiply')(stock.lastSell, quantity);
-    console.log('VALU NO BUY', value);
-    
     const validateBalance = Number(Account.balance) >= value;
 
     if (!validateBalance) {
@@ -333,8 +331,6 @@ export default class StocksService {
 
     const {
       AccountsBalance: [Account],
-      AccountsStatement: [statement],
-      Orders: [orders],
       Wallets: [wallets],
     } = findUser;
 
@@ -350,16 +346,10 @@ export default class StocksService {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'You can\'t sell more stocks than you have');
     }
 
-    console.log('total to be selled', sumSameTransactions);
-
-    const value = Operation('multiply')(stock.lastSell, quantity);
-    // console.log('total', value);
-    const newBalance = Operation('buy')(stock.lastSell, quantity);
-    console.log('newbalance', newBalance);
+    const value = Operation('multiply')(stock.lastSell, sumSameTransactions);
+    const newBalance = Operation('sum')(Account.balance, value);
 
     // stock -> id, vol and if exists
-    // create
-
     // validations: account balance & FSExchangeOverview
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
 
@@ -374,7 +364,7 @@ export default class StocksService {
               Transactions: {
                 create: {
                   Tickers_id: tickerId,
-                  quantity: 12387817647814, // MUDAR AQUI
+                  quantity, // MUDAR AQUI
                   price: stock.lastSell,
                   OperationTypes_id: OperationId.SELL, // refers to Sell
                   // orders
@@ -394,7 +384,7 @@ export default class StocksService {
         },
         AccountsStatement: {
           create: {
-            value: 12376128736182736, // MUDAR AQUI
+            value, // MUDAR AQUI
             OperationTypes_id: OperationId.SELL,
             created_at: changeFormat(newDateMethods
               .removeTZ(new Date()), 'ymd'),
@@ -435,7 +425,7 @@ export default class StocksService {
       userId,
       quantity,
       stockPriceUnit: stock.lastSell,
-      transactionValue: value, // MUDAR AQUI
+      sellTotal: value, // MUDAR AQUI
       ticker: {
         tickerId,
         symbol: ticker,
