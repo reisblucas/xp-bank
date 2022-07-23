@@ -36,6 +36,7 @@ export default class AccountsService {
   private updateAccount = (
     quantity: number,
     uidToken: number,
+    accId: number,
     op: string,
     operationType: number,
   ) => this.prisma.users
@@ -49,7 +50,7 @@ export default class AccountsService {
               },
             },
             where: {
-              id: uidToken,
+              id: accId,
             },
           },
         },
@@ -84,9 +85,11 @@ export default class AccountsService {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'User does not exist');
     }
 
+    console.log('accId', accId.id);
+
     try {
       await this.prisma.$transaction(
-        [this.updateAccount(quantity, uidToken, 'increment', OperationId.DEPOSIT)],
+        [this.updateAccount(quantity, uidToken, accId.id, 'increment', OperationId.DEPOSIT)],
       );
     } catch (e) {
       if (e instanceof PrismaClientUnknownRequestError) {
@@ -127,7 +130,7 @@ export default class AccountsService {
 
     try {
       await this.prisma.$transaction(
-        [this.updateAccount(quantity, uidToken, 'decrement', OperationId.WITHDRAW)],
+        [this.updateAccount(quantity, uidToken, accId.id, 'decrement', OperationId.WITHDRAW)],
       );
 
       return {
