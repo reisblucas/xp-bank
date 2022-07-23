@@ -26,7 +26,6 @@
     "ext": "ts, js"
   },
   "scripts": {
-    "preinstall": "pnpm i -g nodemon",
     "dev": "nodemon ./src/index.ts",
     "eslint": "eslint . --ext .ts",
     "dbfs": "bash get_sql_fileName.sh && bash set_dbName.sh && bash drop_db.sh && prisma db push",
