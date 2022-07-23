@@ -26,5 +26,4 @@ jobs:
           TYPESCRIPT_STANDARD_TSCONFIG_FILE: tsconfig.json
     
   main:
-    uses: ./.github/workflows/linter.yml
-    
+    uses: ./.github/workflows/main.yml
