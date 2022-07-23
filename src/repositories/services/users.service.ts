@@ -141,24 +141,4 @@ export default class UsersService {
     console.log('Error in generate JWT');
     throw new Error();
   };
-
-  public getBalance = async (userId: number) => this.prisma
-    .accountsBalance.findFirst({
-      where: {
-        Users_id: userId,
-      },
-    });
-
-  public getStatement = async (userId: number) => {
-    const statement = await this.prisma.accountsStatement
-      .findMany({
-        where: {
-          Users_id: userId,
-        },
-      });
-
-    console.log(statement);
-
-    return statement;
-  };
 }

@@ -21,3 +21,8 @@ export interface IUserSignIn {
   email: string;
   password: string;
 }
+
+export interface IDeposit {
+  userId: number;
+  quantity: number;
+}
