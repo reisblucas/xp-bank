@@ -11,8 +11,8 @@ const operations: TOperations = {
 };
 
 const types: TOperations = {
-  sum: operations['-'],
-  sub: operations['+'],
+  sub: operations['-'],
+  sum: operations['+'],
   multiply: operations['*'],
 };
 

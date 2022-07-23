@@ -193,7 +193,7 @@ export default class StocksService {
     // stock -> id, vol and if exists
     // validations: account balance & FSExchangeOverview
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
-    const newBalance = Operation('sum')(Account.balance, value);
+    const newBalance = Operation('sub')(Account.balance, value);
 
     const buyProcess = this.prisma.users.update({
       data: {
@@ -267,7 +267,7 @@ export default class StocksService {
       quantity,
       stockPriceUnit: stock.lastSell,
       buyValue: Number(value.toFixed(2)),
-      balance: newBalance,
+      balance: Number(newBalance.toFixed(2)),
       ticker: {
         tickerId,
         symbol: ticker,
@@ -346,7 +346,7 @@ export default class StocksService {
     }
 
     const value = Operation('multiply')(stock.lastSell, quantity);
-    const newBalance = Operation('sub')(Account.balance, value);
+    const newBalance = Operation('sum')(Account.balance, value);
     console.log('ESSE INFERNO DE VALOR', value);
 
     // stock -> id, vol and if exists
@@ -428,7 +428,7 @@ export default class StocksService {
       quantity,
       stockPriceUnit: stock.lastSell,
       sellTotal: Number(value.toFixed(2)), // SEND FORMATTED NUMBER TO THE CLIENT
-      balance: newBalance,
+      balance: Number(newBalance.toFixed(2)),
       ticker: {
         tickerId,
         symbol: ticker,
