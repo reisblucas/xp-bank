@@ -1,5 +1,6 @@
 import { IUserSignUp, IUserSignIn } from '@interfaces/users.interface';
 import { PrismaClient } from '@prisma/client';
+import { PrismaClientUnknownRequestError } from '@prisma/client/runtime';
 import HttpException from '@utils/HttpException';
 import jwt from '@utils/jwt';
 import newDateMethods from '@utils/newDateMethods';
@@ -89,8 +90,9 @@ export default class UsersService {
 
       return { token };
     } catch (e) {
-      if (e instanceof Error) {
+      if (e instanceof PrismaClientUnknownRequestError) {
         console.log('Prisma Error: ', e.message);
+        throw new HttpException(400, 'Error in sign up');
       }
     }
 
