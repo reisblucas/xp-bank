@@ -19,27 +19,27 @@
                 ],
                 "summary": "POST /signup",
                 "description": "POST /signup",
-                "operationId": "POST/signup",
+                "operationId": "POST /signup",
                 "consumes": [
                     "application/json"
                 ],
                 "parameters": [
                     {
-                        "name": "__requested_body__",
+                        "name": "Sign up",
                         "in": "body",
-                        "description": "request body",
+                        "description": "Example of the email body",
                         "x-ms-summary": "request body",
                         "schema": {
                             "type": "object",
                             "properties": {
                                 "email": {
                                     "type": "string",
-                                    "description": "email",
+                                    "description": "xp@teste.commm",
                                     "x-ms-summary": "email"
                                 },
                                 "password": {
                                     "type": "string",
-                                    "description": "password",
+                                    "description": "",
                                     "x-ms-summary": "password"
                                 },
                                 "first_name": {
@@ -54,7 +54,7 @@
                                 },
                                 "birth_date": {
                                     "type": "string",
-                                    "description": "birth_date",
+                                    "description": "DD/MM/YYYY",
                                     "x-ms-summary": "birth_date"
                                 },
                                 "rg": {
@@ -417,16 +417,23 @@
                 "x-ms-visibility": "important"
             }
         },
-        "/wallets/Spleenwort%20Cyanea": {
+        "/wallets/name={walletName}": {
             "get": {
                 "tags": [
                     "Authenticated"
                 ],
-                "summary": "GET /wallets/Spleenwort%20Cyanea",
-                "description": "GET /wallets/Spleenwort%20Cyanea",
-                "operationId": "GET/wallets/Spleenwort%20Cyanea",
+                "summary": "GET /wallets/name={walletName}",
+                "description": "GET /wallets/name={walletName}",
+                "operationId": "GET/wallets/name={walletName}",
                 "consumes": [],
-                "parameters": [],
+                "parameters": [{
+                    "in": "path",
+                    "name": "Wallet Name",
+                    "description": "Search for client wallet by name",
+                    "required": true,
+                    "type": "string",
+                    "x-ms-summary": "walletName"
+                }, {"in": "header", "name": "authorization", "description": "token", "required": true, "type": "string"}],
                 "produces": [],
                 "responses": {
                     "0": {
