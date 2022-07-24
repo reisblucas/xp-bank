@@ -23,6 +23,5 @@ export interface IUserSignIn {
 }
 
 export interface IDeposit {
-  userId: number;
   quantity: number;
 }

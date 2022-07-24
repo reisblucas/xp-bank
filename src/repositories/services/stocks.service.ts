@@ -5,7 +5,7 @@ import Operation, { OperationId } from '@utils/operations';
 import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
 import newDateMethods from '@utils/newDateMethods';
-import { ReasonPhrases, StatusCodes } from 'http-status-codes';
+import { StatusCodes } from 'http-status-codes';
 
 export default class StocksService {
   constructor(private prisma = new PrismaClient()) {}
@@ -119,11 +119,7 @@ export default class StocksService {
   };
 
   public buyStock = async (body: IBuySellStocks, uidToken: number) => {
-    const { userId, tickerId, quantity } = body;
-
-    if (userId !== uidToken) {
-      throw new HttpException(StatusCodes.BAD_REQUEST, ReasonPhrases.UNAUTHORIZED);
-    }
+    const { tickerId, quantity } = body;
 
     // confirmation to the user in client side
     const findStock = await this.prisma.tickers.findFirst({
@@ -145,7 +141,7 @@ export default class StocksService {
 
     const findUser = await this.prisma.users.findFirst({
       where: {
-        id: userId,
+        id: uidToken,
       },
       include: {
         Wallets: {
@@ -212,7 +208,7 @@ export default class StocksService {
                   // orders
                   Orders: {
                     create: {
-                      Users_id: userId,
+                      Users_id: uidToken,
                       sale_at: newDateMethods.Dplus2(),
                     },
                   },
@@ -246,7 +242,7 @@ export default class StocksService {
         },
       },
       where: {
-        id: userId,
+        id: uidToken,
       },
     });
 
@@ -263,7 +259,7 @@ export default class StocksService {
     }
 
     return {
-      userId,
+      userId: uidToken,
       quantity,
       stockPriceUnit: stock.lastSell,
       buyValue: Number(value.toFixed(2)),
@@ -276,11 +272,7 @@ export default class StocksService {
   };
 
   public sellStock = async (body: IBuySellStocks, uidToken: number) => {
-    const { userId, tickerId, quantity } = body;
-
-    if (userId !== uidToken) {
-      throw new HttpException(StatusCodes.BAD_REQUEST, ReasonPhrases.UNAUTHORIZED);
-    }
+    const { tickerId, quantity } = body;
 
     // confirmation to the user in client side
     const findStock = await this.prisma.tickers.findFirst({
@@ -302,7 +294,7 @@ export default class StocksService {
 
     const findUser = await this.prisma.users.findFirst({
       where: {
-        id: userId,
+        id: uidToken,
       },
       include: {
         Wallets: {
@@ -369,7 +361,7 @@ export default class StocksService {
                   // orders
                   Orders: {
                     create: {
-                      Users_id: userId,
+                      Users_id: uidToken,
                       sale_at: newDateMethods.Dplus2(),
                     },
                   },
@@ -403,7 +395,7 @@ export default class StocksService {
         },
       },
       where: {
-        id: userId,
+        id: uidToken,
       },
     });
 
@@ -423,7 +415,7 @@ export default class StocksService {
     }
 
     return {
-      userId,
+      userId: uidToken,
       quantity,
       stockPriceUnit: stock.lastSell,
       sellTotal: Number(value.toFixed(2)), // SEND FORMATTED NUMBER TO THE CLIENT

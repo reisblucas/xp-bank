@@ -50,7 +50,6 @@ class AccountsController {
     }
 
     const withdraw = await this.service.withdraw(req.body as IDeposit, userId);
-    // const withdraw = await this.service.testUpdateWhenFieldIsZero(req.body as IDeposit, userId);
 
     res.status(StatusCodes.OK).json(withdraw);
   };

@@ -5,7 +5,7 @@ import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
 import newDateMethods from '@utils/newDateMethods';
 import { OperationId } from '@utils/operations';
-import { ReasonPhrases, StatusCodes } from 'http-status-codes';
+import { StatusCodes } from 'http-status-codes';
 
 require('express-async-errors');
 
@@ -69,11 +69,7 @@ export default class AccountsService {
     });
 
   public deposit = async (body: IDeposit, uidToken: number) => {
-    const { userId, quantity } = body;
-
-    if (userId !== uidToken) {
-      throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
-    }
+    const { quantity } = body;
 
     const accId = await this.prisma.accountsBalance.findFirst({
       where: {
@@ -106,11 +102,7 @@ export default class AccountsService {
   };
 
   public withdraw = async (body: IDeposit, uidToken: number) => {
-    const { userId, quantity } = body;
-
-    if (userId !== uidToken) {
-      throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
-    }
+    const { quantity } = body;
 
     const accId = await this.prisma.accountsBalance.findFirst({
       where: {
