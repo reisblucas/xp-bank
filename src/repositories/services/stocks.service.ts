@@ -260,10 +260,10 @@ export default class StocksService {
 
     return {
       userId: uidToken,
-      quantity,
       stockPriceUnit: stock.lastSell,
-      buyValue: Number(value.toFixed(2)),
-      balance: Number(newBalance.toFixed(2)),
+      quantity,
+      transactionValue: Number(value.toFixed(2)),
+      updatedBalance: Number(newBalance.toFixed(2)),
       ticker: {
         tickerId,
         symbol: ticker,
