@@ -1,6 +1,6 @@
-const calcInterval = (n: number, m: number) => Math.abs(n - (m));
+export const calcInterval = (n: number, m: number) => Math.abs(n - (m));
 
-const range = (n: number, m: number): number[] => {
+export const range = (n: number, m: number): number[] => {
   const loopQuantity = calcInterval(n, m);
   console.log(loopQuantity);
 
@@ -14,5 +14,3 @@ const range = (n: number, m: number): number[] => {
 
   return arr;
 };
-
-export default range;
