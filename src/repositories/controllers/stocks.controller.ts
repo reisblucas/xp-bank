@@ -57,6 +57,11 @@ class StocksController {
   public sellStock = async (req: Request, res: Response) => {
     const buyDTO = req.body as IBuySellStocks;
     const uidToken = res.locals?.provider.id as number;
+
+    if (!uidToken) {
+      throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
+    }
+
     const response = await this.service.sellStock(buyDTO, uidToken);
 
     res.status(StatusCodes.OK).json(response);
