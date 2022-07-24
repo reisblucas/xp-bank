@@ -125,6 +125,7 @@ export default class AccountsService {
       userId: uidToken,
       quantity,
       balance: Number(accId.balance.toFixed(2)) + quantity,
+      createdAt: new Date(),
     };
   };
 
@@ -156,6 +157,7 @@ export default class AccountsService {
         userId: uidToken,
         quantity,
         balance: Number(accId.balance.toFixed(2)) - quantity,
+        createdAt: new Date(),
       };
     } catch (e) {
       if (e instanceof PrismaClientKnownRequestError) {
