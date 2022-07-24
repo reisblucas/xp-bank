@@ -1,19 +1,21 @@
-import express, { Express } from 'express';
+import express, { Express, Request } from 'express';
 import * as dotenv from 'dotenv';
 // import SwaggerUI from 'swagger-ui';
 import { absolutePath } from 'swagger-ui-dist';
+import cors from 'cors';
 import ErrorHandler from './middlewares/ErrorHandler';
 import authenticatedRouters from './routers/authenticated';
 import unauthenticatedRouters from './routers/public';
 
 dotenv.config();
 
-// SwaggerUI({
-//   dom_id: 'localhost:3000',
-// }).;
+const whitelist = ['http://localhost:9000', 'http://xp-bank.herokuapp.com'];
+
+const mypath = absolutePath();
 
 const app: Express = express();
-app.use(express.static(absolutePath()));
+app.use(cors());
+app.use(express.static(mypath));
 app.use(express.json());
 
 app.use(unauthenticatedRouters);
