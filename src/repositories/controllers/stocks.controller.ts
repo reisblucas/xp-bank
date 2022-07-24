@@ -1,4 +1,5 @@
 import { IBuySellStocks } from '@interfaces/stocks.interface';
+import CompaniesService from '@services/companies.service';
 import TickersService from '@services/tickers.service';
 import HttpException from '@utils/HttpException';
 import { Request, Response } from 'express';
@@ -11,6 +12,7 @@ class StocksController {
   constructor(
     private stocksServ = new StocksService(),
     private tickerServ = new TickersService(),
+    private companiesServ = new CompaniesService(),
   ) {}
 
   public getAllStocks = async (_req: Request, res: Response) => {
@@ -33,14 +35,14 @@ class StocksController {
   };
 
   public getAllCompaniesInfo = async (_req: Request, res: Response) => {
-    const allCompanies = await this.stocksServ.getAllCompaniesInfo();
+    const allCompanies = await this.companiesServ.getAllCompaniesInfo();
 
     res.status(StatusCodes.OK).json(allCompanies);
   };
 
   public getCompanyInfo = async (req: Request, res: Response) => {
     const { ticker } = req.params;
-    const company = await this.stocksServ.getCompanyInfo(ticker);
+    const company = await this.companiesServ.getCompanyInfo(ticker);
 
     res.status(StatusCodes.OK).json(company);
   };
