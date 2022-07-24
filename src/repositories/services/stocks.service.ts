@@ -6,9 +6,15 @@ import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
 import newDateMethods from '@utils/newDateMethods';
 import { StatusCodes } from 'http-status-codes';
+import TickersService from './tickers.service';
+import UsersService from './users.service';
 
 export default class StocksService {
-  constructor(private prisma = new PrismaClient()) {}
+  constructor(
+    private prisma = new PrismaClient(),
+    private tickersServ = new TickersService(),
+    private usersServ = new UsersService(),
+  ) {}
 
   private updateBroker = (qnt: number, tickerId: number, operation: string) => {
     const response = this
@@ -29,40 +35,8 @@ export default class StocksService {
   public buyStock = async (body: IBuySellStocks, uidToken: number) => {
     const { tickerId, quantity } = body;
 
-    // confirmation to the user in client side
-    const findStock = await this.prisma.tickers.findFirst({
-      select: {
-        id: true,
-        ticker: true,
-        FSExchangeOverview: {
-          select: {
-            id: true,
-            vol: true,
-            lastSell: true,
-          },
-        },
-      },
-      where: {
-        id: tickerId,
-      },
-    });
-
-    const findUser = await this.prisma.users.findFirst({
-      where: {
-        id: uidToken,
-      },
-      include: {
-        Wallets: {
-          include: {
-            Transactions: true,
-          },
-        },
-        AccountsBalance: true,
-        Orders: true,
-        AccountsStatement: true,
-      },
-    });
-
+    const findStock = await this.tickersServ.getTickerOverviewById(uidToken);
+    const findUser = await this.usersServ.findUsersInfoCascade(uidToken);
     if (!findStock) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'Something went wrong, stock not found');
     }
@@ -99,7 +73,7 @@ export default class StocksService {
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
     const newBalance = Operation('sub')(Account.balance, value);
 
-    const buyProcess = this.prisma.users.update({
+    const buyTransaction = this.prisma.users.update({
       data: {
         // wallets
         Wallets: {
@@ -157,7 +131,7 @@ export default class StocksService {
     try {
       await this.prisma
         .$transaction(
-          [buyProcess, this.updateBroker(quantity, stock.id, 'decrement')],
+          [buyTransaction, this.updateBroker(quantity, stock.id, 'decrement')],
         );
     } catch (e) {
     // Errors to rollback
@@ -199,9 +173,6 @@ export default class StocksService {
         id: tickerId,
       },
     });
-
-    console.log('finStock', findStock);
-    
 
     const findUser = await this.prisma.users.findFirst({
       where: {

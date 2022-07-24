@@ -57,7 +57,7 @@ export default class TickersService {
     return tickerOverview;
   };
 
-  private findOneStockWithOverview = async (tickerId: number) => this.prisma.tickers.findFirst({
+  public getTickerOverviewById = async (tickerId: number) => this.prisma.tickers.findFirst({
     select: {
       id: true,
       ticker: true,

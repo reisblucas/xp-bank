@@ -168,4 +168,20 @@ export default class UsersService {
     console.log('Error while generate JWT');
     throw new Error();
   };
+
+  public findUsersInfoCascade = async (uidToken: number) => this.prisma.users.findFirst({
+    where: {
+      id: uidToken,
+    },
+    include: {
+      Wallets: {
+        include: {
+          Transactions: true,
+        },
+      },
+      AccountsBalance: true,
+      Orders: true,
+      AccountsStatement: true,
+    },
+  });
 }
