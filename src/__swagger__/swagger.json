@@ -11,6 +11,19 @@
         "http",
         "https"
     ],
+    "securityDefinitions": {
+        "accountId": {
+            "type": "apiKey",
+            "in": "header",
+            "name": "X-ACCOUNT",
+            "description": "All requests must include the `X-ACCOUNT` header containing your account ID."
+        }
+    },
+    "security": [
+        {
+            "accountId": []
+        }
+    ],
     "paths": {
         "/signup": {
             "post": {
@@ -111,6 +124,21 @@
                                 }
                             }
                         }
+                    },
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "produces": [
@@ -169,6 +197,21 @@
                                 }
                             }
                         }
+                    },
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "produces": [
@@ -204,7 +247,23 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -248,7 +307,23 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -323,6 +398,21 @@
                                 }
                             }
                         }
+                    },
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "produces": [],
@@ -365,6 +455,21 @@
                                 }
                             }
                         }
+                    },
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "produces": [
@@ -405,14 +510,38 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [{
-                    "in": "path",
-                    "name": "Wallet Name",
-                    "description": "Search for client wallet by name",
-                    "required": true,
-                    "type": "string",
-                    "x-ms-summary": "walletName"
-                }, {"in": "header", "name": "authorization", "description": "token", "required": true, "type": "string"}],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [],
                 "responses": {
                     "0": {
@@ -430,7 +559,23 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [],
                 "responses": {
                     "0": {
@@ -448,7 +593,23 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -535,7 +696,23 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -678,6 +855,21 @@
                                 }
                             }
                         }
+                    },
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "produces": [],
@@ -697,7 +889,23 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -837,6 +1045,21 @@
                                 }
                             }
                         }
+                    },
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "produces": [],
@@ -856,7 +1079,23 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -890,7 +1129,23 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -945,7 +1200,23 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Wallet Name",
+                        "description": "Search for client wallet by name",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "walletName"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [],
                 "responses": {
                     "0": {
