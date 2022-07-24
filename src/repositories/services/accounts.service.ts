@@ -9,15 +9,29 @@ import { StatusCodes } from 'http-status-codes';
 
 require('express-async-errors');
 
+const { removeTZ } = newDateMethods;
+
 export default class AccountsService {
   constructor(private prisma = new PrismaClient()) {}
 
-  public getBalance = async (userId: number) => this.prisma
-    .accountsBalance.findFirst({
-      where: {
-        Users_id: userId,
-      },
-    });
+  public getBalance = async (userId: number) => {
+    const balance = await this.prisma
+      .accountsBalance.findFirst({
+        where: {
+          Users_id: userId,
+        },
+      });
+
+    if (!balance) {
+      throw new HttpException(StatusCodes.NOT_FOUND, 'User not found in db');
+    }
+
+    return {
+      balanceId: balance.id,
+      userId: balance.Users_id,
+      updatedAt: changeFormat(removeTZ(balance.updated_at), 'ymd'),
+    };
+  };
 
   public getStatement = async (userId: number) => {
     const statement = await this.prisma.accountsStatement
