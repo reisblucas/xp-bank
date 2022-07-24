@@ -1,9 +1,9 @@
 {
-  "swagger": "2.0",
+  "openapi": "3.0.3",
   "info": {
-      "version": "1.0",
+      "version": "1.1.0",
       "title": "XP Tech Case",
-      "description": "Documentation of my api developed for selection process. Developed by neur4l"
+      "description": "Documentation of my api developed for selection process. \nDeveloped by neur4l"
   },
   "host": "localhost:9000",
   "basePath": "/",
@@ -11,6 +11,194 @@
       "https"
   ],
   "paths": {
+    "/signup": {
+        "post": {
+            "tags": [],
+            "summary": "POST /signup",
+            "description": "POST /signup",
+            "operationId": "POST/signup",
+            "consumes": [
+                "application/json"
+            ],
+            "parameters": [
+                {
+                    "name": "__requested_body__",
+                    "in": "body",
+                    "description": "request body",
+                    "x-ms-summary": "request body",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "description": "email",
+                                "x-ms-summary": "email"
+                            },
+                            "password": {
+                                "type": "string",
+                                "description": "password",
+                                "x-ms-summary": "password"
+                            },
+                            "first_name": {
+                                "type": "string",
+                                "description": "first_name",
+                                "x-ms-summary": "first_name"
+                            },
+                            "last_name": {
+                                "type": "string",
+                                "description": "last_name",
+                                "x-ms-summary": "last_name"
+                            },
+                            "birth_date": {
+                                "type": "string",
+                                "description": "birth_date",
+                                "x-ms-summary": "birth_date"
+                            },
+                            "rg": {
+                                "type": "string",
+                                "description": "rg",
+                                "x-ms-summary": "rg"
+                            },
+                            "cpf": {
+                                "type": "string",
+                                "description": "cpf",
+                                "x-ms-summary": "cpf"
+                            },
+                            "gender": {
+                                "type": "string",
+                                "description": "gender",
+                                "x-ms-summary": "gender"
+                            },
+                            "postal_code": {
+                                "type": "string",
+                                "description": "postal_code",
+                                "x-ms-summary": "postal_code"
+                            },
+                            "logradouro": {
+                                "type": "string",
+                                "description": "logradouro",
+                                "x-ms-summary": "logradouro"
+                            },
+                            "complement": {
+                                "type": "string",
+                                "description": "complement",
+                                "x-ms-summary": "complement"
+                            },
+                            "number": {
+                                "type": "integer",
+                                "description": "number",
+                                "x-ms-summary": "number"
+                            },
+                            "district": {
+                                "type": "string",
+                                "description": "district",
+                                "x-ms-summary": "district"
+                            },
+                            "city": {
+                                "type": "string",
+                                "description": "city",
+                                "x-ms-summary": "city"
+                            },
+                            "state": {
+                                "type": "string",
+                                "description": "state",
+                                "x-ms-summary": "state"
+                            },
+                            "state_code": {
+                                "type": "string",
+                                "description": "state_code",
+                                "x-ms-summary": "state_code"
+                            }
+                        }
+                    }
+                }
+            ],
+            "produces": [
+                "application/json; charset=utf-8"
+            ],
+            "responses": {
+                "400": {
+                    "description": "Bad Request",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "integer",
+                                "description": "status",
+                                "x-ms-summary": "status"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "message",
+                                "x-ms-summary": "message"
+                            }
+                        }
+                    }
+                }
+            },
+            "deprecated": false,
+            "x-ms-visibility": "important"
+        }
+    },
+    "/signin": {
+        "post": {
+            "tags": [],
+            "summary": "POST /signin",
+            "description": "POST /signin",
+            "operationId": "POST/signin",
+            "consumes": [
+                "application/json"
+            ],
+            "parameters": [
+                {
+                    "name": "__requested_body__",
+                    "in": "body",
+                    "description": "request body",
+                    "x-ms-summary": "request body",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "description": "email",
+                                "x-ms-summary": "email"
+                            },
+                            "password": {
+                                "type": "string",
+                                "description": "password",
+                                "x-ms-summary": "password"
+                            }
+                        }
+                    }
+                }
+            ],
+            "produces": [
+                "application/json; charset=utf-8"
+            ],
+            "responses": {
+                "401": {
+                    "description": "Unauthorized",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "integer",
+                                "description": "status",
+                                "x-ms-summary": "status"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "message",
+                                "x-ms-summary": "message"
+                            }
+                        }
+                    }
+                }
+            },
+            "deprecated": false,
+            "x-ms-visibility": "important"
+        }
+    },
       "/account/balance": {
           "get": {
               "tags": [],
@@ -286,194 +474,6 @@
                   "0": {
                       "description": "",
                       "schema": {}
-                  }
-              },
-              "deprecated": false,
-              "x-ms-visibility": "important"
-          }
-      },
-      "/signup": {
-          "post": {
-              "tags": [],
-              "summary": "POST /signup",
-              "description": "POST /signup",
-              "operationId": "POST/signup",
-              "consumes": [
-                  "application/json"
-              ],
-              "parameters": [
-                  {
-                      "name": "__requested_body__",
-                      "in": "body",
-                      "description": "request body",
-                      "x-ms-summary": "request body",
-                      "schema": {
-                          "type": "object",
-                          "properties": {
-                              "email": {
-                                  "type": "string",
-                                  "description": "email",
-                                  "x-ms-summary": "email"
-                              },
-                              "password": {
-                                  "type": "string",
-                                  "description": "password",
-                                  "x-ms-summary": "password"
-                              },
-                              "first_name": {
-                                  "type": "string",
-                                  "description": "first_name",
-                                  "x-ms-summary": "first_name"
-                              },
-                              "last_name": {
-                                  "type": "string",
-                                  "description": "last_name",
-                                  "x-ms-summary": "last_name"
-                              },
-                              "birth_date": {
-                                  "type": "string",
-                                  "description": "birth_date",
-                                  "x-ms-summary": "birth_date"
-                              },
-                              "rg": {
-                                  "type": "string",
-                                  "description": "rg",
-                                  "x-ms-summary": "rg"
-                              },
-                              "cpf": {
-                                  "type": "string",
-                                  "description": "cpf",
-                                  "x-ms-summary": "cpf"
-                              },
-                              "gender": {
-                                  "type": "string",
-                                  "description": "gender",
-                                  "x-ms-summary": "gender"
-                              },
-                              "postal_code": {
-                                  "type": "string",
-                                  "description": "postal_code",
-                                  "x-ms-summary": "postal_code"
-                              },
-                              "logradouro": {
-                                  "type": "string",
-                                  "description": "logradouro",
-                                  "x-ms-summary": "logradouro"
-                              },
-                              "complement": {
-                                  "type": "string",
-                                  "description": "complement",
-                                  "x-ms-summary": "complement"
-                              },
-                              "number": {
-                                  "type": "integer",
-                                  "description": "number",
-                                  "x-ms-summary": "number"
-                              },
-                              "district": {
-                                  "type": "string",
-                                  "description": "district",
-                                  "x-ms-summary": "district"
-                              },
-                              "city": {
-                                  "type": "string",
-                                  "description": "city",
-                                  "x-ms-summary": "city"
-                              },
-                              "state": {
-                                  "type": "string",
-                                  "description": "state",
-                                  "x-ms-summary": "state"
-                              },
-                              "state_code": {
-                                  "type": "string",
-                                  "description": "state_code",
-                                  "x-ms-summary": "state_code"
-                              }
-                          }
-                      }
-                  }
-              ],
-              "produces": [
-                  "application/json; charset=utf-8"
-              ],
-              "responses": {
-                  "400": {
-                      "description": "Bad Request",
-                      "schema": {
-                          "type": "object",
-                          "properties": {
-                              "status": {
-                                  "type": "integer",
-                                  "description": "status",
-                                  "x-ms-summary": "status"
-                              },
-                              "message": {
-                                  "type": "string",
-                                  "description": "message",
-                                  "x-ms-summary": "message"
-                              }
-                          }
-                      }
-                  }
-              },
-              "deprecated": false,
-              "x-ms-visibility": "important"
-          }
-      },
-      "/signin": {
-          "post": {
-              "tags": [],
-              "summary": "POST /signin",
-              "description": "POST /signin",
-              "operationId": "POST/signin",
-              "consumes": [
-                  "application/json"
-              ],
-              "parameters": [
-                  {
-                      "name": "__requested_body__",
-                      "in": "body",
-                      "description": "request body",
-                      "x-ms-summary": "request body",
-                      "schema": {
-                          "type": "object",
-                          "properties": {
-                              "email": {
-                                  "type": "string",
-                                  "description": "email",
-                                  "x-ms-summary": "email"
-                              },
-                              "password": {
-                                  "type": "string",
-                                  "description": "password",
-                                  "x-ms-summary": "password"
-                              }
-                          }
-                      }
-                  }
-              ],
-              "produces": [
-                  "application/json; charset=utf-8"
-              ],
-              "responses": {
-                  "401": {
-                      "description": "Unauthorized",
-                      "schema": {
-                          "type": "object",
-                          "properties": {
-                              "status": {
-                                  "type": "integer",
-                                  "description": "status",
-                                  "x-ms-summary": "status"
-                              },
-                              "message": {
-                                  "type": "string",
-                                  "description": "message",
-                                  "x-ms-summary": "message"
-                              }
-                          }
-                      }
                   }
               },
               "deprecated": false,

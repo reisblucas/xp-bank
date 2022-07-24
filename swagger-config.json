@@ -1,0 +1,8 @@
+{
+  "urls": [
+    {
+      "url": "./swagger.json",
+      "name": "Services"
+    }
+  ]
+}
