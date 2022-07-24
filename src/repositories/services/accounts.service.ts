@@ -27,9 +27,10 @@ export default class AccountsService {
     }
 
     return {
-      balanceId: balance.id,
       userId: balance.Users_id,
-      updatedAt: changeFormat(removeTZ(balance.updated_at), 'ymd'),
+      accBalanceId: balance.id,
+      balance: balance.balance,
+      updatedAt: balance.updated_at,
     };
   };
 
