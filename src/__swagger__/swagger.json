@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.3",
+  "swagger": "2.0",
   "info": {
       "version": "1.1.0",
       "title": "XP Tech Case",
@@ -8,7 +8,7 @@
   "host": "localhost:9000",
   "basePath": "/",
   "schemes": [
-      "https"
+      "http"
   ],
   "paths": {
     "/signup": {
