@@ -1,3 +1,4 @@
+import newDateMethods from '@utils/newDateMethods';
 import { EMAIL_REGEX } from '@utils/regex';
 import { z } from 'zod';
 
@@ -23,7 +24,11 @@ const signUpDTO = z.object({
       .max(50),
     birth_date: z
       .string({ required_error: 'Birth date is required ' })
-      .length(10, 'Please insert a valid date, ex: dd/mm/yyyy'), // yyyy/mm/dd -> yyyy-mm-dd
+      .length(10, 'Please insert a valid date, ex: dd/mm/yyyy')
+      .refine(
+        (date) => newDateMethods.verifySignUpAge(date),
+        'You must be at least 18 years old to register',
+      ),
     rg: z
       .string({ required_error: 'RG is required ' })
       .length(9, 'RG must be 9 characters length'),

@@ -103,10 +103,10 @@ model PersonalDatas {
   cpf        String      @unique(map: "personaldatas_cpf_unique") @db.VarChar(11)
   rg         String      @unique(map: "personaldatas_rg_unique") @db.VarChar(9)
   birth_date String      @db.VarChar(10)
-  Genders_id Int         @default(1) @db.UnsignedInt
+  Genders_id Int?         @default(1) @db.UnsignedInt
   Users_id   Int         @db.UnsignedInt
   updated_at DateTime    @default(now()) @updatedAt
-  Genders    Genders     @relation(fields: [Genders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_genders_id_foreign")
+  Genders    Genders?     @relation(fields: [Genders_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_genders_id_foreign")
   Users      Users       @relation(fields: [Users_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "personaldatas_users_id_foreign")
   Addresses  Addresses[]
 
