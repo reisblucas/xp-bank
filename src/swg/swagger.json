@@ -5,7 +5,7 @@
       "title": "XP Tech Case",
       "description": "Documentation of my api developed for selection process. Developed by neur4l"
   },
-  "host": "localhost:3000",
+  "host": "localhost:9000",
   "basePath": "/",
   "schemes": [
       "https"
