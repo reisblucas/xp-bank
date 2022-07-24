@@ -747,7 +747,18 @@
         "tags": [
           "Authenticated"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Stock ticker",
+            "description": "Search stocks overview by ticker, example PETR3/PETR4",
+            "required": true,
+            "x-ms-summary": "ticker",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK",
@@ -909,12 +920,23 @@
         "x-ms-visibility": "important"
       }
     },
-    "/asset/i/stocks/{ticker}": {
+    "/asset/o/stocks/{ticker}": {
       "get": {
         "tags": [
           "Authenticated"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Stock ticker",
+            "description": "Search company by ticker as PETR3/PETR4",
+            "required": true,
+            "x-ms-summary": "ticker",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "0": {
             "description": "",

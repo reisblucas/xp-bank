@@ -6,7 +6,7 @@ require('express-async-errors');
 const stocksRoute: IRouter = Router();
 
 stocksRoute.get('/o/stocks', stocksController.getAllStocks);
-// stocksRoute.get('/i/stocks/:ticker', stocksController.getAllTickers));
+// stocksRoute.get('/o/stocks/:ticker', stocksController.getAllTickers));
 stocksRoute.get('/i/companies', stocksController.getAllCompaniesInfo);
 stocksRoute.get('/i/companies/:ticker', stocksController.getCompanyInfo);
 stocksRoute.get('/i/tickers', stocksController.getAllTickers);
