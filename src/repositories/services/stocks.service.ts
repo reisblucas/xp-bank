@@ -1,6 +1,6 @@
 import { IBuySellStocks } from '@interfaces/stocks.interface';
 import { PrismaClient } from '@prisma/client';
-import { PrismaClientValidationError } from '@prisma/client/runtime';
+import { PrismaClientKnownRequestError, PrismaClientValidationError } from '@prisma/client/runtime';
 import Operation, { OperationId } from '@utils/operations';
 import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
@@ -73,7 +73,7 @@ export default class StocksService {
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
     const newBalance = Operation('sub')(Account.balance, value);
 
-    const buyTransaction = this.prisma.users.update({
+    const bulkBuyTransaction = this.prisma.users.update({
       data: {
         // wallets
         Wallets: {
@@ -131,12 +131,13 @@ export default class StocksService {
     try {
       await this.prisma
         .$transaction(
-          [buyTransaction, this.updateBroker(quantity, stock.id, 'decrement')],
+          [bulkBuyTransaction, this.updateBroker(quantity, stock.id, 'decrement')],
         );
     } catch (e) {
     // Errors to rollback
-      if (e instanceof PrismaClientValidationError) {
-        console.log(e.message);
+      if (e instanceof PrismaClientKnownRequestError) {
+        console.log('Bulk sell transaction:', e.message);
+        throw new HttpException(StatusCodes.BAD_REQUEST, e.message);
       }
     }
 
@@ -157,40 +158,8 @@ export default class StocksService {
     const { tickerId, quantity } = body;
 
     // confirmation to the user in client side
-    const findStock = await this.prisma.tickers.findFirst({
-      select: {
-        id: true,
-        ticker: true,
-        FSExchangeOverview: {
-          select: {
-            id: true,
-            vol: true,
-            lastSell: true,
-          },
-        },
-      },
-      where: {
-        id: tickerId,
-      },
-    });
-
-    const findUser = await this.prisma.users.findFirst({
-      where: {
-        id: uidToken,
-      },
-      include: {
-        Wallets: {
-          include: {
-            Transactions: true,
-          },
-        },
-        AccountsBalance: true,
-        Orders: true,
-        AccountsStatement: true,
-      },
-    });
-
-    console.log('finStock', findUser);
+    const findStock = await this.tickersServ.getTickerOverviewById(uidToken);
+    const findUser = await this.usersServ.findUsersInfoCascade(uidToken);
 
     if (!findStock) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'Something went wrong, stock not found');
@@ -216,11 +185,9 @@ export default class StocksService {
     const totalStocksInPortfolio = transactionsByTicker
       .reduce((prev, crr, i) => {
         if (transactionsByTicker.length === 1) {
-          console.log('pai ta no if', crr.quantity);
           return -Number(crr.quantity);
         }
         if (transactionsByTicker[i].OperationTypes_id === 2) {
-          console.log('to no outro if');
           return prev - Number(crr.quantity);
         }
 
@@ -238,7 +205,7 @@ export default class StocksService {
     // validations: account balance & FSExchangeOverview
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
 
-    const updateVolume = this.prisma.users.update({
+    const bulkSellTransaction = this.prisma.users.update({
       data: {
         // wallets
         Wallets: {
@@ -297,14 +264,15 @@ export default class StocksService {
       await this.prisma
         .$transaction(
           [
-            updateVolume,
+            bulkSellTransaction,
             this.updateBroker(quantity, tickerId, 'increment'),
           ],
         );
     } catch (e) {
     // Errors to rollback
-      if (e instanceof PrismaClientValidationError) {
-        console.log(e.message);
+      if (e instanceof PrismaClientKnownRequestError) {
+        console.log('Bulk sell transaction:', e.message);
+        throw new HttpException(StatusCodes.BAD_REQUEST, e.message);
       }
     }
 
