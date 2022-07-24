@@ -18,7 +18,7 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
   } catch (e) {
     if (e instanceof Error) {
       console.log('Authentication error:', e.message);
-      throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
+      throw new HttpException(StatusCodes.UNAUTHORIZED, e.message);
     }
   }
 
