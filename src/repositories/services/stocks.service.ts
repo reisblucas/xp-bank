@@ -10,58 +10,6 @@ import { StatusCodes } from 'http-status-codes';
 export default class StocksService {
   constructor(private prisma = new PrismaClient()) {}
 
-  public getAllStocks = async () => {
-    const stocks = await this.prisma.tickers.findMany(({
-      include: {
-        FSExchangeOverview: {},
-      },
-    }));
-
-    if (!stocks.length) {
-      throw new HttpException(StatusCodes.NOT_FOUND, 'No stocks available to get info');
-    }
-
-    return stocks;
-  };
-
-  public getAllTickers = async () => {
-    const stocksByTicker = await this.prisma.stocks.findMany({
-      select: {
-        id: true,
-        name: true,
-        symbol: true,
-        Tickers: {
-          select: {
-            ticker: true,
-          },
-        },
-      },
-    });
-
-    if (!stocksByTicker) {
-      throw new HttpException(StatusCodes.NOT_FOUND, 'Stocks not found');
-    }
-
-    return stocksByTicker;
-  };
-
-  public getTickerOverview = async (ticker: string) => {
-    const tickerOverview = await this.prisma.tickers.findFirst({
-      where: {
-        ticker,
-      },
-      include: {
-        FSExchangeOverview: {},
-      },
-    });
-
-    if (!tickerOverview) {
-      throw new HttpException(StatusCodes.NOT_FOUND, 'Ticker does not exists');
-    }
-
-    return tickerOverview;
-  };
-
   public getAllCompaniesInfo = async () => {
     const allCompanies = await this.prisma.stocks.findMany({
       include: {
@@ -292,6 +240,9 @@ export default class StocksService {
       },
     });
 
+    console.log('finStock', findStock);
+    
+
     const findUser = await this.prisma.users.findFirst({
       where: {
         id: uidToken,
@@ -307,6 +258,8 @@ export default class StocksService {
         AccountsStatement: true,
       },
     });
+
+    console.log('finStock', findUser);
 
     if (!findStock) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'Something went wrong, stock not found');
@@ -342,8 +295,6 @@ export default class StocksService {
 
         return prev + Number(crr.quantity);
       }, 0);
-
-    console.log('crrstocks', totalStocksInPortfolio);
 
     if (quantity > totalStocksInPortfolio || totalStocksInPortfolio <= 0) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'You can\'t sell more stocks than you have');

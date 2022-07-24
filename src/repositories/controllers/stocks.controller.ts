@@ -14,13 +14,13 @@ class StocksController {
   ) {}
 
   public getAllStocks = async (_req: Request, res: Response) => {
-    const stocks = await this.stocksServ.getAllStocks();
+    const stocks = await this.tickerServ.getAllStocks();
 
     res.status(StatusCodes.OK).json(stocks);
   };
 
   public getAllTickers = async (_req: Request, res: Response) => {
-    const allTickers = await this.stocksServ.getAllTickers();
+    const allTickers = await this.tickerServ.getAllTickers();
 
     res.status(StatusCodes.OK).json(allTickers);
   };
