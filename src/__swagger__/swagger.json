@@ -1,5 +1,5 @@
 {
-    "openapi": "3.0.0",
+    "swagger": "2.0",
     "info": {
         "version": "1.1.0",
         "title": "XP Tech Case",
@@ -346,13 +346,6 @@
                                 }
                             }
                         }
-                    },
-                    {
-                        "in": "header",
-                        "name": "authorization",
-                        "description": "token",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "produces": [],
@@ -395,14 +388,6 @@
                                 }
                             }
                         }
-                    },
-
-                    {
-                        "in": "header",
-                        "name": "authorization",
-                        "description": "token",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "produces": [
@@ -444,15 +429,7 @@
                 "description": "GET /wallets",
                 "operationId": "GET/wallets",
                 "consumes": [],
-                "parameters": [
-                    {
-                        "in": "header",
-                        "name": "authorization",
-                        "description": "token",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
+                "parameters": [],
                 "produces": [],
                 "responses": {
                     "0": {
@@ -478,13 +455,6 @@
                         "required": true,
                         "type": "string",
                         "x-ms-summary": "walletName"
-                    },
-                    {
-                        "in": "header",
-                        "name": "authorization",
-                        "description": "token",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "produces": [],
@@ -532,13 +502,6 @@
                                 }
                             }
                         }
-                    },
-                    {
-                        "in": "header",
-                        "name": "authorization",
-                        "description": "token",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "produces": [],
@@ -586,13 +549,6 @@
                                 }
                             }
                         }
-                    },
-                    {
-                        "in": "header",
-                        "name": "authorization",
-                        "description": "token",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "produces": [],
