@@ -1,15 +1,11 @@
 import { IDeposit } from '@interfaces/users.interface';
 import { PrismaClient } from '@prisma/client';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
-import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
-import newDateMethods from '@utils/newDateMethods';
 import { OperationId } from '@utils/operations';
 import { StatusCodes } from 'http-status-codes';
 
 require('express-async-errors');
-
-const { removeTZ } = newDateMethods;
 
 export default class AccountsService {
   constructor(private prisma = new PrismaClient()) {}
