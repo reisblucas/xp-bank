@@ -1,0 +1,1027 @@
+{
+  "swagger": "2.0",
+  "info": {
+      "version": "1.0",
+      "title": "XP Tech Case",
+      "description": "Documentation of my api developed for selection process. Developed by neur4l"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+      "https"
+  ],
+  "paths": {
+      "/account/balance": {
+          "get": {
+              "tags": [],
+              "summary": "GET /account/balance",
+              "description": "GET /account/balance",
+              "operationId": "GET/account/balance",
+              "consumes": [],
+              "parameters": [],
+              "produces": [
+                  "application/json; charset=utf-8"
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "id": {
+                                  "type": "integer",
+                                  "description": "id",
+                                  "x-ms-summary": "id"
+                              },
+                              "Users_id": {
+                                  "type": "integer",
+                                  "description": "Users_id",
+                                  "x-ms-summary": "Users_id"
+                              },
+                              "balance": {
+                                  "type": "string",
+                                  "description": "balance",
+                                  "x-ms-summary": "balance"
+                              },
+                              "updated_at": {
+                                  "type": "string",
+                                  "description": "updated_at",
+                                  "x-ms-summary": "updated_at"
+                              }
+                          }
+                      }
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/account/deposit": {
+          "post": {
+              "tags": [],
+              "summary": "POST /account/deposit",
+              "description": "POST /account/deposit",
+              "operationId": "POST/account/deposit",
+              "consumes": [
+                  "application/json"
+              ],
+              "parameters": [
+                  {
+                      "name": "__requested_body__",
+                      "in": "body",
+                      "description": "request body",
+                      "x-ms-summary": "request body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "userId": {
+                                  "type": "integer",
+                                  "description": "userId",
+                                  "x-ms-summary": "userId"
+                              },
+                              "quantity": {
+                                  "type": "integer",
+                                  "description": "quantity",
+                                  "x-ms-summary": "quantity"
+                              }
+                          }
+                      }
+                  }
+              ],
+              "produces": [],
+              "responses": {
+                  "0": {
+                      "description": "",
+                      "schema": {}
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/account/withdraw": {
+          "post": {
+              "tags": [],
+              "summary": "POST /account/withdraw",
+              "description": "POST /account/withdraw",
+              "operationId": "POST/account/withdraw",
+              "consumes": [
+                  "application/json"
+              ],
+              "parameters": [
+                  {
+                      "name": "__requested_body__",
+                      "in": "body",
+                      "description": "request body",
+                      "x-ms-summary": "request body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "userId": {
+                                  "type": "integer",
+                                  "description": "userId",
+                                  "x-ms-summary": "userId"
+                              },
+                              "quantity": {
+                                  "type": "integer",
+                                  "description": "quantity",
+                                  "x-ms-summary": "quantity"
+                              }
+                          }
+                      }
+                  }
+              ],
+              "produces": [
+                  "application/json; charset=utf-8"
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "userId": {
+                                  "type": "integer",
+                                  "description": "userId",
+                                  "x-ms-summary": "userId"
+                              },
+                              "quantity": {
+                                  "type": "integer",
+                                  "description": "quantity",
+                                  "x-ms-summary": "quantity"
+                              },
+                              "balance": {
+                                  "type": "decimal",
+                                  "description": "balance",
+                                  "x-ms-summary": "balance"
+                              }
+                          }
+                      }
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/account/statement": {
+          "get": {
+              "tags": [],
+              "summary": "GET /account/statement",
+              "description": "GET /account/statement",
+              "operationId": "GET/account/statement",
+              "consumes": [],
+              "parameters": [],
+              "produces": [
+                  "application/json; charset=utf-8"
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "id": {
+                                      "type": "integer",
+                                      "description": "id",
+                                      "x-ms-summary": "id"
+                                  },
+                                  "value": {
+                                      "type": "string",
+                                      "description": "value",
+                                      "x-ms-summary": "value"
+                                  },
+                                  "Users_id": {
+                                      "type": "integer",
+                                      "description": "Users_id",
+                                      "x-ms-summary": "Users_id"
+                                  },
+                                  "OperationTypes_id": {
+                                      "type": "integer",
+                                      "description": "OperationTypes_id",
+                                      "x-ms-summary": "OperationTypes_id"
+                                  },
+                                  "created_at": {
+                                      "type": "string",
+                                      "description": "created_at",
+                                      "x-ms-summary": "created_at"
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/account": {
+          "get": {
+              "tags": [],
+              "summary": "GET /account",
+              "description": "GET /account",
+              "operationId": "GET/account",
+              "consumes": [],
+              "parameters": [],
+              "produces": [],
+              "responses": {
+                  "0": {
+                      "description": "",
+                      "schema": {}
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/wallets": {
+          "get": {
+              "tags": [],
+              "summary": "GET /wallets",
+              "description": "GET /wallets",
+              "operationId": "GET/wallets",
+              "consumes": [],
+              "parameters": [],
+              "produces": [],
+              "responses": {
+                  "0": {
+                      "description": "",
+                      "schema": {}
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/wallets/Spleenwort%20Cyanea": {
+          "get": {
+              "tags": [],
+              "summary": "GET /wallets/Spleenwort%20Cyanea",
+              "description": "GET /wallets/Spleenwort%20Cyanea",
+              "operationId": "GET/wallets/Spleenwort%20Cyanea",
+              "consumes": [],
+              "parameters": [],
+              "produces": [],
+              "responses": {
+                  "0": {
+                      "description": "",
+                      "schema": {}
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/wallets/Brownspined%20Pricklypear": {
+          "get": {
+              "tags": [],
+              "summary": "GET /wallets/Brownspined%20Pricklypear",
+              "description": "GET /wallets/Brownspined%20Pricklypear",
+              "operationId": "GET/wallets/Brownspined%20Pricklypear",
+              "consumes": [],
+              "parameters": [],
+              "produces": [],
+              "responses": {
+                  "0": {
+                      "description": "",
+                      "schema": {}
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/signup": {
+          "post": {
+              "tags": [],
+              "summary": "POST /signup",
+              "description": "POST /signup",
+              "operationId": "POST/signup",
+              "consumes": [
+                  "application/json"
+              ],
+              "parameters": [
+                  {
+                      "name": "__requested_body__",
+                      "in": "body",
+                      "description": "request body",
+                      "x-ms-summary": "request body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "email": {
+                                  "type": "string",
+                                  "description": "email",
+                                  "x-ms-summary": "email"
+                              },
+                              "password": {
+                                  "type": "string",
+                                  "description": "password",
+                                  "x-ms-summary": "password"
+                              },
+                              "first_name": {
+                                  "type": "string",
+                                  "description": "first_name",
+                                  "x-ms-summary": "first_name"
+                              },
+                              "last_name": {
+                                  "type": "string",
+                                  "description": "last_name",
+                                  "x-ms-summary": "last_name"
+                              },
+                              "birth_date": {
+                                  "type": "string",
+                                  "description": "birth_date",
+                                  "x-ms-summary": "birth_date"
+                              },
+                              "rg": {
+                                  "type": "string",
+                                  "description": "rg",
+                                  "x-ms-summary": "rg"
+                              },
+                              "cpf": {
+                                  "type": "string",
+                                  "description": "cpf",
+                                  "x-ms-summary": "cpf"
+                              },
+                              "gender": {
+                                  "type": "string",
+                                  "description": "gender",
+                                  "x-ms-summary": "gender"
+                              },
+                              "postal_code": {
+                                  "type": "string",
+                                  "description": "postal_code",
+                                  "x-ms-summary": "postal_code"
+                              },
+                              "logradouro": {
+                                  "type": "string",
+                                  "description": "logradouro",
+                                  "x-ms-summary": "logradouro"
+                              },
+                              "complement": {
+                                  "type": "string",
+                                  "description": "complement",
+                                  "x-ms-summary": "complement"
+                              },
+                              "number": {
+                                  "type": "integer",
+                                  "description": "number",
+                                  "x-ms-summary": "number"
+                              },
+                              "district": {
+                                  "type": "string",
+                                  "description": "district",
+                                  "x-ms-summary": "district"
+                              },
+                              "city": {
+                                  "type": "string",
+                                  "description": "city",
+                                  "x-ms-summary": "city"
+                              },
+                              "state": {
+                                  "type": "string",
+                                  "description": "state",
+                                  "x-ms-summary": "state"
+                              },
+                              "state_code": {
+                                  "type": "string",
+                                  "description": "state_code",
+                                  "x-ms-summary": "state_code"
+                              }
+                          }
+                      }
+                  }
+              ],
+              "produces": [
+                  "application/json; charset=utf-8"
+              ],
+              "responses": {
+                  "400": {
+                      "description": "Bad Request",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "status": {
+                                  "type": "integer",
+                                  "description": "status",
+                                  "x-ms-summary": "status"
+                              },
+                              "message": {
+                                  "type": "string",
+                                  "description": "message",
+                                  "x-ms-summary": "message"
+                              }
+                          }
+                      }
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/signin": {
+          "post": {
+              "tags": [],
+              "summary": "POST /signin",
+              "description": "POST /signin",
+              "operationId": "POST/signin",
+              "consumes": [
+                  "application/json"
+              ],
+              "parameters": [
+                  {
+                      "name": "__requested_body__",
+                      "in": "body",
+                      "description": "request body",
+                      "x-ms-summary": "request body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "email": {
+                                  "type": "string",
+                                  "description": "email",
+                                  "x-ms-summary": "email"
+                              },
+                              "password": {
+                                  "type": "string",
+                                  "description": "password",
+                                  "x-ms-summary": "password"
+                              }
+                          }
+                      }
+                  }
+              ],
+              "produces": [
+                  "application/json; charset=utf-8"
+              ],
+              "responses": {
+                  "401": {
+                      "description": "Unauthorized",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "status": {
+                                  "type": "integer",
+                                  "description": "status",
+                                  "x-ms-summary": "status"
+                              },
+                              "message": {
+                                  "type": "string",
+                                  "description": "message",
+                                  "x-ms-summary": "message"
+                              }
+                          }
+                      }
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/asset/i/companies": {
+          "get": {
+              "tags": [],
+              "summary": "GET /asset/i/companies",
+              "description": "GET /asset/i/companies",
+              "operationId": "GET/asset/i/companies",
+              "consumes": [],
+              "parameters": [],
+              "produces": [],
+              "responses": {
+                  "0": {
+                      "description": "",
+                      "schema": {}
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/asset/i/companies/PETR4": {
+          "get": {
+              "tags": [],
+              "summary": "GET /asset/i/companies/PETR4",
+              "description": "GET /asset/i/companies/PETR4",
+              "operationId": "GET/asset/i/companies/PETR4",
+              "consumes": [],
+              "parameters": [],
+              "produces": [
+                  "application/json; charset=utf-8"
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "id": {
+                                  "type": "integer",
+                                  "description": "id",
+                                  "x-ms-summary": "id"
+                              },
+                              "symbol": {
+                                  "type": "string",
+                                  "description": "symbol",
+                                  "x-ms-summary": "symbol"
+                              },
+                              "name": {
+                                  "type": "string",
+                                  "description": "name",
+                                  "x-ms-summary": "name"
+                              },
+                              "economic_sector": {
+                                  "type": "string",
+                                  "description": "economic_sector",
+                                  "x-ms-summary": "economic_sector"
+                              },
+                              "sub_sector": {
+                                  "type": "string",
+                                  "description": "sub_sector",
+                                  "x-ms-summary": "sub_sector"
+                              },
+                              "segment": {
+                                  "type": "string",
+                                  "description": "segment",
+                                  "x-ms-summary": "segment"
+                              },
+                              "segment_b3": {
+                                  "type": "string",
+                                  "description": "segment_b3",
+                                  "x-ms-summary": "segment_b3"
+                              },
+                              "cnpj": {
+                                  "type": "string",
+                                  "description": "cnpj",
+                                  "x-ms-summary": "cnpj"
+                              },
+                              "dash_cnpj": {
+                                  "type": "string",
+                                  "description": "dash_cnpj",
+                                  "x-ms-summary": "dash_cnpj"
+                              },
+                              "Tickers": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "object",
+                                      "properties": {
+                                          "id": {
+                                              "type": "integer",
+                                              "description": "id",
+                                              "x-ms-summary": "id"
+                                          },
+                                          "ticker": {
+                                              "type": "string",
+                                              "description": "ticker",
+                                              "x-ms-summary": "ticker"
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/asset/o/stocks": {
+          "get": {
+              "tags": [],
+              "summary": "GET /asset/o/stocks",
+              "description": "GET /asset/o/stocks",
+              "operationId": "GET/asset/o/stocks",
+              "consumes": [],
+              "parameters": [],
+              "produces": [
+                  "application/json; charset=utf-8"
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "id": {
+                                      "type": "integer",
+                                      "description": "id",
+                                      "x-ms-summary": "id"
+                                  },
+                                  "ticker": {
+                                      "type": "string",
+                                      "description": "ticker",
+                                      "x-ms-summary": "ticker"
+                                  },
+                                  "Stocks_id": {
+                                      "type": "integer",
+                                      "description": "Stocks_id",
+                                      "x-ms-summary": "Stocks_id"
+                                  },
+                                  "FSExchangeOverview": {
+                                      "type": "array",
+                                      "items": {
+                                          "type": "object",
+                                          "properties": {
+                                              "id": {
+                                                  "type": "integer",
+                                                  "description": "id",
+                                                  "x-ms-summary": "id"
+                                              },
+                                              "Tickers_id": {
+                                                  "type": "integer",
+                                                  "description": "Tickers_id",
+                                                  "x-ms-summary": "Tickers_id"
+                                              },
+                                              "date": {
+                                                  "type": "string",
+                                                  "description": "date",
+                                                  "x-ms-summary": "date"
+                                              },
+                                              "lastSell": {
+                                                  "type": "string",
+                                                  "description": "lastSell",
+                                                  "x-ms-summary": "lastSell"
+                                              },
+                                              "varDay": {
+                                                  "type": "string",
+                                                  "description": "varDay",
+                                                  "x-ms-summary": "varDay"
+                                              },
+                                              "varSem": {
+                                                  "type": "string",
+                                                  "description": "varSem",
+                                                  "x-ms-summary": "varSem"
+                                              },
+                                              "varMon": {
+                                                  "type": "string",
+                                                  "description": "varMon",
+                                                  "x-ms-summary": "varMon"
+                                              },
+                                              "varYear": {
+                                                  "type": "string",
+                                                  "description": "varYear",
+                                                  "x-ms-summary": "varYear"
+                                              },
+                                              "var12m": {
+                                                  "type": "string",
+                                                  "description": "var12m",
+                                                  "x-ms-summary": "var12m"
+                                              },
+                                              "max": {
+                                                  "type": "string",
+                                                  "description": "max",
+                                                  "x-ms-summary": "max"
+                                              },
+                                              "min": {
+                                                  "type": "string",
+                                                  "description": "min",
+                                                  "x-ms-summary": "min"
+                                              },
+                                              "vol": {
+                                                  "type": "integer",
+                                                  "description": "vol",
+                                                  "x-ms-summary": "vol"
+                                              },
+                                              "lot_min": {
+                                                  "type": "integer",
+                                                  "description": "lot_min",
+                                                  "x-ms-summary": "lot_min"
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/investiments/buy": {
+          "patch": {
+              "tags": [],
+              "summary": "PATCH /investiments/buy",
+              "description": "PATCH /investiments/buy",
+              "operationId": "PATCH/investiments/buy",
+              "consumes": [
+                  "application/json"
+              ],
+              "parameters": [
+                  {
+                      "name": "__requested_body__",
+                      "in": "body",
+                      "description": "request body",
+                      "x-ms-summary": "request body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "userId": {
+                                  "type": "integer",
+                                  "description": "userId",
+                                  "x-ms-summary": "userId"
+                              },
+                              "tickerId": {
+                                  "type": "integer",
+                                  "description": "tickerId",
+                                  "x-ms-summary": "tickerId"
+                              },
+                              "quantity": {
+                                  "type": "integer",
+                                  "description": "quantity",
+                                  "x-ms-summary": "quantity"
+                              }
+                          }
+                      }
+                  }
+              ],
+              "produces": [],
+              "responses": {
+                  "0": {
+                      "description": "",
+                      "schema": {}
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/asset/o/ABEV3": {
+          "get": {
+              "tags": [],
+              "summary": "GET /asset/o/ABEV3",
+              "description": "GET /asset/o/ABEV3",
+              "operationId": "GET/asset/o/ABEV3",
+              "consumes": [],
+              "parameters": [],
+              "produces": [
+                  "application/json; charset=utf-8"
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "id": {
+                                  "type": "integer",
+                                  "description": "id",
+                                  "x-ms-summary": "id"
+                              },
+                              "ticker": {
+                                  "type": "string",
+                                  "description": "ticker",
+                                  "x-ms-summary": "ticker"
+                              },
+                              "Stocks_id": {
+                                  "type": "integer",
+                                  "description": "Stocks_id",
+                                  "x-ms-summary": "Stocks_id"
+                              },
+                              "FSExchangeOverview": {
+                                  "type": "array",
+                                  "items": {
+                                      "type": "object",
+                                      "properties": {
+                                          "id": {
+                                              "type": "integer",
+                                              "description": "id",
+                                              "x-ms-summary": "id"
+                                          },
+                                          "Tickers_id": {
+                                              "type": "integer",
+                                              "description": "Tickers_id",
+                                              "x-ms-summary": "Tickers_id"
+                                          },
+                                          "date": {
+                                              "type": "string",
+                                              "description": "date",
+                                              "x-ms-summary": "date"
+                                          },
+                                          "lastSell": {
+                                              "type": "string",
+                                              "description": "lastSell",
+                                              "x-ms-summary": "lastSell"
+                                          },
+                                          "varDay": {
+                                              "type": "string",
+                                              "description": "varDay",
+                                              "x-ms-summary": "varDay"
+                                          },
+                                          "varSem": {
+                                              "type": "string",
+                                              "description": "varSem",
+                                              "x-ms-summary": "varSem"
+                                          },
+                                          "varMon": {
+                                              "type": "string",
+                                              "description": "varMon",
+                                              "x-ms-summary": "varMon"
+                                          },
+                                          "varYear": {
+                                              "type": "string",
+                                              "description": "varYear",
+                                              "x-ms-summary": "varYear"
+                                          },
+                                          "var12m": {
+                                              "type": "string",
+                                              "description": "var12m",
+                                              "x-ms-summary": "var12m"
+                                          },
+                                          "max": {
+                                              "type": "string",
+                                              "description": "max",
+                                              "x-ms-summary": "max"
+                                          },
+                                          "min": {
+                                              "type": "string",
+                                              "description": "min",
+                                              "x-ms-summary": "min"
+                                          },
+                                          "vol": {
+                                              "type": "integer",
+                                              "description": "vol",
+                                              "x-ms-summary": "vol"
+                                          },
+                                          "lot_min": {
+                                              "type": "integer",
+                                              "description": "lot_min",
+                                              "x-ms-summary": "lot_min"
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/investiments/sell": {
+          "patch": {
+              "tags": [],
+              "summary": "PATCH /investiments/sell",
+              "description": "PATCH /investiments/sell",
+              "operationId": "PATCH/investiments/sell",
+              "consumes": [
+                  "application/json"
+              ],
+              "parameters": [
+                  {
+                      "name": "__requested_body__",
+                      "in": "body",
+                      "description": "request body",
+                      "x-ms-summary": "request body",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "userId": {
+                                  "type": "integer",
+                                  "description": "userId",
+                                  "x-ms-summary": "userId"
+                              },
+                              "tickerId": {
+                                  "type": "integer",
+                                  "description": "tickerId",
+                                  "x-ms-summary": "tickerId"
+                              },
+                              "quantity": {
+                                  "type": "integer",
+                                  "description": "quantity",
+                                  "x-ms-summary": "quantity"
+                              }
+                          }
+                      }
+                  }
+              ],
+              "produces": [],
+              "responses": {
+                  "0": {
+                      "description": "",
+                      "schema": {}
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/asset/o/ABEV2": {
+          "get": {
+              "tags": [],
+              "summary": "GET /asset/o/ABEV2",
+              "description": "GET /asset/o/ABEV2",
+              "operationId": "GET/asset/o/ABEV2",
+              "consumes": [],
+              "parameters": [],
+              "produces": [
+                  "application/json; charset=utf-8"
+              ],
+              "responses": {
+                  "404": {
+                      "description": "Not Found",
+                      "schema": {
+                          "type": "object",
+                          "properties": {
+                              "status": {
+                                  "type": "integer",
+                                  "description": "status",
+                                  "x-ms-summary": "status"
+                              },
+                              "message": {
+                                  "type": "string",
+                                  "description": "message",
+                                  "x-ms-summary": "message"
+                              }
+                          }
+                      }
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/asset/i/tickers": {
+          "get": {
+              "tags": [],
+              "summary": "GET /asset/i/tickers",
+              "description": "GET /asset/i/tickers",
+              "operationId": "GET/asset/i/tickers",
+              "consumes": [],
+              "parameters": [],
+              "produces": [
+                  "application/json; charset=utf-8"
+              ],
+              "responses": {
+                  "200": {
+                      "description": "OK",
+                      "schema": {
+                          "type": "array",
+                          "items": {
+                              "type": "object",
+                              "properties": {
+                                  "id": {
+                                      "type": "integer",
+                                      "description": "id",
+                                      "x-ms-summary": "id"
+                                  },
+                                  "name": {
+                                      "type": "string",
+                                      "description": "name",
+                                      "x-ms-summary": "name"
+                                  },
+                                  "symbol": {
+                                      "type": "string",
+                                      "description": "symbol",
+                                      "x-ms-summary": "symbol"
+                                  },
+                                  "Tickers": {
+                                      "type": "array",
+                                      "items": {
+                                          "type": "object",
+                                          "properties": {
+                                              "ticker": {
+                                                  "type": "string",
+                                                  "description": "ticker",
+                                                  "x-ms-summary": "ticker"
+                                              }
+                                          }
+                                      }
+                                  }
+                              }
+                          }
+                      }
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      },
+      "/asset/i/stocks/CSAN": {
+          "get": {
+              "tags": [],
+              "summary": "GET /asset/i/stocks/CSAN",
+              "description": "GET /asset/i/stocks/CSAN",
+              "operationId": "GET/asset/i/stocks/CSAN",
+              "consumes": [],
+              "parameters": [],
+              "produces": [],
+              "responses": {
+                  "0": {
+                      "description": "",
+                      "schema": {}
+                  }
+              },
+              "deprecated": false,
+              "x-ms-visibility": "important"
+          }
+      }
+  },
+  "definitions": {}
+}
