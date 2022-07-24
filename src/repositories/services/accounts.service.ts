@@ -1,23 +1,34 @@
 import { IDeposit } from '@interfaces/users.interface';
 import { PrismaClient } from '@prisma/client';
-import { PrismaClientUnknownRequestError } from '@prisma/client/runtime';
-import changeFormat from '@utils/dateChangeFormat';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import HttpException from '@utils/HttpException';
-import newDateMethods from '@utils/newDateMethods';
 import { OperationId } from '@utils/operations';
-import { ReasonPhrases, StatusCodes } from 'http-status-codes';
+import { StatusCodes } from 'http-status-codes';
 
 require('express-async-errors');
 
 export default class AccountsService {
   constructor(private prisma = new PrismaClient()) {}
 
-  public getBalance = async (userId: number) => this.prisma
-    .accountsBalance.findFirst({
-      where: {
-        Users_id: userId,
-      },
-    });
+  public getBalance = async (userId: number) => {
+    const balance = await this.prisma
+      .accountsBalance.findFirst({
+        where: {
+          Users_id: userId,
+        },
+      });
+
+    if (!balance) {
+      throw new HttpException(StatusCodes.NOT_FOUND, 'User not found in db');
+    }
+
+    return {
+      userId: balance.Users_id,
+      accBalanceId: balance.id,
+      balance: balance.balance,
+      updatedAt: balance.updated_at,
+    };
+  };
 
   public getStatement = async (userId: number) => {
     const statement = await this.prisma.accountsStatement
@@ -30,7 +41,23 @@ export default class AccountsService {
         },
       });
 
-    return statement;
+    if (!statement) {
+      return [];
+    }
+
+    const normalizeStatement = statement.map((
+      {
+        id, value, Users_id, OperationTypes_id, created_at,
+      },
+    ) => ({
+      userId: Users_id,
+      statementId: id,
+      value,
+      operationTypeId: OperationTypes_id,
+      created_at,
+    }));
+
+    return normalizeStatement;
   };
 
   private updateAccount = (
@@ -58,8 +85,7 @@ export default class AccountsService {
           create: {
             value: quantity,
             OperationTypes_id: operationType,
-            created_at: changeFormat(newDateMethods
-              .removeTZ(new Date()), 'ymd'),
+            created_at: new Date().toISOString(),
           },
         },
       },
@@ -69,11 +95,7 @@ export default class AccountsService {
     });
 
   public deposit = async (body: IDeposit, uidToken: number) => {
-    const { userId, quantity } = body;
-
-    if (userId !== uidToken) {
-      throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
-    }
+    const { quantity } = body;
 
     const accId = await this.prisma.accountsBalance.findFirst({
       where: {
@@ -85,14 +107,12 @@ export default class AccountsService {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'User does not exist');
     }
 
-    console.log('accId', accId.id);
-
     try {
       await this.prisma.$transaction(
         [this.updateAccount(quantity, uidToken, accId.id, 'increment', OperationId.DEPOSIT)],
       );
     } catch (e) {
-      if (e instanceof PrismaClientUnknownRequestError) {
+      if (e instanceof PrismaClientKnownRequestError) {
         console.log('Error in accounts service:', e.message);
         throw new HttpException(StatusCodes.BAD_REQUEST, e.message);
       }
@@ -102,15 +122,12 @@ export default class AccountsService {
       userId: uidToken,
       quantity,
       balance: Number(accId.balance.toFixed(2)) + quantity,
+      createdAt: new Date(),
     };
   };
 
   public withdraw = async (body: IDeposit, uidToken: number) => {
-    const { userId, quantity } = body;
-
-    if (userId !== uidToken) {
-      throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
-    }
+    const { quantity } = body;
 
     const accId = await this.prisma.accountsBalance.findFirst({
       where: {
@@ -137,9 +154,10 @@ export default class AccountsService {
         userId: uidToken,
         quantity,
         balance: Number(accId.balance.toFixed(2)) - quantity,
+        createdAt: new Date(),
       };
     } catch (e) {
-      if (e instanceof PrismaClientUnknownRequestError) {
+      if (e instanceof PrismaClientKnownRequestError) {
         console.log('Error in accounts service:', e.message);
         throw new HttpException(StatusCodes.BAD_REQUEST, e.message);
       }

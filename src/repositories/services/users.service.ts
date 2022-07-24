@@ -1,14 +1,23 @@
 import { IUserSignUp, IUserSignIn } from '@interfaces/users.interface';
 import { PrismaClient } from '@prisma/client';
-import { PrismaClientUnknownRequestError } from '@prisma/client/runtime';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import HttpException from '@utils/HttpException';
 import jwt from '@utils/jwt';
 import newDateMethods from '@utils/newDateMethods';
+import getRandomInt from '@utils/random';
 import security from '@utils/security';
 import unauthorized from '@utils/unauthorized';
+import Platforms from '@data/seeds/Platforms.json';
 
 export default class UsersService {
   constructor(private prisma = new PrismaClient()) {}
+
+  private setAccessHistory = async (userId: number) => this.prisma.accessHistory.create({
+    data: {
+      Users_id: userId,
+      Platform_id: getRandomInt(0, 3),
+    },
+  });
 
   public signUp = async ({
     email,
@@ -18,7 +27,7 @@ export default class UsersService {
     birth_date,
     rg,
     cpf,
-    // gender,
+    gender,
     postal_code,
     logradouro,
     complement,
@@ -43,6 +52,8 @@ export default class UsersService {
       throw new HttpException(400, 'User already exists');
     }
 
+    const setPlatform = getRandomInt(0, 3);
+
     try {
       const { id } = await this.prisma.users.create({
         data: {
@@ -57,11 +68,11 @@ export default class UsersService {
               first_name: firstName,
               last_name: lastName,
               // change format of BR date to yyyy-mm-dd
-              birth_date: newDateMethods.brFormatToDB(birth_date), // yyyy/mm/dd -> yyyy-mm-dd
+              birth_date: newDateMethods.brFormatToDB(birth_date), // dd/mm/yyyy -> yyyy-mm-dd
               rg,
               cpf,
               // Gênero quando não informado como padrão, registra como Uninformed
-              // Genders_id: Number(GendersRelation[i].userRelation),
+              Genders_id: gender || 1,
               Addresses: {
                 create: {
                   postal_code,
@@ -77,20 +88,26 @@ export default class UsersService {
             },
           },
           // Fazer um script para gerar um número random baseado na length das opções
-          // AccessHistory: {
-          //   create: {
-          //     Platform_id: Number(AccessHRelations[i]),
-          //   },
-          // },
+          AccessHistory: {
+            create: {
+              Platform_id: setPlatform,
+            },
+          },
         },
       });
+      const plataform = Platforms[setPlatform].name;
       const token = jwt.generateToken({
         id, email, firstName, lastName,
       });
 
-      return { token };
+      return {
+        userId: id,
+        name: `${firstName} ${lastName}`,
+        platform: plataform,
+        token,
+      };
     } catch (e) {
-      if (e instanceof PrismaClientUnknownRequestError) {
+      if (e instanceof PrismaClientKnownRequestError) {
         console.log('Prisma Error: ', e.message);
         throw new HttpException(400, 'Error in sign up');
       }
@@ -130,6 +147,9 @@ export default class UsersService {
     });
 
     if (JWTpayload) {
+      const access = await this.setAccessHistory(JWTpayload?.id);
+      const platformName = Platforms[access?.Platform_id].name;
+
       const { id, PersonalDatas: [pData] } = JWTpayload;
       const { first_name: firstName, last_name: lastName } = pData;
 
@@ -137,10 +157,31 @@ export default class UsersService {
         id, email, firstName, lastName,
       });
 
-      return { token };
+      return {
+        userId: id,
+        name: `${pData.first_name} ${pData.last_name}`,
+        platform: platformName,
+        token,
+      };
     }
 
-    console.log('Error in generate JWT');
+    console.log('Error while generate JWT');
     throw new Error();
   };
+
+  public findUsersInfoCascade = async (uidToken: number) => this.prisma.users.findFirst({
+    where: {
+      id: uidToken,
+    },
+    include: {
+      Wallets: {
+        include: {
+          Transactions: true,
+        },
+      },
+      AccountsBalance: true,
+      Orders: true,
+      AccountsStatement: true,
+    },
+  });
 }

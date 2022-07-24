@@ -16,7 +16,16 @@ export default class WalletsServices {
 
     if (!wallets.length) { return []; }
 
-    return wallets;
+    const walletNormalized = wallets
+      .map((wll) => ({
+        userId: wll.Users_id,
+        walletId: wll.id,
+        name: wll.name,
+        createdAt: wll.created_at,
+        updatedAt: wll.updated_at,
+      }));
+
+    return walletNormalized;
   };
 
   public getOne = async (userId: number, walletName: string) => {
@@ -54,6 +63,27 @@ export default class WalletsServices {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'Wallet with this name does not exists');
     }
 
-    return wallet;
+    const { Transactions } = wallet;
+    const transactionsNormalized = Transactions.map(({
+      id, Wallets_id, Tickers_id, price, quantity, created_at, OperationTypes_id, Tickers,
+    }) => ({
+      transactionId: id,
+      walletId: Wallets_id,
+      tickerId: Tickers_id,
+      symbol: Tickers.ticker,
+      quantity,
+      price,
+      operationType: OperationTypes_id,
+      createdAt: created_at,
+    }));
+
+    const walletNormalized = {
+      userId: wallet.Users_id,
+      walletId: wallet.id,
+      name: wallet.name,
+      transactions: transactionsNormalized,
+    };
+
+    return walletNormalized;
   };
 }

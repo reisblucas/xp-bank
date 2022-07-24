@@ -7,7 +7,7 @@ const signInDTO = z.object({
       .string({ required_error: "Can't be empty" })
       .email({ message: 'Must be a valid email' })
       .regex(EMAIL_REGEX),
-    password: z.string().min(4),
+    password: z.string({ required_error: 'Password is required' }).min(4),
   }),
 });
 

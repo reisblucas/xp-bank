@@ -21,7 +21,6 @@ export interface IFSExchangeOverview {
 }
 
 export interface IBuySellStocks {
-  userId: number;
   tickerId: number;
   quantity: number;
 }

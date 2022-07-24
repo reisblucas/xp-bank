@@ -1,106 +1,20 @@
 import { IBuySellStocks } from '@interfaces/stocks.interface';
 import { PrismaClient } from '@prisma/client';
-import { PrismaClientValidationError } from '@prisma/client/runtime';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import Operation, { OperationId } from '@utils/operations';
 import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
 import newDateMethods from '@utils/newDateMethods';
-import { ReasonPhrases, StatusCodes } from 'http-status-codes';
+import { StatusCodes } from 'http-status-codes';
+import TickersService from './tickers.service';
+import UsersService from './users.service';
 
 export default class StocksService {
-  constructor(private prisma = new PrismaClient()) {}
-
-  public getAllStocks = async () => {
-    const stocks = await this.prisma.tickers.findMany(({
-      include: {
-        FSExchangeOverview: {},
-      },
-    }));
-
-    if (!stocks.length) {
-      throw new HttpException(StatusCodes.NOT_FOUND, 'No stocks available to get info');
-    }
-
-    return stocks;
-  };
-
-  public getAllTickers = async () => {
-    const stocksByTicker = await this.prisma.stocks.findMany({
-      select: {
-        id: true,
-        name: true,
-        symbol: true,
-        Tickers: {
-          select: {
-            ticker: true,
-          },
-        },
-      },
-    });
-
-    if (!stocksByTicker) {
-      throw new HttpException(StatusCodes.NOT_FOUND, 'Stocks not found');
-    }
-
-    return stocksByTicker;
-  };
-
-  public getTickerOverview = async (ticker: string) => {
-    const tickerOverview = await this.prisma.tickers.findFirst({
-      where: {
-        ticker,
-      },
-      include: {
-        FSExchangeOverview: {},
-      },
-    });
-
-    if (!tickerOverview) {
-      throw new HttpException(StatusCodes.NOT_FOUND, 'Ticker does not exists');
-    }
-
-    return tickerOverview;
-  };
-
-  public getAllCompaniesInfo = async () => {
-    const allCompanies = await this.prisma.stocks.findMany({
-      include: {
-        Tickers: {},
-      },
-    });
-
-    if (!allCompanies) {
-      throw new HttpException(StatusCodes.NOT_FOUND, 'Companies not found');
-    }
-
-    return allCompanies;
-  };
-
-  public getCompanyInfo = async (ticker: string) => {
-    const company = await this.prisma.stocks.findFirst({
-      include: {
-        Tickers: {
-          select: {
-            id: true,
-            ticker: true,
-          },
-        },
-      },
-      where: {
-        Tickers: {
-          some: {
-            ticker,
-          },
-        },
-      },
-    });
-
-    if (!company) {
-      throw new HttpException(404, `Does not exists companies with this symbol ${ticker}`);
-    }
-
-    return company;
-  };
+  constructor(
+    private prisma = new PrismaClient(),
+    private tickersServ = new TickersService(),
+    private usersServ = new UsersService(),
+  ) {}
 
   private updateBroker = (qnt: number, tickerId: number, operation: string) => {
     const response = this
@@ -119,46 +33,10 @@ export default class StocksService {
   };
 
   public buyStock = async (body: IBuySellStocks, uidToken: number) => {
-    const { userId, tickerId, quantity } = body;
+    const { tickerId, quantity } = body;
 
-    if (userId !== uidToken) {
-      throw new HttpException(StatusCodes.BAD_REQUEST, ReasonPhrases.UNAUTHORIZED);
-    }
-
-    // confirmation to the user in client side
-    const findStock = await this.prisma.tickers.findFirst({
-      select: {
-        id: true,
-        ticker: true,
-        FSExchangeOverview: {
-          select: {
-            id: true,
-            vol: true,
-            lastSell: true,
-          },
-        },
-      },
-      where: {
-        id: tickerId,
-      },
-    });
-
-    const findUser = await this.prisma.users.findFirst({
-      where: {
-        id: userId,
-      },
-      include: {
-        Wallets: {
-          include: {
-            Transactions: true,
-          },
-        },
-        AccountsBalance: true,
-        Orders: true,
-        AccountsStatement: true,
-      },
-    });
-
+    const findStock = await this.tickersServ.getTickerOverviewById(uidToken);
+    const findUser = await this.usersServ.findUsersInfoCascade(uidToken);
     if (!findStock) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'Something went wrong, stock not found');
     }
@@ -195,7 +73,7 @@ export default class StocksService {
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
     const newBalance = Operation('sub')(Account.balance, value);
 
-    const buyProcess = this.prisma.users.update({
+    const bulkBuyTransaction = this.prisma.users.update({
       data: {
         // wallets
         Wallets: {
@@ -212,7 +90,7 @@ export default class StocksService {
                   // orders
                   Orders: {
                     create: {
-                      Users_id: userId,
+                      Users_id: uidToken,
                       sale_at: newDateMethods.Dplus2(),
                     },
                   },
@@ -246,28 +124,29 @@ export default class StocksService {
         },
       },
       where: {
-        id: userId,
+        id: uidToken,
       },
     });
 
     try {
       await this.prisma
         .$transaction(
-          [buyProcess, this.updateBroker(quantity, stock.id, 'decrement')],
+          [bulkBuyTransaction, this.updateBroker(quantity, stock.id, 'decrement')],
         );
     } catch (e) {
     // Errors to rollback
-      if (e instanceof PrismaClientValidationError) {
-        console.log(e.message);
+      if (e instanceof PrismaClientKnownRequestError) {
+        console.log('Bulk sell transaction:', e.message);
+        throw new HttpException(StatusCodes.BAD_REQUEST, e.message);
       }
     }
 
     return {
-      userId,
-      quantity,
+      userId: uidToken,
       stockPriceUnit: stock.lastSell,
-      buyValue: Number(value.toFixed(2)),
-      balance: Number(newBalance.toFixed(2)),
+      quantity,
+      transactionValue: Number(value.toFixed(2)),
+      updatedBalance: Number(newBalance.toFixed(2)),
       ticker: {
         tickerId,
         symbol: ticker,
@@ -276,45 +155,11 @@ export default class StocksService {
   };
 
   public sellStock = async (body: IBuySellStocks, uidToken: number) => {
-    const { userId, tickerId, quantity } = body;
-
-    if (userId !== uidToken) {
-      throw new HttpException(StatusCodes.BAD_REQUEST, ReasonPhrases.UNAUTHORIZED);
-    }
+    const { tickerId, quantity } = body;
 
     // confirmation to the user in client side
-    const findStock = await this.prisma.tickers.findFirst({
-      select: {
-        id: true,
-        ticker: true,
-        FSExchangeOverview: {
-          select: {
-            id: true,
-            vol: true,
-            lastSell: true,
-          },
-        },
-      },
-      where: {
-        id: tickerId,
-      },
-    });
-
-    const findUser = await this.prisma.users.findFirst({
-      where: {
-        id: userId,
-      },
-      include: {
-        Wallets: {
-          include: {
-            Transactions: true,
-          },
-        },
-        AccountsBalance: true,
-        Orders: true,
-        AccountsStatement: true,
-      },
-    });
+    const findStock = await this.tickersServ.getTickerOverviewById(uidToken);
+    const findUser = await this.usersServ.findUsersInfoCascade(uidToken);
 
     if (!findStock) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'Something went wrong, stock not found');
@@ -337,11 +182,19 @@ export default class StocksService {
     const transactionsByTicker = Transactions
       .filter((t) => t.Tickers_id === tickerId);
 
-    // NEED TO VALIDATE THE CLIENT WALLET
     const totalStocksInPortfolio = transactionsByTicker
-      .reduce((prev, crr) => prev + crr.quantity, 0);
+      .reduce((prev, crr, i) => {
+        if (transactionsByTicker.length === 1) {
+          return -Number(crr.quantity);
+        }
+        if (transactionsByTicker[i].OperationTypes_id === 2) {
+          return prev - Number(crr.quantity);
+        }
 
-    if (quantity > totalStocksInPortfolio) {
+        return prev + Number(crr.quantity);
+      }, 0);
+
+    if (quantity > totalStocksInPortfolio || totalStocksInPortfolio <= 0) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'You can\'t sell more stocks than you have');
     }
 
@@ -352,7 +205,7 @@ export default class StocksService {
     // validations: account balance & FSExchangeOverview
     // where to bulk: transactions, which wallet, orders, accountStatement, operationtype, balance
 
-    const updateVolume = this.prisma.users.update({
+    const bulkSellTransaction = this.prisma.users.update({
       data: {
         // wallets
         Wallets: {
@@ -369,7 +222,7 @@ export default class StocksService {
                   // orders
                   Orders: {
                     create: {
-                      Users_id: userId,
+                      Users_id: uidToken,
                       sale_at: newDateMethods.Dplus2(),
                     },
                   },
@@ -403,7 +256,7 @@ export default class StocksService {
         },
       },
       where: {
-        id: userId,
+        id: uidToken,
       },
     });
 
@@ -411,23 +264,24 @@ export default class StocksService {
       await this.prisma
         .$transaction(
           [
-            updateVolume,
+            bulkSellTransaction,
             this.updateBroker(quantity, tickerId, 'increment'),
           ],
         );
     } catch (e) {
     // Errors to rollback
-      if (e instanceof PrismaClientValidationError) {
-        console.log(e.message);
+      if (e instanceof PrismaClientKnownRequestError) {
+        console.log('Bulk sell transaction:', e.message);
+        throw new HttpException(StatusCodes.BAD_REQUEST, e.message);
       }
     }
 
     return {
-      userId,
-      quantity,
+      userId: uidToken,
       stockPriceUnit: stock.lastSell,
-      sellTotal: Number(value.toFixed(2)), // SEND FORMATTED NUMBER TO THE CLIENT
-      balance: Number(newBalance.toFixed(2)),
+      quantity,
+      transactionValue: Number(value.toFixed(2)), // SEND FORMATTED NUMBER TO THE CLIENT
+      updatedBalance: Number(newBalance.toFixed(2)),
       ticker: {
         tickerId,
         symbol: ticker,

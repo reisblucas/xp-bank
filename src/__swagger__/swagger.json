@@ -1,0 +1,963 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.1.5",
+    "title": "XP Bank",
+    "description": "Documentation of my api developed for selection process! Developed by neur4l"
+  },
+  "components": {
+    "requestBodies": {
+      "bodyDepositAndWithdraw": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "quantity": {
+                  "type": "integer",
+                  "description": "quantity",
+                  "x-ms-summary": "quantity"
+                }
+              }
+            }
+          }
+        },
+        "description": "request body",
+        "x-ms-summary": "request body"
+      },
+      "investimentBuySell": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "tickerId": {
+                  "type": "integer",
+                  "description": "tickerId",
+                  "x-ms-summary": "tickerId"
+                },
+                "quantity": {
+                  "type": "integer",
+                  "description": "quantity",
+                  "x-ms-summary": "quantity"
+                }
+              }
+            }
+          }
+        },
+        "description": "request body",
+        "x-ms-summary": "request body"
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "in": "header"
+      }
+    },
+    "securityDefinitions": {
+      "Bearer": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "authorization",
+        "description": "All authenticated routes must include the 'authorization' header containing the userId, email, first name and last name."
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/signup": {
+      "post": {
+        "tags": [
+          "Public"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "xp@teste.commm",
+                    "x-ms-summary": "email"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "",
+                    "x-ms-summary": "password"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "description": "first_name",
+                    "x-ms-summary": "first_name"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "description": "last_name",
+                    "x-ms-summary": "last_name"
+                  },
+                  "birth_date": {
+                    "type": "string",
+                    "description": "DD/MM/YYYY > 18 yo",
+                    "x-ms-summary": "birth_date"
+                  },
+                  "rg": {
+                    "type": "string",
+                    "description": "123456789 and RG must be 9 characters length",
+                    "x-ms-summary": "rg"
+                  },
+                  "cpf": {
+                    "type": "string",
+                    "description": "12345678911 CPF must be 11 characters length",
+                    "x-ms-summary": "cpf"
+                  },
+                  "gender": {
+                    "type": "integer",
+                    "description": "1 - Uninformed, 2 - Cis Male, 3 - Cis female, 4 - Transgender Male, 5 - Transgender Female, 6 - Non-binary",
+                    "x-ms-summary": "gender"
+                  },
+                  "postal_code": {
+                    "type": "string",
+                    "description": "12345-123",
+                    "x-ms-summary": "postal_code"
+                  },
+                  "logradouro": {
+                    "type": "string",
+                    "description": "logradouro",
+                    "x-ms-summary": "logradouro"
+                  },
+                  "complement": {
+                    "type": "string",
+                    "description": "complement",
+                    "x-ms-summary": "complement"
+                  },
+                  "number": {
+                    "type": "integer",
+                    "description": "number",
+                    "x-ms-summary": "number"
+                  },
+                  "district": {
+                    "type": "string",
+                    "description": "district",
+                    "x-ms-summary": "district"
+                  },
+                  "city": {
+                    "type": "string",
+                    "description": "city",
+                    "x-ms-summary": "city"
+                  },
+                  "state": {
+                    "type": "string",
+                    "description": "state",
+                    "x-ms-summary": "state"
+                  },
+                  "state_code": {
+                    "type": "string",
+                    "description": "state_code",
+                    "x-ms-summary": "state_code"
+                  }
+                }
+              }
+            }
+          },
+          "description": "Example of the email body",
+          "x-ms-summary": "request body"
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "description": "status",
+                      "x-ms-summary": "status"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "x-ms-summary": "message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/signin": {
+      "post": {
+        "tags": [
+          "Public"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "email",
+                    "x-ms-summary": "email"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "password",
+                    "x-ms-summary": "password"
+                  }
+                }
+              }
+            }
+          },
+          "description": "request body",
+          "x-ms-summary": "request body"
+        },
+        "responses": {
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer",
+                      "description": "status",
+                      "x-ms-summary": "status"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "message",
+                      "x-ms-summary": "message"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/account/balance": {
+      "get": {
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "id",
+                      "x-ms-summary": "id"
+                    },
+                    "Users_id": {
+                      "type": "integer",
+                      "description": "Users_id",
+                      "x-ms-summary": "Users_id"
+                    },
+                    "balance": {
+                      "type": "string",
+                      "description": "balance",
+                      "x-ms-summary": "balance"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "description": "updated_at",
+                      "x-ms-summary": "updated_at"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/account/statement": {
+      "get": {
+        "tags": [
+          "Authenticated"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "id",
+                        "x-ms-summary": "id"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "value",
+                        "x-ms-summary": "value"
+                      },
+                      "Users_id": {
+                        "type": "integer",
+                        "description": "Users_id",
+                        "x-ms-summary": "Users_id"
+                      },
+                      "OperationTypes_id": {
+                        "type": "integer",
+                        "description": "OperationTypes_id",
+                        "x-ms-summary": "OperationTypes_id"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "created_at",
+                        "x-ms-summary": "created_at"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/account/deposit": {
+      "post": {
+        "tags": [
+          "Authenticated"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/bodyDepositAndWithdraw"
+        },
+        "responses": {
+          "201": {
+            "description": "Responses",
+            "content": {
+              "*/*": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/account/withdraw": {
+      "post": {
+        "tags": [
+          "Authenticated"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/bodyDepositAndWithdraw"
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "userId": {
+                      "type": "integer",
+                      "description": "userId",
+                      "x-ms-summary": "userId"
+                    },
+                    "quantity": {
+                      "type": "integer",
+                      "description": "quantity",
+                      "x-ms-summary": "quantity"
+                    },
+                    "balance": {
+                      "type": "decimal",
+                      "description": "balance",
+                      "x-ms-summary": "balance"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/wallets": {
+      "get": {
+        "tags": ["Authenticated"],
+        "responses": {
+          "0": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/wallets/name={walletName}": {
+      "get": {
+        "tags": [
+          "Authenticated"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Wallet Name",
+            "description": "Search for client wallet by name",
+            "required": true,
+            "x-ms-summary": "walletName",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "0": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/investiments/buy": {
+      "patch": {
+        "tags": [
+          "Authenticated"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/investimentBuySell"
+        },
+        "responses": {
+          "body": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                  
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/investiments/sell": {
+      "patch": {
+        "tags": [
+          "Authenticated"
+        ],
+        "requestBody": {
+          "$ref": "#/components/requestBodies/investimentBuySell"
+        },
+        "responses": {
+          "body": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                    "type": "object"
+                    
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/asset/i/companies": {
+      "get": {
+        "tags": [
+          "Authenticated"
+        ],
+        "parameters": [],
+        "responses": {
+          "0": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/asset/i/companies/{ticker}": {
+      "get": {
+        "tags": [
+          "Authenticated"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Stock ticker",
+            "description": "Search company by ticker as PETR3/PETR4",
+            "required": true,
+            "x-ms-summary": "ticker",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "id",
+                      "x-ms-summary": "id"
+                    },
+                    "symbol": {
+                      "type": "string",
+                      "description": "symbol",
+                      "x-ms-summary": "symbol"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "name",
+                      "x-ms-summary": "name"
+                    },
+                    "economic_sector": {
+                      "type": "string",
+                      "description": "economic_sector",
+                      "x-ms-summary": "economic_sector"
+                    },
+                    "sub_sector": {
+                      "type": "string",
+                      "description": "sub_sector",
+                      "x-ms-summary": "sub_sector"
+                    },
+                    "segment": {
+                      "type": "string",
+                      "description": "segment",
+                      "x-ms-summary": "segment"
+                    },
+                    "segment_b3": {
+                      "type": "string",
+                      "description": "segment_b3",
+                      "x-ms-summary": "segment_b3"
+                    },
+                    "cnpj": {
+                      "type": "string",
+                      "description": "cnpj",
+                      "x-ms-summary": "cnpj"
+                    },
+                    "dash_cnpj": {
+                      "type": "string",
+                      "description": "dash_cnpj",
+                      "x-ms-summary": "dash_cnpj"
+                    },
+                    "Tickers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "id",
+                            "x-ms-summary": "id"
+                          },
+                          "ticker": {
+                            "type": "string",
+                            "description": "ticker",
+                            "x-ms-summary": "ticker"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/asset/o/stocks": {
+      "get": {
+        "tags": [
+          "Authenticated"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "id",
+                        "x-ms-summary": "id"
+                      },
+                      "ticker": {
+                        "type": "string",
+                        "description": "ticker",
+                        "x-ms-summary": "ticker"
+                      },
+                      "Stocks_id": {
+                        "type": "integer",
+                        "description": "Stocks_id",
+                        "x-ms-summary": "Stocks_id"
+                      },
+                      "FSExchangeOverview": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "description": "id",
+                              "x-ms-summary": "id"
+                            },
+                            "Tickers_id": {
+                              "type": "integer",
+                              "description": "Tickers_id",
+                              "x-ms-summary": "Tickers_id"
+                            },
+                            "date": {
+                              "type": "string",
+                              "description": "date",
+                              "x-ms-summary": "date"
+                            },
+                            "lastSell": {
+                              "type": "string",
+                              "description": "lastSell",
+                              "x-ms-summary": "lastSell"
+                            },
+                            "varDay": {
+                              "type": "string",
+                              "description": "varDay",
+                              "x-ms-summary": "varDay"
+                            },
+                            "varSem": {
+                              "type": "string",
+                              "description": "varSem",
+                              "x-ms-summary": "varSem"
+                            },
+                            "varMon": {
+                              "type": "string",
+                              "description": "varMon",
+                              "x-ms-summary": "varMon"
+                            },
+                            "varYear": {
+                              "type": "string",
+                              "description": "varYear",
+                              "x-ms-summary": "varYear"
+                            },
+                            "var12m": {
+                              "type": "string",
+                              "description": "var12m",
+                              "x-ms-summary": "var12m"
+                            },
+                            "max": {
+                              "type": "string",
+                              "description": "max",
+                              "x-ms-summary": "max"
+                            },
+                            "min": {
+                              "type": "string",
+                              "description": "min",
+                              "x-ms-summary": "min"
+                            },
+                            "vol": {
+                              "type": "integer",
+                              "description": "vol",
+                              "x-ms-summary": "vol"
+                            },
+                            "lot_min": {
+                              "type": "integer",
+                              "description": "lot_min",
+                              "x-ms-summary": "lot_min"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/asset/o/{ticker}": {
+      "get": {
+        "tags": [
+          "Authenticated"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Stock ticker",
+            "description": "Search stocks overview by ticker, example PETR3/PETR4",
+            "required": true,
+            "x-ms-summary": "ticker",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "integer",
+                      "description": "id",
+                      "x-ms-summary": "id"
+                    },
+                    "ticker": {
+                      "type": "string",
+                      "description": "Ticker id, as PETR4",
+                      "x-ms-summary": "ticker"
+                    },
+                    "Stocks_id": {
+                      "type": "integer",
+                      "description": "Stocks_id",
+                      "x-ms-summary": "Stocks_id"
+                    },
+                    "FSExchangeOverview": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "id",
+                            "x-ms-summary": "id"
+                          },
+                          "Tickers_id": {
+                            "type": "integer",
+                            "description": "Tickers_id",
+                            "x-ms-summary": "Tickers_id"
+                          },
+                          "date": {
+                            "type": "string",
+                            "description": "date",
+                            "x-ms-summary": "date"
+                          },
+                          "lastSell": {
+                            "type": "string",
+                            "description": "lastSell",
+                            "x-ms-summary": "lastSell"
+                          },
+                          "varDay": {
+                            "type": "string",
+                            "description": "varDay",
+                            "x-ms-summary": "varDay"
+                          },
+                          "varSem": {
+                            "type": "string",
+                            "description": "varSem",
+                            "x-ms-summary": "varSem"
+                          },
+                          "varMon": {
+                            "type": "string",
+                            "description": "varMon",
+                            "x-ms-summary": "varMon"
+                          },
+                          "varYear": {
+                            "type": "string",
+                            "description": "varYear",
+                            "x-ms-summary": "varYear"
+                          },
+                          "var12m": {
+                            "type": "string",
+                            "description": "var12m",
+                            "x-ms-summary": "var12m"
+                          },
+                          "max": {
+                            "type": "string",
+                            "description": "max",
+                            "x-ms-summary": "max"
+                          },
+                          "min": {
+                            "type": "string",
+                            "description": "min",
+                            "x-ms-summary": "min"
+                          },
+                          "vol": {
+                            "type": "integer",
+                            "description": "vol",
+                            "x-ms-summary": "vol"
+                          },
+                          "lot_min": {
+                            "type": "integer",
+                            "description": "lot_min",
+                            "x-ms-summary": "lot_min"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/asset/i/tickers": {
+      "get": {
+        "tags": [
+          "Authenticated"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "id",
+                        "x-ms-summary": "id"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "name",
+                        "x-ms-summary": "name"
+                      },
+                      "symbol": {
+                        "type": "string",
+                        "description": "symbol",
+                        "x-ms-summary": "symbol"
+                      },
+                      "Tickers": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "ticker": {
+                              "type": "string",
+                              "description": "ticker",
+                              "x-ms-summary": "ticker"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/asset/o/stocks/{ticker}": {
+      "get": {
+        "tags": [
+          "Authenticated"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "Stock ticker",
+            "description": "Search company by ticker as PETR3/PETR4",
+            "required": true,
+            "x-ms-summary": "ticker",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "0": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {}
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://xp-bank.herokuapp.com/"
+    },
+    {
+      "url": "http://localhost:3000"
+    }
+  ]
+}

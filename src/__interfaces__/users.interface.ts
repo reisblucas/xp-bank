@@ -6,7 +6,7 @@ export interface IUserSignUp {
   birth_date: string;
   rg: string;
   cpf: string;
-  gender: string;
+  gender?: number;
   postal_code: string;
   logradouro: string;
   complement: string;
@@ -23,6 +23,5 @@ export interface IUserSignIn {
 }
 
 export interface IDeposit {
-  userId: number;
   quantity: number;
 }
