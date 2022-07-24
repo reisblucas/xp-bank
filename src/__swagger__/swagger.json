@@ -7,17 +7,12 @@
   },
   "components": {
     "requestBodies": {
-      "_RequestedBody_": {
+      "bodyDepositAndWithdraw": {
         "content": {
           "application/json": {
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
-                  "type": "integer",
-                  "description": "userId",
-                  "x-ms-summary": "userId"
-                },
                 "quantity": {
                   "type": "integer",
                   "description": "quantity",
@@ -30,17 +25,12 @@
         "description": "request body",
         "x-ms-summary": "request body"
       },
-      "_RequestedBody_2": {
+      "investimentBuySell": {
         "content": {
           "application/json": {
             "schema": {
               "type": "object",
               "properties": {
-                "userId": {
-                  "type": "integer",
-                  "description": "userId",
-                  "x-ms-summary": "userId"
-                },
                 "tickerId": {
                   "type": "integer",
                   "description": "tickerId",
@@ -364,11 +354,11 @@
           "Authenticated"
         ],
         "requestBody": {
-          "$ref": "#/components/requestBodies/_RequestedBody_"
+          "$ref": "#/components/requestBodies/bodyDepositAndWithdraw"
         },
         "responses": {
-          "0": {
-            "description": "",
+          "201": {
+            "description": "Responses",
             "content": {
               "*/*": {
                 "schema": {}
@@ -386,7 +376,7 @@
           "Authenticated"
         ],
         "requestBody": {
-          "$ref": "#/components/requestBodies/_RequestedBody_"
+          "$ref": "#/components/requestBodies/bodyDepositAndWithdraw"
         },
         "responses": {
           "200": {
@@ -424,9 +414,6 @@
     "/wallets": {
       "get": {
         "tags": ["Authenticated"],
-        "summary": "GET /wallets",
-        "description": "GET /wallets",
-        "operationId": "GET/wallets",
         "responses": {
           "0": {
             "description": "",
@@ -478,7 +465,7 @@
           "Authenticated"
         ],
         "requestBody": {
-          "$ref": "#/components/requestBodies/_RequestedBody_2"
+          "$ref": "#/components/requestBodies/investimentBuySell"
         },
         "responses": {
           "0": {
