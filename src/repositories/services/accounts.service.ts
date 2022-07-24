@@ -1,6 +1,6 @@
 import { IDeposit } from '@interfaces/users.interface';
 import { PrismaClient } from '@prisma/client';
-import { PrismaClientUnknownRequestError } from '@prisma/client/runtime';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
 import newDateMethods from '@utils/newDateMethods';
@@ -81,14 +81,12 @@ export default class AccountsService {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'User does not exist');
     }
 
-    console.log('accId', accId.id);
-
     try {
       await this.prisma.$transaction(
         [this.updateAccount(quantity, uidToken, accId.id, 'increment', OperationId.DEPOSIT)],
       );
     } catch (e) {
-      if (e instanceof PrismaClientUnknownRequestError) {
+      if (e instanceof PrismaClientKnownRequestError) {
         console.log('Error in accounts service:', e.message);
         throw new HttpException(StatusCodes.BAD_REQUEST, e.message);
       }
@@ -131,7 +129,7 @@ export default class AccountsService {
         balance: Number(accId.balance.toFixed(2)) - quantity,
       };
     } catch (e) {
-      if (e instanceof PrismaClientUnknownRequestError) {
+      if (e instanceof PrismaClientKnownRequestError) {
         console.log('Error in accounts service:', e.message);
         throw new HttpException(StatusCodes.BAD_REQUEST, e.message);
       }

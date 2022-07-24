@@ -38,7 +38,6 @@ class AccountsController {
     }
 
     const deposit = await this.service.deposit(req.body as IDeposit, userId);
-    // const deposit = await this.service.testUpdateWhenFieldIsZero(req.body as IDeposit, userId);
 
     res.status(StatusCodes.OK).json(deposit);
   };
