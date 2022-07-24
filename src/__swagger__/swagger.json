@@ -468,11 +468,14 @@
           "$ref": "#/components/requestBodies/investimentBuySell"
         },
         "responses": {
-          "0": {
+          "body": {
             "description": "",
             "content": {
               "*/*": {
-                "schema": {}
+                "schema": {
+                  "type": "object"
+                  
+                }
               }
             }
           }
@@ -487,14 +490,17 @@
           "Authenticated"
         ],
         "requestBody": {
-          "$ref": "#/components/requestBodies/_RequestedBody_2"
+          "$ref": "#/components/requestBodies/investimentBuySell"
         },
         "responses": {
-          "0": {
+          "body": {
             "description": "",
             "content": {
               "*/*": {
-                "schema": {}
+                "schema": {
+                    "type": "object"
+                    
+                }
               }
             }
           }
@@ -508,17 +514,7 @@
         "tags": [
           "Authenticated"
         ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "authorization",
-            "description": "token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "0": {
             "description": "",
@@ -545,15 +541,6 @@
             "description": "Search company by ticker as PETR3/PETR4",
             "required": true,
             "x-ms-summary": "ticker",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "in": "header",
-            "name": "authorization",
-            "description": "token",
-            "required": true,
             "schema": {
               "type": "string"
             }
@@ -645,17 +632,7 @@
         "tags": [
           "Authenticated"
         ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "authorization",
-            "description": "token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -770,17 +747,7 @@
         "tags": [
           "Authenticated"
         ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "authorization",
-            "description": "token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -892,17 +859,7 @@
         "tags": [
           "Authenticated"
         ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "authorization",
-            "description": "token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK",
@@ -957,17 +914,7 @@
         "tags": [
           "Authenticated"
         ],
-        "parameters": [
-          {
-            "in": "header",
-            "name": "authorization",
-            "description": "token",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "0": {
             "description": "",
