@@ -36,8 +36,9 @@ const signUpDTO = z.object({
       .string({ required_error: 'CPF is required ' })
       .length(11, 'CPF must be 11 characters length'),
     gender: z
-      .number()
+      .number({ required_error: 'Gender need to be a number between 1 and 6' })
       .int()
+      .positive()
       .refine((v) => v > 0 || v < 7)
       .optional(),
     // Addresses
