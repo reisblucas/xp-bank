@@ -443,6 +443,33 @@
                 "x-ms-visibility": "important"
             }
         },
+        "/wallets": {
+            "get": {
+                "tags": [],
+                "summary": "GET /wallets",
+                "description": "GET /wallets",
+                "operationId": "GET/wallets",
+                "consumes": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "produces": [],
+                "responses": {
+                    "0": {
+                        "description": "",
+                        "schema": {}
+                    }
+                },
+                "deprecated": false,
+                "x-ms-visibility": "important"
+            }
+        },
         "/wallets/name={walletName}": {
             "get": {
                 "tags": [
