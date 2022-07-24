@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `PersonalDatas` MODIFY `Genders_id` INTEGER UNSIGNED NULL DEFAULT 1;

@@ -12,8 +12,8 @@
         "https"
     ],
     "securityDefinitions": {
-        "accountId": {
-            "type": "apiKey",
+        "authorization": {
+            "type": "basic",
             "in": "header",
             "name": "authorization",
             "description": "All authenticated routes must include the 'authorization' header containing the userId, email, first name and last name."
@@ -21,9 +21,9 @@
     },
     "security": [
         {
-            "accountId": []
+            "authorization": []
         }
-    ],  
+    ],
     "paths": {
         "/signup": {
             "post": {
@@ -217,7 +217,15 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -261,7 +269,15 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -336,6 +352,13 @@
                                 }
                             }
                         }
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "produces": [],
@@ -378,6 +401,14 @@
                                 }
                             }
                         }
+                    },
+
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "produces": [
@@ -446,13 +477,49 @@
                 "x-ms-visibility": "important"
             }
         },
-        "/asset/i/companies": {
-            "get": {
+        "/investiments/buy": {
+            "patch": {
                 "tags": [
                     "Authenticated"
                 ],
-                "consumes": [],
-                "parameters": [],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "__requested_body__",
+                        "in": "body",
+                        "description": "request body",
+                        "x-ms-summary": "request body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "userId": {
+                                    "type": "integer",
+                                    "description": "userId",
+                                    "x-ms-summary": "userId"
+                                },
+                                "tickerId": {
+                                    "type": "integer",
+                                    "description": "tickerId",
+                                    "x-ms-summary": "tickerId"
+                                },
+                                "quantity": {
+                                    "type": "integer",
+                                    "description": "quantity",
+                                    "x-ms-summary": "quantity"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [],
                 "responses": {
                     "0": {
@@ -464,13 +531,109 @@
                 "x-ms-visibility": "important"
             }
         },
-        "/asset/i/companies/PETR4": {
+        "/investiments/sell": {
+            "patch": {
+                "tags": [
+                    "Authenticated"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "__requested_body__",
+                        "in": "body",
+                        "description": "request body",
+                        "x-ms-summary": "request body",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "userId": {
+                                    "type": "integer",
+                                    "description": "userId",
+                                    "x-ms-summary": "userId"
+                                },
+                                "tickerId": {
+                                    "type": "integer",
+                                    "description": "tickerId",
+                                    "x-ms-summary": "tickerId"
+                                },
+                                "quantity": {
+                                    "type": "integer",
+                                    "description": "quantity",
+                                    "x-ms-summary": "quantity"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "produces": [],
+                "responses": {
+                    "0": {
+                        "description": "",
+                        "schema": {}
+                    }
+                },
+                "deprecated": false,
+                "x-ms-visibility": "important"
+            }
+        },
+        "/asset/i/companies": {
             "get": {
                 "tags": [
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "produces": [],
+                "responses": {
+                    "0": {
+                        "description": "",
+                        "schema": {}
+                    }
+                },
+                "deprecated": false,
+                "x-ms-visibility": "important"
+            }
+        },
+        "/asset/i/companies/{ticker}": {
+            "get": {
+                "tags": [
+                    "Authenticated"
+                ],
+                "consumes": [],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "Stock ticker",
+                        "description": "Search company by ticker as PETR3/PETR4",
+                        "required": true,
+                        "type": "string",
+                        "x-ms-summary": "ticker"
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -557,7 +720,15 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -666,60 +837,21 @@
                 "x-ms-visibility": "important"
             }
         },
-        "/investiments/buy": {
-            "patch": {
-                "tags": [
-                    "Authenticated"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "__requested_body__",
-                        "in": "body",
-                        "description": "request body",
-                        "x-ms-summary": "request body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "userId": {
-                                    "type": "integer",
-                                    "description": "userId",
-                                    "x-ms-summary": "userId"
-                                },
-                                "tickerId": {
-                                    "type": "integer",
-                                    "description": "tickerId",
-                                    "x-ms-summary": "tickerId"
-                                },
-                                "quantity": {
-                                    "type": "integer",
-                                    "description": "quantity",
-                                    "x-ms-summary": "quantity"
-                                }
-                            }
-                        }
-                    }
-                ],
-                "produces": [],
-                "responses": {
-                    "0": {
-                        "description": "",
-                        "schema": {}
-                    }
-                },
-                "deprecated": false,
-                "x-ms-visibility": "important"
-            }
-        },
-        "/asset/o/ABEV3": {
+        "/asset/o/{ticker}": {
             "get": {
                 "tags": [
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -736,7 +868,7 @@
                                 },
                                 "ticker": {
                                     "type": "string",
-                                    "description": "ticker",
+                                    "description": "Ticker id, as PETR4",
                                     "x-ms-summary": "ticker"
                                 },
                                 "Stocks_id": {
@@ -825,94 +957,21 @@
                 "x-ms-visibility": "important"
             }
         },
-        "/investiments/sell": {
-            "patch": {
-                "tags": [
-                    "Authenticated"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "__requested_body__",
-                        "in": "body",
-                        "description": "request body",
-                        "x-ms-summary": "request body",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "userId": {
-                                    "type": "integer",
-                                    "description": "userId",
-                                    "x-ms-summary": "userId"
-                                },
-                                "tickerId": {
-                                    "type": "integer",
-                                    "description": "tickerId",
-                                    "x-ms-summary": "tickerId"
-                                },
-                                "quantity": {
-                                    "type": "integer",
-                                    "description": "quantity",
-                                    "x-ms-summary": "quantity"
-                                }
-                            }
-                        }
-                    }
-                ],
-                "produces": [],
-                "responses": {
-                    "0": {
-                        "description": "",
-                        "schema": {}
-                    }
-                },
-                "deprecated": false,
-                "x-ms-visibility": "important"
-            }
-        },
-        "/asset/o/ABEV2": {
-            "get": {
-                "tags": [
-                    "Authenticated"
-                ],
-                "consumes": [],
-                "parameters": [],
-                "produces": [
-                    "application/json; charset=utf-8"
-                ],
-                "responses": {
-                    "404": {
-                        "description": "Not Found",
-                        "schema": {
-                            "type": "object",
-                            "properties": {
-                                "status": {
-                                    "type": "integer",
-                                    "description": "status",
-                                    "x-ms-summary": "status"
-                                },
-                                "message": {
-                                    "type": "string",
-                                    "description": "message",
-                                    "x-ms-summary": "message"
-                                }
-                            }
-                        }
-                    }
-                },
-                "deprecated": false,
-                "x-ms-visibility": "important"
-            }
-        },
         "/asset/i/tickers": {
             "get": {
                 "tags": [
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -961,13 +1020,21 @@
                 "x-ms-visibility": "important"
             }
         },
-        "/asset/i/stocks/CSAN": {
+        "/asset/i/stocks/{ticker}": {
             "get": {
                 "tags": [
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "token",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
                 "produces": [],
                 "responses": {
                     "0": {
