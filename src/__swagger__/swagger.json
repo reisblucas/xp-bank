@@ -51,27 +51,27 @@
                                 },
                                 "birth_date": {
                                     "type": "string",
-                                    "description": "DD/MM/YYYY",
+                                    "description": "DD/MM/YYYY > 18 yo",
                                     "x-ms-summary": "birth_date"
                                 },
                                 "rg": {
                                     "type": "string",
-                                    "description": "rg",
+                                    "description": "123456789 and RG must be 9 characters length",
                                     "x-ms-summary": "rg"
                                 },
                                 "cpf": {
                                     "type": "string",
-                                    "description": "cpf",
+                                    "description": "12345678911 CPF must be 11 characters length",
                                     "x-ms-summary": "cpf"
                                 },
                                 "gender": {
-                                    "type": "string",
-                                    "description": "gender",
+                                    "type": "integer",
+                                    "description": "1 - Uninformed, 2 - Cis Male, 3 - Cis female, 4 - Transgender Male, 5 - Transgender Female, 6 - Non-binary",
                                     "x-ms-summary": "gender"
                                 },
                                 "postal_code": {
                                     "type": "string",
-                                    "description": "postal_code",
+                                    "description": "12345-123",
                                     "x-ms-summary": "postal_code"
                                 },
                                 "logradouro": {

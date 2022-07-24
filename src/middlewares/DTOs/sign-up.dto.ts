@@ -1,6 +1,7 @@
 import newDateMethods from '@utils/newDateMethods';
 import { EMAIL_REGEX } from '@utils/regex';
 import { z } from 'zod';
+import ValidStatesBrazil from '@data/seeds/StatesBrazil.json';
 
 const signUpDTO = z.object({
   body: z.object({
@@ -56,8 +57,20 @@ const signUpDTO = z.object({
       .min(1),
     district: z.string({ required_error: 'District is required' }).min(2),
     city: z.string({ required_error: 'City is required' }).min(2),
-    state: z.string({ required_error: 'State is required' }).min(2),
-    state_code: z.string({ required_error: 'State code is required' }).min(2),
+    state: z
+      .string({ required_error: 'State is required' })
+      .min(2)
+      .refine((v) => ValidStatesBrazil
+        .map((
+          state,
+        ) => state.nome.toLowerCase() === v.toLowerCase()), 'Need to be a Brazil valid State'),
+    state_code: z
+      .string({ required_error: 'State code is required' })
+      .min(2)
+      .refine((v) => ValidStatesBrazil
+        .map((
+          state,
+        ) => state.uf === v.toUpperCase()), 'Need to be a Brazil valid State abbreviation'),
   }),
 });
 
