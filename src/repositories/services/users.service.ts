@@ -53,7 +53,7 @@ export default class UsersService {
     }
 
     const setPlatform = getRandomInt(0, 3);
-    
+
     try {
       const { id } = await this.prisma.users.create({
         data: {

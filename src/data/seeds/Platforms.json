@@ -2,6 +2,5 @@
   {"id": 1, "name": "Computer"},
   {"id": 2, "name": "Smartphone"},
   {"id": 3, "name": "Smartwatch"},
-  {"id": 4, "name": "Home Assistant"},
-  {"id": 5, "name": "Smart TV"}
+  {"id": 4, "name": "Home Assistant"}
 ]
