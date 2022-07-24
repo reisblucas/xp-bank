@@ -12,16 +12,25 @@
         "https"
     ],
     "securityDefinitions": {
-        "authorization": {
-            "type": "basic",
+        "bearer": {
+            "type": "apiKey",
             "in": "header",
             "name": "authorization",
             "description": "All authenticated routes must include the 'authorization' header containing the userId, email, first name and last name."
         }
     },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
     "security": [
         {
-            "authorization": []
+            "bearerAuth": []
         }
     ],
     "paths": {

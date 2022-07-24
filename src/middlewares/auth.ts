@@ -11,7 +11,9 @@ const auth = (req: Request, res: Response, next: NextFunction) => {
   const { authorization } = req.headers;
 
   try {
-    const validate = jwt.validateToken(authorization);
+    const tokenHeader = authorization.split(' ')[1];
+
+    const validate = jwt.validateToken(tokenHeader);
     res.locals.provider = validate;
 
     return next();
