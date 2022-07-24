@@ -16,7 +16,16 @@ export default class WalletsServices {
 
     if (!wallets.length) { return []; }
 
-    return wallets;
+    const walletNormalized = wallets
+      .map((wll) => ({
+        userId: wll.Users_id,
+        walletId: wll.id,
+        name: wll.name,
+        createdAt: wll.created_at,
+        updatedAt: wll.updated_at,
+      }));
+
+    return walletNormalized;
   };
 
   public getOne = async (userId: number, walletName: string) => {

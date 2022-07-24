@@ -1,6 +1,6 @@
 import { IBuySellStocks } from '@interfaces/stocks.interface';
 import { PrismaClient } from '@prisma/client';
-import { PrismaClientKnownRequestError, PrismaClientValidationError } from '@prisma/client/runtime';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import Operation, { OperationId } from '@utils/operations';
 import changeFormat from '@utils/dateChangeFormat';
 import HttpException from '@utils/HttpException';
