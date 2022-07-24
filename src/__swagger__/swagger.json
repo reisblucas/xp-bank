@@ -1,5 +1,5 @@
 {
-    "swagger": "2.0",
+    "openapi": "3.0.0",
     "info": {
         "version": "1.1.0",
         "title": "XP Tech Case",
@@ -12,7 +12,7 @@
         "https"
     ],
     "securityDefinitions": {
-        "bearer": {
+        "Bearer": {
             "type": "apiKey",
             "in": "header",
             "name": "authorization",
@@ -22,6 +22,7 @@
     "components": {
         "securitySchemes": {
             "bearerAuth": {
+                "in": "header",
                 "type": "http",
                 "scheme": "bearer",
                 "bearerFormat": "JWT"
@@ -226,15 +227,7 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [
-                    {
-                        "in": "header",
-                        "name": "authorization",
-                        "description": "token",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
+                "parameters": [],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
@@ -278,15 +271,7 @@
                     "Authenticated"
                 ],
                 "consumes": [],
-                "parameters": [
-                    {
-                        "in": "header",
-                        "name": "authorization",
-                        "description": "token",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
+                "parameters": [],
                 "produces": [
                     "application/json; charset=utf-8"
                 ],
