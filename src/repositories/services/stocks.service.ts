@@ -329,11 +329,23 @@ export default class StocksService {
     const transactionsByTicker = Transactions
       .filter((t) => t.Tickers_id === tickerId);
 
-    // NEED TO VALIDATE THE CLIENT WALLET
     const totalStocksInPortfolio = transactionsByTicker
-      .reduce((prev, crr) => prev + crr.quantity, 0);
+      .reduce((prev, crr, i) => {
+        if (transactionsByTicker.length === 1) {
+          console.log('pai ta no if', crr.quantity);
+          return -Number(crr.quantity);
+        }
+        if (transactionsByTicker[i].OperationTypes_id === 2) {
+          console.log('to no outro if');
+          return prev - Number(crr.quantity);
+        }
 
-    if (quantity > totalStocksInPortfolio) {
+        return prev + Number(crr.quantity);
+      }, 0);
+
+    console.log('crrstocks', totalStocksInPortfolio);
+
+    if (quantity > totalStocksInPortfolio || totalStocksInPortfolio <= 0) {
       throw new HttpException(StatusCodes.BAD_REQUEST, 'You can\'t sell more stocks than you have');
     }
 
@@ -416,10 +428,10 @@ export default class StocksService {
 
     return {
       userId: uidToken,
-      quantity,
       stockPriceUnit: stock.lastSell,
-      sellTotal: Number(value.toFixed(2)), // SEND FORMATTED NUMBER TO THE CLIENT
-      balance: Number(newBalance.toFixed(2)),
+      quantity,
+      transactionValue: Number(value.toFixed(2)), // SEND FORMATTED NUMBER TO THE CLIENT
+      updatedBalance: Number(newBalance.toFixed(2)),
       ticker: {
         tickerId,
         symbol: ticker,
