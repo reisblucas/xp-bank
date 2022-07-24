@@ -49,6 +49,8 @@
     "@types/jsonwebtoken": "^8.5.8",
     "@types/node": "^18.0.5",
     "@types/nodemon": "^1.19.1",
+    "@types/swagger-ui": "^3.52.0",
+    "@types/swagger-ui-dist": "^3.30.1",
     "@typescript-eslint/eslint-plugin": "^5.30.6",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.19.0",
@@ -73,6 +75,7 @@
     "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.19",
     "swagger-ui": "^4.13.0",
+    "swagger-ui-dist": "^4.13.0",
     "zod": "^3.17.9"
   }
 }
