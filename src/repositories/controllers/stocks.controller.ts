@@ -1,4 +1,5 @@
 import { IBuySellStocks } from '@interfaces/stocks.interface';
+import TickersService from '@services/tickers.service';
 import HttpException from '@utils/HttpException';
 import { Request, Response } from 'express';
 import { ReasonPhrases, StatusCodes } from 'http-status-codes';
@@ -7,36 +8,39 @@ import StocksService from '../services/stocks.service';
 require('express-async-errors');
 
 class StocksController {
-  constructor(private service = new StocksService()) {}
+  constructor(
+    private stocksServ = new StocksService(),
+    private tickerServ = new TickersService(),
+  ) {}
 
   public getAllStocks = async (_req: Request, res: Response) => {
-    const stocks = await this.service.getAllStocks();
+    const stocks = await this.stocksServ.getAllStocks();
 
     res.status(StatusCodes.OK).json(stocks);
   };
 
   public getAllTickers = async (_req: Request, res: Response) => {
-    const allTickers = await this.service.getAllTickers();
+    const allTickers = await this.stocksServ.getAllTickers();
 
     res.status(StatusCodes.OK).json(allTickers);
   };
 
   public getTickerOverview = async (req: Request, res: Response) => {
     const { ticker } = req.params;
-    const stock = await this.service.getTickerOverview(ticker);
+    const stock = await this.tickerServ.getTickerOverview(ticker);
 
     res.status(StatusCodes.OK).json(stock);
   };
 
   public getAllCompaniesInfo = async (_req: Request, res: Response) => {
-    const allCompanies = await this.service.getAllCompaniesInfo();
+    const allCompanies = await this.stocksServ.getAllCompaniesInfo();
 
     res.status(StatusCodes.OK).json(allCompanies);
   };
 
   public getCompanyInfo = async (req: Request, res: Response) => {
     const { ticker } = req.params;
-    const company = await this.service.getCompanyInfo(ticker);
+    const company = await this.stocksServ.getCompanyInfo(ticker);
 
     res.status(StatusCodes.OK).json(company);
   };
@@ -49,7 +53,7 @@ class StocksController {
       throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
     }
 
-    const response = await this.service.buyStock(buyDTO, uidToken);
+    const response = await this.stocksServ.buyStock(buyDTO, uidToken);
 
     res.status(StatusCodes.OK).json(response);
   };
@@ -62,7 +66,7 @@ class StocksController {
       throw new HttpException(StatusCodes.UNAUTHORIZED, ReasonPhrases.UNAUTHORIZED);
     }
 
-    const response = await this.service.sellStock(buyDTO, uidToken);
+    const response = await this.stocksServ.sellStock(buyDTO, uidToken);
 
     res.status(StatusCodes.OK).json(response);
   };
