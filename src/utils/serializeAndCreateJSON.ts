@@ -74,10 +74,10 @@ const serializeStocksInfo = () => UnserializedFromInfoMoney
     return key;
   });
 
-const createNewFile = (path: string) => {
-  const serialized = serializeStocksInfo();
-
-  writeFile(path, JSON.stringify(serialized, null), (err) => {
+const serialized = serializeStocksInfo();
+export const InfoMoneySerialized = JSON.stringify(serialized, null);
+const createNewFile = (path: string, dataStringfied: string) => {
+  writeFile(path, dataStringfied, (err) => {
     if (err) console.log('Error when write file: ', err);
     console.log('File created succesfully!');
   });
