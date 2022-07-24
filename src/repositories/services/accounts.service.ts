@@ -44,7 +44,23 @@ export default class AccountsService {
         },
       });
 
-    return statement;
+    if (!statement) {
+      return [];
+    }
+
+    const normalizeStatement = statement.map((
+      {
+        id, value, Users_id, OperationTypes_id, created_at,
+      },
+    ) => ({
+      userId: Users_id,
+      statementId: id,
+      value,
+      operationTypeId: OperationTypes_id,
+      created_at,
+    }));
+
+    return normalizeStatement;
   };
 
   private updateAccount = (
@@ -72,8 +88,7 @@ export default class AccountsService {
           create: {
             value: quantity,
             OperationTypes_id: operationType,
-            created_at: changeFormat(newDateMethods
-              .removeTZ(new Date()), 'ymd'),
+            created_at: new Date().toISOString(),
           },
         },
       },
