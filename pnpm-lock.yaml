@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@prisma/client': ^4.0.0
+  '@types/cors': ^2.8.12
   '@types/express': ^4.17.13
   '@types/jest': ^28.1.6
   '@types/jsonwebtoken': ^8.5.8
@@ -11,6 +12,7 @@ specifiers:
   '@types/swagger-ui-dist': ^3.30.1
   '@typescript-eslint/eslint-plugin': ^5.30.6
   '@typescript-eslint/parser': ^5.0.0
+  cors: ^2.8.5
   dotenv: ^16.0.1
   eslint: ^8.19.0
   eslint-config-airbnb-base: ^15.0.0
@@ -35,6 +37,7 @@ specifiers:
 
 dependencies:
   '@prisma/client': 4.0.0_prisma@4.0.0
+  cors: 2.8.5
   dotenv: 16.0.1
   express: 4.18.1
   express-async-errors: 3.1.1_express@4.18.1
@@ -47,6 +50,7 @@ dependencies:
   zod: 3.17.9
 
 devDependencies:
+  '@types/cors': 2.8.12
   '@types/express': 4.17.13
   '@types/jest': 28.1.6
   '@types/jsonwebtoken': 8.5.8
@@ -855,6 +859,10 @@ packages:
       '@types/node': 18.0.6
     dev: true
 
+  /@types/cors/2.8.12:
+    resolution: {integrity: sha512-vt+kDhq/M2ayberEtJcIN/hxXy1Pk+59g2FV/ZQceeaTyCtCucjL2Q7FXlFjtWn4n15KCr1NE2lNNFhp0lEThw==}
+    dev: true
+
   /@types/express-serve-static-core/4.17.29:
     resolution: {integrity: sha512-uMd++6dMKS32EOuw1Uli3e3BPgdLIXmezcfHv7N4c1s3gkhikBplORPpMq3fuWkxncZN1reb16d5n8yhQ80x7Q==}
     dependencies:
@@ -1588,6 +1596,14 @@ packages:
   /core-js-pure/3.23.5:
     resolution: {integrity: sha512-8t78LdpKSuCq4pJYCYk8hl7XEkAX+BP16yRIwL3AanTksxuEf7CM83vRyctmiEL8NDZ3jpUcv56fk9/zG3aIuw==}
     requiresBuild: true
+    dev: false
+
+  /cors/2.8.5:
+    resolution: {integrity: sha512-KIHbLJqu73RGr/hnbrO9uBeixNGuvSQjul/jdFvS/KFSIH1hWVd1ng7zOHx+YrEfInLG7q4n6GHQ9cDtxv/P6g==}
+    engines: {node: '>= 0.10'}
+    dependencies:
+      object-assign: 4.1.1
+      vary: 1.1.2
     dev: false
 
   /create-require/1.1.1:
