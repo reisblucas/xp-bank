@@ -12,7 +12,12 @@
 
 [Link](https://github.com/byneur4l/xp-bank/blob/master/src/data/seeds/UsersPersonalData.json) para os dados disponíveis para testar na API. 
 
-## Como comoeçar:
+Como utilizar o Swagger?
+- Faça o login com algum email e senha disponível no link acima;
+- Insira o token no Cadeado para liberar as rotas;
+- Agora você poderá fazer requisições nas rotas privadas no período de 10 min, devido a duração do JWT. 🚀
+
+## Como começar:
 - Clone o repositório ou aperte `.` para abrir o web editor
 - Após clonar:
   - Configure o .env seguindo o .env.example
