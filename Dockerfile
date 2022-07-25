@@ -1,9 +1,7 @@
 FROM node:16.3.0-alpine AS builder
 WORKDIR /app
-COPY package*.json ./
-COPY ./src/prisma ./prisma/
-RUN npm install
 COPY . .
+RUN npm install
 CMD ["npm", "start"]
 
 # FROM node:16.3.0-alpine
