@@ -2,7 +2,7 @@ FROM node:16.3.0-alpine
 WORKDIR /app
 COPY . .
 RUN npm install
-RUN npm prisma generate
+RUN npm run prisma generate
 CMD ["npm", "start"]
 
 # FROM node:16.3.0-alpine
