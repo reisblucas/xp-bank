@@ -8,5 +8,3 @@ node_modules/
 # db credentials
 sql_file_name.txt
 dbname.txt
-
-README.md
