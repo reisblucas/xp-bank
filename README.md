@@ -2,7 +2,23 @@
 
 ## Getting started:
 
--
+- Clone o repositório ou aperte `.` para abrir o web editor
+- Após clonar:
+  - Configure o .env seguindo o .env.example
+- Execute um dos comandos abaixo:
+  - `npm i && npm run dev`
+  - `pnpm i && pnpm dev`
+  - `yarn i && yarn dev`
+
+## Build with:
+- TypeScript
+- Prisma
+- MySQL
+- Express
+- Zod
+- Web Scrapping
+
+## 
 
 ## Roadmap:
 
