@@ -26,7 +26,7 @@ Como utilizar o Swagger?
   - `pnpm i && pnpm dev`
   - `yarn i && yarn dev`
 
-## Construido com:
+## Construído com:
 - TypeScript
 - Prisma
 - MySQL
