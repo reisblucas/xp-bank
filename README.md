@@ -45,7 +45,7 @@ Como utilizar o Swagger?
 ## Linters:
 - ESLint para garantir a qualidade do código e um padrão, seguindo as regras do airbnb para TypeScript
 
-## Por que da escolha de TypeScript e essas ferramentas?
+## Por que a escolha do TypeScript e essas ferramentas?
 - A escolha de fazer o projeto em TypeScript com intuito de assegurar a tipagem e para o código futuramente ter uma melhor manutenção do mesmo, até mesmo para poder escalar;
 - Eu quis me desafiar utilizando um ORM diferente do Sequelize com intuito de ser mais produtivo enquanto fosse codar;
 - O Zod foi utilizado como alternativa para os validadores de schemas de DTOS, como Yup e Joi, também com o intuito de testar uma tecnologia nova;
