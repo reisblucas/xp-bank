@@ -1,9 +1,10 @@
-FROM node:16.3.0-alpine
+FROM node:16.3.0-alpine AS builder
 WORKDIR /app
-COPY . .
+COPY package*.json ./
+COPY prisma ./prisma/
 RUN npm install
-RUN npm run prisma generate
-CMD ["npm", "start"]
+COPY . .
+CMD ["npm", "run", "dbcrandseed"]
 
 # FROM node:16.3.0-alpine
 # WORKDIR /app
