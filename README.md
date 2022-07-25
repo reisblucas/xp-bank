@@ -2,52 +2,17 @@
   <h1>🚀 XP - Backend case 🚀</h1>
 </div align="center">
 
-## Overview:
+## Visão geral:
 - [SonarCloud](https://sonarcloud.io/project/configuration?id=byneur4l_xp-bank)
 - [Fluxograma do banco de dados](https://github.com/byneur4l/xp-bank/blob/master/public/xp-bank-db-entities.png)
 - [Fluxograma dea rotas](https://github.com/byneur4l/xp-bank/blob/master/public/routes-fluxogram.png)
 
 
-## Datas to test in API: 
+## Exemplos de dados a serem usados no backend: 
 
-<details>
-  <summary><strong>Datas:</strong></summary>
+[Link](https://github.com/byneur4l/xp-bank/blob/master/src/data/seeds/UsersPersonalData.json) para os dados disponíveis para testar na API. 
 
-  [
-  {
-    "id": 1,
-    "email": "thassard0@bloomberg.com",
-    "password": "ToWtCQHU0k",
-    "first_name": "Tiler",
-    "last_name": "Hassard",
-    "birth_date": "1995/05/15",
-    "gender": "Male",
-    "balance": 20000000.0
-  },\
-  {
-    "id": 2,
-    "email": "epennings1@prweb.com",
-    "password": "vTDQCN",
-    "first_name": "Erastus",
-    "last_name": "Pennings",
-    "birth_date": "1998/04/06",
-    "gender": "Male",
-    "balance": 500000.0
-  },\
-  {
-    "id": 3,
-    "email": "ogreenshiels2@addtoany.com",
-    "password": "XV31TYT",
-    "first_name": "Olive",
-    "last_name": "Greenshiels",
-    "birth_date": "1993/08/25",
-    "gender": "Female",
-    "balance": 0.0
-  },\
-]
-</details>
-
-## Getting started:
+## Como comoeçar:
 - Clone o repositório ou aperte `.` para abrir o web editor
 - Após clonar:
   - Configure o .env seguindo o .env.example
@@ -56,7 +21,7 @@
   - `pnpm i && pnpm dev`
   - `yarn i && yarn dev`
 
-## Build with:
+## Construido com:
 - TypeScript
 - Prisma
 - MySQL
@@ -64,7 +29,7 @@
 - Zod
 - Web Scrapping
 
-## Fluxogram and modeling:
+## Fluxograma de rotas e do banco de dados:
 - Figma
 - DrawSQL
 
@@ -75,14 +40,14 @@
 ## Linters:
 - ESLint para garantir a qualidade do código e um padrão, seguindo as regras do airbnb para TypeScript
 
-## Why these choices?
-- A escolha de TypeScript para assegurar a tipagem e para o código futuramente ter uma melhor manutenção do mesmo, até mesmo para poder escalar;
+## Por que da escolha de TypeScript e essas ferramentas?
+- A escolha de fazer o projeto em TypeScript com intuito de assegurar a tipagem e para o código futuramente ter uma melhor manutenção do mesmo, até mesmo para poder escalar;
 - Eu quis me desafiar utilizando um ORM diferente do Sequelize com intuito de ser mais produtivo enquanto fosse codar;
 - O Zod foi utilizado como alternativa para os validadores de schemas de DTOS, como Yup e Joi, também com o intuito de testar uma tecnologia nova;
 - Como queria utilizar o MySQL ao invés do PostgreSQL, busquei um banco que atendesse a minha demanda. O PlanetScale atendeu as minhas demandas para manter o banco de dados em MySQL e no Supabase eu,obrigatoriamente, deveria utilizar o PostgreSQL.
 - Alimentei o meu banco a partir de dados fakes coletados através do mockaroo, gerador de rg e cpf, geradores de endereços e cotações no InfoMoney.
 
-## Roadmap:
+## Trilha:
 
 - [X] - Decidir a linguagem e as ferramentas a serem utilizadas
 - [X] - Modelar o banco (inserir link para o banco)
