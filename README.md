@@ -26,7 +26,7 @@
 - Figma
 - DrawSQL
 
-## Deploy
+## Deployment:
 - Heroku
 - PlanetScale
 
