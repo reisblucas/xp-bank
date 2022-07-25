@@ -5,6 +5,46 @@
 - [Fluxograma do banco de dados]()
 - [Fluxograma dea rotas]()
 
+
+## Datas to test in API: 
+
+<details>
+  <summary><strong>Datas:</strong></summary>
+
+  [
+  {
+    "id": 1,
+    "email": "thassard0@bloomberg.com",
+    "password": "ToWtCQHU0k",
+    "first_name": "Tiler",
+    "last_name": "Hassard",
+    "birth_date": "1995/05/15",
+    "gender": "Male",
+    "balance": 20000000.0
+  },\
+  {
+    "id": 2,
+    "email": "epennings1@prweb.com",
+    "password": "vTDQCN",
+    "first_name": "Erastus",
+    "last_name": "Pennings",
+    "birth_date": "1998/04/06",
+    "gender": "Male",
+    "balance": 500000.0
+  },\
+  {
+    "id": 3,
+    "email": "ogreenshiels2@addtoany.com",
+    "password": "XV31TYT",
+    "first_name": "Olive",
+    "last_name": "Greenshiels",
+    "birth_date": "1993/08/25",
+    "gender": "Female",
+    "balance": 0.0
+  },\
+]
+</details>
+
 ## Getting started:
 - Clone o repositório ou aperte `.` para abrir o web editor
 - Após clonar:
