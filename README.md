@@ -4,8 +4,8 @@
 
 ## Overview:
 - [SonarCloud]()
-- [Fluxograma do banco de dados]()
-- [Fluxograma dea rotas]()
+- [Fluxograma do banco de dados](https://github.com/byneur4l/xp-case-back/blob/master/public/routes-fluxogram.png)
+- [Fluxograma dea rotas](https://github.com/byneur4l/xp-case-back/blob/master/public/xp-bank-db-entities.png)
 
 
 ## Datas to test in API: 
