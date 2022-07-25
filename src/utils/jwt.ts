@@ -8,7 +8,7 @@ const SECRET = process.env.JWT_SECRET as string;
 
 const signOpt: SignOptions = {
   algorithm: 'HS256',
-  expiresIn: '1d',
+  expiresIn: '10min',
 };
 
 const generateToken = (payload: IJwtPayload): string => sign(payload, SECRET, signOpt);

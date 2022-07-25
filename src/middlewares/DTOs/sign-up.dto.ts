@@ -66,7 +66,7 @@ const signUpDTO = z.object({
         ) => state.nome.toLowerCase() === v.toLowerCase()), 'Need to be a Brazil valid State'),
     state_code: z
       .string({ required_error: 'State code is required' })
-      .min(2)
+      .length(2, 'State code need must have 2 characters')
       .refine((v) => ValidStatesBrazil
         .map((
           state,

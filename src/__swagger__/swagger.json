@@ -627,121 +627,6 @@
         "x-ms-visibility": "important"
       }
     },
-    "/asset/o/stocks": {
-      "get": {
-        "tags": [
-          "Authenticated"
-        ],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json; charset=utf-8": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "integer",
-                        "description": "id",
-                        "x-ms-summary": "id"
-                      },
-                      "ticker": {
-                        "type": "string",
-                        "description": "ticker",
-                        "x-ms-summary": "ticker"
-                      },
-                      "Stocks_id": {
-                        "type": "integer",
-                        "description": "Stocks_id",
-                        "x-ms-summary": "Stocks_id"
-                      },
-                      "FSExchangeOverview": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "id": {
-                              "type": "integer",
-                              "description": "id",
-                              "x-ms-summary": "id"
-                            },
-                            "Tickers_id": {
-                              "type": "integer",
-                              "description": "Tickers_id",
-                              "x-ms-summary": "Tickers_id"
-                            },
-                            "date": {
-                              "type": "string",
-                              "description": "date",
-                              "x-ms-summary": "date"
-                            },
-                            "lastSell": {
-                              "type": "string",
-                              "description": "lastSell",
-                              "x-ms-summary": "lastSell"
-                            },
-                            "varDay": {
-                              "type": "string",
-                              "description": "varDay",
-                              "x-ms-summary": "varDay"
-                            },
-                            "varSem": {
-                              "type": "string",
-                              "description": "varSem",
-                              "x-ms-summary": "varSem"
-                            },
-                            "varMon": {
-                              "type": "string",
-                              "description": "varMon",
-                              "x-ms-summary": "varMon"
-                            },
-                            "varYear": {
-                              "type": "string",
-                              "description": "varYear",
-                              "x-ms-summary": "varYear"
-                            },
-                            "var12m": {
-                              "type": "string",
-                              "description": "var12m",
-                              "x-ms-summary": "var12m"
-                            },
-                            "max": {
-                              "type": "string",
-                              "description": "max",
-                              "x-ms-summary": "max"
-                            },
-                            "min": {
-                              "type": "string",
-                              "description": "min",
-                              "x-ms-summary": "min"
-                            },
-                            "vol": {
-                              "type": "integer",
-                              "description": "vol",
-                              "x-ms-summary": "vol"
-                            },
-                            "lot_min": {
-                              "type": "integer",
-                              "description": "lot_min",
-                              "x-ms-summary": "lot_min"
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false,
-        "x-ms-visibility": "important"
-      }
-    },
     "/asset/o/{ticker}": {
       "get": {
         "tags": [
@@ -905,6 +790,121 @@
                               "type": "string",
                               "description": "ticker",
                               "x-ms-summary": "ticker"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "x-ms-visibility": "important"
+      }
+    },
+    "/asset/o/stocks": {
+      "get": {
+        "tags": [
+          "Authenticated"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "id",
+                        "x-ms-summary": "id"
+                      },
+                      "ticker": {
+                        "type": "string",
+                        "description": "ticker",
+                        "x-ms-summary": "ticker"
+                      },
+                      "Stocks_id": {
+                        "type": "integer",
+                        "description": "Stocks_id",
+                        "x-ms-summary": "Stocks_id"
+                      },
+                      "FSExchangeOverview": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "integer",
+                              "description": "id",
+                              "x-ms-summary": "id"
+                            },
+                            "Tickers_id": {
+                              "type": "integer",
+                              "description": "Tickers_id",
+                              "x-ms-summary": "Tickers_id"
+                            },
+                            "date": {
+                              "type": "string",
+                              "description": "date",
+                              "x-ms-summary": "date"
+                            },
+                            "lastSell": {
+                              "type": "string",
+                              "description": "lastSell",
+                              "x-ms-summary": "lastSell"
+                            },
+                            "varDay": {
+                              "type": "string",
+                              "description": "varDay",
+                              "x-ms-summary": "varDay"
+                            },
+                            "varSem": {
+                              "type": "string",
+                              "description": "varSem",
+                              "x-ms-summary": "varSem"
+                            },
+                            "varMon": {
+                              "type": "string",
+                              "description": "varMon",
+                              "x-ms-summary": "varMon"
+                            },
+                            "varYear": {
+                              "type": "string",
+                              "description": "varYear",
+                              "x-ms-summary": "varYear"
+                            },
+                            "var12m": {
+                              "type": "string",
+                              "description": "var12m",
+                              "x-ms-summary": "var12m"
+                            },
+                            "max": {
+                              "type": "string",
+                              "description": "max",
+                              "x-ms-summary": "max"
+                            },
+                            "min": {
+                              "type": "string",
+                              "description": "min",
+                              "x-ms-summary": "min"
+                            },
+                            "vol": {
+                              "type": "integer",
+                              "description": "vol",
+                              "x-ms-summary": "vol"
+                            },
+                            "lot_min": {
+                              "type": "integer",
+                              "description": "lot_min",
+                              "x-ms-summary": "lot_min"
                             }
                           }
                         }
