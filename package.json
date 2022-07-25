@@ -28,7 +28,7 @@
   "scripts": {
     "dev": "nodemon ./src/index.ts",
     "eslint": "eslint . --ext .ts",
-    "dbfs": "bash get_sql_fileName.sh && bash set_dbName.sh && bash drop_db.sh && prisma db push",
+    "dbfs": "bash get_sql_fileName.sh && bash set_dbName.sh && bash drop_db.sh && && prisma db push && prisma db seed",
     "dbcreate": "prisma db push",
     "dbreset": "bash drop_db.sh && prisma db push",
     "printrospec": "prisma db pull && prisma generate",
