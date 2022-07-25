@@ -3,9 +3,9 @@
 </div align="center">
 
 ## Overview:
-- [SonarCloud]()
-- [Fluxograma do banco de dados](https://github.com/byneur4l/xp-case-back/blob/master/public/routes-fluxogram.png)
-- [Fluxograma dea rotas](https://github.com/byneur4l/xp-case-back/blob/master/public/xp-bank-db-entities.png)
+- [SonarCloud](https://sonarcloud.io/project/configuration?id=byneur4l_xp-bank)
+- [Fluxograma do banco de dados](https://github.com/byneur4l/xp-bank/blob/master/public/xp-bank-db-entities.png)
+- [Fluxograma dea rotas](https://github.com/byneur4l/xp-bank/blob/master/public/routes-fluxogram.png)
 
 
 ## Datas to test in API: 
